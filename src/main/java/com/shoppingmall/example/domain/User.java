@@ -20,8 +20,6 @@ public class User implements UserDetails{
 	private Boolean isCredentialsNonExpired;
 	private Boolean isEnabled;
 	
-	
-	
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", name=" + name + ", phone=" + phone

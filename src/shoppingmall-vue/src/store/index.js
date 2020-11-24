@@ -1,11 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from "../router";
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    
+    Userinfo:{User_Id:null, User_password:null, User_name:null,
+              User_phone:null, User_point:null},
+    UserList:[],
+
     userlist_headers: [
       { text: '아이디', value: 'id'},
       { text: '비밀번호', value: 'password' },
@@ -75,46 +81,6 @@ export default new Vuex.Store({
         phone: '010-1234-1234',
         email: 'wefwefewe@naver.com',
         point: '2000',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'Ldfbifdbp',
-        password: 392,
-        name: '박모씨3',
-        address: '대구시 동구',
-        phone: '010-1234-1234',
-        email: 'dsvdsve@naver.com',
-        point: '1000',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'bfb',
-        password: 408,
-        name: '이모씨5',
-        address: '대구시 중구',
-        phone: '010-1234-1234',
-        email: 'sdvdsvsde@naver.com',
-        point: '1000',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'xbt',
-        password: 452,
-        name: 'avcsdf',
-        address: '대구시 동구',
-        phone: '010-1234-1234',
-        email: 'sdvdsvde@naver.com',
-        point: '1000',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'vt',
-        password: 518,
-        name: 'sdc',
-        address: '대구시 동구',
-        phone: '010-1234-1234',
-        email: 'wefwde@naver.com',
-        point: '1000',
         management: '수정/탈퇴',
       },
     ],
@@ -242,8 +208,28 @@ export default new Vuex.Store({
     ],
   },
   mutations: {
+      SET_USER(state, data) {
+        state.Userinfo.User_Id = data.username
+        state.Userinfo.User_Name = data.name
+        state.Userinfo.User_auth = data.authorities
+        state.Userinfo.User_token = data.token
+        Route.push("/user")
+    },
   },
   actions: {
+    UserList({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/userlist')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_USER', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    }
   },
   modules: {
   }

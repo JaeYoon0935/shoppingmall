@@ -49,14 +49,21 @@ public class AdminController {
 	@Autowired
 	UserService userService;
 	
-		@GetMapping("/adminPage")
-		@PreAuthorize("hasRole('ROLE_ADMIN')")
-		public ResponseEntity<?>  AccessAdmin(HttpServletRequest request) {
-			
-			List<UserInfo> userList = userService.read_user_list();
-			logger.info(userList.toString());
-			  return new ResponseEntity<>(userList, HttpStatus.OK);
-			
-
-		}
+	@GetMapping("/adminPage")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public ResponseEntity<?>  AccessAdmin(HttpServletRequest request) {
+		List<UserInfo> userList = userService.read_user_list();
+		logger.info(userList.toString());
+		  return new ResponseEntity<>(userList, HttpStatus.OK);
+	}
+	
+	
+	//테스트 중인 부분
+	@GetMapping("/userlist")
+	public List<User> read_user(){
+		List<User> userList = userService.read_user_list();
+		return userList;
+	}
+	
+		
 }
