@@ -10,10 +10,10 @@ export default new Vuex.Store({
     
     Userinfo:{User_Id:null, User_password:null, User_name:null,
               User_phone:null, User_point:null},
-    UserList:[],
+    userlist:[],
 
     userlist_headers: [
-      { text: '아이디', value: 'id'},
+      { text: '아이디', value: 'username'},
       { text: '비밀번호', value: 'password'},
       { text: '이름', value: 'name' },
       { text: '주소', value: 'address' },
@@ -21,68 +21,6 @@ export default new Vuex.Store({
       { text: '이메일', value: 'email' },
       { text: '포인트', value: 'point' },
       { text: '관리', value: 'management' },
-    ],
-    userlist: [
-      {
-        id: 'wefwee',
-        password: 159,
-        name: '김모씨',
-        address: '대구시 중구',
-        phone: '010-1234-1234',
-        email: 'abcde@naver.com',
-        point: '3000',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'Idd1',
-        password: 237,
-        name: '김모씨1',
-        address: '대구시 수성구',
-        phone: '010-1234-1114',
-        email: 'abefwede@naver.com',
-        point: '500',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'sfeir',
-        password: 262,
-        name: '김모씨2',
-        address: '대구시 남구',
-        phone: '010-1234-1111',
-        email: 'wefwecde@naver.com',
-        point: '2000',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'abc123',
-        password: 305,
-        name: '이모씨',
-        address: '대구시 달서구',
-        phone: '010-1114-1234',
-        email: 'aewfewfe@naver.com',
-        point: '1000',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'aaa',
-        password: 356,
-        name: '이모씨1',
-        address: '대구시 동구',
-        phone: '010-1231-1111',
-        email: 'sfede@naver.com',
-        point: '0',
-        management: '수정/탈퇴',
-      },
-      {
-        id: 'bbbean',
-        password: 375,
-        name: '박모씨2',
-        address: '대구시 동구',
-        phone: '010-1234-1234',
-        email: 'wefwefewe@naver.com',
-        point: '2000',
-        management: '수정/탈퇴',
-      },
     ],
     ranking_header: [
       { text: '순위', value: 'name', },
@@ -209,11 +147,7 @@ export default new Vuex.Store({
   },
   mutations: {
       SET_USER(state, data) {
-        state.Userinfo.User_Id = data.username
-        state.Userinfo.User_Name = data.name
-        state.Userinfo.User_auth = data.authorities
-        state.Userinfo.User_token = data.token
-        Route.push("/user")
+        state.userlist = data
     },
   },
   actions: {
