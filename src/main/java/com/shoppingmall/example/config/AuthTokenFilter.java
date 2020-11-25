@@ -21,7 +21,6 @@ import com.shoppingmall.example.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
-
 //Jwt 토큰을 필터링 하기 위한 클래스이다.
 
 @RequiredArgsConstructor
