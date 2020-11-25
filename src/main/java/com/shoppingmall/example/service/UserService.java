@@ -25,4 +25,8 @@ public interface UserService extends UserDetailsService{
 
 	public void createAuthority(User user);
 
+	
+	//테스트 메서드
+	public List<UserInfo> shopping_readUser();
+	
 }

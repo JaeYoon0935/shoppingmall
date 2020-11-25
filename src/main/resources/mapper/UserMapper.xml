@@ -23,6 +23,17 @@
 		WHERE			1=1
 		AND				u_id	=	#{username}
 	</select>
+
+	<!-- 테스트 메서드 (회원목록 불러오기) -->
+	<select id="shopping_readUser" parameterType="String" resultType="UserInfo">
+		SELECT			user_id											as 	username,
+								user_password 							as 	password,
+								user_name									as	    name,
+								user_phone									as		phone,
+								user_point                                  as      point
+		FROM			user
+	</select>
+	
 	
 	<!-- 회원 불러오기(새로고침) -->
 	<select id="readUser_refresh" parameterType="String" resultType="UserInfo">

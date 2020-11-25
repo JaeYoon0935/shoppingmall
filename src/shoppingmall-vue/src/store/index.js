@@ -14,7 +14,7 @@ export default new Vuex.Store({
 
     userlist_headers: [
       { text: '아이디', value: 'id'},
-      { text: '비밀번호', value: 'password' },
+      { text: '비밀번호', value: 'password'},
       { text: '이름', value: 'name' },
       { text: '주소', value: 'address' },
       { text: '전화번호', value: 'phone' },

@@ -11,9 +11,24 @@ public class UserInfo {
 	private String username;
 	private String name;
 	private String phone;
+	private String password;
+	private String point;
 	private Collection<? extends GrantedAuthority> authorities;
 	private String auth;
 	
+
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPoint() {
+		return point;
+	}
+	public void setPoint(String point) {
+		this.point = point;
+	}
 	public String getUsername() {
 		return username;
 	}

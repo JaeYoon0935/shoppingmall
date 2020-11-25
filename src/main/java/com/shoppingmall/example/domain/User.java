@@ -13,13 +13,24 @@ public class User implements UserDetails{
 	private String password;
 	private String name;
 	private String phone;
+	private String point; //일단은 테스트를 위해 int 대신 string으로 사용
 	private String uDateTime;
 	private Collection<? extends GrantedAuthority> authorities;
 	private Boolean isAccountNonExpired;
 	private Boolean isAccountNonLocked;
 	private Boolean isCredentialsNonExpired;
 	private Boolean isEnabled;
+
 	
+	public String getPoint() {
+		return point;
+	}
+
+	public void setPoint(String point) {
+		this.point = point;
+	}
+
+
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", name=" + name + ", phone=" + phone

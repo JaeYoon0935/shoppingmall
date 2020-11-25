@@ -60,8 +60,8 @@ public class AdminController {
 	
 	//테스트 중인 부분
 	@GetMapping("/userlist")
-	public List<User> read_user(){
-		List<User> userList = userService.read_user_list();
+	public List<UserInfo> read_user(){
+		List<UserInfo> userList = userService.shopping_readUser();
 		return userList;
 	}
 	
