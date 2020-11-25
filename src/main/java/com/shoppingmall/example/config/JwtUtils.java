@@ -22,12 +22,15 @@ import lombok.RequiredArgsConstructor;
 
 
 @Component
+//@Component 어노테이션: @Bean과 마찬가지로 빈을 등록하는 어노테이션이다.
+//다만 개발자가 직접 만든 것을 빈으로 등록할때는 @Bean이 아니라 @Component를 사용한다.
+
 @RequiredArgsConstructor
 public class JwtUtils {
 
-	private static final String jwtSecret = "lcomputerstudyexample"; //원하는 시크릿키로 수정
+	private static final String jwtSecret = "lcomputerstudyexample"; //시크릿키. 내가 임의로 지정함. 이 시크릿키를 통하여 토큰을 암호화하고 복구화하게됨
 	
-	private static final int jwtExpirationMs = 864000;
+	private static final int jwtExpirationMs = 864000; //jwt토큰의 만료기간
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -35,12 +38,12 @@ public class JwtUtils {
 	public String generateJwtToken(Authentication authentication) {
 
 		User user = (User) authentication.getPrincipal();
-		//builder 패턴을 이용하여 jwt생성
+		//builder 패턴을 이용하여 jwt생성하는 과정
 		return Jwts.builder()
 				.setSubject((user.getUsername()))
 				.setIssuedAt(new Date())
-				.setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-				.signWith(SignatureAlgorithm.HS512, jwtSecret)
+				.setExpiration(new Date((new Date()).getTime() + jwtExpirationMs)) // 여기서 위에서 설정한 만료기간을 주입함.
+				.signWith(SignatureAlgorithm.HS512, jwtSecret) // 여기서 위에서 설정한 시크릿키를 주입함.
 				.compact();
 	}
 	
@@ -49,6 +52,7 @@ public class JwtUtils {
 		return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
 	}
 	
+	//Claim: 권리
 	 private static Claims getClaimsFormToken(String token) {
         return (Claims) Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(jwtSecret))
         		.parseClaimsJws(token).getBody();

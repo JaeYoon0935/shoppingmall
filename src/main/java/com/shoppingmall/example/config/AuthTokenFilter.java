@@ -21,6 +21,9 @@ import com.shoppingmall.example.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
+
+//Jwt 토큰을 필터링 하기 위한 클래스이다.
+
 @RequiredArgsConstructor
 public class AuthTokenFilter extends OncePerRequestFilter{
 	
@@ -36,9 +39,10 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 	throws ServletException, IOException{
 		try{
+			//받아온 jwt 토큰을 파싱해서 String에 집어 넣는다.
 			String jwt = parseJwt(request);
 			
-			
+			//토큰이 null이 아니고, 유효한 토큰이라면 아래 절차를 진행한다.
 			if(jwt != null && jwtUtils.validateJwtToken(jwt)) {
 				String username = jwtUtils.getUserNameFromJwtToken(jwt);
 				
@@ -55,12 +59,13 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 			filterChain.doFilter(request, response);
 		}
 		
-		
+		//jwt토큰을 파싱한다. 바로 위에서 쓰이는 메서드이다.
 		private String parseJwt(HttpServletRequest request) {
 			
 			String headerAuth = request.getHeader("Authorization");
 			
 			if(StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
+			//대부분 토큰 앞에 "Bearer "을 붙여줌, 그래서 "Bearer "을 제거하기 위해 substring(7)을 해줌.
 				return headerAuth.substring(7, headerAuth.length());
 			}
 			return null;
