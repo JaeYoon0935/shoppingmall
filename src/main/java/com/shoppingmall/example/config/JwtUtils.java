@@ -20,12 +20,10 @@ import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.RequiredArgsConstructor;
 
-
+@RequiredArgsConstructor
 @Component
 //@Component 어노테이션: @Bean과 마찬가지로 빈을 등록하는 어노테이션이다.
 //다만 개발자가 직접 만든 것을 빈으로 등록할때는 @Bean이 아니라 @Component를 사용한다.
-
-@RequiredArgsConstructor
 public class JwtUtils {
 
 	private static final String jwtSecret = "lcomputerstudyexample"; //시크릿키. 내가 임의로 지정함. 이 시크릿키를 통하여 토큰을 암호화하고 복구화하게됨

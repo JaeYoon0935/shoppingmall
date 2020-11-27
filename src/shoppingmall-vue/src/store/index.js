@@ -7,11 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    
-    Userinfo:{User_Id:null, User_password:null, User_name:null,
-              User_phone:null, User_point:null},
-    userlist:[],
-
+    //헤더랑 리스트만 있으면 됨,
     userlist_headers: [
       { text: '아이디', value: 'username'},
       { text: '비밀번호', value: 'password'},
@@ -22,6 +18,8 @@ export default new Vuex.Store({
       { text: '포인트', value: 'point' },
       { text: '관리', value: 'management' },
     ],
+    userlist:[],
+
     ranking_header: [
       { text: '순위', value: 'name', },
       { text: '상품명', value: 'product' },
@@ -80,6 +78,7 @@ export default new Vuex.Store({
       { text: '관리', value: 'management' },
 
     ],
+    categorylist:[],
     category_item: [
       {
         id: '20',
@@ -149,6 +148,9 @@ export default new Vuex.Store({
       SET_USER(state, data) {
         state.userlist = data
     },
+      SET_CATEGORY(state, data) {
+      state.categorylist = data
+  },
   },
   actions: {
     UserList({commit}) {
@@ -157,6 +159,19 @@ export default new Vuex.Store({
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_USER', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+    CategoryList({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/categorylist')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_CATEGORY', Response.data)
               })
               .catch(Error => {
                   console.log('error')
