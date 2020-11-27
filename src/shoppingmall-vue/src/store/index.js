@@ -21,11 +21,11 @@ export default new Vuex.Store({
     userlist:[],
 
     ranking_header: [
-      { text: '순위', value: 'order_count', },
+      { text: '순위', value: 'rank', },
+      { text: '누적판매량', value: 'order_count', },
       // 이 부분에서 order_count를 통해서 순위를 정하고, 그 부분을 정렬해서
-      // 순위를 만들어 준다음 그 순위를 넣어주는 변수를 만들고, 그 변수의 이름과
-      // order_count 부분을 일치시켜야함.
-      { text: '상품명', value: 'product' },
+      // orderby, sort 등을 이용해서 order_count를 정렬할 것
+      { text: '상품명', value: 'name' },
     ],
     ranking:[],
 
@@ -51,7 +51,15 @@ export default new Vuex.Store({
       state.categorylist = data
     },
       SET_RANKING(state, data) {
-      state.ranking = data
+        console.log('running mutation');
+
+        function oc_Sort(a, b) { 
+          return a.order_count < b.order_count ? -1 : a.order_count > b.order_count ? 1 : 0; 
+        }
+        data.sort(oc_Sort);
+        console.log(data[0].order_count);
+        
+        state.ranking = data
     },    
   },
   actions: {

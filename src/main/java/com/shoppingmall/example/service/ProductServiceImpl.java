@@ -9,7 +9,7 @@ import com.shoppingmall.example.domain.Product;
 import com.shoppingmall.example.mapper.ProductMapper;
 
 @Service("ProductServiceImpl")
-public class ProductServiceImpl {
+public class ProductServiceImpl implements ProductService{
 
 	@Autowired 
 	ProductMapper productmapper; 
@@ -20,3 +20,5 @@ public class ProductServiceImpl {
 	}
 	
 }
+
+
