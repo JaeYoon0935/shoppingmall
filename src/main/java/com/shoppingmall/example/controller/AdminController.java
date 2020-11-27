@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shoppingmall.example.config.JwtUtils;
 import com.shoppingmall.example.domain.Category;
+import com.shoppingmall.example.domain.Product;
 import com.shoppingmall.example.domain.UserInfo;
 import com.shoppingmall.example.service.BoardService;
 import com.shoppingmall.example.service.CategoryService;
+import com.shoppingmall.example.service.ProductService;
 import com.shoppingmall.example.service.UserService;
 
 //CrossOrigin을 사용하지 않으면 종종 8080(뷰)에 있는게 교류가 안될떄가 있어서 적어준다.
@@ -56,6 +58,9 @@ public class AdminController {
 	@Autowired
 	CategoryService categoryService;
 	
+	@Autowired
+	ProductService productService;
+	
 	
 	@GetMapping("/adminPage")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -70,15 +75,25 @@ public class AdminController {
 	@GetMapping("/userlist")
 	public List<UserInfo> read_user(){
 		List<UserInfo> userList = userService.shopping_readUser();
+		
+		
+		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
 		return userList;
+		
 	}
 	
 	//카테고리정보 불러오기
 	@GetMapping("/categorylist")
 	public List<Category> readCategory(){
-		System.out.println("들어옴");
 		List<Category> categoryList = categoryService.readCategory();
 		return categoryList;
+	}
+	
+	//상품랭킹 불러오기
+	@GetMapping("/ranking")
+	public List<Product> readRanking(){
+		List<Product> ranking = productService.ranking();
+		return ranking;
 	}
 	
 		

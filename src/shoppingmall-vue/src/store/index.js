@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    //헤더랑 리스트만 있으면 됨,
+    //헤더랑 배열만 있으면 됨,
     userlist_headers: [
       { text: '아이디', value: 'username'},
       { text: '비밀번호', value: 'password'},
@@ -21,51 +21,14 @@ export default new Vuex.Store({
     userlist:[],
 
     ranking_header: [
-      { text: '순위', value: 'name', },
+      { text: '순위', value: 'order_count', },
+      // 이 부분에서 order_count를 통해서 순위를 정하고, 그 부분을 정렬해서
+      // 순위를 만들어 준다음 그 순위를 넣어주는 변수를 만들고, 그 변수의 이름과
+      // order_count 부분을 일치시켜야함.
       { text: '상품명', value: 'product' },
     ],
-    ranking_item: [
-      {
-        name: '1',
-        product: '주방등',
-      },
-      {
-        name: '2',
-        product: '거실등',
-      },
-      {
-        name: '3',
-        product: '콘센트',
-      },
-      {
-        name: '4',
-        product: '멀티탭',
-      },
-      {
-        name: '5',
-        product: '매입등',
-      },
-      {
-        name: '6',
-        product: '기타품목',
-      },
-      {
-        name: '7',
-        product: '기타품목',
-      },
-      {
-        name: '8',
-        product: '기타품목',
-      },
-      {
-        name: '9',
-        product: '기타품목',
-      },
-      {
-        name: '10',
-        product: '기타품목',
-      },
-    ],
+    ranking:[],
+
     category_headers: [
       {
         text: '분류코드',
@@ -86,7 +49,10 @@ export default new Vuex.Store({
     },
       SET_CATEGORY(state, data) {
       state.categorylist = data
-  },
+    },
+      SET_RANKING(state, data) {
+      state.ranking = data
+    },    
   },
   actions: {
     UserList({commit}) {
@@ -108,6 +74,19 @@ export default new Vuex.Store({
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_CATEGORY', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+    Ranking({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/ranking')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_RANKING', Response.data)
               })
               .catch(Error => {
                   console.log('error')
