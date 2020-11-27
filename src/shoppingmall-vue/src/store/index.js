@@ -74,75 +74,11 @@ export default new Vuex.Store({
         value: 'id',
       },
       { text: '분류명', value: 'name' },
-      { text: '상품수', value: 'password' },
+      { text: '상품수', value: 'product_count' },
       { text: '관리', value: 'management' },
 
     ],
     categorylist:[],
-    category_item: [
-      {
-        id: '20',
-        name: '상의/하의',
-        password: 9,
-        management: '추가/수정',
-
-      },
-      {
-        id: '2010',
-        name: '상의',
-        password: 2,
-        management: '추가/수정',
-
-      },
-      {
-        id: '201010',
-        name: '셔츠',
-        password: 2,
-        management: '추가/수정',
-
-      },
-      {
-        id: '20101010',
-        name: '체크/슬림',
-        password: 2,
-        management: '추가/수정',
-
-      },
-      {
-        id: '2010101010',
-        name: '체크',
-        password: 1,
-        management: '추가/수정',
-
-      },
-      {
-        id: '2010101020',
-        name: '슬림',
-        password: 1,
-        management: '추가/수정',
-
-      },
-      {
-        id: '201020',
-        name: '맨투맨',
-        password: 4,
-        management: '추가/수정',
-
-      },
-      {
-        id: '2020',
-        name: '하의',
-        password: 3,
-        management: '추가/수정',
-
-      },
-      {
-        id: '30',
-        name: '테스트',
-        password: 999999999,
-        management: '추가/수정',
-      },
-    ],
   },
   mutations: {
       SET_USER(state, data) {

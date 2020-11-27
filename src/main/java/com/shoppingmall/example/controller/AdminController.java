@@ -1,10 +1,9 @@
 package com.shoppingmall.example.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shoppingmall.example.config.JwtUtils;
-import com.shoppingmall.example.domain.Board;
-import com.shoppingmall.example.domain.User;
+import com.shoppingmall.example.domain.Category;
 import com.shoppingmall.example.domain.UserInfo;
-import com.shoppingmall.example.response.JwtResponse;
-import com.shoppingmall.example.response.JwtResponse1;
 import com.shoppingmall.example.service.BoardService;
+import com.shoppingmall.example.service.CategoryService;
 import com.shoppingmall.example.service.UserService;
 
 //CrossOrigin을 사용하지 않으면 종종 8080(뷰)에 있는게 교류가 안될떄가 있어서 적어준다.
@@ -57,6 +53,10 @@ public class AdminController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	CategoryService categoryService;
+	
+	
 	@GetMapping("/adminPage")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?>  AccessAdmin(HttpServletRequest request) {
@@ -66,11 +66,19 @@ public class AdminController {
 	}
 	
 	
-	//테스트 중인 부분
+	//회원정보 불러오기
 	@GetMapping("/userlist")
 	public List<UserInfo> read_user(){
 		List<UserInfo> userList = userService.shopping_readUser();
 		return userList;
+	}
+	
+	//카테고리정보 불러오기
+	@GetMapping("/categorylist")
+	public List<Category> readCategory(){
+		System.out.println("들어옴");
+		List<Category> categoryList = categoryService.readCategory();
+		return categoryList;
 	}
 	
 		

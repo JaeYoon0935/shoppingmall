@@ -1,0 +1,33 @@
+16:51:00.999 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on DESKTOP-PQ5J03J with PID 7584 (C:\Users\l4\Documents\shoppingmall\bin\main started by l4 in C:\Users\l4\Documents\shoppingmall) 
+16:51:01.003 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+16:51:01.003 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+16:51:02.378 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+16:51:02.829 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 2.177 seconds (JVM running for 2.677) 
+16:51:14.838 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+16:51:14.855 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+16:51:14.869 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+16:51:14.869 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+16:51:14.871 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+16:51:14.871 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+16:51:14.871 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+16:51:28.120 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+16:51:28.120 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+16:51:28.121 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+16:51:28.121 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+16:51:28.122 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+16:51:28.122 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+16:51:28.122 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+16:53:12.463 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+16:53:12.464 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+16:53:12.465 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+16:53:12.466 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+16:53:12.466 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+16:53:12.466 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+16:53:12.466 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+16:53:26.179 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+16:53:26.179 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+16:53:26.180 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+16:53:26.180 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+16:53:26.180 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+16:53:26.180 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+16:53:26.181 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==      Total: 3 

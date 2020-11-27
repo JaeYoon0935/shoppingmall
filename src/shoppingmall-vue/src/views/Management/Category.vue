@@ -3,7 +3,7 @@
     <h1>분류관리 페이지입니다.</h1>
       <v-data-table
         :headers="$store.state.category_headers"
-        :items="$store.state.categoryList"
+        :items="$store.state.categorylist"
         :items-per-page="10"
         class="elevation-1"
       ></v-data-table>
