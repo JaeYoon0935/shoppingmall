@@ -6,7 +6,14 @@ public class Product {
 	private String name; //상품명
 	private String quantity; //상품재고
 	private String order_count; //상품 누적주문수
+	private String rank; //순위
 	
+	public String getRank() {
+		return rank;
+	}
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
 	public int getId() {
 		return id;
 	}

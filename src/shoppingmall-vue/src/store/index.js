@@ -7,6 +7,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+
+    rank: 0,
+
     //헤더랑 배열만 있으면 됨,
     userlist_headers: [
       { text: '아이디', value: 'username'},
@@ -20,15 +23,6 @@ export default new Vuex.Store({
     ],
     userlist:[],
 
-    ranking_header: [
-      { text: '순위', value: 'rank', },
-      { text: '누적판매량', value: 'order_count', },
-      // 이 부분에서 order_count를 통해서 순위를 정하고, 그 부분을 정렬해서
-      // orderby, sort 등을 이용해서 order_count를 정렬할 것
-      { text: '상품명', value: 'name' },
-    ],
-    ranking:[],
-
     category_headers: [
       {
         text: '분류코드',
@@ -39,9 +33,15 @@ export default new Vuex.Store({
       { text: '분류명', value: 'name' },
       { text: '상품수', value: 'product_count' },
       { text: '관리', value: 'management' },
-
     ],
     categorylist:[],
+
+    ranking_header: [
+      { text: '순위', value: 'rank', },
+      { text: '누적판매량', value: 'order_count', },
+      { text: '상품명', value: 'name' },
+    ],
+    ranking:[],
   },
   mutations: {
       SET_USER(state, data) {
@@ -54,11 +54,27 @@ export default new Vuex.Store({
         console.log('running mutation');
 
         function oc_Sort(a, b) { 
-          return a.order_count < b.order_count ? -1 : a.order_count > b.order_count ? 1 : 0; 
+          return b.order_count - a.order_count;
         }
+
         data.sort(oc_Sort);
-        console.log(data[0].order_count);
+
+        //위에서 정렬을 끝내고 오면, 거기에 순위를 매겨주는 로직
+        //모두 null로 넘어오기에 정렬이 끝났다면 거기에 순위를 붙여줌
+        for(var i = 0; i<data.length; i++){
+          data[i].rank = i+1;
+        }
+
+        var numbers = [3, 17, 5, 2, 11, 4]; 
+ 
+        numbers.sort(function(a, b) { // 오름차순
+            return b - a;
+        });
         
+        console.log(numbers);// 1, 2, 3, 4, 10, 11
+
+
+
         state.ranking = data
     },    
   },

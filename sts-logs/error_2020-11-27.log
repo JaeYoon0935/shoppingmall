@@ -1,0 +1,719 @@
+09:58:37.149 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 18816 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+09:58:37.155 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+09:58:37.155 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+09:58:39.515 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+09:58:40.484 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 3.868 seconds (JVM running for 4.871) 
+09:58:54.679 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+09:58:54.737 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+09:58:54.780 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+09:58:54.781 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+09:58:54.787 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+09:58:54.788 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+09:58:54.789 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+09:59:12.888 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+09:59:12.889 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+09:59:12.893 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+09:59:12.894 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+09:59:12.898 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+09:59:12.899 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+09:59:12.901 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+10:04:16.280 WARN  --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m51s519ms215?s900ns). 
+10:06:09.786 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+10:06:09.787 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:06:09.788 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+10:06:09.789 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+10:06:09.790 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+10:06:09.790 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+10:06:09.791 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+10:09:46.655 WARN  --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m363ms977?s200ns). 
+10:49:13.747 WARN  --- [http-nio-9000-exec-6] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+10:57:47.585 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+10:57:47.586 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:57:47.588 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+10:57:47.589 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+10:57:47.590 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+10:57:47.590 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+10:57:47.591 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+10:57:51.880 WARN  --- [http-nio-9000-exec-9] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+10:57:56.433 WARN  --- [http-nio-9000-exec-10] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+10:58:11.274 WARN  --- [http-nio-9000-exec-1] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+11:00:05.431 WARN  --- [http-nio-9000-exec-3] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+11:00:27.793 WARN  --- [http-nio-9000-exec-4] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+11:00:38.710 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+11:00:38.711 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:00:38.713 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+11:00:38.714 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+11:00:38.715 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+11:00:38.716 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+11:00:38.717 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+11:01:09.990 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+11:01:09.991 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:01:09.993 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+11:01:09.993 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+11:01:09.997 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+11:01:09.998 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+11:01:09.998 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+11:01:33.375 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+11:01:33.375 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:01:33.376 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+11:01:33.377 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+11:01:33.377 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+11:01:33.378 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+11:01:33.378 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+11:03:10.630 WARN  --- [http-nio-9000-exec-9] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+11:03:13.728 WARN  --- [http-nio-9000-exec-10] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+11:40:04.074 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+11:40:04.075 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:40:04.077 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+11:40:04.077 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+11:40:04.078 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+11:40:04.079 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+11:40:04.079 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+11:40:11.007 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+11:40:11.008 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:40:11.010 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+11:40:11.010 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+11:40:11.010 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+11:40:11.011 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+11:40:11.011 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==      Total: 3 
+11:40:14.068 WARN  --- [http-nio-9000-exec-4] o.s.web.servlet.PageNotFound : No mapping for GET /api/admin/categorylist 
+21:46:48.802 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 14964 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+21:46:48.805 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+21:46:48.805 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+21:46:49.937 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+21:46:49.953 WARN  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController': Unsatisfied dependency expressed through field 'productService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.shoppingmall.example.service.ProductService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)} 
+21:46:50.040 ERROR --- [main] o.s.b.d.LoggingFailureAnalysisReporter : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field productService in com.shoppingmall.example.controller.AdminController required a bean of type 'com.shoppingmall.example.service.ProductService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.shoppingmall.example.service.ProductService' in your configuration.
+ 
+21:58:59.172 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 8036 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+21:58:59.173 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+21:58:59.173 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+21:59:00.182 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+21:59:00.585 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 1.704 seconds (JVM running for 2.248) 
+21:59:12.374 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 18296 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+21:59:12.375 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+21:59:12.376 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+21:59:13.401 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+21:59:13.416 WARN  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController': Unsatisfied dependency expressed through field 'productService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.shoppingmall.example.service.ProductService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)} 
+21:59:13.489 ERROR --- [main] o.s.b.d.LoggingFailureAnalysisReporter : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field productService in com.shoppingmall.example.controller.AdminController required a bean of type 'com.shoppingmall.example.service.ProductService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.shoppingmall.example.service.ProductService' in your configuration.
+ 
+22:06:42.739 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 18900 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+22:06:42.741 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+22:06:42.741 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+22:06:43.853 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+22:06:44.265 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 1.835 seconds (JVM running for 2.389) 
+22:06:46.268 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 17948 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+22:06:46.269 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+22:06:46.269 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+22:06:47.383 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+22:06:47.787 WARN  --- [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 9000 is already in use 
+22:06:47.801 ERROR --- [main] o.s.b.d.LoggingFailureAnalysisReporter : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9000 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9000 or configure this application to listen on another port.
+ 
+22:06:53.781 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 15072 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+22:06:53.783 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+22:06:53.784 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+22:06:54.817 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+22:06:55.221 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 1.745 seconds (JVM running for 2.309) 
+22:07:28.513 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:07:28.528 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:07:28.541 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:07:28.542 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:07:28.543 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:07:28.543 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:07:28.543 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:07:28.544 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:07:28.544 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:07:28.544 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:07:28.544 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:07:28.544 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:07:28.544 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:07:28.544 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:07:33.746 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:07:33.746 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:07:33.746 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:07:33.747 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:07:33.747 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:07:33.747 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:07:33.747 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==      Total: 3 
+22:09:52.522 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:09:52.522 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:09:52.524 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:09:52.524 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:09:52.525 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:09:52.525 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:09:52.526 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==      Total: 3 
+22:09:54.177 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:09:54.177 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:09:54.178 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:09:54.178 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:09:54.178 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:09:54.178 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:09:54.178 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==      Total: 3 
+22:10:27.597 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:10:27.597 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:10:27.598 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:10:27.598 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:10:27.598 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:10:27.598 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:10:27.598 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==      Total: 3 
+22:10:30.234 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:10:30.235 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:10:30.235 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:10:30.237 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:10:30.237 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:10:30.237 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:10:30.237 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==      Total: 3 
+22:10:39.304 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:10:39.304 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:10:39.305 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:10:39.305 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:10:39.306 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:10:39.306 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:10:39.306 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:10:39.307 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:10:39.307 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:10:39.307 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:10:39.307 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:10:39.307 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:10:39.307 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:10:40.336 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:10:40.336 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:10:40.337 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:10:40.337 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:10:40.337 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:10:40.337 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:10:40.338 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:10:40.338 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:10:40.338 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:10:40.339 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:10:40.339 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:10:40.339 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:10:40.339 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:10:40.339 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:10:43.889 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:10:43.889 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:10:43.890 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:10:43.890 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:10:43.891 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:10:43.891 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:10:43.891 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==      Total: 3 
+22:10:44.934 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:10:44.934 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:10:44.935 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:10:44.935 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:10:44.936 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:10:44.936 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:10:44.936 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:10:44.936 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:10:44.936 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:10:44.937 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:10:44.937 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:10:44.937 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:10:44.937 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:10:44.937 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:13:04.935 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:13:04.935 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:13:04.936 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:13:04.936 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:13:04.937 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:13:04.937 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:13:04.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:13:04.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:13:04.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:13:04.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:13:04.940 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:13:04.940 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:13:04.941 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:13:20.738 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:13:20.739 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:13:20.742 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:13:20.742 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:13:20.743 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:13:20.744 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:13:20.745 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:13:20.745 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:13:20.746 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:13:20.747 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:13:20.748 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:13:20.748 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:13:20.749 TRACE --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:13:20.750 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:14:16.847 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:14:16.848 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:14:16.849 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:14:16.849 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:14:16.850 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:14:16.850 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:14:16.851 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==      Total: 3 
+22:15:01.807 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:15:01.808 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:15:01.811 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:15:01.812 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:15:01.813 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:15:01.814 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:15:01.814 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:15:01.815 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:15:01.816 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:15:01.817 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:15:01.818 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:15:01.819 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:15:01.820 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:16:57.919 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:16:57.920 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:16:57.924 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:16:57.925 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:16:57.926 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:16:57.927 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:16:57.927 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:16:57.928 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:16:57.928 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:16:57.929 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:16:57.930 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:16:57.930 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:16:57.931 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:18:27.733 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:18:27.736 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:18:27.742 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:18:27.742 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:18:27.743 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:18:27.744 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:18:27.744 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:18:27.745 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:18:27.746 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:18:27.746 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:18:27.747 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:18:27.747 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:18:27.748 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:18:27.748 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:18:31.524 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:18:31.525 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:18:31.527 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:18:31.527 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:18:31.528 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:18:31.529 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:18:31.530 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:18:31.531 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:20:23.339 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:20:23.340 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:20:23.343 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:20:23.343 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:20:23.344 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:20:23.344 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:20:23.345 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:20:23.345 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:20:23.346 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:20:23.346 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:20:23.347 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:20:23.347 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:20:23.348 TRACE --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:20:23.348 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:27:59.960 WARN  --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m1s317ms141?s100ns). 
+22:30:36.316 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:30:36.317 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:30:36.317 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:30:36.317 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:36.318 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:36.318 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:30:39.950 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:30:39.950 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:30:39.951 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:30:39.951 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:39.951 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:39.952 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:39.952 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:39.952 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:39.952 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:39.952 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:39.952 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:39.952 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:39.952 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:30:45.290 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:30:45.290 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:30:45.290 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:30:45.290 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:30:45.291 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:30:45.291 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:30:49.206 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:30:49.207 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:30:49.208 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:30:49.209 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:30:49.209 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:30:49.209 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:30:49.209 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:30:53.993 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:30:53.993 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:30:53.994 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:30:53.994 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:30:53.994 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:30:53.994 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:30:53.995 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:30:53.995 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:30:53.995 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:30:53.995 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:30:53.995 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:30:53.995 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:30:53.995 TRACE --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:30:53.995 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:30:57.607 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:30:57.607 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:30:57.608 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:30:57.608 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:30:57.608 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:30:57.608 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:30:57.609 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:30:57.609 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:30:58.537 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+22:30:58.537 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+22:30:58.538 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+22:30:58.538 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:30:58.538 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, Á¶¸í, 8 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, µî, 5 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, ½ºÅÄµå, 3 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201010, °Å½Çµî, 3 
+22:30:58.539 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 201020, ¹æµî, 2 
+22:30:58.539 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==      Total: 10 
+22:31:03.715 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_phone as phone, user_point as point FROM user 
+22:31:03.715 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+22:31:03.716 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, phone, point 
+22:31:03.716 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:31:03.716 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:31:03.716 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:31:03.716 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:31:03.717 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:31:03.717 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:31:03.717 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 123, jy, 010-1111-1234, 10000 
+22:31:03.717 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: abc, 1234, ±è¸ð¾¾, 010-4864-1234, 5000 
+22:31:03.717 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: aaaa, 1234, ÀÌ¸ð¾¾, 010-1231-1111, 20000 
+22:31:03.717 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==      Total: 9 
+22:31:57.417 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:31:57.417 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:31:57.418 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:31:57.418 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:31:57.418 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:31:57.418 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:31:57.418 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:31:57.418 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:33:35.287 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:33:35.287 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:33:35.288 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:33:35.289 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:33:35.289 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:33:35.289 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:33:35.289 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:33:35.289 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:37:01.864 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:37:01.864 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:37:01.865 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:37:01.865 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:37:01.865 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:37:01.866 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:37:01.866 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:37:01.866 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:51:26.425 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:51:26.425 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:51:26.426 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:51:26.426 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:51:26.426 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:51:26.427 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:51:26.427 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:51:26.427 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:52:10.277 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:52:10.278 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:52:10.278 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:52:10.279 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:52:10.279 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:52:10.279 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:52:10.279 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:52:10.279 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:52:25.794 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:52:25.794 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:52:25.795 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:52:25.795 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:52:25.795 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:52:25.795 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:52:25.795 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:52:25.795 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:52:50.623 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:52:50.623 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:52:50.626 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:52:50.626 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:52:50.627 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:52:50.627 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:52:50.627 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:52:50.627 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:53:28.971 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:53:28.971 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:53:28.972 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:53:28.972 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:53:28.972 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:53:28.972 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:53:28.972 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:53:28.972 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:53:52.208 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:53:52.208 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:53:52.209 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:53:52.209 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:53:52.210 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:53:52.210 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:53:52.210 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:53:52.210 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:53:59.572 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:53:59.572 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:53:59.573 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:53:59.573 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:53:59.573 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:53:59.573 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:53:59.573 TRACE --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:53:59.573 DEBUG --- [http-nio-9000-exec-5] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:54:12.690 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:54:12.690 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:54:12.691 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:54:12.691 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:54:12.691 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:54:12.691 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:54:12.691 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:54:12.691 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:54:28.276 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:54:28.276 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:54:28.277 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:54:28.277 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:54:28.277 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:54:28.277 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:54:28.277 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:54:28.278 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:55:06.257 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:55:06.257 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:55:06.258 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:55:06.258 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:55:06.258 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:55:06.258 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:55:06.258 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:55:06.259 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:55:26.555 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:55:26.556 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:55:26.556 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:55:26.556 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:55:26.556 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:55:26.556 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:55:26.556 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:55:26.557 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:55:44.673 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:55:44.673 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:55:44.674 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:55:44.674 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:55:44.674 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:55:44.674 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:55:44.674 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:55:44.675 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:55:57.590 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:55:57.590 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:55:57.591 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:55:57.591 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:55:57.591 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:55:57.591 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:55:57.591 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:55:57.591 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:56:40.249 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:56:40.249 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:56:40.250 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:56:40.250 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:56:40.250 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:56:40.250 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:56:40.250 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:56:40.250 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:56:53.681 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:56:53.681 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:56:53.683 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:56:53.683 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:56:53.683 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:56:53.683 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:56:53.683 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:56:53.684 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+22:57:09.676 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+22:57:09.676 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+22:57:09.677 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+22:57:09.677 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+22:57:09.677 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+22:57:09.677 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+22:57:09.677 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+22:57:09.677 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:01:35.628 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:01:35.628 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:01:35.629 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:01:35.629 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:01:35.629 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:01:35.629 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:01:35.629 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:01:35.629 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:02:01.475 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:02:01.476 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:02:01.476 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:02:01.477 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:02:01.477 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:02:01.477 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:02:01.477 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:02:01.477 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:02:04.884 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:02:04.884 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:02:04.885 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:02:04.885 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:02:04.885 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:02:04.885 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:02:04.885 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:02:04.885 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:02:45.240 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:02:45.241 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:02:45.242 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:02:45.242 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:02:45.242 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:02:45.242 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:02:45.242 TRACE --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:02:45.242 DEBUG --- [http-nio-9000-exec-9] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:03:16.045 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:03:16.045 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:03:16.048 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:03:16.048 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:03:16.048 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:03:16.049 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:03:16.049 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:03:16.049 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:03:27.156 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:03:27.156 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:03:27.157 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:03:27.157 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:03:27.157 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:03:27.157 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:03:27.157 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:03:27.157 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:04:43.752 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:04:43.753 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:04:43.754 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:04:43.754 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:04:43.754 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:04:43.754 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:04:43.754 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:04:43.754 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:04:52.121 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:04:52.121 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:04:52.122 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:04:52.122 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:04:52.122 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:04:52.122 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:04:52.122 TRACE --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:04:52.122 DEBUG --- [http-nio-9000-exec-4] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:08:32.699 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:08:32.700 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:08:32.701 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:08:32.701 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:08:32.701 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:08:32.701 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:08:32.701 TRACE --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:08:32.701 DEBUG --- [http-nio-9000-exec-6] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:09:12.975 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:09:12.975 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:09:12.976 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:09:12.976 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:09:12.976 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:09:12.976 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:09:12.976 TRACE --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:09:12.976 DEBUG --- [http-nio-9000-exec-7] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:09:26.307 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:09:26.307 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:09:26.308 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:09:26.308 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:09:26.308 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:09:26.308 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:09:26.309 TRACE --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:09:26.309 DEBUG --- [http-nio-9000-exec-8] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:11:11.971 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:11:11.972 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:11:11.974 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:11:11.975 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:11:11.975 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:11:11.975 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:11:11.975 TRACE --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:11:11.975 DEBUG --- [http-nio-9000-exec-10] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:11:40.580 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:11:40.580 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:11:40.581 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:11:40.581 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:11:40.581 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:11:40.581 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:11:40.581 TRACE --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:11:40.582 DEBUG --- [http-nio-9000-exec-1] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 
+23:11:45.355 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count FROM product 
+23:11:45.355 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+23:11:45.356 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count 
+23:11:45.356 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, °Å½Çµî, 30 
+23:11:45.356 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, ¹æµî, 35 
+23:11:45.356 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, ÀÏ¹Ý½ºÅÄµå, 20 
+23:11:45.356 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, ¸ÖÆ¼ÅÇ, 5 
+23:11:45.356 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==      Total: 4 

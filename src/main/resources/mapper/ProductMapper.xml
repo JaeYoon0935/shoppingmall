@@ -5,7 +5,8 @@
 	<select id="ranking" parameterType="String" resultType="Product">
 		SELECT			p_id					        as 	id,
 						p_name 							as 	name,
-						p_order_count					as	order_count
+						p_order_count					as	order_count,
+						p_rank                          as  rank
 		FROM			product
 	</select>
 </mapper>

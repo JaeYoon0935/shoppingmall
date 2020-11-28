@@ -102,7 +102,7 @@
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>
-          <v-btn router :to="{name: 'Home'}" flat>관리자 페이지 (메인) </v-btn>
+          <v-btn router :to="{name: 'Home'}" text>관리자 페이지 (메인) </v-btn>
         </v-toolbar-title>
     </v-app-bar>
 
