@@ -12,14 +12,24 @@ export default new Vuex.Store({
 
     //헤더랑 배열만 있으면 됨,
     userlist_headers: [
+       
+      // { text: '아이디', value: 'username', align: 'center'},
+      // { text: '비밀번호', value: 'password', align: 'center'},
+      // { text: '이름', value: 'name' , align: 'center'},
+      // { text: '주소', value: 'address' , align: 'center'},
+      // { text: '전화번호', value: 'phone' , align: 'center'},
+      // { text: '이메일', value: 'email' , align: 'center'},
+      // { text: '포인트', value: 'point' , align: 'center'},
+      // { text: '관리', value: 'management', align: 'center'},
+
       { text: '아이디', value: 'username'},
       { text: '비밀번호', value: 'password'},
-      { text: '이름', value: 'name' },
-      { text: '주소', value: 'address' },
-      { text: '전화번호', value: 'phone' },
-      { text: '이메일', value: 'email' },
-      { text: '포인트', value: 'point' },
-      { text: '관리', value: 'management' },
+      { text: '이름', value: 'name'},
+      { text: '주소', value: 'address'},
+      { text: '전화번호', value: 'phone'},
+      { text: '이메일', value: 'email'},
+      { text: '포인트', value: 'point'},
+      { text: '관리', value: 'management'},
     ],
     userlist:[],
 
@@ -51,7 +61,6 @@ export default new Vuex.Store({
       state.categorylist = data
     },
       SET_RANKING(state, data) {
-        console.log('running mutation');
 
         function oc_Sort(a, b) { 
           return b.order_count - a.order_count;
@@ -64,16 +73,6 @@ export default new Vuex.Store({
         for(var i = 0; i<data.length; i++){
           data[i].rank = i+1;
         }
-
-        var numbers = [3, 17, 5, 2, 11, 4]; 
- 
-        numbers.sort(function(a, b) { // 오름차순
-            return b - a;
-        });
-        
-        console.log(numbers);// 1, 2, 3, 4, 10, 11
-
-
 
         state.ranking = data
     },    
