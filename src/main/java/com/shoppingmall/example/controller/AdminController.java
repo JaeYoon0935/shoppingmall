@@ -76,17 +76,15 @@ public class AdminController {
 	
 	//회원정보 불러오기
 	@GetMapping("/userlist")
-	public List<UserInfo> read_user(){
+	public ResponseEntity<?> read_user(){
 		List<UserInfo> userList = userService.shopping_readUser();		
 		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
-		return userList;	
+		return new ResponseEntity<>(userList, HttpStatus.OK);
 	}
 	
 	//회원탈퇴 처리하기
 	@PostMapping("/userdelete")
 	public ResponseEntity<?> delete_user(@Validated @RequestBody UserInfo userinfo){
-		
-		System.out.println(userinfo);
 		userService.delete_user(userinfo.getUsername());		
 		List<UserInfo> userList = userService.shopping_readUser();
 		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
@@ -96,16 +94,16 @@ public class AdminController {
 	
 	//카테고리정보 불러오기
 	@GetMapping("/categorylist")
-	public List<Category> readCategory(){
+	public ResponseEntity<?> readCategory(){
 		List<Category> categoryList = categoryService.readCategory();
-		return categoryList;
+		return new ResponseEntity<>(categoryList, HttpStatus.OK);
 	}
 	
 	//상품랭킹 불러오기
 	@GetMapping("/ranking")
-	public List<Product> readRanking(){
+	public ResponseEntity<?> readRanking(){
 		List<Product> ranking = productService.ranking();
-		return ranking;
+		return new ResponseEntity<>(ranking, HttpStatus.OK);
 	}
 	
 		
