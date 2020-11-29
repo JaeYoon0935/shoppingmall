@@ -26,7 +26,12 @@ public interface UserService extends UserDetailsService{
 	public void createAuthority(User user);
 
 	
-	//테스트 메서드
+	//-----------------------아래 부터 쇼핑몰 프로젝트---------------------------------
+	
+	//회원 정보 불러오기
 	public List<UserInfo> shopping_readUser();
+	
+	//회원탈퇴
+	public void delete_user(String username);
 	
 }

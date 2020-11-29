@@ -17,18 +17,13 @@
             <td>{{row.item.email}}</td>
             <td>{{row.item.point}}</td>
 
-
-
             <td>
             <!-- <v-card-actions class="justify-center">   -->
               <v-card-actions class="justify-start">  
                 <v-btn dark small color="grey" @click="onButtonClick(row.item)">수정</v-btn>
-                <v-btn dark small color="grey" @click="onButtonClick(row.item)">탈퇴</v-btn>
+                <v-btn dark small color="grey" @click="UserDelete(row.item)">탈퇴</v-btn>
               </v-card-actions>
             </td>
-
-
-
           </tr>
       </template>
       </v-data-table>
@@ -44,6 +39,9 @@ import { mapState, mapActions } from "vuex"
     data () {
       return {     
       }
+    },
+    methods:{
+        ...mapActions(["UserDelete"])
     },
   }
 </script>

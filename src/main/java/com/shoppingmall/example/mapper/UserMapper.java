@@ -29,4 +29,7 @@ public interface UserMapper {
 	//Å×½ºÆ® ¸Þ¼­µå
 	public List<UserInfo> shopping_readUser();
 	
+	//È¸¿ø Å»Åð
+	public void delete_user(String username);
+	
 }

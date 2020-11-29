@@ -12,8 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -74,13 +77,22 @@ public class AdminController {
 	//회원정보 불러오기
 	@GetMapping("/userlist")
 	public List<UserInfo> read_user(){
-		List<UserInfo> userList = userService.shopping_readUser();
-		
-		
+		List<UserInfo> userList = userService.shopping_readUser();		
 		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
-		return userList;
-		
+		return userList;	
 	}
+	
+	//회원탈퇴 처리하기
+	@PostMapping("/userdelete")
+	public ResponseEntity<?> delete_user(@Validated @RequestBody UserInfo userinfo){
+		
+		System.out.println(userinfo);
+		userService.delete_user(userinfo.getUsername());		
+		List<UserInfo> userList = userService.shopping_readUser();
+		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
+		return new ResponseEntity<>(userList, HttpStatus.OK);
+	}
+	
 	
 	//카테고리정보 불러오기
 	@GetMapping("/categorylist")

@@ -10,7 +10,9 @@ public class UserInfo {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String name;
+	private String address;
 	private String phone;
+	private String email;
 	private String password;
 	private String point;
 	private Collection<? extends GrantedAuthority> authorities;
@@ -47,6 +49,21 @@ public class UserInfo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
 	}

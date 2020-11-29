@@ -56,14 +56,6 @@ public class UserServiceImpl implements UserService{
 		return userMapper.read_user_list();
 	}
 	
-	
-	//테스트 메서드
-	@Override
-	public List<UserInfo> shopping_readUser() {
-		return userMapper.shopping_readUser();
-	};
-	
-	
 	//유저읽기 새로고침
 	public UserInfo readUser_refresh(String username) {
 		return userMapper.readUser_refresh(username);
@@ -72,4 +64,15 @@ public class UserServiceImpl implements UserService{
 	public List<GrantedAuthority> readAuthorities_refresh(String username) {
 		return userMapper.readAuthorities_refresh(username);
 	}
+	
+	//테스트 메서드
+	@Override
+	public List<UserInfo> shopping_readUser() {
+		return userMapper.shopping_readUser();
+	};
+	
+	//회원탈퇴
+	public void delete_user(String username){
+		userMapper.delete_user(username);
+	};
 }

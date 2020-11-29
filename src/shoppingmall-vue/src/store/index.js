@@ -12,15 +12,6 @@ export default new Vuex.Store({
 
     //헤더랑 배열만 있으면 됨,
     userlist_headers: [
-       
-      // { text: '아이디', value: 'username', align: 'center'},
-      // { text: '비밀번호', value: 'password', align: 'center'},
-      // { text: '이름', value: 'name' , align: 'center'},
-      // { text: '주소', value: 'address' , align: 'center'},
-      // { text: '전화번호', value: 'phone' , align: 'center'},
-      // { text: '이메일', value: 'email' , align: 'center'},
-      // { text: '포인트', value: 'point' , align: 'center'},
-      // { text: '관리', value: 'management', align: 'center'},
 
       { text: '아이디', value: 'username'},
       { text: '비밀번호', value: 'password'},
@@ -84,6 +75,24 @@ export default new Vuex.Store({
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_USER', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+    UserDelete({commit},payload) {
+      console.log(payload)
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/userdelete',payload)
+              .then(Response => {
+                  if(confirm('정말 해당 회원을 탈퇴처리를 하시겠습니까?') == true){
+                    console.log(Response.data)
+                    commit('SET_USER', Response.data)
+                  } else{
+                    return;
+                  }
               })
               .catch(Error => {
                   console.log('error')

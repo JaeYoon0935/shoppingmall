@@ -29,11 +29,18 @@
 		SELECT			user_id											as 	username,
 								user_password 							as 	password,
 								user_name									as	    name,
+								user_address                                as      address,
 								user_phone									as		phone,
+								user_email                                  as      email,
 								user_point                                  as      point
 		FROM			user
 	</select>
 	
+	<!-- 회원탈퇴 -->
+	<delete id="delete_user" parameterType="String">
+		DELETE 			FROM 		user 
+						WHERE 		user_id = #{username}
+	</delete>
 	
 	<!-- 회원 불러오기(새로고침) -->
 	<select id="readUser_refresh" parameterType="String" resultType="UserInfo">
