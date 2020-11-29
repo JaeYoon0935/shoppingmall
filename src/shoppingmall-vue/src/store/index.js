@@ -82,23 +82,43 @@ export default new Vuex.Store({
               })
       })
     },
+    // UserDelete({commit},payload) {
+    //   console.log(payload)
+    //   return new Promise((resolve, reject) => {
+    //       axios.post('http://localhost:9000/api/admin/userdelete',payload)
+    //           .then(Response => {
+    //               if(confirm('회원을 탈퇴처리 하시겠습니까?') == true){
+    //                 console.log(Response.data)
+    //                 commit('SET_USER', Response.data)
+    //               } else{
+    //                 return;
+    //               }
+    //           })
+    //           .catch(Error => {
+    //               console.log('error')
+    //               reject(Error)
+    //           })
+    //   })
+    // },
     UserDelete({commit},payload) {
       console.log(payload)
-      return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/api/admin/userdelete',payload)
-              .then(Response => {
-                  if(confirm('정말 해당 회원을 탈퇴처리를 하시겠습니까?') == true){
-                    console.log(Response.data)
-                    commit('SET_USER', Response.data)
-                  } else{
-                    return;
-                  }
-              })
-              .catch(Error => {
-                  console.log('error')
-                  reject(Error)
-              })
-      })
+      if(confirm('회원을 탈퇴처리 하시겠습니까?') == true){
+          return new Promise((resolve, reject) => {
+              axios.post('http://localhost:9000/api/admin/userdelete',payload)
+                  .then(Response => {
+                      
+                        console.log(Response.data)
+                        commit('SET_USER', Response.data)
+                      
+                  })
+                  .catch(Error => {
+                      console.log('error')
+                      reject(Error)
+                  })
+          })
+      }else{
+        return;
+      }
     },
     CategoryList({commit}) {
       return new Promise((resolve, reject) => {
