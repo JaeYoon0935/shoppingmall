@@ -4,8 +4,7 @@
      <v-data-table
       class="elevation-1"
        :headers="userlist_headers"
-       :items="userlist"
-       
+       :items="userlist"  
      >
         <template v-slot:item="row">
          <tr>     
@@ -14,22 +13,22 @@
               <span v-else>{{row.item.username}}</span>
             </td>
             <td>
-              <span v-if="temp == row.username"><input v-model="inputText"></span>
-              <span v-else>{{row.password}}</span>
+              <span v-if="temp == row.item.username"><input v-model="inputText"></span>
+              <span v-else>{{row.item.password}}</span>
             </td>
-            <td><span v-if="temp == row.username"><input v-model="inputText"></span>
-              <span v-else>{{row.name}}</span></td>
-            <td><span v-if="temp == row.username"><input v-model="inputText"></span>
-              <span v-else>{{row.address}}</span></td>
+            <td><span v-if="temp == row.item.username"><input v-model="inputText"></span>
+              <span v-else>{{row.item.name}}</span></td>
+            <td><span v-if="temp == row.item.username"><input v-model="inputText"></span>
+              <span v-else>{{row.item.address}}</span></td>
             <td>
-              <span v-if="temp == row.username"><input v-model="inputText"></span>
-              <span v-else>{{row.phone}}</span>
+              <span v-if="temp == row.item.username"><input v-model="inputText"></span>
+              <span v-else>{{row.item.phone}}</span>
             </td>
-            <td><span v-if="temp == row.username"><input v-model="inputText"></span>
-              <span v-else>{{row.email}}</span></td>
+            <td><span v-if="temp == row.item.username"><input v-model="inputText"></span>
+              <span v-else>{{row.item.email}}</span></td>
             <td>
-              <span v-if="temp == row.username"><input v-model="inputText"></span>
-              <span v-else>{{row.point}}</span>
+              <span v-if="temp == row.item.username"><input v-model="inputText"></span>
+              <span v-else>{{row.item.point}}</span>
             </td>
             <td>
               <v-card-actions class="justify-start">  
