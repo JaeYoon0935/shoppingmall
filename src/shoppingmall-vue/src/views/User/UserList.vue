@@ -59,7 +59,10 @@
               </span>
               <span v-else>
                 <v-card-actions class="justify-start">  
-                <v-btn dark small color="grey">수정완료</v-btn>
+                <!-- <v-btn dark small color="grey" 
+                @click="UserUpdate(username, password, name, address, phone, email, point)">수정완료</v-btn> -->
+                <v-btn dark small color="grey" 
+                @click="UserUpdate({username, password, name, address, phone, email, point})">수정완료</v-btn>
                 <v-btn dark small color="grey" @click="Updata_cancle()">취소</v-btn>
               </v-card-actions>
               </span>
@@ -93,6 +96,8 @@ import { mapState, mapActions } from "vuex"
     },
     methods:{
         ...mapActions(["UserDelete"]),
+        ...mapActions(["UserUpdate"]
+        ),
         Update(username) {
          this.temp=username
         },

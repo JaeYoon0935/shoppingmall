@@ -82,24 +82,26 @@ export default new Vuex.Store({
               })
       })
     },
-    // UserDelete({commit},payload) {
-    //   console.log(payload)
-    //   return new Promise((resolve, reject) => {
-    //       axios.post('http://localhost:9000/api/admin/userdelete',payload)
-    //           .then(Response => {
-    //               if(confirm('회원을 탈퇴처리 하시겠습니까?') == true){
-    //                 console.log(Response.data)
-    //                 commit('SET_USER', Response.data)
-    //               } else{
-    //                 return;
-    //               }
-    //           })
-    //           .catch(Error => {
-    //               console.log('error')
-    //               reject(Error)
-    //           })
-    //   })
-    // },
+    UserUpdate({commit},payload) {
+      console.log(payload)
+      if(confirm('회원정보를 수정하시겠습니까?') == true){
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/userupdate',payload)
+              .then(Response => {
+                  
+                    console.log(Response.data)
+                    commit('SET_USER', Response.data)
+                
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })            
+          })
+      } else{
+         return;
+      }
+    },
     UserDelete({commit},payload) {
       console.log(payload)
       if(confirm('회원을 탈퇴처리 하시겠습니까?') == true){
