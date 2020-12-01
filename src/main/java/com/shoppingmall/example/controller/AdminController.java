@@ -91,6 +91,16 @@ public class AdminController {
 		return new ResponseEntity<>(userList, HttpStatus.OK);
 	}
 	
+	//회원정보 수정하기
+	@PostMapping("/userupdate")
+	public ResponseEntity<?> updateData(@Validated @RequestBody UserInfo userinfo){
+
+		System.out.println(userinfo.getUsername());
+		userService.updateUser(userinfo);
+		List<UserInfo> userList = userService.shopping_readUser();
+		return new ResponseEntity<>(userList, HttpStatus.OK);
+	}
+	
 	
 	//카테고리정보 불러오기
 	@GetMapping("/categorylist")
@@ -104,7 +114,6 @@ public class AdminController {
 	public ResponseEntity<?> readRanking(){
 		List<Product> ranking = productService.ranking();
 		return new ResponseEntity<>(ranking, HttpStatus.OK);
-	}
-	
+	}	
 		
 }

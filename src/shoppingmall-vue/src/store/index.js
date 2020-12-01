@@ -88,7 +88,6 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/admin/userupdate',payload)
               .then(Response => {
-                  
                     console.log(Response.data)
                     commit('SET_USER', Response.data)
                 

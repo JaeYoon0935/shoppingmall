@@ -33,5 +33,7 @@ public interface UserService extends UserDetailsService{
 	
 	//È¸¿øÅ»Åð
 	public void delete_user(String username);
-	
+
+	//È¸¿ø¼öÁ¤
+	public void updateUser(UserInfo userinfo);
 }

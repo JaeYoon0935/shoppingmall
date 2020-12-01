@@ -8,6 +8,12 @@ import org.springframework.security.core.authority.AuthorityUtils;
 public class UserInfo {
 
 	private static final long serialVersionUID = 1L;
+	
+	//새롭게 변경되는 id이름
+	private String new_username;
+	//기존 id를 담아두기 위한 변수
+	private String temp;
+	
 	private String username;
 	private String name;
 	private String address;
@@ -19,6 +25,20 @@ public class UserInfo {
 	private String auth;
 	
 
+	
+	
+	public String getTemp() {
+		return temp;
+	}
+	public void setTemp(String temp) {
+		this.temp = temp;
+	}
+	public String getNew_username() {
+		return new_username;
+	}
+	public void setNew_username(String new_username) {
+		this.new_username = new_username;
+	}
 	public String getPassword() {
 		return password;
 	}

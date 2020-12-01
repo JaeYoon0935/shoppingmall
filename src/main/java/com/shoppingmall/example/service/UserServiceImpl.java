@@ -64,6 +64,10 @@ public class UserServiceImpl implements UserService{
 	public List<GrantedAuthority> readAuthorities_refresh(String username) {
 		return userMapper.readAuthorities_refresh(username);
 	}
+	//회원수정
+	public void updateUser(UserInfo userinfo) {
+		userMapper.updateUser(userinfo);
+	}
 	
 	//테스트 메서드
 	@Override

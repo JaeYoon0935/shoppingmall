@@ -32,4 +32,7 @@ public interface UserMapper {
 	//È¸¿ø Å»Åð
 	public void delete_user(String username);
 	
+	//È¸¿ø¼öÁ¤
+	public void updateUser(UserInfo userinfo);
+	
 }

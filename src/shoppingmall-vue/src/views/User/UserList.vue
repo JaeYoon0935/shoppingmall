@@ -10,7 +10,7 @@
          <tr>     
             <td>
               <span v-if="temp == row.item.username">
-                <input :style="{width:'82px'}" v-model="username">
+                <input :style="{width:'82px'}" v-model="new_username">
               </span>
               <span v-else>{{row.item.username}}</span>
             </td>
@@ -59,10 +59,8 @@
               </span>
               <span v-else>
                 <v-card-actions class="justify-start">  
-                <!-- <v-btn dark small color="grey" 
-                @click="UserUpdate(username, password, name, address, phone, email, point)">수정완료</v-btn> -->
                 <v-btn dark small color="grey" 
-                @click="UserUpdate({username, password, name, address, phone, email, point})">수정완료</v-btn>
+                @click="UserUpdate({new_username, temp, password, name, address, phone, email, point})">수정완료</v-btn>
                 <v-btn dark small color="grey" @click="Updata_cancle()">취소</v-btn>
               </v-card-actions>
               </span>
@@ -82,7 +80,7 @@ import { mapState, mapActions } from "vuex"
     data () {
       return {     
         temp:0,
-        username: '',
+        new_username: '',
         password: '',
         name:'',
         address:'',
