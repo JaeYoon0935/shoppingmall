@@ -1,0 +1,275 @@
+10:38:00.187 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 6760 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+10:38:00.190 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+10:38:00.190 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+10:38:01.241 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+10:38:01.673 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 1.804 seconds (JVM running for 2.396) 
+10:38:38.495 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+10:38:38.511 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:38:38.525 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+10:38:38.525 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:38:38.527 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:38:38.527 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:38:38.527 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+10:38:38.527 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+10:38:38.528 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:38:38.528 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+10:45:57.138 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+10:45:57.138 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:45:57.140 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+10:45:57.140 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:45:57.141 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:45:57.141 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:45:57.141 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+10:45:57.141 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+10:45:57.141 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:45:57.142 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+10:46:15.607 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+10:46:15.607 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:46:15.608 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+10:46:15.608 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:46:15.609 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:46:15.609 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:46:15.609 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+10:46:15.610 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+10:46:15.610 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:46:15.610 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+10:51:09.295 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+10:51:09.295 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:51:09.296 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+10:51:09.297 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:51:09.297 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:51:09.297 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:51:09.297 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+10:51:09.297 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+10:51:09.298 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:51:09.298 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+10:57:59.132 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+10:57:59.132 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:57:59.133 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+10:57:59.133 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:57:59.134 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:57:59.134 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:57:59.134 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+10:57:59.135 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+10:57:59.135 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:57:59.135 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+10:59:56.281 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+10:59:56.282 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+10:59:56.282 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+10:59:56.282 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:59:56.283 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:59:56.283 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+10:59:56.283 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+10:59:56.283 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+10:59:56.284 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+10:59:56.284 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+11:01:23.834 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+11:01:23.834 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:01:23.835 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+11:01:23.835 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+11:01:23.835 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+11:01:23.835 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+11:01:23.836 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+11:01:23.836 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+11:01:23.836 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+11:01:23.836 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+11:03:02.914 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+11:03:02.915 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:03:02.915 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+11:03:02.915 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:02.916 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:02.916 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:02.916 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:02.916 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:02.916 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:02.916 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+11:03:05.068 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+11:03:05.069 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+11:03:05.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+11:03:05.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:05.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:05.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:05.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:05.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:05.071 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+11:03:05.071 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:10:52.921 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:10:52.923 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:10:52.925 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:10:52.926 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:10:52.927 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:10:52.927 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:10:52.927 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:10:52.927 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:10:52.927 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:10:52.927 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:12:06.375 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:12:06.375 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:12:06.376 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:12:06.376 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:06.376 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:06.376 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:06.376 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:06.376 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:06.377 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:06.377 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:12:19.246 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:12:19.246 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:12:19.247 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:12:19.247 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:19.247 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:19.247 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:19.247 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:19.248 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:19.248 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:12:19.248 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:13:42.504 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:13:42.504 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:13:42.505 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:13:42.505 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:13:42.505 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:13:42.505 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:13:42.506 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:13:42.506 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:13:42.506 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:13:42.506 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:14:37.661 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:14:37.662 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:14:37.663 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:14:37.663 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:14:37.663 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:14:37.663 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:14:37.663 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:14:37.663 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:14:37.663 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:14:37.664 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:22:21.666 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:22:21.666 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:22:21.667 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:22:21.667 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:21.668 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:21.668 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:21.668 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:21.668 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:21.668 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:21.668 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:22:31.335 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:22:31.336 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:22:31.338 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:22:31.338 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:31.339 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:31.339 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:31.339 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:31.339 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:31.339 TRACE --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:31.339 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:22:58.021 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:22:58.022 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:22:58.022 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:22:58.023 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:58.023 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:58.023 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:58.023 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:58.023 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:58.023 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:22:58.023 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:27:46.232 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:27:46.233 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:27:46.234 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:27:46.234 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:46.234 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:46.234 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:46.234 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:46.234 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:46.234 TRACE --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:46.234 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:27:51.896 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:27:51.896 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:27:51.896 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:27:51.897 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:51.897 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:51.898 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:51.898 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:51.898 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:51.899 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:27:51.899 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:28:15.579 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:28:15.579 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:28:15.579 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:28:15.579 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:15.580 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:15.580 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:15.580 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:15.580 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:15.580 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:15.580 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:28:39.020 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:28:39.021 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:28:39.021 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:28:39.021 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:39.022 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:39.022 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:39.022 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:39.022 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:39.022 TRACE --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:39.022 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:28:47.936 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:28:47.936 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:28:47.937 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:28:47.937 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:47.937 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:47.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:47.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:47.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:47.938 TRACE --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:28:47.938 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:29:42.286 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:29:42.287 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:29:42.287 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:29:42.288 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:42.288 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:42.288 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:42.288 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:42.288 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:42.288 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:42.288 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:29:59.067 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:29:59.068 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:29:59.069 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:29:59.069 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:59.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:59.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:59.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:59.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:59.070 TRACE --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:29:59.070 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:33:56.990 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:33:56.991 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:33:56.992 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:33:56.992 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:33:56.992 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:33:56.992 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:33:56.992 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:33:56.992 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:33:56.992 TRACE --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:33:56.993 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:34:43.631 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:34:43.632 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:34:43.632 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:34:43.632 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:34:43.632 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:34:43.633 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:34:43.633 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:34:43.633 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:34:43.633 TRACE --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:34:43.633 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+13:36:17.509 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+13:36:17.509 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+13:36:17.510 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+13:36:17.510 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy, 123, 김모씨, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:36:17.510 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 4234, jy, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:36:17.510 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfdsf, 123, ger, 대구시 서구, 010-1111-1234, 123c@naver.com, 10000 
+13:36:17.510 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sdfsd, 32423123, gerger, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+13:36:17.510 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+13:36:17.510 TRACE --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==        Row: sfvd, 2312321, fsg, 대구시 중구, 010-1111-1234, 123c@naver.com, 10000 
+13:36:17.510 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.U.shopping_readUser : <==      Total: 6 

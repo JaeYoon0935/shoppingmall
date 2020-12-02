@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
 
     rank: 0,
+    temp: 0,
 
     //헤더랑 배열만 있으면 됨,
     userlist_headers: [
@@ -47,6 +48,7 @@ export default new Vuex.Store({
   mutations: {
       SET_USER(state, data) {
         state.userlist = data
+        state.temp = 0
     },
       SET_CATEGORY(state, data) {
       state.categorylist = data
@@ -89,13 +91,14 @@ export default new Vuex.Store({
           axios.post('http://localhost:9000/api/admin/userupdate',payload)
               .then(Response => {
                     console.log(Response.data)
-                    commit('SET_USER', Response.data)
-                
+                    console.log(this.state.temp)
+                    console.log('12321')
+                    commit('SET_USER', Response.data)     
               })
               .catch(Error => {
                   console.log('error')
                   reject(Error)
-              })            
+              })           
           })
       } else{
          return;
@@ -107,10 +110,8 @@ export default new Vuex.Store({
           return new Promise((resolve, reject) => {
               axios.post('http://localhost:9000/api/admin/userdelete',payload)
                   .then(Response => {
-                      
                         console.log(Response.data)
                         commit('SET_USER', Response.data)
-                      
                   })
                   .catch(Error => {
                       console.log('error')

@@ -53,7 +53,7 @@
             <td>
               <span v-if="temp != row.item.username">
               <v-card-actions class="justify-start">  
-                <v-btn dark small color="grey" @click="Update(row.item.username)">수정</v-btn>
+                <v-btn dark small color="grey" @click="Update(row.item)">수정</v-btn>
                 <v-btn dark small color="grey" @click="UserDelete(row.item)">탈퇴</v-btn>
               </v-card-actions>
               </span>
@@ -61,7 +61,7 @@
                 <v-card-actions class="justify-start">  
                 <v-btn dark small color="grey" 
                 @click="UserUpdate({new_username, temp, password, name, address, phone, email, point})">수정완료</v-btn>
-                <v-btn dark small color="grey" @click="Updata_cancle()">취소</v-btn>
+                <v-btn dark small color="grey" @click="Update_cancle()">취소</v-btn>
               </v-card-actions>
               </span>
             </td>
@@ -79,7 +79,9 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
-        temp:0,
+        temp: this.$store.state.temp,
+        //뮤테이션을 써야지 여기서 이렇게 템프를 바꿔도 스토어의 템프는 안바뀌는듯
+        //그냥 템프 변수 가져와서 사용하는 것일 뿐인 듯
         new_username: '',
         password: '',
         name:'',
@@ -96,11 +98,18 @@ import { mapState, mapActions } from "vuex"
         ...mapActions(["UserDelete"]),
         ...mapActions(["UserUpdate"]
         ),
-        Update(username) {
-         this.temp=username
+        Update(userinfo) {
+         this.temp=userinfo.username
+         this.new_username = userinfo.username
+         this.password = userinfo.password
+         this.name = userinfo.name
+         this.address = userinfo.address
+         this.phone = userinfo.phone
+         this.email = userinfo.email
+         this.point = userinfo.point
         },
-        Updata_cancle: function(){
-        this.temp=true  
+        Update_cancle: function(){
+        this.temp=0  
         }
     },
   }
