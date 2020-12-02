@@ -76,29 +76,35 @@ import { mapState, mapActions } from "vuex"
   export default {
     created(){
       this.$store.dispatch('UserList')
+      this.$store.state.temp
     },
     data () {
       return {     
         temp: this.$store.state.temp,
-        //뮤테이션을 써야지 여기서 이렇게 템프를 바꿔도 스토어의 템프는 안바뀌는듯
-        //그냥 템프 변수 가져와서 사용하는 것일 뿐인 듯
         new_username: '',
         password: '',
         name:'',
         address:'',
         phone:'',
         email:'',
-        point:''
+        point:'',
+        isActive: true
       }
     },
     computed: {
-      ...mapState(["userlist","userlist_headers"])
+      ...mapState(["userlist","userlist_headers"]),
+      classObject: function () {
+          return {
+           isActive :false
+        }
+      }
     },
     methods:{
         ...mapActions(["UserDelete"]),
         ...mapActions(["UserUpdate"]
         ),
         Update(userinfo) {
+         this.$store.state.temp=userinfo.username
          this.temp=userinfo.username
          this.new_username = userinfo.username
          this.password = userinfo.password
