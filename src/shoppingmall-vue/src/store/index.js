@@ -48,6 +48,7 @@ export default new Vuex.Store({
   mutations: {
       SET_USER(state, data) {
         state.userlist = data
+        
         // router.push("/userlist")
     },
       SET_CATEGORY(state, data) {
@@ -95,6 +96,7 @@ export default new Vuex.Store({
                     this.state.temp=0
                     console.log(this.state.temp)
                     commit('SET_USER', Response.data)
+                   
               })
               .catch(Error => {
                   console.log('error')
