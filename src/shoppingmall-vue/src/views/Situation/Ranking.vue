@@ -8,16 +8,66 @@
       class="elevation-1"
     ></v-data-table>
 
-    <p>항목설정 
-      <!-- : 추후에 카테고리 테이블에 있는 분류명(name칼럼)을 들고와야함.        
-        일단 Vuetify 이용해야함.
-        1.리스트탭 만들어서 카테고리 내용들을 선택하게 만들수 있도록 해야함.
-        2.리스트탭에서 하나를 선택하면 그 분류의 내용들이 뜨도록 해야함. -->
-    </p>
+    <div style="float: left;">
+        <div>
+          <div style="float: left;">
+          <p>항목설정</p>
+          </div>
+          <div style="float: left;">
+            <!-- : 추후에 카테고리 테이블에 있는 분류명(name칼럼)을 들고와야함. , 콤보박스를 사용 할 것 --> 
+              <v-combobox
+                v-model="select"
+                :items="items"
+                label="분류명"
+                multiple
+                outlined
+                dense
+                style = 'width:100px;'
+              ></v-combobox>   
+          </div>
+        </div>
 
-    <p>판매시기 설정</p>
+        <div>
+          <div style="float: left;">
+            <div>
+            <div style="float: left;">
+              <p>판매시기 설정</p>
+            </div>
 
-    <p>전체기간으로 조회 [체크박스]</p>
+              <div style="float: left;">
+                <v-combobox
+                    v-model="select"
+                    :items="items"
+                    label="연도"
+                    multiple
+                    outlined
+                    dense
+                    style = 'width:100px;'
+                  ></v-combobox>   
+              </div>
+
+              <div style="float: left;">
+                  <v-combobox
+                    v-model="select"
+                    :items="items"
+                    label="월"
+                    multiple
+                    outlined
+                    dense
+                    style = 'width:100px;'
+                  ></v-combobox>   
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- <v-checkbox label="전체기간으로 조회" v-model="ex3" color="black" value=" " hide-details></v-checkbox> -->
+
+          <div style="float: left;">
+            <p>
+              <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3;'> 
+            </p>
+          </div>
+    </div>
   </div>
 </template>
 
