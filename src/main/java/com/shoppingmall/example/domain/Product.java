@@ -2,7 +2,7 @@ package com.shoppingmall.example.domain;
 
 public class Product {
 
-	private int id; // 상품코드
+	private int id; //상품코드
 	private String name; //상품명
 	private String quantity; //상품재고
 	private String order_count; //상품 누적주문수

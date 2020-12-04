@@ -9,6 +9,8 @@
   "dependencies": {
     "@mdi/font": "^3.6.95",
     "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.20.1",
     "core-js": "^3.6.5",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
