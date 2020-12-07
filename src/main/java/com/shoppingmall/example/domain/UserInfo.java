@@ -24,9 +24,6 @@ public class UserInfo {
 	private Collection<? extends GrantedAuthority> authorities;
 	private String auth;
 	
-
-	
-	
 	public String getTemp() {
 		return temp;
 	}

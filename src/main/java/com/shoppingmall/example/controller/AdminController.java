@@ -32,13 +32,15 @@ import com.shoppingmall.example.service.UserService;
 //CrossOrigin을 사용하지 않으면 종종 8080(뷰)에 있는게 교류가 안될떄가 있어서 적어준다.
 @CrossOrigin(origins = "*", maxAge = 3600)
 
-// RestController와 일반 스테레오타입의 그냥 Controller와의 차이점
-// 리턴값을 보낼 때 단순 리턴값만 보내는 것이 아니라, HttpStatus.OK와 같은 상태값도 같이 보내야 한다는 것이다.
-// 이를 위해서 리턴시에 new ResponseEntity<>를 사용하게 된다.
-// 그리고 일반Controller을 사용할때는 ResponseBody어노테이션을 붙여줘야만, json값으로 리턴이 되어 프론트단으로 뿌릴수가 있었는데, 
-// ResponseEntity<>의 경우 ResponseBody어노테이션을 붙여주지 않아도 자동으로 리턴값을 json객체로 만들어주므로 ResponseBody 어노테이션을 사용할 필요가 없다.
 @RestController
+//RestController와 일반 스테레오타입의 그냥 Controller와의 차이점
+//리턴값을 보낼 때 단순 리턴값만 보내는 것이 아니라, HttpStatus.OK와 같은 상태값도 같이 보내야 한다는 것이다.
+//이를 위해서 리턴시에 new ResponseEntity<>를 사용하게 된다.
+//그리고 일반Controller을 사용할때는 ResponseBody어노테이션을 붙여줘야만, json값으로 리턴이 되어 프론트단으로 뿌릴수가 있었는데, 
+//ResponseEntity<>의 경우 ResponseBody어노테이션을 붙여주지 않아도 자동으로 리턴값을 json객체로 만들어주므로 ResponseBody 어노테이션을 사용할 필요가 없다.
 
+
+//관리자 페이지이므로 경로를 /admin으로 사용함.
 @RequestMapping("/api/admin")
 public class AdminController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -87,15 +89,12 @@ public class AdminController {
 	public ResponseEntity<?> delete_user(@Validated @RequestBody UserInfo userinfo){
 		userService.delete_user(userinfo.getUsername());		
 		List<UserInfo> userList = userService.shopping_readUser();
-		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
 		return new ResponseEntity<>(userList, HttpStatus.OK);
 	}
 	
 	//회원정보 수정하기
 	@PostMapping("/userupdate")
 	public ResponseEntity<?> updateData(@Validated @RequestBody UserInfo userinfo){
-
-		System.out.println(userinfo.getUsername());
 		userService.updateUser(userinfo);
 		List<UserInfo> userList = userService.shopping_readUser();
 		return new ResponseEntity<>(userList, HttpStatus.OK);
