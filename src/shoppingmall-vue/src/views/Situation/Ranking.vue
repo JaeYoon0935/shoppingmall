@@ -1,73 +1,59 @@
 <template>
-    <b-container fluid class="pt-2">
-    <h2>판매순위 페이지</h2>
-    <v-data-table
-      :headers="$store.state.ranking_header"
-      :items="$store.state.ranking"
-      :items-per-page="5"
-      class="elevation-1"
-    ></v-data-table>
+  <div class="about">
+    <h1>판매순위 페이지</h1>
+      <v-data-table
+        :headers="$store.state.ranking_header"
+        :items="$store.state.ranking"
+        :items-per-page="5"
+        class="elevation-1"
+      ></v-data-table>
 
-      <b-row class="text-left">
-        <b-col cols="1">항목설정</b-col>
-        <b-col cols="11">
-          <v-combobox
-            v-model="select"
-            :items="items"
-            label="분류명"
-            multiple
-            outlined
-            dense
-            style = 'width:130px;'
-          ></v-combobox>
-        </b-col>
-      </b-row>
+        <v-row no-gutters style="height: 60px;"></v-row>
 
-      <b-row class="text-left">
-        <b-col lg="1">
-        판매시기 설정
-        </b-col>
-        <b-col lg="1" class="col-1-5">
-          <v-combobox
-            :items="year"
-            label="연도"
-            multiple
-            outlined
-            dense
-            style = 'width:130px;'
-          ></v-combobox>   
-        </b-col>
-        <b-col lg="7" offset-lg="3">
-            <v-combobox
-            :items="month"
-            label="월"
-            multiple
-            outlined
-            dense
-            style = 'width:120px;'
-          ></v-combobox>
-        </b-col> 
-      </b-row>
-      
-      <b-row class="text-left">
-        <b-col cols="12">
-        <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3;'> 
-        </b-col>
-      </b-row>
+         <v-row no-gutters>
+            <v-col  style="text-align: right" :cols="1">항목설정:</v-col>
+            <v-col :cols="11">
+              <v-combobox
+                  v-model="select"
+                  :items="items"
+                  label="분류명"
+                  multiple
+                  outlined
+                  dense
+                  style = 'width:130px;'
+                ></v-combobox>
+            </v-col>
+         </v-row>
 
-    </b-container>
+         <v-row no-gutters style="height: 20px;"></v-row>
+
+         <v-row no-gutters>
+            <v-col  style="text-align: right" :cols="1">판매시기설정:</v-col>
+            <v-col :cols="2">
+              <v-combobox
+                :items="year"
+                label="연도"
+                multiple
+                outlined
+                dense
+                style = 'width:130px;'
+              ></v-combobox>   
+              <v-combobox
+                :items="month"
+                label="월"
+                multiple
+                outlined
+                dense
+                style = 'width:140px;'
+              ></v-combobox>
+            </v-col>
+            <v-col :cols="9">
+                <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3;'> 
+            </v-col>
+         </v-row>
+  </div>
 </template>
 
-<style scoped>
-.col-1-5 {
-    flex: 0 0 12.3%;
-    max-width: 12.3%;
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-</style>
 
 <script>
 import { mapState, mapActions } from "vuex"

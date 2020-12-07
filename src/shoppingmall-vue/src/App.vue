@@ -107,6 +107,7 @@
     </v-app-bar>
 
     <v-main>
+      <!-- <v-container grid fluid/> -->
       <router-view :key="$route.fullPath"/>
     </v-main>
   </v-app>
