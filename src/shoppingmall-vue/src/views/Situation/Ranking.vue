@@ -17,8 +17,8 @@
               </v-col>
             <v-col style="padding-left:20px" :cols="11">
               <v-combobox
-                  v-model="select"
-                  :items="items"
+                 
+                  :items="productlist[0].name"
                   label="분류명"
                   multiple
                   outlined
@@ -27,7 +27,6 @@
                 ></v-combobox>
             </v-col>
          </v-row>
-
          <v-row no-gutters style="height: 20px;"></v-row>
 
          <v-row no-gutters>
@@ -55,7 +54,7 @@
                 style = 'width:140px;'
               ></v-combobox>
             </v-col>
-            <v-col  :cols="2">
+            <v-col :cols="2">
               <v-icon>mdi-circle-medium</v-icon> 
                 <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3; padding-left:30px;'> 
             </v-col>
@@ -70,13 +69,18 @@ import { mdiCircleMedium } from '@mdi/js';
   export default {
     created(){
       this.$store.dispatch('Ranking')
+      this.$store.dispatch('ProductList')
+    },
+    computed: {
+      ...mapState(["productlist"]),
     },
     data () {
       return {     
-        items:[
-          '방등',
-          '거실등',
-        ],
+        // items:[
+        //   '방등',
+        //   '거실등',
+        // for문 이용해서 productlist에 있는 값을 불러오고, 그 값을 items에 넣은 다음 그 items를 위에 콤보박스에 다시 넣어준다.
+        // ],
         year:[
           '2015년',
           '2016년',

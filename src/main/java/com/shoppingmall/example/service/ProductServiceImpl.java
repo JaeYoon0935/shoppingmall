@@ -19,6 +19,10 @@ public class ProductServiceImpl implements ProductService{
 		return productmapper.ranking(); 
 	}
 	
+	public List<Product> productlist(){
+		return productmapper.productlist();
+	};
+	
 }
 
 

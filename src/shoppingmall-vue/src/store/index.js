@@ -13,7 +13,6 @@ export default new Vuex.Store({
 
     //헤더랑 배열만 있으면 됨,
     userlist_headers: [
-
       { text: '아이디', value: 'username'},
       { text: '비밀번호', value: 'password'},
       { text: '이름', value: 'name'},
@@ -43,7 +42,11 @@ export default new Vuex.Store({
       { text: '누적판매량', value: 'order_count', },
       { text: '상품명', value: 'name' },
     ],
+
     ranking:[],
+
+    productlist:[],
+    
   },
   mutations: {
       SET_USER(state, data) {
@@ -51,8 +54,12 @@ export default new Vuex.Store({
         
         // router.push("/userlist")
     },
+      SET_PRODUCT(state, data){
+        state.productlist = data
+        console.log(state.productlist)
+    },
       SET_CATEGORY(state, data) {
-      state.categorylist = data
+        state.categorylist = data
     },
       SET_RANKING(state, data) {
 
@@ -150,7 +157,20 @@ export default new Vuex.Store({
                   reject(Error)
               })
       })
-    }
+    },
+    ProductList({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/productlist')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_PRODUCT', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
   },
   modules: {
   }

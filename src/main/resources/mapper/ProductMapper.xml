@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shoppingmall.example.mapper.ProductMapper">
-		<!-- 테스트 메서드 (상품랭킹 불러오기) -->
+
+	<!-- 테스트 메서드 (상품랭킹 불러오기) -->
 	<select id="ranking" parameterType="String" resultType="Product">
 		SELECT			p_id					        as 	id,
 						p_name 							as 	name,
 						p_order_count					as	order_count,
 						p_rank                          as  rank
+		FROM			product
+	</select>
+	
+	<select id="productlist" parameterType="String" resultType="Product">
+		SELECT			p_name 							as 	name
 		FROM			product
 	</select>
 </mapper>

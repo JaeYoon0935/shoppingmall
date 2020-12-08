@@ -75,7 +75,6 @@ public class AdminController {
 		  return new ResponseEntity<>(userList, HttpStatus.OK);
 	}
 	
-	
 	//회원정보 불러오기
 	@GetMapping("/userlist")
 	public ResponseEntity<?> read_user(){
@@ -113,6 +112,13 @@ public class AdminController {
 	public ResponseEntity<?> readRanking(){
 		List<Product> ranking = productService.ranking();
 		return new ResponseEntity<>(ranking, HttpStatus.OK);
+	}	
+	
+	//상품랭킹 불러오기
+	@GetMapping("/productlist")
+	public ResponseEntity<?> productList(){
+		List<Product> productlist = productService.productlist();
+		return new ResponseEntity<>(productlist, HttpStatus.OK);
 	}	
 		
 }
