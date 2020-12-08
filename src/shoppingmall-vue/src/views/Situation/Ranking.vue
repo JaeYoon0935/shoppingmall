@@ -11,8 +11,11 @@
         <v-row no-gutters style="height: 60px;"></v-row>
 
          <v-row no-gutters>
-            <v-col  style="text-align: right" :cols="1">항목설정:</v-col>
-            <v-col :cols="11">
+            <v-col style="text-align:center;" :cols="1">
+              <v-icon>mdi-circle-medium</v-icon> 
+                항목설정:
+              </v-col>
+            <v-col style="padding-left:20px" :cols="11">
               <v-combobox
                   v-model="select"
                   :items="items"
@@ -28,8 +31,11 @@
          <v-row no-gutters style="height: 20px;"></v-row>
 
          <v-row no-gutters>
-            <v-col  style="text-align: right" :cols="1">판매시기설정:</v-col>
-            <v-col :cols="2">
+            <v-col style="text-align:center;" :cols="1">
+              <v-icon>mdi-circle-medium</v-icon> 
+                판매시기설정:
+            </v-col>
+            <v-col style="padding-left:20px" :cols="1">
               <v-combobox
                 :items="year"
                 label="연도"
@@ -38,6 +44,8 @@
                 dense
                 style = 'width:130px;'
               ></v-combobox>   
+              </v-col>
+            <v-col style="padding-left:30px;" :cols="2">
               <v-combobox
                 :items="month"
                 label="월"
@@ -47,8 +55,9 @@
                 style = 'width:140px;'
               ></v-combobox>
             </v-col>
-            <v-col :cols="9">
-                <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3;'> 
+            <v-col  :cols="2">
+              <v-icon>mdi-circle-medium</v-icon> 
+                <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3; padding-left:30px;'> 
             </v-col>
          </v-row>
   </div>
@@ -57,6 +66,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex"
+import { mdiCircleMedium } from '@mdi/js';
   export default {
     created(){
       this.$store.dispatch('Ranking')
