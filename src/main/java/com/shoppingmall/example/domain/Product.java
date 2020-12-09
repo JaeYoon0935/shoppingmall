@@ -7,7 +7,14 @@ public class Product {
 	private String quantity; //상품재고
 	private String order_count; //상품 누적주문수
 	private String rank; //순위
+	private String category; //카테고리
 	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public String getRank() {
 		return rank;
 	}

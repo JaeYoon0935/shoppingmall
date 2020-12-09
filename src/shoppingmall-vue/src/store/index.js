@@ -57,7 +57,7 @@ export default new Vuex.Store({
       SET_PRODUCT(state, data){
 
         for(var item=0; item <data.length; item++)  {
-          data[item] = data[item].name;
+          data[item] = data[item].category;
         }
 
         state.productlist = data
@@ -82,9 +82,6 @@ export default new Vuex.Store({
 
         state.ranking = data
     },    
-      SET_PRODUCTNAME(state,data){
-
-      }
   },
   actions: {
     UserList({commit}) {

@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="productlist" parameterType="String" resultType="Product">
-		SELECT			p_name 							as 	name
+		SELECT			p_category							as 	category
 		FROM			product
 	</select>
 </mapper>
