@@ -173,19 +173,6 @@ export default new Vuex.Store({
               })
       })
     },
-    ProductList({commit}) {
-      return new Promise((resolve, reject) => {
-          axios.get('http://localhost:9000/api/admin/productlist')
-              .then(Response => {
-                  console.log(Response.data)
-                  commit('SET_PRODUCT', Response.data)
-              })
-              .catch(Error => {
-                  console.log('error')
-                  reject(Error)
-              })
-      })
-    },
     CategoryName({commit}) {
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/categoryname')

@@ -11,8 +11,9 @@
 	
 		<!-- 카테고리명만 불러오기 -->
 	<select id="readCategory_name" parameterType="String" resultType="Category">
+	
 		SELECT			cg_name 							as 	name
-		FROM			category
+		FROM			category						 	WHERE  CHAR_LENGTH(cg_id) &lt;= 2    
 		<!-- where 여기에 두자리만 불러온다는 조건을 걸어주기 -->
 	</select>
 	

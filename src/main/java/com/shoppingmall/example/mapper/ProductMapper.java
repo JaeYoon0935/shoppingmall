@@ -10,7 +10,5 @@ import com.shoppingmall.example.domain.Product;
 public interface ProductMapper {
 	
 	public List<Product> ranking();
-	
-	public List<Product> productlist();
 
 }

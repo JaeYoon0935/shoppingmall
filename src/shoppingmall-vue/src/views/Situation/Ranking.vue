@@ -19,8 +19,10 @@
               <v-combobox                
                   :items="categoryname"
                   label="분류명"
+                  v-model="cg_select"
                   outlined
                   dense
+                  v-on:change="test(cg_select)"
                   style = 'width:130px;'
                 ></v-combobox>
             </v-col>
@@ -65,7 +67,6 @@ import { mapState, mapActions } from "vuex"
   export default {
     created(){
       this.$store.dispatch('Ranking')
-      this.$store.dispatch('ProductList')
       this.$store.dispatch('CategoryName')
     },
     computed: {
@@ -74,9 +75,9 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
+        cg_select: '전체',
         items:[
 
-        // for문 이용해서 productlist에 있는 값을 불러오고, 그 값을 items에 넣은 다음 그 items를 위에 콤보박스에 다시 넣어준다.
         ],
         year:[
           '2015년',
@@ -103,8 +104,8 @@ import { mapState, mapActions } from "vuex"
       }
     },
     methods:{
-        test(){
-            console.log(1);
+        test(cg_select){
+            console.log(cg_select);
         },
     },
   }

@@ -113,14 +113,7 @@ public class AdminController {
 		List<Product> ranking = productService.ranking();
 		return new ResponseEntity<>(ranking, HttpStatus.OK);
 	}	
-	
-	//상품랭킹 불러오기
-	@GetMapping("/productlist")
-	public ResponseEntity<?> productList(){
-		List<Product> productlist = productService.productlist();
-		return new ResponseEntity<>(productlist, HttpStatus.OK);
-	}	
-	
+
 	//카테고리 대분류명 불러오기
 	@GetMapping("/categoryname")
 	public ResponseEntity<?> categoryList(){

@@ -10,9 +10,5 @@
 						p_rank                          as  rank
 		FROM			product
 	</select>
-	
-	<select id="productlist" parameterType="String" resultType="Product">
-		SELECT			p_category							as 	category
-		FROM			product
-	</select>
+
 </mapper>
