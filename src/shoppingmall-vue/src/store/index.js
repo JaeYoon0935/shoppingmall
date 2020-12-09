@@ -37,6 +37,8 @@ export default new Vuex.Store({
     ],
     categorylist:[],
 
+    categoryname:[],
+
     ranking_header: [
       { text: '순위', value: 'rank', },
       { text: '누적판매량', value: 'order_count', },
@@ -65,6 +67,14 @@ export default new Vuex.Store({
     },
       SET_CATEGORY(state, data) {
         state.categorylist = data
+    },
+      SET_CATEGORY_NAME(state, data) {
+
+        for(var item=0; item <data.length; item++)  {
+          data[item] = data[item].name;
+        }
+
+        state.categoryname = data
     },
       SET_RANKING(state, data) {
 
@@ -169,6 +179,19 @@ export default new Vuex.Store({
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_PRODUCT', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+    CategoryName({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/categoryname')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_CATEGORY_NAME', Response.data)
               })
               .catch(Error => {
                   console.log('error')

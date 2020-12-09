@@ -17,7 +17,7 @@
               </v-col>
             <v-col style="padding-left:20px" :cols="11">
               <v-combobox                
-                  :items="productlist"
+                  :items="categoryname"
                   label="분류명"
                   outlined
                   dense
@@ -66,9 +66,10 @@ import { mapState, mapActions } from "vuex"
     created(){
       this.$store.dispatch('Ranking')
       this.$store.dispatch('ProductList')
+      this.$store.dispatch('CategoryName')
     },
     computed: {
-      ...mapState(["productlist"]),
+      ...mapState(["categoryname"]),
       //State는 배열로 가져오므로 1개를 가져오더라도 반드시 가져올때 대괄호로 감싸줘야함.
     },
     data () {

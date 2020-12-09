@@ -120,5 +120,12 @@ public class AdminController {
 		List<Product> productlist = productService.productlist();
 		return new ResponseEntity<>(productlist, HttpStatus.OK);
 	}	
+	
+	//카테고리 대분류명 불러오기
+	@GetMapping("/categoryname")
+	public ResponseEntity<?> categoryList(){
+		List<Category> categoryname = categoryService.readCategory_name();
+		return new ResponseEntity<>(categoryname, HttpStatus.OK);
+	}	
 		
 }

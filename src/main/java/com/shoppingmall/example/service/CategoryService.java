@@ -8,4 +8,5 @@ public interface CategoryService {
 
 	public List<Category> readCategory();
 	
+	public List<Category> readCategory_name();
 }

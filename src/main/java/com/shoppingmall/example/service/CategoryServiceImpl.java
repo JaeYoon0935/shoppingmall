@@ -20,4 +20,10 @@ public class CategoryServiceImpl implements CategoryService{
 		return categorymapper.readCategory();
 	};
 
+	@Override
+	public List<Category> readCategory_name(){
+		return categorymapper.readCategory_name();
+	};
+	
+	
 }
