@@ -55,6 +55,11 @@ export default new Vuex.Store({
         // router.push("/userlist")
     },
       SET_PRODUCT(state, data){
+
+        for(var item=0; item <data.length; item++)  {
+          data[item] = data[item].name;
+        }
+
         state.productlist = data
         console.log(state.productlist)
     },
@@ -77,6 +82,9 @@ export default new Vuex.Store({
 
         state.ranking = data
     },    
+      SET_PRODUCTNAME(state,data){
+
+      }
   },
   actions: {
     UserList({commit}) {
@@ -171,7 +179,7 @@ export default new Vuex.Store({
               })
       })
     },
-  },
+  }, 
   modules: {
   }
 })
