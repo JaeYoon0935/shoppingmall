@@ -186,6 +186,20 @@ export default new Vuex.Store({
               })
       })
     },
+    CategorySelect({commit},payload) {
+      console.log(payload  + "actions")
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/categoryselect',payload)
+              .then(Response => {
+                  console.log(Response.data)
+                  // commit('SET_RANKING', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
   }, 
   modules: {
   }

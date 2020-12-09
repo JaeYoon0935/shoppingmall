@@ -120,5 +120,12 @@ public class AdminController {
 		List<Category> categoryname = categoryService.readCategory_name();
 		return new ResponseEntity<>(categoryname, HttpStatus.OK);
 	}	
-		
+	
+	//판매랭킹페이지 - 카테고리 선택 시 해당 카테고리에 연관된 제품 불러오기
+	@PostMapping("/categoryselect")
+	public ResponseEntity<?> categoryselect(@Validated @RequestBody Category category){
+	List<Category> categoryname = categoryService.readCategory_name();
+	return new ResponseEntity<>(categoryname, HttpStatus.OK);
+	}
+	
 }
