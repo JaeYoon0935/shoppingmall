@@ -12,4 +12,6 @@ public interface CategoryMapper {
 	public List<Category> readCategory();
 	
 	public List<Category> readCategory_name();
+	
+	public List<Category> findCg_id();
 }

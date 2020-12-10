@@ -11,10 +11,24 @@
 	
 		<!-- 카테고리명만 불러오기 -->
 	<select id="readCategory_name" parameterType="String" resultType="Category">
-	
 		SELECT			cg_name 							as 	name
 		FROM			category						 	WHERE  CHAR_LENGTH(cg_id) &lt;= 2    
-		<!-- where 여기에 두자리만 불러온다는 조건을 걸어주기 -->
 	</select>
 	
+		<!-- 분류명을 통해 분류명에 해당하는 id를 찾기 -->
+	<select id="findCg_id" parameterType="String" resultType="Category">
+		SELECT			cg_id 							    as 	id
+		FROM			category						 	WHERE  cg_name as name = #{name}   
+	</select>
+	
+	
+	<!--    찾아낸 카테고리의 cg_id를 통해서 상품정보 찾아오기,
+			아래 쿼리를 활용해서 20이면 그 하위 2010, 2020 등도 불러올수 있으려면 어떻게 해야할지 구상할것
+			
+			SELECT	p_id,	p_name, 	p_order_count,	p_rank   
+			FROM category
+ 			LEFT JOIN product ON category.cg_id = product.p_category
+	
+	
+	 -->
 </mapper>

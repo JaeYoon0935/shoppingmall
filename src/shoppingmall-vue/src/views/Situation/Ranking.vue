@@ -19,10 +19,10 @@
               <v-combobox                
                   :items="categoryname"
                   label="분류명"
-                  v-model="cg_select"
+                  v-model="name"
                   outlined
                   dense
-                  v-on:change="CategorySelect(cg_select)"
+                  v-on:change="CategorySelect({name})"
                   style = 'width:130px;'
                 ></v-combobox>
             </v-col>
@@ -56,7 +56,7 @@
               <v-icon>mdi-circle-medium</v-icon> 
                 <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3; padding-left:30px;'> 
             </v-col>
-            <v-btn dark small color="grey" @click="CategorySelect(cg_select)">테스트</v-btn>
+            <v-btn dark small color="grey" @click="CategorySelect()">테스트</v-btn>
          </v-row>
   </div>
 </template>
@@ -75,7 +75,7 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
-        cg_select: '전체',
+        name: '전체',
         items:[
 
         ],
@@ -105,8 +105,8 @@ import { mapState, mapActions } from "vuex"
     },
     methods:{
        ...mapActions(["CategorySelect"]),
-        test(cg_select){
-            console.log(cg_select);
+        test(name){
+            console.log(name);
         },
     },
   }

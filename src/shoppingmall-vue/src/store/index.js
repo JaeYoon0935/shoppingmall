@@ -187,7 +187,7 @@ export default new Vuex.Store({
       })
     },
     CategorySelect({commit},payload) {
-      console.log(payload  + "actions")
+      console.log(payload)
       return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/admin/categoryselect',payload)
               .then(Response => {

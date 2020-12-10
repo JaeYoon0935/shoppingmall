@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> ranking(){
 		return productmapper.ranking(); 
 	}
-	
+
 }
 
 
