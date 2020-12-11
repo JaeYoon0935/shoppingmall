@@ -23,14 +23,16 @@ CREATE TABLE IF NOT EXISTS `category` (
   `cg_product_count` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.category:~5 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.category:~6 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
+	(2030, '주방등', 8),
 	(20, '등', 8),
 	(30, '스탠드', 3),
 	(2010, '거실등', 3),
 	(2020, '방등', 2),
-	(40, '전기재료', 5);
+	(40, '전기재료', 5),
+	(0, '전체', 9999999);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product 구조 내보내기
@@ -42,17 +44,17 @@ CREATE TABLE IF NOT EXISTS `product` (
   `p_order_count` int(10) DEFAULT NULL,
   `p_rank` int(10) DEFAULT NULL,
   `p_date` date DEFAULT NULL,
-  `p_category` varchar(255) DEFAULT NULL
+  `p_category` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 테이블 데이터 shoppingmall.product:~5 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_date`, `p_category`) VALUES
-	(1, '거실등', 200000, 3, 30, NULL, NULL, '20'),
-	(2, '방등', 80000, 2, 35, NULL, NULL, '20'),
-	(3, '일반스탠드', 70000, 3, 20, NULL, NULL, '30'),
-	(4, '멀티탭', 5000, 5, 5, NULL, NULL, '40'),
-	(5, '주방등', 150000, 5, 25, NULL, NULL, '20');
+	(1, '거실등', 200000, 3, 30, NULL, NULL, 2010),
+	(2, '방등', 80000, 2, 35, NULL, NULL, 2020),
+	(3, '일반스탠드', 70000, 3, 20, NULL, NULL, 30),
+	(4, '멀티탭', 5000, 5, 5, NULL, NULL, 40),
+	(5, '주방등', 150000, 5, 25, NULL, NULL, 2030);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.user 구조 내보내기
@@ -75,8 +77,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 테이블 데이터 shoppingmall.user:~6 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
-	('jy0935', '333', '이모씨', '대구시 동구', '010-2354-8451', 'abc@naver.com', 77777, NULL, 1, 1, 1, 1),
-	('jy1234', '123', '김모씨', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
+	('jy0935', '333', '이모씨', '대구시 동구', '010-2354-8451', 'abc@naver.com', 20000, NULL, 1, 1, 1, 1),
+	('jy1234', '356484', '김모씨', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
 	('jy12345', '4234', '이모씨', '대구시 중구', '010-1111-1234', 'fruit@naver.com', 30000, NULL, 1, 1, 1, 1),
 	('jy1515', '33311', '김모씨', '대구시 중구', '010-7555-1234', 'jkjk@naver.com', 20000, NULL, 1, 1, 1, 1),
 	('kkk333', '1523', '김모씨', '대구시 북구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1),
