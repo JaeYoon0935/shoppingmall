@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override
-	public List<Product> lowCgData(){
-		return productmapper.lowCgData();
+	public List<Product> lowCgData(int id){
+		return productmapper.lowCgData(id);
 	};
 	
 	

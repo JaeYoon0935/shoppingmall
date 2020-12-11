@@ -11,6 +11,6 @@ public interface ProductMapper {
 	
 	public List<Product> ranking();
 
-	public List<Product> lowCgData();
+	public List<Product> lowCgData(int id);
 	
 }

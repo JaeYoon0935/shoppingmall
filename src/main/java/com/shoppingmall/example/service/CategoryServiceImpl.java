@@ -26,8 +26,8 @@ public class CategoryServiceImpl implements CategoryService{
 	};
 	
 	@Override
-	public List<Category> findCg_id(){
-		return categorymapper.findCg_id();
+	public int findCg_id(String name){
+		return categorymapper.findCg_id(name);
 	};
 	
 }

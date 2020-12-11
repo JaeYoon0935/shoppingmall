@@ -37,7 +37,9 @@ export default new Vuex.Store({
     ],
     categorylist:[],
 
-    categoryname:[],
+    categoryname:[
+      
+    ],
 
     ranking_header: [
       { text: '순위', value: 'rank', },
@@ -192,7 +194,7 @@ export default new Vuex.Store({
           axios.post('http://localhost:9000/api/admin/categoryselect',payload)
               .then(Response => {
                   console.log(Response.data)
-                  // commit('SET_RANKING', Response.data)
+                  commit('SET_RANKING', Response.data)
               })
               .catch(Error => {
                   console.log('error')

@@ -18,6 +18,7 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public String getProduct_count() {
 		return product_count;
 	}
