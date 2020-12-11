@@ -14,11 +14,17 @@ public class ProductServiceImpl implements ProductService{
 	@Autowired 
 	ProductMapper productmapper; 
 	
-	
+	@Override
 	public List<Product> ranking(){
 		return productmapper.ranking(); 
 	}
-
+	
+	@Override
+	public List<Product> lowCgData(){
+		return productmapper.lowCgData();
+	};
+	
+	
 }
 
 

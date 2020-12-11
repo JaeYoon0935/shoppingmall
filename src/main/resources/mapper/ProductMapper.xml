@@ -10,5 +10,15 @@
 						p_rank                          as  rank
 		FROM			product
 	</select>
+	
+		  <!-- 찾게된 카테고리 id를 갖고, 그에 해당하는 하위분류들에 대한 데이터를 반환  -->
+	<select id="lowCgData" parameterType="String" resultType="Product">
+		SELECT			p_id					        as 	id,
+						p_name 							as 	name,
+						p_order_count					as	order_count,
+						p_rank                          as  rank						 
+		FROM 			product, (SELECT cg_id as id FROM category WHERE cg_id LIKE '20%') ta1
+		where  			ta1.id = product.p_category 
+	</select>
 
 </mapper>

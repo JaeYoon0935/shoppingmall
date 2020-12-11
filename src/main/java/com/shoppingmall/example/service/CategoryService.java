@@ -10,5 +10,5 @@ public interface CategoryService {
 	
 	public List<Category> readCategory_name();
 	
-	public List<Category> findCg_id();
+	public int findCg_id();
 }
