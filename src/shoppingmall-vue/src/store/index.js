@@ -10,6 +10,7 @@ export default new Vuex.Store({
 
     rank: 0,
     temp: 0,
+    all: '전체',
 
     //헤더랑 배열만 있으면 됨,
     userlist_headers: [
@@ -37,9 +38,7 @@ export default new Vuex.Store({
     ],
     categorylist:[],
 
-    categoryname:[
-      
-    ],
+    categoryname:[],
 
     ranking_header: [
       { text: '순위', value: 'rank', },
@@ -54,8 +53,7 @@ export default new Vuex.Store({
   },
   mutations: {
       SET_USER(state, data) {
-        state.userlist = data
-        
+        state.userlist = data      
         // router.push("/userlist")
     },
       SET_PRODUCT(state, data){
@@ -63,9 +61,8 @@ export default new Vuex.Store({
         for(var item=0; item <data.length; item++)  {
           data[item] = data[item].category;
         }
-
         state.productlist = data
-        console.log(state.productlist)
+       
     },
       SET_CATEGORY(state, data) {
         state.categorylist = data
@@ -175,7 +172,7 @@ export default new Vuex.Store({
               })
       })
     },
-    CategoryName({commit}) {
+    CategoryName({commit}, all) {
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/categoryname')
               .then(Response => {

@@ -132,13 +132,14 @@ public class AdminController {
 	System.out.println(findCg_id);
 	category.setId(findCg_id);
 	
-	List<Product> lowCgData = productService.lowCgData(category.getId());
-	//2차적으로 찾아낸 카테고리 id를 통해 그 하위항목 상품명까지 모두 불러오는 부분 
-//	List<Product> lowCgData = productService.lowCgData();
-
-	return new ResponseEntity<>(lowCgData, HttpStatus.OK);
-	}
-	
+	if(findCg_id == 0) {
+		List<Product> lowCgData = productService.lowCgData_all();
+		return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+	} else {
+		List<Product> lowCgData = productService.lowCgData(category.getId());
+		return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+	  }
+	}	
 }
 
 

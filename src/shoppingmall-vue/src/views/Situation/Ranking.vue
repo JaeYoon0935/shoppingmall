@@ -71,13 +71,12 @@ import { mapState, mapActions } from "vuex"
     },
     computed: {
       ...mapState(["categoryname"]),
-      //State는 배열로 가져오므로 1개를 가져오더라도 반드시 가져올때 대괄호로 감싸줘야함.
     },
     data () {
       return {     
         name: '전체',
         items:[
-            '전체',
+   
         ],
         year:[
           '2015년',

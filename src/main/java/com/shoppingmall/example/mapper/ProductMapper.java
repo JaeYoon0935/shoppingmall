@@ -13,4 +13,6 @@ public interface ProductMapper {
 
 	public List<Product> lowCgData(int id);
 	
+	public List<Product> lowCgData_all();
+	
 }

@@ -22,6 +22,15 @@
 	</select>
 	
 	
+	<select id="lowCgData_all" parameterType="int" resultType="Product">
+		SELECT			p_id					        as 	id,
+						p_name 							as 	name,
+						p_order_count					as	order_count,
+						p_rank                          as  rank						 
+		FROM 			product
+	</select>
+	
+	
 	<!-- SELECT			p_id					        as 	id,
 						p_name 							as 	name,
 						p_order_count					as	order_count,
