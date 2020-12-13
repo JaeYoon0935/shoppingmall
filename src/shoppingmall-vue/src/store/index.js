@@ -45,9 +45,17 @@ export default new Vuex.Store({
       { text: '누적판매량', value: 'order_count', },
       { text: '상품명', value: 'name' },
     ],
-
     ranking:[],
 
+    product_header:[
+      { text: '상품코드', value: 'id', },
+      { text: '상품이미지', value: 'image', },
+      { text: '상품정보', value: 'price', },
+      { text: '분류', value: 'category', },
+      { text: '통계', value: 'order_count', },
+      { text: '재고', value: 'quantity', },
+      { text: '관리', value: 'management', },
+    ],
     productlist:[],
     
   },
@@ -57,12 +65,7 @@ export default new Vuex.Store({
         // router.push("/userlist")
     },
       SET_PRODUCT(state, data){
-
-        for(var item=0; item <data.length; item++)  {
-          data[item] = data[item].category;
-        }
         state.productlist = data
-       
     },
       SET_CATEGORY(state, data) {
         state.categorylist = data
@@ -192,6 +195,20 @@ export default new Vuex.Store({
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_RANKING', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+    ProductList({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/productlist')
+              .then(Response => {
+                  console.log('들어옴')
+                  console.log(Response.data)
+                  commit('SET_PRODUCT', Response.data)
               })
               .catch(Error => {
                   console.log('error')

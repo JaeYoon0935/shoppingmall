@@ -11,4 +11,5 @@ public interface ProductService {
 	
 	public List<Product> lowCgData_all();
 	
+	public List<Product> readProduct();
 }

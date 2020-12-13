@@ -4,11 +4,25 @@ public class Product {
 
 	private int id; //상품코드
 	private String name; //상품명
+	private String price; // 상품가격
 	private String quantity; //상품재고
 	private String order_count; //상품 누적주문수
 	private String rank; //순위
 	private String category; //카테고리
+	private int views; // 조회수
 	
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	public int getViews() {
+		return views;
+	}
+	public void setViews(int views) {
+		this.views = views;
+	}
 	public String getCategory() {
 		return category;
 	}

@@ -124,22 +124,31 @@ public class AdminController {
 	//판매랭킹페이지 - 카테고리 선택 시 해당 카테고리에 연관된 제품 불러오기
 	@PostMapping("/categoryselect")
 	public ResponseEntity<?> categoryselect(@Validated @RequestBody Category category){
-	System.out.println(category.getName());
-	category.setName(category.getName());
-
-	//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
-	int findCg_id = categoryService.findCg_id(category.getName());
-	System.out.println(findCg_id);
-	category.setId(findCg_id);
+		System.out.println(category.getName());
+		category.setName(category.getName());
 	
-	if(findCg_id == 0) {
-		List<Product> lowCgData = productService.lowCgData_all();
-		return new ResponseEntity<>(lowCgData, HttpStatus.OK);
-	} else {
-		List<Product> lowCgData = productService.lowCgData(category.getId());
-		return new ResponseEntity<>(lowCgData, HttpStatus.OK);
-	  }
+		//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
+		int findCg_id = categoryService.findCg_id(category.getName());
+		System.out.println(findCg_id);
+		category.setId(findCg_id);
+		
+		if(findCg_id == 0) {
+			List<Product> lowCgData = productService.lowCgData_all();
+			return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+		} else {
+			List<Product> lowCgData = productService.lowCgData(category.getId());
+			return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+	    }
 	}	
+	
+	//상품정보 불러오기
+	@GetMapping("/productlist")
+	public ResponseEntity<?> read_product(){
+		System.out.println("들어옴");
+		List<Product> productList = productService.readProduct();		
+		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
+		return new ResponseEntity<>(productList, HttpStatus.OK);
+	}
 }
 
 

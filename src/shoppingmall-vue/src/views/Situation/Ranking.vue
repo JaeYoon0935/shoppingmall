@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>판매순위 페이지</h1>
+    <h2 class="pt-2">판매순위</h2>
       <v-data-table
         :headers="$store.state.ranking_header"
         :items="$store.state.ranking"
@@ -56,7 +56,6 @@
               <v-icon>mdi-circle-medium</v-icon> 
                 <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3; padding-left:30px;'> 
             </v-col>
-            <v-btn dark small color="grey" @click="CategorySelect()">테스트</v-btn>
          </v-row>
   </div>
 </template>
@@ -104,9 +103,6 @@ import { mapState, mapActions } from "vuex"
     },
     methods:{
        ...mapActions(["CategorySelect"]),
-        test(name){
-            console.log(name);
-        },
     },
   }
 </script>

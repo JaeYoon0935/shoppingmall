@@ -31,6 +31,17 @@
 	</select>
 	
 	
+	<select id="readProduct" parameterType="String" resultType="Product">
+		SELECT			p_id					        as 	id,
+						p_name 							as 	name,
+						p_price                         as  price,
+						p_order_count					as	order_count,
+						p_views                         as  views,	
+						p_category                      as  category,
+						p_quantity			            as  quantity
+		FROM 			product
+	</select>
+	
 	<!-- SELECT			p_id					        as 	id,
 						p_name 							as 	name,
 						p_order_count					as	order_count,

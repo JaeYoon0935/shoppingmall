@@ -28,6 +28,11 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> lowCgData_all(){
 		return productmapper.lowCgData_all();
 	};
+	
+	@Override
+	public List<Product> readProduct(){
+		return productmapper.readProduct();
+	};
 }
 
 
