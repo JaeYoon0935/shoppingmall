@@ -12,11 +12,13 @@
               <span>{{row.item.id}}</span>
             </td>
             <td>
-              <span>{{row.item.image}}</span>
-            </td>
-            <td>
-              <div>상품명: {{row.item.name}}</div>
-              <div>가격: {{row.item.price}}원</div>
+              <span display:inline-block;>
+                <v-img src="@/assets/livingLamp40.jpg" width="110"></v-img>
+              </span>
+              <span>
+                <div>상품명: {{row.item.name}}</div>
+                <div>가격: {{row.item.price}}원</div>
+              </span>
             </td>
             <td>
               <span>{{row.item.category}}</span>
@@ -26,7 +28,7 @@
               <div>판매량: {{row.item.order_count}}개</div>
             </td>
             <td>
-              <span>{{row.item.quantity}}</span>
+              <span>{{row.item.quantity}}개</span>
             </td>
             <td>
                 <div>

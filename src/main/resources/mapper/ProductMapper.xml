@@ -41,12 +41,5 @@
 						p_quantity			            as  quantity
 		FROM 			product
 	</select>
-	
-	<!-- SELECT			p_id					        as 	id,
-						p_name 							as 	name,
-						p_order_count					as	order_count,
-						p_rank                          as  rank						 
-		FROM 			product, (SELECT cg_id as id FROM category WHERE cg_id LIKE #{id}%) ta1
-		where  			ta1.id = product.p_category  -->
 
 </mapper>

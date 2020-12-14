@@ -49,7 +49,6 @@ export default new Vuex.Store({
 
     product_header:[
       { text: '상품코드', value: 'id', },
-      { text: '상품이미지', value: 'image', },
       { text: '상품정보', value: 'price', },
       { text: '분류', value: 'category', },
       { text: '통계', value: 'order_count', },
