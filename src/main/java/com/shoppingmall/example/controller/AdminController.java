@@ -144,9 +144,7 @@ public class AdminController {
 	//상품정보 불러오기
 	@GetMapping("/productlist")
 	public ResponseEntity<?> read_product(){
-		System.out.println("들어옴");
 		List<Product> productList = productService.readProduct();		
-		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
 }

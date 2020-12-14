@@ -118,8 +118,7 @@ export default new Vuex.Store({
                     console.log(this.state.temp)
                     this.state.temp=0
                     console.log(this.state.temp)
-                    commit('SET_USER', Response.data)
-                   
+                    commit('SET_USER', Response.data) 
               })
               .catch(Error => {
                   console.log('error')

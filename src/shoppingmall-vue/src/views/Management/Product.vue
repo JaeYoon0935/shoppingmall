@@ -1,24 +1,29 @@
 <template>
   <div class="about">
     <h2 class="pt-2">상품관리</h2>
+    <v-container>
       <v-data-table
         :headers="$store.state.product_header"
         :items="$store.state.productlist"
         :items-per-page="10"
-        class="elevation-1">
+        class="elevation-1"
+        
+        >
          <template v-slot:item="row">
          <tr>     
-            <td>
-              <span>{{row.item.id}}</span>
+            <td style="padding-left:50px;width:100px;">
+              {{row.item.id}}
             </td>
-            <td>
-              <span display:inline-block;>
-                <v-img src="@/assets/livingLamp40.jpg" width="110"></v-img>
-              </span>
-              <span>
-                <div>상품명: {{row.item.name}}</div>
-                <div>가격: {{row.item.price}}원</div>
-              </span>
+            <td style="width:400px;">
+                <v-row style="display:flex;width:400px;align-items:center;"> 
+                  <v-col style="overflow:hidden;">
+                     <v-img src="@/assets/livingLamp40.jpg" width="120%"></v-img>
+                  </v-col>
+                  <v-col>
+                    <div>상품명: {{row.item.name}}</div>
+                    <div>가격: {{row.item.price}}원</div>
+                  </v-col>
+                </v-row>
             </td>
             <td>
               <span>{{row.item.category}}</span>
@@ -44,9 +49,16 @@
           </tr>
         </template>
       </v-data-table>
+    </v-container>
   </div>
 </template>
-
+<style scoped>
+@media (min-width: 1200px) {
+  .container {
+    max-width:100%;
+  }
+}
+</style>
 <script>
 import { mapState, mapActions } from "vuex"
   export default {
