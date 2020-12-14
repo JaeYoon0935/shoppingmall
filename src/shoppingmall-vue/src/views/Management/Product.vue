@@ -6,16 +6,15 @@
         :headers="$store.state.product_header"
         :items="$store.state.productlist"
         :items-per-page="10"
-        class="elevation-1"
-        
+        class="elevation-1"    
         >
          <template v-slot:item="row">
          <tr>     
-            <td style="padding-left:50px;width:100px;">
+            <td style="padding-left:50px;width:130px;">
               {{row.item.id}}
             </td>
             <td style="width:400px;">
-                <v-row style="display:flex;width:400px;align-items:center;"> 
+                <v-row style="display:flex; width:400px; align-items:center;"> 
                   <v-col style="overflow:hidden;">
                      <v-img src="@/assets/livingLamp40.jpg" width="120%"></v-img>
                   </v-col>
@@ -25,16 +24,12 @@
                   </v-col>
                 </v-row>
             </td>
-            <td>
-              <span>{{row.item.category}}</span>
-            </td>
+            <td>{{row.item.category}}</td>
             <td>
               <div>조회수: {{row.item.views}}회</div>
               <div>판매량: {{row.item.order_count}}개</div>
             </td>
-            <td>
-              <span>{{row.item.quantity}}개</span>
-            </td>
+            <td>{{row.item.quantity}}개</td>
             <td>
                 <div>
                   <v-btn dark small color="grey" class="ma-1" @click="Update(row.item)">수정</v-btn>
@@ -54,6 +49,9 @@
 </template>
 <style scoped>
 @media (min-width: 1200px) {
+  /* .container 클래스는 위의 코드상에는 없지만, 
+    vuetify에서 v-container에 자동으로 적용시키는 클래스이다.
+    이 부분을 F12개발자 도구의 style 부분에서 찾아서 수정한 것이다. */
   .container {
     max-width:100%;
   }
