@@ -55,15 +55,15 @@ export default new Vuex.Store({
       { text: '재고', value: 'quantity', },
       { text: '관리', value: 'management', },
     ],
-    productlist:[],
-    
+    productlist:[],  
   },
   mutations: {
       SET_USER(state, data) {
         state.userlist = data      
-        // router.push("/userlist")
     },
       SET_PRODUCT(state, data){
+        data.price = Number(data.price)
+        data.name = typeof(data.price)
         state.productlist = data
     },
       SET_CATEGORY(state, data) {
@@ -90,7 +90,6 @@ export default new Vuex.Store({
         for(var i = 0; i<data.length; i++){
           data[i].rank = i+1;
         }
-
         state.ranking = data
     },    
   },
@@ -204,7 +203,6 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/productlist')
               .then(Response => {
-                  console.log('들어옴')
                   console.log(Response.data)
                   commit('SET_PRODUCT', Response.data)
               })

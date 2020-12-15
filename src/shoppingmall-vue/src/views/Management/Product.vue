@@ -10,19 +10,20 @@
         >
          <template v-slot:item="row">
          <tr>     
-            <td style="padding-left:50px;width:130px;">
+            <td style="padding-left:50px;width:150px;">
               {{row.item.id}}
+              <v-btn @click="test(row.item.price)" v-model="test">테스트</v-btn>
             </td>
             <td style="width:400px;">
                 <v-row style="display:flex; width:400px; align-items:center;"> 
                   <v-col style="overflow:hidden;">
-                    <img v-if="row.item.name=='방등'" :src="image.roomLamp" width="90%" height="100px" />
-                    <img v-else-if="row.item.name=='거실등'" :src="image.livingLamp40" width="90%" height="100px" />
-                    <img v-else-if="row.item.name=='식탁등'" :src="image.diningLamp" width="90%" height="100px" />
-                    <img v-else-if="row.item.name=='형광등 스탠드'" :src="image.lightStand" width="90%" height="100px" />
-                    <img v-else-if="row.item.name=='LED 스탠드'" :src="image.ledStand" width="90%" height="100px" />
-                    <img v-else-if="row.item.name=='2구 스위치'" :src="image.switchTwo" width="90%" height="100px" />
-                    <img v-else-if="row.item.name=='멀티탭'" :src="image.multiPlug" width="90%" height="100px" />               
+                    <img v-if="row.item.name=='거실등'" :src="image.livingLamp40"/>
+                    <img v-else-if="row.item.name=='방등'" :src="image.roomLamp"/>
+                    <img v-else-if="row.item.name=='식탁등'" :src="image.diningLamp"/>
+                    <img v-else-if="row.item.name=='형광등 스탠드'" :src="image.lightStand" />
+                    <img v-else-if="row.item.name=='LED 스탠드'" :src="image.ledStand"/>
+                    <img v-else-if="row.item.name=='2구 스위치'" :src="image.switchTwo" />
+                    <img v-else-if="row.item.name=='멀티탭'" :src="image.multiPlug"/>
                   </v-col>
                   <v-col>
                     <div>상품명: {{row.item.name}}</div>
@@ -62,6 +63,18 @@
     max-width:100%;
   }
 }
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+img{
+  width:90%; height:100px;
+}
+
 </style>
 <script>
 import { mapState, mapActions } from "vuex"
@@ -71,6 +84,7 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
+        test:'',
         image: 
         {
           livingLamp40: require("@/assets/livingLamp40.jpg"),
@@ -83,5 +97,10 @@ import { mapState, mapActions } from "vuex"
         },
       }
     },
+    methods:{
+      test(test){
+        alert(typeof(this.test));
+      }
+    }
   }
   </script>
