@@ -16,7 +16,8 @@
             <td style="width:400px;">
                 <v-row style="display:flex; width:400px; align-items:center;"> 
                   <v-col style="overflow:hidden;">
-                     <v-img src="@/assets/livingLamp40.jpg" width="120%"></v-img>
+                    <img :src="image.lamp" width="120%" />
+                     <!-- <v-img src="@/assets/livingLamp40.jpg" width="120%"></v-img> -->
                   </v-col>
                   <v-col>
                     <div>상품명: {{row.item.name}}</div>
@@ -65,6 +66,9 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
+        image: {
+                  lamp: require("@/assets/livingLamp40.jpg")
+               },
       }
     },
   }
