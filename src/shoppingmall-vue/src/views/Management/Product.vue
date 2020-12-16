@@ -25,8 +25,8 @@
                     <img v-else-if="row.item.name=='멀티탭'" :src="image.multiPlug"/> -->
 
                     <!-- row.item.image로 DB에 저장되어있는 image파일 이름을 불러오면 됨 -->
-                    <!-- <img :src="image(row.item.image)"/> -->
-                    <img :src="image('livingLamp40')"/>
+                    <img :src="image(row.item.image)"/>
+                    <!-- <img :src="image('livingLamp40')"/> -->
                   </v-col>
                   <v-col>
                     <div>상품명: {{row.item.name}}</div>

@@ -1,0 +1,249 @@
+09:04:57.212 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 9264 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+09:04:57.218 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+09:04:57.218 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+09:04:59.290 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+09:05:00.359 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 3.902 seconds (JVM running for 5.038) 
+09:05:34.803 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 13320 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+09:05:34.806 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+09:05:34.806 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+09:05:37.041 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+09:05:37.968 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 3.777 seconds (JVM running for 4.849) 
+09:18:38.238 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:18:38.284 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:18:38.333 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:18:38.335 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:18:38.345 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:18:38.346 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:18:38.347 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:18:38.349 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:18:38.350 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:18:38.351 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:18:38.352 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:19:29.930 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:19:29.931 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:19:29.933 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:19:29.933 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:19:29.935 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:19:29.936 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:19:29.937 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:19:29.938 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:19:29.939 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:19:29.939 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:19:29.940 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:19:39.626 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:19:39.627 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:19:39.631 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:19:39.631 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:19:39.633 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:19:39.638 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:19:39.639 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:19:39.641 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:19:39.641 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:19:39.643 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:19:39.643 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:21:04.273 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:21:04.274 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:21:04.275 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:21:04.275 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:21:04.276 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:21:04.276 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:21:04.277 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:21:04.277 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:21:04.277 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:21:04.278 TRACE --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:21:04.278 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:21:30.707 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:21:30.708 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:21:30.710 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:21:30.710 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:21:30.712 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:21:30.712 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:21:30.712 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:21:30.713 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:21:30.714 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:21:30.714 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:21:30.715 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:21:38.473 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:21:38.473 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:21:38.475 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:21:38.475 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:21:38.475 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:21:38.476 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:21:38.476 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:21:38.476 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:21:38.477 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:21:38.477 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:21:38.477 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:22:07.673 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:22:07.674 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:22:07.675 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:22:07.676 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:22:07.676 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:22:07.676 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:22:07.677 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:22:07.677 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:22:07.677 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:22:07.678 TRACE --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:22:07.678 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:23:35.832 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:23:35.832 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:23:35.833 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:23:35.833 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:23:35.834 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:23:35.834 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:23:35.834 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:23:35.834 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:23:35.834 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:23:35.835 TRACE --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:23:35.835 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:24:10.788 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:24:10.789 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:24:10.790 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:24:10.791 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:24:10.792 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:24:10.792 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:24:10.793 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:24:10.793 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:24:10.793 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:24:10.794 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:24:10.794 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:24:15.481 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:24:15.482 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:24:15.483 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:24:15.483 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:24:15.483 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:24:15.483 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:24:15.484 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:24:15.484 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:24:15.484 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:24:15.484 TRACE --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:24:15.484 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:24:21.283 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:24:21.285 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:24:21.287 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:24:21.287 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:24:21.288 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:24:21.290 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:24:21.290 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:24:21.291 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:24:21.291 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:24:21.292 TRACE --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:24:21.293 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:25:13.656 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:25:13.657 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:25:13.658 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:25:13.658 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:25:13.658 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:25:13.658 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:25:13.659 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:25:13.660 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:25:13.660 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:25:13.660 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:25:13.660 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:27:11.727 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:27:11.727 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:27:11.730 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:27:11.730 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:27:11.731 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:27:11.731 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:27:11.732 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:27:11.732 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:27:11.733 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:27:11.734 TRACE --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:27:11.734 DEBUG --- [http-nio-9000-exec-6] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:27:16.240 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:27:16.240 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:27:16.241 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:27:16.241 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:27:16.242 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:27:16.242 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:27:16.242 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:27:16.242 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:27:16.242 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:27:16.242 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:27:16.242 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:27:19.673 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+09:27:19.673 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+09:27:19.675 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+09:27:19.675 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2030, 주방등, 8 
+09:27:19.676 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, 등, 8 
+09:27:19.676 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 30, 스탠드, 3 
+09:27:19.676 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, 거실등, 3 
+09:27:19.677 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, 방등, 2 
+09:27:19.677 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 40, 전기재료, 5 
+09:27:19.677 TRACE --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==        Row: 0, 전체, 9999999 
+09:27:19.677 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.CategoryMapper.readCategory : <==      Total: 7 
+09:27:21.313 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:27:21.315 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:27:21.319 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:27:21.319 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:27:21.319 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:27:21.320 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:27:21.320 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:27:21.321 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:27:21.321 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:27:21.322 TRACE --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:27:21.322 DEBUG --- [http-nio-9000-exec-9] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:27:23.076 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id as id, cg_name as name, cg_product_count as product_count FROM category 
+09:27:23.077 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+09:27:23.078 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==    Columns: id, name, product_count 
+09:27:23.078 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2030, 주방등, 8 
+09:27:23.079 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, 등, 8 
+09:27:23.079 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 30, 스탠드, 3 
+09:27:23.079 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2010, 거실등, 3 
+09:27:23.079 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2020, 방등, 2 
+09:27:23.079 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 40, 전기재료, 5 
+09:27:23.080 TRACE --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==        Row: 0, 전체, 9999999 
+09:27:23.080 DEBUG --- [http-nio-9000-exec-10] c.s.e.m.CategoryMapper.readCategory : <==      Total: 7 
+09:27:25.160 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:27:25.160 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:27:25.162 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:27:25.162 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:27:25.163 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:27:25.163 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:27:25.163 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:27:25.163 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:27:25.164 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:27:25.164 TRACE --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:27:25.164 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:27:32.610 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==>  Preparing: SELECT p_id as id, p_name as name, p_order_count as order_count, p_rank as rank FROM product 
+09:27:32.610 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : ==>  Preparing: SELECT cg_name as name FROM category WHERE CHAR_LENGTH(cg_id) <= 2 
+09:27:32.611 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : ==> Parameters:  
+09:27:32.611 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : ==> Parameters:  
+09:27:32.612 TRACE --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : <==    Columns: name 
+09:27:32.612 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==    Columns: id, name, order_count, rank 
+09:27:32.612 TRACE --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : <==        Row: 등 
+09:27:32.612 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 1, 거실등, 30, null 
+09:27:32.612 TRACE --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : <==        Row: 스탠드 
+09:27:32.612 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 2, 방등, 35, null 
+09:27:32.612 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 3, 형광등 스탠드, 20, null 
+09:27:32.613 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 4, 멀티탭, 5, null 
+09:27:32.613 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 5, 주방등, 25, null 
+09:27:32.613 TRACE --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : <==        Row: 전기재료 
+09:27:32.613 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 6, 6구 콘센트, 25, null 
+09:27:32.613 TRACE --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : <==        Row: 전체 
+09:27:32.613 TRACE --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==        Row: 7, LED 스탠드, 15, null 
+09:27:32.613 DEBUG --- [http-nio-9000-exec-3] c.s.e.m.C.readCategory_name : <==      Total: 4 
+09:27:32.613 DEBUG --- [http-nio-9000-exec-2] c.s.e.mapper.ProductMapper.ranking : <==      Total: 7 
+09:27:39.649 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:27:39.650 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:27:39.653 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:27:39.653 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:27:39.654 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:27:39.654 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:27:39.655 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:27:39.656 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:27:39.656 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:27:39.657 TRACE --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:27:39.658 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 
+09:30:07.606 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity FROM product 
+09:30:07.606 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==> Parameters:  
+09:30:07.608 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity 
+09:30:07.609 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3 
+09:30:07.609 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 2, 방등, 80000, 35, 4, 2020, 2 
+09:30:07.609 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 30, 3 
+09:30:07.610 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 40, 5 
+09:30:07.610 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 5, 주방등, 150000, 25, 3, 2030, 5 
+09:30:07.610 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 6, 6구 콘센트, 10000, 25, 3, 40, 4 
+09:30:07.610 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 30, 3 
+09:30:07.610 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==      Total: 7 

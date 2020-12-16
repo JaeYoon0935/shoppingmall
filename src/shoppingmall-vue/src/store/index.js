@@ -62,8 +62,6 @@ export default new Vuex.Store({
         state.userlist = data      
     },
       SET_PRODUCT(state, data){
-        data.price = Number(data.price)
-        data.name = typeof(data.price)
         state.productlist = data
     },
       SET_CATEGORY(state, data) {
