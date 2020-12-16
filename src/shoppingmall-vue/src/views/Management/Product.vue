@@ -12,7 +12,6 @@
          <tr>     
             <td style="padding-left:50px;width:150px;">
               {{row.item.id}}
-              <v-btn @click="test(row.item.price)" v-model="test">테스트</v-btn>
             </td>
             <td style="width:400px;">
                 <v-row style="display:flex; width:400px; align-items:center;"> 
@@ -27,7 +26,7 @@
                   </v-col>
                   <v-col>
                     <div>상품명: {{row.item.name}}</div>
-                    <div>가격: {{row.item.price}}원</div>
+                    <div>가격: {{priceToString(row.item.price)}}원</div>
                   </v-col>
                 </v-row>
             </td>
@@ -84,7 +83,7 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
-        test:'',
+        address:'',
         image: 
         {
           livingLamp40: require("@/assets/livingLamp40.jpg"),
@@ -98,8 +97,8 @@ import { mapState, mapActions } from "vuex"
       }
     },
     methods:{
-      test(test){
-        alert(typeof(this.test));
+      priceToString(price) {
+         return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       }
     }
   }
