@@ -39,7 +39,24 @@
 						p_views                         as  views,	
 						p_category                      as  category,
 						p_quantity			            as  quantity
+						                                as  image
 		FROM 			product
 	</select>
+	
+	<!-- 
+	  이미지를 불러오는 쿼리는 완성되었다.
+	SELECT			product.p_id					        as 	id,
+						p_name 							as 	name,
+						p_price                         as  price,
+						p_order_count					as	order_count,
+						p_views                         as  views,	
+						p_category                      as  category,
+						p_quantity			            as  quantity,
+						pi_image                      as image
+		FROM 			product 
+		JOIN product_img ON (product.p_id = product_img.p_id);
+	
+	
+	 -->
 
 </mapper>

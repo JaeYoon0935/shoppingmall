@@ -9,8 +9,15 @@ public class Product {
 	private String order_count; //상품 누적주문수
 	private String rank; //순위
 	private String category; //카테고리
+	private String image; //이미지
 	private int views; // 조회수
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getPrice() {
 		return price;
 	}
