@@ -1,31 +1,34 @@
 <template>
   <div class="about">
-      <v-col><h2 class="pt-2">상품등록</h2></v-col>
-    <v-container>
-      <v-data-table
-        :headers="$store.state.product_header"
-        :items="$store.state.productlist"
-        :items-per-page="10"
-        class="elevation-1"    
-        >
-         <template v-slot:item="row">
-         <tr>     
-            <td>
-              1
-            </td>
-            <td>
-            </td>
-            <td>{{row.item.category}}</td>
-            <td>
-              
-            </td>
-            <td></td>
-            <td>
-            </td>
-          </tr>
-        </template>
-      </v-data-table>
-    </v-container>
+   <h2 class="pt-2">상품등록</h2>
+    <table  class="table">
+      <tbody>
+        <tr>     
+          <th>상품코드</th>
+          <td><input style="height:100%; width:100%;"></td>
+        </tr>
+        <tr>
+          <th>상품명</th>
+          <td><input style="height:100%; width:100%;"></td>
+        </tr>
+        <tr>
+          <th>가격</th>
+          <td><input style="height:100%; width:100%;"></td>
+        </tr>
+          <tr>
+          <th>분류코드</th>
+          <td><input style="height:100%; width:100%;"></td>
+        </tr>
+        <tr>
+          <th>재고</th>
+          <td><input style="height:100%; width:100%;"></td>
+        </tr>
+        <tr>
+          <th>이미지 업로드</th>
+          <td>이미지 업로드 버튼 구현하기</td>
+        </tr>
+    </tbody>
+  </table>
   </div>
 </template>
 <style scoped>
@@ -36,6 +39,17 @@
   .container {
     max-width:100%;
   }
+}
+th{
+  width:200px;
+  height:100px;
+  border: 0.5px solid;
+  border-color: rgb(200, 200, 200);
+}
+td{
+  border: 0.5px solid;
+  height:100px;
+  border-color: rgb(200, 200, 200);
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
