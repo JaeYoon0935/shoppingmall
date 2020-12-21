@@ -2,7 +2,7 @@
   <div class="home">
     <h2 class="pt-2">관리자페이지</h2>  <hr />
     <p>
-        블로그 CSS
+        관리자 메인페이지 입니다. (BLOG CSS)
     </p>
   </div>
 </template>

@@ -124,7 +124,6 @@ public class AdminController {
 	//판매랭킹페이지 - 카테고리 선택 시 해당 카테고리에 연관된 제품 불러오기
 	@PostMapping("/categoryselect")
 	public ResponseEntity<?> categoryselect(@Validated @RequestBody Category category){
-		System.out.println(category.getName());
 		category.setName(category.getName());
 	
 		//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
@@ -145,6 +144,15 @@ public class AdminController {
 	@GetMapping("/productlist")
 	public ResponseEntity<?> read_product(){
 		List<Product> productList = productService.readProduct();		
+		return new ResponseEntity<>(productList, HttpStatus.OK);
+	}
+	
+	//상품정보 등록하기
+	@PostMapping("/productcreate")
+	public ResponseEntity<?> create_product(@Validated @RequestBody Product product){
+		productService.createProduct(product);		
+		productService.createImage(product);
+		List<Product> productList = productService.readProduct();	
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
 }

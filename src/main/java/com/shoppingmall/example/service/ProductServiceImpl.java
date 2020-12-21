@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shoppingmall.example.domain.Product;
+import com.shoppingmall.example.domain.Product_img;
 import com.shoppingmall.example.mapper.ProductMapper;
 
 @Service("ProductServiceImpl")
@@ -32,6 +33,16 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<Product> readProduct(){
 		return productmapper.readProduct();
+	};
+	
+	@Override
+	public void createProduct(Product product){
+		productmapper.createProduct(product);
+	};
+	
+	@Override
+	public void createImage(Product product){
+		productmapper.createImage(product);
 	};
 }
 

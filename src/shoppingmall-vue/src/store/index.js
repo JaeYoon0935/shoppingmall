@@ -56,6 +56,7 @@ export default new Vuex.Store({
       { text: '관리', value: 'management', },
     ],
     productlist:[],  
+    // newproduct:[],
   },
   mutations: {
       SET_USER(state, data) {
@@ -90,6 +91,9 @@ export default new Vuex.Store({
         }
         state.ranking = data
     },    
+    //   CREATE_PRODUCT(state, data){
+    //     state.newproduct = data
+    // },
   },
   actions: {
     UserList({commit}) {
@@ -209,6 +213,27 @@ export default new Vuex.Store({
                   reject(Error)
               })
       })
+    },
+    ProductCreate({commit},payload) {
+      console.log(payload)
+      if(confirm('상품을 등록하시겠습니까?') == true){
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/productcreate',payload)
+          .then(Response => {
+            console.log(Response.data)
+            commit('SET_PRODUCT', Response.data)},
+            alert('상품이 등록되었습니다.'))    
+          .then(() => router.push({ name: 'Product' }))
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+                  alert('상품등록에러')
+                  .then(() => router.push({name:'ProductRegistration'}))
+              })
+      })
+       }else{
+         return;
+       }
     },
   }, 
   modules: {

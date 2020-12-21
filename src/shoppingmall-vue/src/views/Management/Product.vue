@@ -23,17 +23,7 @@
             <td style="width:420px;">
                 <v-row style="display:flex; width:420px; align-items:center;"> 
                   <v-col style="overflow:hidden;">
-                    <!-- <img v-if="row.item.name=='거실등'" :src="image.livingLamp40"/>
-                    <img v-else-if="row.item.name=='방등'" :src="image.roomLamp"/>
-                    <img v-else-if="row.item.name=='식탁등'" :src="image.diningLamp"/>
-                    <img v-else-if="row.item.name=='형광등 스탠드'" :src="image.lightStand" />
-                    <img v-else-if="row.item.name=='LED 스탠드'" :src="image.ledStand"/>
-                    <img v-else-if="row.item.name=='2구 스위치'" :src="image.switchTwo" />
-                    <img v-else-if="row.item.name=='멀티탭'" :src="image.multiPlug"/> -->
-
-                    <!-- row.item.image로 DB에 저장되어있는 image파일 이름을 불러오면 됨 -->
                     <img :src="image(row.item.image)"/>
-                    <!-- <img :src="image('livingLamp40')"/> -->
                   </v-col>
                   <v-col>
                     <div>상품명: {{row.item.name}}</div>
@@ -94,17 +84,7 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
-        address:'',
-        // image: 
-        // {
-        //   livingLamp40: require("@/assets/livingLamp40.jpg"),
-        //   roomLamp: require("@/assets/roomLamp.jpg"),
-        //   diningLamp: require("@/assets/diningLamp.jpg"),
-        //   lightStand: require("@/assets/lightStand.jpg"),
-        //   ledStand: require("@/assets/ledStand.jpg"),
-        //   multiPlug: require("@/assets/multiPlug.jpg"),
-        //   switchTwo: require("@/assets/switchTwo.jpg"),
-        // },
+
       }
     },
     methods:{
@@ -113,6 +93,9 @@ import { mapState, mapActions } from "vuex"
       },
       image(image){
         //경로를 조합해줄 메서드.
+        if(image == null){
+          return require('@/assets/null.jpg');
+        }
         return require('@/assets/'+ image +'.jpg');
       },
     }

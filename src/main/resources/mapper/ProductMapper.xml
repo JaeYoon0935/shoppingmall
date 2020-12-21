@@ -29,21 +29,7 @@
 						p_rank                          as  rank						 
 		FROM 			product
 	</select>
-	
-	<!-- 
-	<select id="readProduct" parameterType="String" resultType="Product">
-		SELECT			p_id					        as 	id,
-						p_name 							as 	name,
-						p_price                         as  price,
-						p_order_count					as	order_count,
-						p_views                         as  views,	
-						p_category                      as  category,
-						p_quantity			            as  quantity
-						                                as  image
-		FROM 			product
-	</select>
-	 -->
-	 
+		 
 	<resultMap id="productData" type="Product">
 	</resultMap>
 	
@@ -51,7 +37,7 @@
 	</resultMap>
  
 	<select id="readProduct" resultMap="productData, productImage">
-	SELECT			product.p_id					        as 	id,
+		SELECT			product.p_id					        as 	id,
 						p_name 							as 	name,
 						p_price                         as  price,
 						p_order_count					as	order_count,
@@ -62,6 +48,42 @@
 		FROM 			product 
 		JOIN product_img ON (product.p_id = product_img.p_id);
 	</select>
+
+	<insert id="createProduct" parameterType="Product" >      
+		INSERT INTO product (
+			p_id, 
+			p_name, 
+			p_price, 
+			p_category, 
+			p_quantity,
+			p_order_count,
+			p_views
+		) VALUES (
+			#{id}, 
+			#{name}, 
+			#{price}, 
+			#{category},
+			#{quantity},
+			0,
+			0
+		)
+	</insert>
+
+
+	<!-- id로 입력한 값이 product_img에도 id로 일단은 입력되도록 설정함. -->
+	<insert id="createImage" parameterType="Product" >      
+		INSERT INTO product_img (
+			p_id, 
+			pi_image, 
+			pi_id
+		) VALUES (
+			#{id}, 
+			null, 
+			#{id}
+		)
+	</insert>
+
+
 
 
 </mapper>
