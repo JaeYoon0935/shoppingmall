@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-   <h2 class="pt-2">상품등록</h2>
+   <h2 class="pt-2">상품등록(상품수정은 등록기능 그대로 사용하면 됨.)</h2>
     <table class="table">
       <tbody>
         <tr>     

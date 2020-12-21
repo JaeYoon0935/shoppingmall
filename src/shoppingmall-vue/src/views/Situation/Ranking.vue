@@ -36,6 +36,7 @@
             </v-col>
             <v-col style="padding-left:0px;" :cols="1">
               <v-combobox
+              class="ml-4"
                 :items="year"
                 label="연도"
                 outlined
