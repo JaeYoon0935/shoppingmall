@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-   <h2 class="pt-2">상품등록</h2>
+   <h2 class="pt-2">상품수정</h2>
     <table class="table">
       <tbody>
         <tr>     
@@ -43,7 +43,7 @@
             sm="4"
             md="4"
           >
-           <v-btn width="100px" class="mr-5 ml-10" @click="ProductCreate({id, name, price, category, quantity})"> 등록</v-btn>
+           <v-btn width="100px" class="mr-5 ml-10" @click="ProductDataUpdate({id, name, price, category, quantity})"> 수정완료</v-btn>
            <v-btn width="100px" router :to="{name:'Product'}">취소</v-btn>
         </v-col> 
     </v-row>
@@ -90,15 +90,19 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
-        id:'', 
-        name: '',
-        price: '',
-        category:'',
-        quantity:'',
+        id: this.$store.state.product[0].id, 
+        name: this.$store.state.product[0].name,
+        price: this.$store.state.product[0].price,
+        category: this.$store.state.product[0].category,
+        quantity: this.$store.state.product[0].quantity,
       }
     },
+      computed: {
+      ...mapState(["product"])
+    },
+
     methods:{
-      ...mapActions(["ProductCreate"]),
+      ...mapActions(["ProductDataUpdate"]),
       priceToString(price) {
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       },

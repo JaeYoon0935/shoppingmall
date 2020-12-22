@@ -95,8 +95,7 @@ import { mapState, mapActions } from "vuex"
     },
     methods:{
         ...mapActions(["UserDelete"]),
-        ...mapActions(["UserUpdate"]
-        ),
+        ...mapActions(["UserUpdate"]),
         Update(userinfo) {
          this.$store.state.temp=userinfo.username
          this.temp=userinfo.username

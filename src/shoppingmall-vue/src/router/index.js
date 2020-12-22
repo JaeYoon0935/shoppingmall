@@ -12,6 +12,7 @@ import Stock from '../views/Management/Stock.vue'
 import Ranking from '../views/Situation/Ranking.vue'
 import Sales from '../views/Situation/Sales.vue'
 import ProductRegistration from '../views/Management/ProductRegistration.vue'
+import ProductUpdate from '../views/Management/ProductUpdate.vue'
 
 Vue.use(VueRouter)
 
@@ -75,6 +76,11 @@ const routes = [
     path: '/productRegistration',
     name: 'ProductRegistration',
     component: ProductRegistration
+  },
+  {
+    path: '/productUpdate',
+    name: 'ProductUpdate',
+    component: ProductUpdate
   },
   {
     path: '/about',

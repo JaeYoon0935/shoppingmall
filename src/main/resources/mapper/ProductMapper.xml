@@ -36,7 +36,7 @@
 	<resultMap id="productImage" type="Product_img">
 	</resultMap>
  
-	<select id="readProduct" resultMap="productData, productImage">
+	<select id="readAllProduct" resultMap="productData, productImage">
 		SELECT			product.p_id					        as 	id,
 						p_name 							as 	name,
 						p_price                         as  price,
@@ -48,6 +48,21 @@
 		FROM 			product 
 		JOIN product_img ON (product.p_id = product_img.p_id);
 	</select>
+	
+	<select id="readProduct" resultMap="productData, productImage">
+		SELECT			product.p_id					        as 	id,
+						p_name 							as 	name,
+						p_price                         as  price,
+						p_order_count					as	order_count,
+						p_views                         as  views,	
+						p_category                      as  category,
+						p_quantity			            as  quantity,
+						pi_image                      as image
+		FROM 			product
+		JOIN product_img ON (product.p_id = product_img.p_id)
+		WHERE product.p_id = #{id}
+	</select>
+	
 
 	<insert id="createProduct" parameterType="Product" >      
 		INSERT INTO product (
@@ -84,6 +99,34 @@
 	</insert>
 
 
+	<!-- 상품 삭제구현 -->
+	<delete id="productDelete" parameterType="Product">
+		DELETE FROM product where p_id=#{id}
+	</delete>
+	
+	<delete id="product_img_Delete" parameterType="Product">
+		DELETE FROM product_img where p_id=#{id}
+	</delete>
+		<!-- 상품정보 수정하기 -->
+	<update id="productDataUpdate" parameterType="Product">
+		update			product								set
+						p_id = #{id},
+						p_name = #{name},
+						p_price = #{price},
+						p_category = #{category},
+						p_quantity = #{quantity}
+							
+						where p_id= #{id}		
+	</update>
+	
+	<update id="productImgUpdate" parameterType="Product">
+		update			product_img								set
+						p_id = #{id},
+						pi_image = null,
+						pi_id = #{id}
+							
+						where p_id= #{id}		
+	</update>
 
 
 </mapper>

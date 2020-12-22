@@ -143,7 +143,7 @@ public class AdminController {
 	//상품정보 불러오기
 	@GetMapping("/productlist")
 	public ResponseEntity<?> read_product(){
-		List<Product> productList = productService.readProduct();		
+		List<Product> productList = productService.readAllProduct();		
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
 	
@@ -152,9 +152,47 @@ public class AdminController {
 	public ResponseEntity<?> create_product(@Validated @RequestBody Product product){
 		productService.createProduct(product);		
 		productService.createImage(product);
-		List<Product> productList = productService.readProduct();	
+		List<Product> productList = productService.readAllProduct();	
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
+	
+	//상품삭제하기
+	@PostMapping("/productdelete")
+	public ResponseEntity<?> productDelete(@Validated @RequestBody Product product){
+		productService.productDelete(product);
+		productService.product_img_Delete(product);
+		List<Product> productList = productService.readAllProduct();
+		return new ResponseEntity<>(productList, HttpStatus.OK);
+	}
+	
+	//상품수정하기
+	@PostMapping("/productupdate")
+	public ResponseEntity<?> productUpdate(@Validated @RequestBody Product product){
+		List<Product> product_one = productService.readProduct(product);
+		return new ResponseEntity<>(product_one, HttpStatus.OK);
+	}
+	
+	
+//	//회원정보 수정하기
+//		@PostMapping("/userupdate")
+//		public ResponseEntity<?> updateData(@Validated @RequestBody UserInfo userinfo){
+//			userService.updateUser(userinfo);
+//			List<UserInfo> userList = userService.shopping_readUser();
+//			return new ResponseEntity<>(userList, HttpStatus.OK);
+//		}
+
+	
+	//상품정보수정하기
+	@PostMapping("/productdataupdate")
+	public ResponseEntity<?> productDataUpdate(@Validated @RequestBody Product product){
+		productService.productDataUpdate(product);
+		productService.productImgUpdate(product);
+		List<Product> productList = productService.readAllProduct();
+		return new ResponseEntity<>(productList, HttpStatus.OK);
+	}
+	
+	
+	
 }
 
 

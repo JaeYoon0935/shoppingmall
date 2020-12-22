@@ -16,9 +16,19 @@ public interface ProductMapper {
 	
 	public List<Product> lowCgData_all();
 	
-	public List<Product> readProduct();
+	public List<Product> readAllProduct();
+	
+	public List<Product> readProduct(Product product);
 	
 	public void createProduct(Product product);
 
 	public void createImage(Product product);
+	
+	public void productDelete(Product product);
+	
+	public void product_img_Delete(Product product);
+	
+	public void productDataUpdate(Product product);
+	
+	public void productImgUpdate(Product product);
 }

@@ -39,13 +39,13 @@
             <td>{{row.item.quantity}}개</td>
             <td>
                 <div>
-                  <v-btn dark small color="grey" class="ma-2" @click="Update(row.item)">수정</v-btn>
+                  <v-btn dark small color="grey" class="ma-2" @click="ProductUpdate(row.item)">수정</v-btn>
                 </div>
                 <div>
-                 <v-btn dark small color="grey" class="ml-2" @click="UserDelete(row.item)">상품보기</v-btn>
+                 <v-btn dark small color="grey" class="ml-2">상품보기</v-btn>
                 </div>
                 <div>
-                  <v-btn dark small color="grey" class="ma-2" @click="UserDelete(row.item)">삭제</v-btn>
+                  <v-btn dark small color="grey" class="ma-2" @click="ProductDelete(row.item)">삭제</v-btn>
                 </div>
             </td>
           </tr>
@@ -88,6 +88,8 @@ import { mapState, mapActions } from "vuex"
       }
     },
     methods:{
+      ...mapActions(["ProductDelete"]),
+      ...mapActions(["ProductUpdate"]),
       priceToString(price) {
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       },

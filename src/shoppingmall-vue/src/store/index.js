@@ -56,7 +56,9 @@ export default new Vuex.Store({
       { text: '관리', value: 'management', },
     ],
     productlist:[],  
-    // newproduct:[],
+    product:[
+      {id:' ', name:' ', price:' ', category:' ', quantity:' ',}
+    ],
   },
   mutations: {
       SET_USER(state, data) {
@@ -64,6 +66,9 @@ export default new Vuex.Store({
     },
       SET_PRODUCT(state, data){
         state.productlist = data
+    },
+      UPDATE_PRODUCT(state, data){
+        state.product = data
     },
       SET_CATEGORY(state, data) {
         state.categorylist = data
@@ -234,6 +239,55 @@ export default new Vuex.Store({
        }else{
          return;
        }
+    },
+    ProductDelete({commit},payload) {
+      console.log(payload)
+      if(confirm('상품을 삭제하시겠습니까?') == true){
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/productdelete',payload)
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_PRODUCT', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+        })
+      }
+    },
+    ProductUpdate({commit},payload) {
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/productupdate',payload)
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('UPDATE_PRODUCT', Response.data)
+              })
+              .then(() => router.push({ name:'ProductUpdate'}))
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+        })     
+    },
+    ProductDataUpdate({commit},payload) {
+      console.log(payload)
+      if(confirm('상품정보를 수정하시겠습니까?') == true){
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/productdataupdate',payload)
+              .then(Response => {
+                    console.log(Response.data)
+                    commit('SET_PRODUCT', Response.data) 
+              })
+              .then(() => router.push({ name: 'Product' }))
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })           
+          })
+      } else{
+         return;
+      }
     },
   }, 
   modules: {

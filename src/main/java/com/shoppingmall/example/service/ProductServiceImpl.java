@@ -31,9 +31,15 @@ public class ProductServiceImpl implements ProductService{
 	};
 	
 	@Override
-	public List<Product> readProduct(){
-		return productmapper.readProduct();
+	public List<Product> readAllProduct(){
+		return productmapper.readAllProduct();
 	};
+	
+	@Override
+	public List<Product> readProduct(Product product){
+		return productmapper.readProduct(product);
+	};
+	
 	
 	@Override
 	public void createProduct(Product product){
@@ -44,6 +50,27 @@ public class ProductServiceImpl implements ProductService{
 	public void createImage(Product product){
 		productmapper.createImage(product);
 	};
+	
+	@Override
+	public void productDelete(Product product) {
+		productmapper.productDelete(product);
+	};
+	
+	@Override
+	public void product_img_Delete(Product product) {
+		productmapper.product_img_Delete(product);
+	};
+	
+	@Override
+	public void productDataUpdate(Product product) {
+		productmapper.productDataUpdate(product);
+	};
+	
+	@Override
+	public void productImgUpdate(Product product) {
+		productmapper.productImgUpdate(product);
+	};
+	
 }
 
 
