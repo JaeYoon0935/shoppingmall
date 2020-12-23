@@ -22,10 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shoppingmall.example.config.JwtUtils;
 import com.shoppingmall.example.domain.Category;
+import com.shoppingmall.example.domain.Order;
 import com.shoppingmall.example.domain.Product;
 import com.shoppingmall.example.domain.UserInfo;
 import com.shoppingmall.example.service.BoardService;
 import com.shoppingmall.example.service.CategoryService;
+import com.shoppingmall.example.service.OrderService;
 import com.shoppingmall.example.service.ProductService;
 import com.shoppingmall.example.service.UserService;
 
@@ -66,6 +68,8 @@ public class AdminController {
 	@Autowired
 	ProductService productService;
 	
+	@Autowired
+	OrderService orderService;
 	
 	@GetMapping("/adminPage")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -172,16 +176,6 @@ public class AdminController {
 		return new ResponseEntity<>(product_one, HttpStatus.OK);
 	}
 	
-	
-//	//회원정보 수정하기
-//		@PostMapping("/userupdate")
-//		public ResponseEntity<?> updateData(@Validated @RequestBody UserInfo userinfo){
-//			userService.updateUser(userinfo);
-//			List<UserInfo> userList = userService.shopping_readUser();
-//			return new ResponseEntity<>(userList, HttpStatus.OK);
-//		}
-
-	
 	//상품정보수정하기
 	@PostMapping("/productdataupdate")
 	public ResponseEntity<?> productDataUpdate(@Validated @RequestBody Product product){
@@ -191,6 +185,12 @@ public class AdminController {
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
 	
+	//상품정보 불러오기
+	@GetMapping("/orderlist")
+	public ResponseEntity<?> read_order(){
+		List<Order> orderList = orderService.readOrder();
+		return new ResponseEntity<>(orderList, HttpStatus.OK);
+	}
 	
 	
 }

@@ -61,12 +61,12 @@ export default new Vuex.Store({
     ],
 
     order_headers:[
-      {text:'주문번호', value:' '},
-      {text:'주문상품', value:''},
-      {text:'회원아이디', value:' '},
-      {text:'주문일자', value:' '},
-      {text:'주문금액', value:' '},
-      {text:'주문상태', value:' '},
+      {text:'주문번호', value:'id'},
+      {text:'주문상품', value:'product'},
+      {text:'회원아이디', value:'user_id'},
+      {text:'주문일자', value:'date'},
+      {text:'총 주문금액', value:'total_price'},
+      {text:'주문상태', value:'state'},
     ],
     orderlist:[],
 
@@ -80,6 +80,9 @@ export default new Vuex.Store({
     },
       UPDATE_PRODUCT(state, data){
         state.product = data
+    },
+      SET_ORDER(state, data){
+        state.orderlist = data
     },
       SET_CATEGORY(state, data) {
         state.categorylist = data
@@ -299,6 +302,19 @@ export default new Vuex.Store({
       } else{
          return;
       }
+    },
+    OrderList({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/orderlist')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_ORDER', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
     },
   }, 
   modules: {
