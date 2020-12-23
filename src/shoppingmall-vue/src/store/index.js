@@ -47,7 +47,7 @@ export default new Vuex.Store({
     ],
     ranking:[],
 
-    product_header:[
+    product_headers:[
       { text: '상품코드', value: 'id', },
       { text: '상품정보', value: 'price', },
       { text: '분류', value: 'category', },
@@ -59,6 +59,17 @@ export default new Vuex.Store({
     product:[
       {id:' ', name:' ', price:' ', category:' ', quantity:' ',}
     ],
+
+    order_headers:[
+      {text:'주문번호', value:' '},
+      {text:'주문상품', value:''},
+      {text:'회원아이디', value:' '},
+      {text:'주문일자', value:' '},
+      {text:'주문금액', value:' '},
+      {text:'주문상태', value:' '},
+    ],
+    orderlist:[],
+
   },
   mutations: {
       SET_USER(state, data) {

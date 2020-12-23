@@ -8,7 +8,6 @@ import Information from '../views/Management/Information.vue'
 import Inquire from '../views/Management/Inquire.vue'
 import Order from '../views/Management/Order.vue'
 import Product from '../views/Management/Product.vue'
-import Stock from '../views/Management/Stock.vue'
 import Ranking from '../views/Situation/Ranking.vue'
 import Sales from '../views/Situation/Sales.vue'
 import ProductRegistration from '../views/Management/ProductRegistration.vue'
@@ -56,11 +55,6 @@ const routes = [
     path: '/product',
     name: 'Product',
     component: Product
-  },
-  {
-    path: '/stock',
-    name: 'Stock',
-    component: Stock
   },
   {
     path: '/sales',

@@ -24,13 +24,21 @@
           <td><input style="height:100%; width:100%;" v-model="quantity"></td>
         </tr>
         <tr>
+          <!-- <td><v-btn width="100px" class="ml-3 mt-4">파일첨부</v-btn></td> -->
           <th>이미지 업로드</th>
-          <td><v-btn width="100px" class="ml-3 mt-4">파일첨부</v-btn></td>
+          <td>
+            <v-file-input
+              accept="image/*"
+              label="Image Upload"
+              outlined
+              prepend-icon="mdi-camera"
+            ></v-file-input>
+          </td>
         </tr>
     </tbody>
   </table>
     <v-row>
-          <v-col
+        <v-col
             cols="9"
             lg="9"
             sm="8"
@@ -68,6 +76,9 @@ td{
   border: 0.5px solid;
   height:100px;
   border-color: rgb(200, 200, 200);
+}
+.v-text-field{
+      width: 250px;
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {

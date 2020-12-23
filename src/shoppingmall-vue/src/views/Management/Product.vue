@@ -10,7 +10,7 @@
     </v-row>
     <v-container>
       <v-data-table
-        :headers="$store.state.product_header"
+        :headers="$store.state.product_headers"
         :items="$store.state.productlist"
         :items-per-page="10"
         class="elevation-1"    
@@ -38,7 +38,7 @@
             </td>
             <td>{{row.item.quantity}}개</td>
             <td>
-                <div>
+                <div>  
                   <v-btn dark small color="grey" class="ma-2" @click="ProductUpdate(row.item)">수정</v-btn>
                 </div>
                 <div>

@@ -89,7 +89,7 @@
               <v-list-item
                 v-for="(item, index) in item3"
                 :key="index"
-                 router :to="{name: item.name}"
+                 router :to="{name: item.name}" 
               >
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item>
@@ -112,15 +112,7 @@
     </v-main>
   </v-app>
 </template>
-<style scoped>
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
-    width: 100%;
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
-}
-</style>
+
 <script>
   export default {
     data: () => ({ 
@@ -135,7 +127,6 @@
         { title: '주문내역', name: 'Order'},
         { title: '분류관리', name: 'Category'},
         { title: '상품관리', name: 'Product'},
-        { title: '재고관리', name: 'Stock'},
         { title: '1대1문의', name: 'Inquire'},
       ],
       item3: [
