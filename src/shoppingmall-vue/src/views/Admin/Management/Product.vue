@@ -54,6 +54,7 @@
     </v-container>
   </div>
 </template>
+
 <style scoped>
 @media (min-width: 1200px) {
   /* .container 클래스는 위의 코드상에는 없지만, 
@@ -76,6 +77,7 @@ img{
 }
 
 </style>
+
 <script>
 import { mapState, mapActions } from "vuex"
   export default {

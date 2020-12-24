@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `cg_product_count` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.category:~6 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.category:~7 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 	(2030, '주방등', 8),
@@ -35,27 +35,80 @@ INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 	(0, '전체', 9999999);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
+-- 테이블 shoppingmall.orders 구조 내보내기
+CREATE TABLE IF NOT EXISTS `orders` (
+  `o_id` int(10) DEFAULT NULL,
+  `o_date` date DEFAULT NULL,
+  `o_total_price` int(10) DEFAULT NULL,
+  `o_state` varchar(255) DEFAULT NULL,
+  `user_id` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user테이블의 id\r\n';
+
+-- 테이블 데이터 shoppingmall.orders:~0 rows (대략적) 내보내기
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`o_id`, `o_date`, `o_total_price`, `o_state`, `user_id`) VALUES
+	(1, '2020-12-23', 200000, '배송중', 'jy0935');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+
+-- 테이블 shoppingmall.order_detail 구조 내보내기
+CREATE TABLE IF NOT EXISTS `order_detail` (
+  `od_id` int(10) DEFAULT NULL,
+  `od_product` varchar(255) DEFAULT NULL,
+  `od_price` int(10) DEFAULT NULL,
+  `od_count` int(10) DEFAULT NULL,
+  `o_id` int(10) DEFAULT NULL,
+  `p_id` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='해당상품의 갯수에 따른 해당상품의 총 주문금액';
+
+-- 테이블 데이터 shoppingmall.order_detail:~0 rows (대략적) 내보내기
+/*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
+
 -- 테이블 shoppingmall.product 구조 내보내기
 CREATE TABLE IF NOT EXISTS `product` (
-  `p_id` int(10) DEFAULT NULL,
+  `p_id` int(10) NOT NULL,
   `p_name` varchar(255) DEFAULT NULL,
   `p_price` int(10) DEFAULT NULL,
   `p_quantity` int(10) DEFAULT NULL,
   `p_order_count` int(10) DEFAULT NULL,
   `p_rank` int(10) DEFAULT NULL,
-  `p_date` date DEFAULT NULL,
-  `p_category` int(10) DEFAULT NULL
+  `p_category` int(10) DEFAULT NULL,
+  `p_views` int(10) DEFAULT NULL,
+  PRIMARY KEY (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.product:~5 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.product:~8 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_date`, `p_category`) VALUES
-	(1, '거실등', 200000, 3, 30, NULL, NULL, 2010),
-	(2, '방등', 80000, 2, 35, NULL, NULL, 2020),
-	(3, '일반스탠드', 70000, 3, 20, NULL, NULL, 30),
-	(4, '멀티탭', 5000, 5, 5, NULL, NULL, 40),
-	(5, '주방등', 150000, 5, 25, NULL, NULL, 2030);
+INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`) VALUES
+	(1, '거실등', 200000, 3, 30, NULL, 2010, 5),
+	(2, '방등', 70000, 2, 35, NULL, 2020, 4),
+	(3, '형광등 스탠드', 70000, 3, 20, NULL, 30, 2),
+	(4, '멀티탭', 5000, 5, 5, NULL, 40, 2),
+	(5, '식탁등', 150000, 5, 25, NULL, 2030, 3),
+	(6, '2구 스위치', 10000, 4, 25, NULL, 40, 3),
+	(7, 'LED 스탠드', 100000, 3, 15, NULL, 30, 2),
+	(150, '제품111', 200000, 50, 0, NULL, 50, 0);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
+
+-- 테이블 shoppingmall.product_img 구조 내보내기
+CREATE TABLE IF NOT EXISTS `product_img` (
+  `pi_id` int(10) DEFAULT NULL,
+  `pi_image` varchar(255) DEFAULT NULL,
+  `p_id` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 shoppingmall.product_img:~8 rows (대략적) 내보내기
+/*!40000 ALTER TABLE `product_img` DISABLE KEYS */;
+INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`) VALUES
+	(1, 'livingLamp40', 1),
+	(2, NULL, 2),
+	(3, 'lightStand', 3),
+	(4, 'multiPlug', 4),
+	(5, 'diningLamp', 5),
+	(6, 'switchTwo', 6),
+	(7, 'ledStand', 7),
+	(150, NULL, 150);
+/*!40000 ALTER TABLE `product_img` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.user 구조 내보내기
 CREATE TABLE IF NOT EXISTS `user` (
@@ -77,9 +130,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 테이블 데이터 shoppingmall.user:~6 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
-	('jy0935', '333', '이모씨', '대구시 동구', '010-2354-8451', 'abc@naver.com', 20000, NULL, 1, 1, 1, 1),
+	('jy0935', '11111', '박모씨', '대구시 동구', '010-2354-8451', 'abc@naver.com', 5000, NULL, 1, 1, 1, 1),
 	('jy1234', '356484', '김모씨', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
-	('jy12345', '4234', '이모씨', '대구시 중구', '010-1111-1234', 'fruit@naver.com', 30000, NULL, 1, 1, 1, 1),
+	('jy12345', '4234', '이모씨', '대구시 수성구', '010-1111-1234', 'fruit@naver.com', 1000, NULL, 1, 1, 1, 1),
 	('jy1515', '33311', '김모씨', '대구시 중구', '010-7555-1234', 'jkjk@naver.com', 20000, NULL, 1, 1, 1, 1),
 	('kkk333', '1523', '김모씨', '대구시 북구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1),
 	('sef', '3423', '박모씨', '대구시 남구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1);
