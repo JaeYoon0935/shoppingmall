@@ -11,6 +11,10 @@
           <th>상품명</th>
           <td><input style="height:100%; width:100%;" v-model="name"></td>
         </tr>
+         <tr>
+          <th>제품설명</th>
+          <td><input style="height:100%; width:100%;" v-model="text"></td>
+        </tr>
         <tr>
           <th>가격</th>
           <td><input style="height:100%; width:100%;" v-model="price"></td>
@@ -22,7 +26,7 @@
         <tr>
           <th>재고</th>
           <td><input style="height:100%; width:100%;" v-model="quantity"></td>
-        </tr>
+        </tr>    
         <tr>
           <!-- <td><v-btn width="100px" class="ml-3 mt-4">파일첨부</v-btn></td> -->
           <th>이미지 업로드</th>
@@ -51,7 +55,7 @@
             sm="4"
             md="4"
           >
-           <v-btn width="100px" class="mr-5 ml-10" @click="ProductDataUpdate({id, name, price, category, quantity})"> 수정완료</v-btn>
+           <v-btn width="100px" class="mr-5 ml-10" @click="ProductDataUpdate({id, name, price, category, quantity, text})"> 수정완료</v-btn>
            <v-btn width="100px" router :to="{name:'Product'}">취소</v-btn>
         </v-col> 
     </v-row>
@@ -106,6 +110,7 @@ import { mapState, mapActions } from "vuex"
         price: this.$store.state.product[0].price,
         category: this.$store.state.product[0].category,
         quantity: this.$store.state.product[0].quantity,
+        text: this.$store.state.product[0].text,
       }
     },
       computed: {

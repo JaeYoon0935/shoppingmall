@@ -57,7 +57,7 @@ export default new Vuex.Store({
     ],
     productlist:[],  
     product:[
-      {id:' ', name:' ', price:' ', category:' ', quantity:' ',}
+      {id:' ', name:' ', price:' ', category:' ', quantity:' ', text:' '}
     ],
 
     order_headers:[

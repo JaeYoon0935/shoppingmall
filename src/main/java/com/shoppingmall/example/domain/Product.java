@@ -11,7 +11,16 @@ public class Product {
 	private String category; //카테고리
 	private String image; //이미지
 	private int views; // 조회수
+	private String text;
+
 	
+	
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
 	public String getImage() {
 		return image;
 	}

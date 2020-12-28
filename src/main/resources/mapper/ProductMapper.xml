@@ -44,7 +44,8 @@
 						p_views                         as  views,	
 						p_category                      as  category,
 						p_quantity			            as  quantity,
-						pi_image                      as image
+						pi_image                      as image,
+						p_text                        as text
 		FROM 			product 
 		JOIN product_img ON (product.p_id = product_img.p_id);
 	</select>
@@ -57,7 +58,8 @@
 						p_views                         as  views,	
 						p_category                      as  category,
 						p_quantity			            as  quantity,
-						pi_image                      as image
+						pi_image                      as image,
+						p_text                        as text
 		FROM 			product
 		JOIN product_img ON (product.p_id = product_img.p_id)
 		WHERE product.p_id = #{id}
@@ -114,7 +116,8 @@
 						p_name = #{name},
 						p_price = #{price},
 						p_category = #{category},
-						p_quantity = #{quantity}
+						p_quantity = #{quantity},
+						p_text = #{text}
 							
 						where p_id= #{id}		
 	</update>
