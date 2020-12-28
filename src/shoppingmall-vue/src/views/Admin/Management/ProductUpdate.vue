@@ -12,7 +12,7 @@
           <td><input style="height:100%; width:100%;" v-model="name"></td>
         </tr>
          <tr>
-          <th>제품설명</th>
+          <th>상품설명</th>
           <td><input style="height:100%; width:100%;" v-model="text"></td>
         </tr>
         <tr>

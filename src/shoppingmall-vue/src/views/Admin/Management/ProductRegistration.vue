@@ -12,6 +12,10 @@
           <td><input style="height:100%; width:100%;" v-model="name"></td>
         </tr>
         <tr>
+          <th>상품설명</th>
+          <td><input style="height:100%; width:100%;" v-model="text"></td>
+        </tr>
+        <tr>
           <th>가격</th>
           <td><input style="height:100%; width:100%;" v-model="price"></td>
         </tr>
@@ -43,7 +47,7 @@
             sm="4"
             md="4"
           >
-           <v-btn width="100px" class="mr-5 ml-10" @click="ProductCreate({id, name, price, category, quantity})"> 등록</v-btn>
+           <v-btn width="100px" class="mr-5 ml-10" @click="ProductCreate({id, name, price, category, quantity, text})"> 등록</v-btn>
            <v-btn width="100px" router :to="{name:'Product'}">취소</v-btn>
         </v-col> 
     </v-row>
@@ -95,6 +99,7 @@ import { mapState, mapActions } from "vuex"
         price: '',
         category:'',
         quantity:'',
+        text:'',
       }
     },
     methods:{
