@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `user_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user테이블의 id\r\n';
 
--- 테이블 데이터 shoppingmall.orders:~0 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.orders:~1 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`o_id`, `o_date`, `o_total_price`, `o_state`, `user_id`) VALUES
 	(1, '2020-12-23', 200000, '배송중', 'jy0935');
@@ -74,20 +74,22 @@ CREATE TABLE IF NOT EXISTS `product` (
   `p_rank` int(10) DEFAULT NULL,
   `p_category` int(10) DEFAULT NULL,
   `p_views` int(10) DEFAULT NULL,
+  `p_text` text DEFAULT NULL,
   PRIMARY KEY (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.product:~8 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.product:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`) VALUES
-	(1, '거실등', 200000, 3, 30, NULL, 2010, 5),
-	(2, '방등', 70000, 2, 35, NULL, 2020, 4),
-	(3, '형광등 스탠드', 70000, 3, 20, NULL, 30, 2),
-	(4, '멀티탭', 5000, 5, 5, NULL, 40, 2),
-	(5, '식탁등', 150000, 5, 25, NULL, 2030, 3),
-	(6, '2구 스위치', 10000, 4, 25, NULL, 40, 3),
-	(7, 'LED 스탠드', 100000, 3, 15, NULL, 30, 2),
-	(150, '제품111', 200000, 50, 0, NULL, 50, 0);
+INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`, `p_text`) VALUES
+	(1, '거실등', 200000, 3, 30, NULL, 2010, 5, '거실등 입니다.'),
+	(2, '방등', 70000, 2, 35, NULL, 2020, 4, '방등 입니다.'),
+	(3, '형광등 스탠드', 70000, 3, 20, NULL, 30, 2, '형광등 스탠드입니다.'),
+	(4, '멀티탭', 5000, 5, 5, NULL, 40, 2, '멀티탭 입니다.'),
+	(5, '식탁등', 150000, 5, 25, NULL, 2030, 3, '식탁등 입니다.'),
+	(6, '2구 스위치', 10000, 4, 25, NULL, 40, 3, '2구 스위치 입니다.'),
+	(7, 'LED 스탠드', 100000, 3, 15, NULL, 30, 2, 'LED스탠드 입니다.'),
+	(123, '제품2', 1500000, 212, 0, NULL, 121, 0, '임시제품'),
+	(150, '제품111', 200000, 50, 0, NULL, 50, 0, NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product_img 구조 내보내기
@@ -97,17 +99,18 @@ CREATE TABLE IF NOT EXISTS `product_img` (
   `p_id` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.product_img:~8 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.product_img:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product_img` DISABLE KEYS */;
 INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`) VALUES
 	(1, 'livingLamp40', 1),
-	(2, NULL, 2),
+	(2, 'roomLamp', 2),
 	(3, 'lightStand', 3),
 	(4, 'multiPlug', 4),
 	(5, 'diningLamp', 5),
 	(6, 'switchTwo', 6),
 	(7, 'ledStand', 7),
-	(150, NULL, 150);
+	(150, NULL, 150),
+	(123, NULL, 123);
 /*!40000 ALTER TABLE `product_img` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.user 구조 내보내기
@@ -130,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 테이블 데이터 shoppingmall.user:~6 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
-	('jy0935', '11111', '박모씨', '대구시 동구', '010-2354-8451', 'abc@naver.com', 5000, NULL, 1, 1, 1, 1),
+	('jy0935', '11111', '박모씨', '대구시 동구', '010-2354-8451', 'abc@naver.com', 50000, NULL, 1, 1, 1, 1),
 	('jy1234', '356484', '김모씨', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
 	('jy12345', '4234', '이모씨', '대구시 수성구', '010-1111-1234', 'fruit@naver.com', 1000, NULL, 1, 1, 1, 1),
 	('jy1515', '33311', '김모씨', '대구시 중구', '010-7555-1234', 'jkjk@naver.com', 20000, NULL, 1, 1, 1, 1),
