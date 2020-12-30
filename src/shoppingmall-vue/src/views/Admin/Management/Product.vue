@@ -41,8 +41,8 @@
                 <div>  
                   <v-btn dark small color="grey" class="ma-2" @click="ProductUpdate(row.item)">수정</v-btn>
                 </div>
-                <div>
-                 <v-btn dark small color="grey" class="ml-2" router :to="{name: 'Product_User'}">상품보기</v-btn>
+                <div>  
+                 <v-btn dark small color="grey" class="ml-2" router :to="{name: 'Product_User', params: {id: row.item.id}}">상품보기</v-btn>
                 </div>
                 <div>
                   <v-btn dark small color="grey" class="ma-2" @click="ProductDelete(row.item)">삭제</v-btn>

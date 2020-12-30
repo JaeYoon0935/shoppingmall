@@ -3,11 +3,12 @@
       <div class="home">
         <router-link to='/'>
           <p style="border:1px solid; margin-top:20px;">
-            쇼핑몰 메인페이지
+            ShoppingMall
           </p> 
         </router-link>
-          <v-btn router :to="{name: 'Admin'}">관리자 페이지</v-btn>           
-           
+        <v-row style="height:100px;">
+          <v-btn  router :to="{name: 'Admin'}">관리자 페이지</v-btn>           
+        </v-row>    
        <Main v-if="$route.name == 'Home'"></Main>
        <router-view/>
        </div> 
@@ -23,7 +24,7 @@
   div {
       width:1500px;    /* 가로 너비 */
       height:1000px;   /* 세로 너비 */
-      background-color:rgb(219, 243, 212);    /* 선택자 배경 색 */
+      background-color:rgb(245, 245, 231);    /* 선택자 배경 색 */
       margin:0 auto;     /* 바깥 여백 
       / margin 속성을 0 auto로 지정하면 위, 아래 여백은 0, 왼쪽 오른쪽은 auto로 가운데 정렬 */
       padding:0px;    /* 내부 여백 */

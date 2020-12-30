@@ -108,7 +108,11 @@
     </v-app-bar>
 
     <v-main>
-      <!-- <v-container grid fluid/> -->
+      <v-row style="margin-left:0px;" v-if="$route.name == 'Admin'">
+        <h1>
+          관리자 메인페이지입니다.
+        </h1>
+      </v-row>
       <router-view :key="$route.fullPath"/>
     </v-main>
   </v-app>

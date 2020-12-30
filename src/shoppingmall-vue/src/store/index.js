@@ -75,8 +75,11 @@ export default new Vuex.Store({
       SET_USER(state, data) {
         state.userlist = data      
     },
-      SET_PRODUCT(state, data){
+      SET_PRODUCT_LIST(state, data){
         state.productlist = data
+    },
+      SET_PRODUCT(state, data){
+        state.product = data
     },
       UPDATE_PRODUCT(state, data){
         state.product = data
@@ -225,7 +228,7 @@ export default new Vuex.Store({
           axios.get('http://localhost:9000/api/admin/productlist')
               .then(Response => {
                   console.log(Response.data)
-                  commit('SET_PRODUCT', Response.data)
+                  commit('SET_PRODUCT_LIST', Response.data)
               })
               .catch(Error => {
                   console.log('error')
@@ -240,7 +243,7 @@ export default new Vuex.Store({
           axios.post('http://localhost:9000/api/admin/productcreate',payload)
           .then(Response => {
             console.log(Response.data)
-            commit('SET_PRODUCT', Response.data)},
+            commit('SET_PRODUCT_LIST', Response.data)},
             alert('상품이 등록되었습니다.'))    
           .then(() => router.push({ name: 'Product' }))
               .catch(Error => {
@@ -261,7 +264,7 @@ export default new Vuex.Store({
           axios.post('http://localhost:9000/api/admin/productdelete',payload)
               .then(Response => {
                   console.log(Response.data)
-                  commit('SET_PRODUCT', Response.data)
+                  commit('SET_PRODUCT_LIST', Response.data)
               })
               .catch(Error => {
                   console.log('error')
@@ -291,7 +294,7 @@ export default new Vuex.Store({
           axios.post('http://localhost:9000/api/admin/productdataupdate',payload)
               .then(Response => {
                     console.log(Response.data)
-                    commit('SET_PRODUCT', Response.data) 
+                    commit('SET_PRODUCT_LIST', Response.data) 
               })
               .then(() => router.push({ name: 'Product' }))
               .catch(Error => {
@@ -309,6 +312,24 @@ export default new Vuex.Store({
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_ORDER', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+
+    // -------------- 아래부터 사용자 화면 ----------------
+
+    Product({commit}) {
+      router.currentRoute.params.id
+      console.log(JSON.parse(router.currentRoute.params.id));
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/product',JSON.parse(a))
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_PRODUCT', Response.data)
               })
               .catch(Error => {
                   console.log('error')

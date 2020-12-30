@@ -14,6 +14,8 @@ import Sales from '../views/Admin/Situation/Sales.vue'
 import ProductRegistration from '../views/Admin/Management/ProductRegistration.vue'
 import ProductUpdate from '../views/Admin/Management/ProductUpdate.vue'
 import Admin from '../views/Admin.vue'
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -23,7 +25,7 @@ const routes = [
     component: Home,
     children:[
       {
-        path:'product',
+        path:'product/:id',
         name:'Product_User',
         component: Product_User
       },

@@ -20,15 +20,15 @@
               <v-simple-table>
                 <tr>
                   <td>제품명:</td>
-                  <td>준비중</td>
+                  <td>{{name}}</td>
                 </tr>
                 <tr>
                   <td>제품가격:</td>
-                  <td>100,000원</td>
+                  <td>{{priceToString(price)}}원</td>
                 </tr>
                 <tr>
                   <td>제품수량:</td>
-                  <td>9999</td>
+                  <td>{{quantity}}개</td>
                 </tr>
               </v-simple-table>
           </v-row>
@@ -55,7 +55,7 @@
             md="6"
           >
           <p style="text-align:left;">
-            제품 상세설명 입니다.
+            {{text}}
           </p>
       </v-col>
     </v-row>
@@ -72,3 +72,28 @@
     </v-row>
   </div>
 </template>
+
+
+<script>
+export default {
+  created(){
+      this.$store.dispatch('Product', this.temp)
+    },
+    data () {
+      return {     
+        temp:{
+               id: this.$route.params.id, 
+             },
+        name: this.$store.state.product[0].name,
+        price: this.$store.state.product[0].price,
+        quantity: this.$store.state.product[0].quantity,
+        text: this.$store.state.product[0].text,
+      }
+    },
+    methods:{
+      priceToString(price) {
+              return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          },
+    },
+}
+</script>
