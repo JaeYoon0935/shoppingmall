@@ -20,15 +20,22 @@
               <v-simple-table>
                 <tr>
                   <td>제품명:</td>
-                  <td>{{name}}</td>
+                  <td>{{$store.state.product[0].name}}</td>
                 </tr>
                 <tr>
                   <td>제품가격:</td>
-                  <td>{{priceToString(price)}}원</td>
+                  <td>{{priceToString($store.state.product[0].price)}}원</td>
                 </tr>
                 <tr>
                   <td>제품수량:</td>
-                  <td>{{quantity}}개</td>
+                  <td><v-combobox
+                      :items="month"
+                      label="수량"
+                      outlined
+                      dense
+                      style = 'width:140px;'
+                    ></v-combobox>
+                  </td>
                 </tr>
               </v-simple-table>
           </v-row>
@@ -55,33 +62,55 @@
             md="6"
           >
           <p style="text-align:left;">
-            {{text}}
+            {{$store.state.product[0].text}}
           </p>
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <v-row>
-      구매시 주의사항
-      
+    <v-row class="information">
+      <!-- 아이콘 만드는 건 나중에 하기 -->
+        <v-icon>alert-circle-outline</v-icon>구매시 주의사항  
     </v-row>
-    <v-row>
+    <v-row class="information">
         <v-icon>mdi-circle-medium</v-icon> 환불 및 교환 관련 규정
     </v-row>
-    <v-row>
+    <v-row class="information">
         <v-icon>mdi-circle-medium</v-icon> 배송관련정보
     </v-row>
   </div>
 </template>
 
 
+<style scoped>
+.information{
+    margin-left:0;
+    padding-left:20px;
+}
+.row {
+    font-size:20px;
+    font-weight: 700;       /* 글자 굵기 */
+    color:rgb(0, 0, 0)!important;   
+}
+table tr td {
+  font-size:20px;
+  font-weight: 700;       /* 글자 굵기 */
+  color:rgb(0, 0, 0);
+}
+.theme--light.v-data-table {
+  /* transparent는 투명으로 만드는 속성이다. */
+  background-color: transparent;
+}
+</style>
+
+
 <script>
 export default {
   created(){
-      this.$store.dispatch('Product', this.temp)
+      this.$store.dispatch('Product')
     },
     data () {
       return {     
-        temp:{
+        id:{
                id: this.$route.params.id, 
              },
         name: this.$store.state.product[0].name,

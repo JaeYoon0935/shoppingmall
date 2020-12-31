@@ -65,6 +65,4 @@ public class UserController {
 		return new ResponseEntity<>(product_one, HttpStatus.OK);
 	}
 	
-	
-	
 }

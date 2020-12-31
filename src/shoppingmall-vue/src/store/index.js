@@ -80,6 +80,7 @@ export default new Vuex.Store({
     },
       SET_PRODUCT(state, data){
         state.product = data
+        console.log(state.product)
     },
       UPDATE_PRODUCT(state, data){
         state.product = data
@@ -321,12 +322,12 @@ export default new Vuex.Store({
     },
 
     // -------------- 아래부터 사용자 화면 ----------------
-
-    Product({commit}) {
-      router.currentRoute.params.id
-      console.log(JSON.parse(router.currentRoute.params.id));
+    Product({commit},payload) {
+      var obj = {id: router.currentRoute.params.id};
+      payload = obj;
+      console.log(obj);
       return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/api/product',JSON.parse(a))
+          axios.post('http://localhost:9000/api/product',payload)
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_PRODUCT', Response.data)

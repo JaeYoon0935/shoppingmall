@@ -1,23 +1,41 @@
 <template>
   <v-app>
-      <div class="home">
-        <router-link to='/'>
-          <p style="border:1px solid; margin-top:20px;">
-            ShoppingMall
-          </p> 
-        </router-link>
+     <!-- <div class="home">           
+      </div> -->
+      <div class="parent" style="height: 150px;">
+          <div class="child">
+          </div>
+          <div class="child">
+            <p align="center" style="margin-top:20px; width:100%;">
+              <router-link to='/' style="color:#000; text-decoration:none">
+                 ShoppingMall           
+              </router-link>
+             </p>
+          </div>
+          <div class="child">
+          </div>
+      </div>
+
+
+      <div>
         <v-row style="height:100px;">
           <v-btn  router :to="{name: 'Admin'}">관리자 페이지</v-btn>           
         </v-row>    
        <Main v-if="$route.name == 'Home'"></Main>
        <router-view/>
-       </div> 
+      </div> 
   </v-app>
 
 
 </template>
 
 <style scoped>
+  .parent {
+      display: flex;
+  }
+  .child {
+      flex: 1;
+  }
   span{
      padding:20px;
   }
@@ -28,7 +46,7 @@
       margin:0 auto;     /* 바깥 여백 
       / margin 속성을 0 auto로 지정하면 위, 아래 여백은 0, 왼쪽 오른쪽은 auto로 가운데 정렬 */
       padding:0px;    /* 내부 여백 */
-      border:1px solid rgba(44, 44, 48, 0.021);  /* 테두리 */
+      /* border:1px solid rgba(44, 44, 48, 0.021);  div의 테두리*/
       border-radius: 10px;    /* 테두리 곡선 */
       font-size:32px;       /* 글자 크기 */
       color:black;       /* 글자 색 */
