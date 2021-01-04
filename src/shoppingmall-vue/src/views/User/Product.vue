@@ -8,7 +8,8 @@
             sm="6"
             md="6"
           >
-            <img :src="require('@/assets/null.jpg')">
+          <img :src="image($store.state.product[0].image)" style="width:350px;" >
+            <!-- <img :src="require('@/assets/null.jpg')"> -->
         </v-col>
         <v-col
             cols="6"
@@ -50,7 +51,8 @@
             sm="6"
             md="6"
           >
-            <img :src="require('@/assets/null.jpg')">
+        <!-- <img :src="image($store.state.product[0].image)"> -->
+            <img :src="require('@/assets/detail.jpg')">
       </v-col>
        <v-col
             cols="6"
@@ -66,7 +68,7 @@
     <v-divider></v-divider>
     <v-row class="information">
       <!-- 아이콘 만드는 건 나중에 하기 -->
-        <v-icon>alert-circle-outline</v-icon>구매시 주의사항  
+        <v-icon>alert-circle-outline</v-icon>구매시 주의사항
     </v-row>
     <v-row class="information">
         <v-icon>mdi-circle-medium</v-icon> 환불 및 교환 관련 규정
@@ -107,8 +109,6 @@ table tr td {
 
 
 <script>
-
-
 export default {
   created(){
       this.$store.dispatch('Product')
@@ -122,7 +122,6 @@ export default {
         price: this.$store.state.product[0].price,
         quantity: this.$store.state.product[0].quantity,
         text: this.$store.state.product[0].text,
-        image: this.$store.state.product[0].image,
 
         amount:1,
       }
@@ -138,9 +137,14 @@ export default {
                this.amount = 1;
             }   
       },
+      image(image){
+        //경로를 조합해줄 메서드.
+        if(image == null){
+          return require('@/assets/null.jpg');
+        }
+        return require('@/assets/'+ image +'.jpg');
+      },
     },
 }
-
-
 
 </script>
