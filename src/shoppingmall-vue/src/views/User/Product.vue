@@ -17,7 +17,7 @@
             sm="6"
             md="6"
           >
-          <v-row style="height:250px">
+          <v-row style="height:250px;">
               <v-simple-table>
                 <tr>
                   <td>제품명:</td>
@@ -29,11 +29,15 @@
                 </tr>
                 <tr>
                   <td>제품수량:</td>
-                  <td>
+                  <td class="pl-2">
                     <a style='width:30px; background-color:rgb(180, 180, 180); color:black' href="#" @click="change(-1)">-</a>
                       <input style='width:30px; background-color:white; text-align:center;' type='text' value='1' v-model="amount" readonly> 
                     <a style='width:30px; background-color:rgb(180, 180, 180); color:black;' href="#" @click="change(1)">+</a>
                   </td>
+                </tr>
+                <tr style="background-color:white; border:1px solid;">
+                  <td class="pt-13">총 주문금액:</td>
+                  <td class="pt-16 pa-3">{{priceToString($store.state.product[0].price)}}원</td>
                 </tr>
               </v-simple-table>
           </v-row>
@@ -81,6 +85,12 @@
 
 
 <style scoped>
+.v-data-table{
+    width:300px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 a { 
   display: inline-block; 
 }

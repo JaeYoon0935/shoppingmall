@@ -67,6 +67,7 @@ export default new Vuex.Store({
       {text:'주문일자', value:'date'},
       {text:'총 주문금액', value:'total_price'},
       {text:'주문상태', value:'state'},
+      {text:'보기', value:''},
     ],
     orderlist:[],
 

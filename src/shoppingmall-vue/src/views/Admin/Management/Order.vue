@@ -6,7 +6,35 @@
         :items="$store.state.orderlist"
         :items-per-page="10"
         class="elevation-1"
-      ></v-data-table>
+      >
+       <template v-slot:item="row">
+         <tr>     
+           <td>
+             {{row.item.id}}
+           </td>
+           <td>
+             <!--상품은 주문상세내역 완료 후 받아오도록 하기 -->
+             {{row.item.product}}
+           </td>
+           <td>
+             {{row.item.user_id}}
+           </td>
+           <td>
+             {{row.item.date}}
+           </td>
+           <td>
+             {{row.item.total_price}}
+           </td>
+           <td>
+             {{row.item.state}}
+           </td>
+           <td>
+              <v-btn dark small color="grey" @click="Detail(row.item)">상세보기</v-btn>
+           </td>
+         </tr>
+       </template>
+  </v-data-table>
+
   </div>
 </template>
 
@@ -20,5 +48,11 @@ import { mapState, mapActions } from "vuex"
       return {     
       }
     },
+    methods:{
+      Detail(){
+
+
+      },
+    }
   }
 </script>

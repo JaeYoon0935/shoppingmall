@@ -8,7 +8,7 @@ public class Order {
 	private int total_price;
 	private String user_id;
 	private String state;
-	private Date date;
+	private String date;
 
 	public int getId() {
 		return id;
@@ -34,10 +34,10 @@ public class Order {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
