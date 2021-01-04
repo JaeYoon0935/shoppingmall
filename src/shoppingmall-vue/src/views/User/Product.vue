@@ -24,17 +24,14 @@
                 </tr>
                 <tr>
                   <td>제품가격:</td>
-                  <td>{{priceToString($store.state.product[0].price)}}원</td>
+                  <td class="pa-3">{{priceToString($store.state.product[0].price)}}원</td>
                 </tr>
                 <tr>
                   <td>제품수량:</td>
-                  <td><v-combobox
-                      :items="month"
-                      label="수량"
-                      outlined
-                      dense
-                      style = 'width:140px;'
-                    ></v-combobox>
+                  <td>
+                    <a style='width:30px; background-color:rgb(180, 180, 180); color:black' href="#" @click="change(-1)">-</a>
+                      <input style='width:30px; background-color:white; text-align:center;' type='text' value='1' v-model="amount" readonly> 
+                    <a style='width:30px; background-color:rgb(180, 180, 180); color:black;' href="#" @click="change(1)">+</a>
                   </td>
                 </tr>
               </v-simple-table>
@@ -82,6 +79,12 @@
 
 
 <style scoped>
+a { 
+  display: inline-block; 
+}
+.v-application a {
+    color:black;
+}
 .information{
     margin-left:0;
     padding-left:20px;
@@ -104,6 +107,8 @@ table tr td {
 
 
 <script>
+
+
 export default {
   created(){
       this.$store.dispatch('Product')
@@ -117,12 +122,25 @@ export default {
         price: this.$store.state.product[0].price,
         quantity: this.$store.state.product[0].quantity,
         text: this.$store.state.product[0].text,
+        image: this.$store.state.product[0].image,
+
+        amount:1,
       }
     },
     methods:{
       priceToString(price) {
               return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
           },
+      change(num){
+            this.amount += num;
+            if(this.amount < 1) {
+               alert("더 이상 줄일수 없습니다.");
+               this.amount = 1;
+            }   
+      },
     },
 }
+
+
+
 </script>
