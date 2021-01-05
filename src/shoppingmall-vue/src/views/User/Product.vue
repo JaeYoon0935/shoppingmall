@@ -17,8 +17,8 @@
             sm="6"
             md="6"
           >
-          <v-row style="height:250px;">
-              <v-simple-table>
+          <v-row>
+              <v-simple-table style="width:300px;">
                 <tr>
                   <td>제품명:</td>
                   <td>{{$store.state.product[0].name}}</td>
@@ -35,12 +35,17 @@
                     <a style='width:30px; background-color:rgb(180, 180, 180); color:black;' href="#" @click="change(1)">+</a>
                   </td>
                 </tr>
-                <tr style="background-color:white; border:1px solid;">
-                  <td class="pt-13">총 주문금액:</td>
-                  <td class="pt-16 pa-3">{{priceToString($store.state.product[0].price)}}원</td>
-                </tr>
+                <tr style="height:50px;">
+                  <td></td><td></td></tr>
               </v-simple-table>
           </v-row>
+             <div class="total" style="height: 50px; width:300px;">
+                  <div style="height: 50px; width:300px; ">
+                    <div style="height: 50px;">총 주문 금액 :</div>
+                    <!-- <div style="height: 50px;"><input style="width:100px" v-model="total">원</div> -->
+                    <div style="height: 50px; padding-left:10px">{{total(this.amount)}}원</div>
+                  </div>
+                </div>
           <v-row>
             <v-btn class="ma-3">즉시구매</v-btn>
             <v-btn class="ma-3">장바구니</v-btn>
@@ -85,11 +90,16 @@
 
 
 <style scoped>
-.v-data-table{
-    width:300px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+.v-data-table > .v-data-table__wrapper > table {
+  width:90%!important;
+}
+.total > div{    
+  background-color: white;
+  border:1px solid;
+  height:50px!important;
+  display:flex;
+  justify-content: center;
+  line-height: 50px;
 }
 a { 
   display: inline-block; 
@@ -119,6 +129,7 @@ table tr td {
 
 
 <script>
+
 export default {
   created(){
       this.$store.dispatch('Product')
@@ -154,6 +165,9 @@ export default {
         }
         return require('@/assets/'+ image +'.jpg');
       },
+      total(amount){
+          return (amount * this.$store.state.product[0].price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
     },
 }
 
