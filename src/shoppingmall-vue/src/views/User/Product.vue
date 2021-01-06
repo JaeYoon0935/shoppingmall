@@ -154,7 +154,7 @@ export default {
       change(num){
             this.amount += num;
             if(this.amount < 1) {
-               alert("더 이상 줄일수 없습니다.");
+               alert("더 이상 줄일 수 없습니다.");
                this.amount = 1;
             }   
       },

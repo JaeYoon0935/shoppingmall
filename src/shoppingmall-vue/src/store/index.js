@@ -69,6 +69,13 @@ export default new Vuex.Store({
       {text:'주문상태', value:'state'},
       {text:'보기', value:''},
     ],
+    orderdetail_headers_1:[
+      {text:'상품정보', value:'id'},
+      {text:'주문수량', value:'product'},
+      {text:'주문일자', value:'date'},
+      {text:'주문금액', value:'total_price'},
+      {text:'주문상태', value:'state'},
+    ],
     orderlist:[],
 
   },

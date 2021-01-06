@@ -44,10 +44,15 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `user_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user테이블의 id\r\n';
 
--- 테이블 데이터 shoppingmall.orders:~1 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.orders:~6 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`o_id`, `o_date`, `o_total_price`, `o_state`, `user_id`) VALUES
-	(1, '2020-12-23', 200000, '배송중', 'jy0935');
+	(1, '2020-12-23', 200000, '배송중', 'jy0935'),
+	(2, '2020-12-23', 50000, '배송완료', 'jy0935'),
+	(3, '2021-01-01', 80000, '배송준비중', 'jy0935'),
+	(4, '2021-01-02', 100000, '배송중', 'jy0935'),
+	(5, '2021-01-04', 5000, '입금완료', 'jy0935'),
+	(6, '2021-01-04', 200000, '입금완료', 'jy0935');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.order_detail 구조 내보내기

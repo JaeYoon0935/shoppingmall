@@ -1,0 +1,88 @@
+<template>
+  <div class="about">
+    <h2 class="pt-2">주문상세내역</h2>
+    <h5 class="pt-2">주문번호 :{{$route.params.id }}</h5>
+      <v-data-table
+        :headers="$store.state.orderdetail_headers_1"
+        :items="$store.state.orderlist"
+        :items-per-page="5"
+        class="elevation-1"
+      >
+       <template v-slot:item="row">
+         <tr>     
+           <td>
+            <!-- 상품 이름과 사진 불러오기 -->
+           </td>
+           <td>
+             <!--상품은 주문상세내역 완료 후 받아오도록 하기 -->
+             {{row.item.product}}
+           </td>
+           <td>
+             {{row.item.date}}
+           </td>
+           <td>
+             {{row.item.total_price}}
+           </td>
+           <td>
+             {{row.item.state}}
+           </td>
+         </tr>
+       </template>
+  </v-data-table>
+  <table class="detail" style="width:600px">
+      <tbody>
+        <tr>     
+          <th style="text-align:center; background-color:rgb(245, 245, 245);">최종결제금액</th>
+          <td><input style="height:100%; width:100%;" v-model="id"></td>
+        </tr>
+        <tr>
+          <th style="text-align:center; background-color:rgb(245, 245, 245);">배송지</th>
+          <td><input style="height:100%; width:100%;" v-model="name"></td>
+        </tr>
+        <tr>
+          <th style="text-align:center; background-color:rgb(245, 245, 245);">받는사람</th>
+          <td><input style="height:100%; width:100%;" v-model="text"></td>
+        </tr>
+        <tr>
+          <th style="text-align:center; background-color:rgb(245, 245, 245);">연락처</th>
+          <td><input style="height:100%; width:100%;" v-model="price"></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+</template>
+
+<style scoped>
+.detail{
+    height:300px;
+    margin:50px 0 0 130px;
+    border:1px solid rgb(185, 185, 185);
+}
+.detail tr{
+    border:1px solid rgb(185, 185, 185);
+}
+.detail tr td{
+    border:1px solid rgb(185, 185, 185);
+}
+</style>
+
+
+
+<script>
+import { mapState, mapActions } from "vuex"
+  export default {
+    created(){
+      this.$store.dispatch('OrderList')
+    },
+    data () {
+      return {     
+      }
+    },
+    methods:{
+      Detail(){
+
+
+      },
+    }
+  }
+</script>

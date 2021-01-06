@@ -29,7 +29,8 @@
              {{row.item.state}}
            </td>
            <td>
-              <v-btn dark small color="grey" @click="Detail(row.item)">상세보기</v-btn>
+              <v-btn dark small color="grey" router :to="{name: 'OrderDetail', params: {id: row.item.id}}">상세보기</v-btn>
+              <!-- <v-btn dark small color="grey" class="ml-2" router :to="{name: 'Product_User', params: {id: row.item.id}}">상세보기</v-btn>  -->
            </td>
          </tr>
        </template>

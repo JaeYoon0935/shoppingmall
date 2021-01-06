@@ -7,6 +7,7 @@ import Category from '../views/Admin/Management/Category.vue'
 import Information from '../views/Admin/Management/Information.vue'
 import Inquire from '../views/Admin/Management/Inquire.vue'
 import Order from '../views/Admin/Management/Order.vue'
+import OrderDetail from '../views/Admin/Management/OrderDetail.vue'
 import Product from '../views/Admin/Management/Product.vue'
 import Product_User from '../views/User/Product.vue'
 import Ranking from '../views/Admin/Situation/Ranking.vue'
@@ -64,7 +65,12 @@ const routes = [
       {
         path: 'order',
         name: 'Order',
-        component: Order
+        component: Order,
+      },
+      {
+        path:'order/:id',
+        name:'OrderDetail',
+        component: OrderDetail
       },
       {
         path: 'product',
