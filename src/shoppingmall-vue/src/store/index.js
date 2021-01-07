@@ -70,11 +70,10 @@ export default new Vuex.Store({
       {text:'보기', value:''},
     ],
     orderdetail_headers_1:[
+      {text:'상품코드', value:'id'},
       {text:'상품정보', value:'id'},
       {text:'주문수량', value:'product'},
-      {text:'주문일자', value:'date'},
-      {text:'주문금액', value:'total_price'},
-      {text:'주문상태', value:'state'},
+      {text:'판매가격', value:'total_price'},
     ],
     orderlist:[],
 
@@ -316,6 +315,19 @@ export default new Vuex.Store({
       }
     },
     OrderList({commit}) {
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/orderlist')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_ORDER', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+    OrderDetail({commit}) {
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/orderlist')
               .then(Response => {

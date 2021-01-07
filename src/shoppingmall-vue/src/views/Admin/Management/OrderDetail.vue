@@ -1,7 +1,12 @@
 <template>
   <div class="about">
     <h2 class="pt-2">주문상세내역</h2>
-    <h5 class="pt-2">주문번호 :{{$route.params.id }}</h5>
+    <table>
+      <tr>
+        <td><h6 class="pt-2 pr-5">주문번호 :{{$route.params.id }}</h6><td>
+        <td><h6 class="pt-2">주문일자 : 2020-12-23 </h6></td>
+      </tr>
+    </table>
       <v-data-table
         :headers="$store.state.orderdetail_headers_1"
         :items="$store.state.orderlist"
@@ -23,13 +28,10 @@
            <td>
              {{row.item.total_price}}
            </td>
-           <td>
-             {{row.item.state}}
-           </td>
          </tr>
        </template>
   </v-data-table>
-  <table class="detail" style="width:600px">
+  <table class="detail" style="width:650px">
       <tbody>
         <tr>     
           <th style="text-align:center; background-color:rgb(245, 245, 245);">최종결제금액</th>
@@ -66,13 +68,11 @@
 }
 </style>
 
-
-
 <script>
 import { mapState, mapActions } from "vuex"
   export default {
     created(){
-      this.$store.dispatch('OrderList')
+      this.$store.dispatch('OrderDetail')
     },
     data () {
       return {     
