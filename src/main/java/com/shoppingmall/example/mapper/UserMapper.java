@@ -26,13 +26,13 @@ public interface UserMapper {
 	public void createAuthority(User user);
 	
 	
-	//Å×½ºÆ® ¸Ş¼­µå
+	//í…ŒìŠ¤íŠ¸ ë©”ì„œë“œ
 	public List<UserInfo> shopping_readUser();
 	
-	//È¸¿ø Å»Åğ
+	//íšŒì› íƒˆí‡´
 	public void delete_user(String username);
 	
-	//È¸¿ø¼öÁ¤
+	//íšŒì›ìˆ˜ì •
 	public void updateUser(UserInfo userinfo);
 	
 }

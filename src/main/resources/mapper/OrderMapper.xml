@@ -9,4 +9,36 @@
 						user_id
 		FROM			orders
 	</select>
+	
+	
+	<resultMap id="o_productData" type="Product">
+	</resultMap>
+	
+	<resultMap id="o_productImage" type="Product_img">
+	</resultMap>
+ 
+ 	<resultMap id="o_User" type="User">
+	</resultMap>
+
+	
+	<select id="readOrderDetails" parameterType="Integer" resultMap="o_productData, o_productImage, o_User">
+		SELECT  		user.user_name as name, 			
+						user.user_address as address, 
+						user.user_phone as phone,
+		    			product.p_name as product, 
+		    			product.p_price as price, 
+		    			product.p_id as code,
+			 			product_img.pi_image as image,
+			 			order_detail.od_count as count
+	
+		FROM order_detail
+		
+		LEFT JOIN orders ON (order_detail.o_id = orders.o_id)
+		LEFT JOIN user ON (orders.user_id = user.user_id)
+		LEFT JOIN product ON(order_detail.p_id = product.p_id)
+		LEFT JOIN product_img ON(product.p_id = product_img.p_id)
+		
+		WHERE order_detail.o_id = #{id}
+	</select>
+
 </mapper>

@@ -31,8 +31,6 @@ spring:
       
 server:
  port: 9000
- tomcat:
-    file-encoding: UTF-8
     
  servlet:
     encoding:
@@ -52,4 +50,3 @@ logging:
 mybatis:
   type-aliases-package: com.shoppingmall.example.domain
   mapper-locations: mapper/**/*.xml
- 

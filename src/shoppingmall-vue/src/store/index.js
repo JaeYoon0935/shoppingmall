@@ -76,6 +76,7 @@ export default new Vuex.Store({
       {text:'판매가격', value:'total_price'},
     ],
     orderlist:[],
+    orderdetaillist:[],
 
   },
   mutations: {
@@ -94,6 +95,9 @@ export default new Vuex.Store({
     },
       SET_ORDER(state, data){
         state.orderlist = data
+    },
+      SET_ORDER_DETAIL(state, data){
+        state.orderDetailList = data
     },
       SET_CATEGORY(state, data) {
         state.categorylist = data
@@ -121,9 +125,6 @@ export default new Vuex.Store({
         }
         state.ranking = data
     },    
-    //   CREATE_PRODUCT(state, data){
-    //     state.newproduct = data
-    // },
   },
   actions: {
     UserList({commit}) {
@@ -327,12 +328,15 @@ export default new Vuex.Store({
               })
       })
     },
-    OrderDetail({commit}) {
+    OrderDetail({commit},payload) {
+      var obj = {id: router.currentRoute.params.id};
+      payload = obj;
+      console.log(payload)
       return new Promise((resolve, reject) => {
-          axios.get('http://localhost:9000/api/admin/orderlist')
+          axios.post('http://localhost:9000/api/admin/orderdetail',payload)
               .then(Response => {
                   console.log(Response.data)
-                  commit('SET_ORDER', Response.data)
+                  commit('SET_ORDER_DETAIL', Response.data)
               })
               .catch(Error => {
                   console.log('error')

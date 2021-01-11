@@ -26,14 +26,14 @@ public interface UserService extends UserDetailsService{
 	public void createAuthority(User user);
 
 	
-	//-----------------------¾Æ·¡ ºÎÅÍ ¼îÇÎ¸ô ÇÁ·ÎÁ§Æ®---------------------------------
+	//-----------------------ì•„ë˜ ë¶€í„° ì‡¼í•‘ëª° í”„ë¡œì íŠ¸---------------------------------
 	
-	//È¸¿ø Á¤º¸ ºÒ·¯¿À±â
+	//íšŒì› ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
 	public List<UserInfo> shopping_readUser();
 	
-	//È¸¿øÅ»Åğ
+	//íšŒì›íƒˆí‡´
 	public void delete_user(String username);
 
-	//È¸¿ø¼öÁ¤
+	//íšŒì›ìˆ˜ì •
 	public void updateUser(UserInfo userinfo);
 }

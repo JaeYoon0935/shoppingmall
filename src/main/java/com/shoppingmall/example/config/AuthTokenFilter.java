@@ -21,7 +21,7 @@ import com.shoppingmall.example.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
-//Jwt ÅäÅ«À» ÇÊÅÍ¸µ ÇÏ±â À§ÇÑ Å¬·¡½ºÀÌ´Ù.
+//Jwt í† í°ì„ í•„í„°ë§ í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ì´ë‹¤.
 
 @RequiredArgsConstructor
 public class AuthTokenFilter extends OncePerRequestFilter{
@@ -38,10 +38,10 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 	throws ServletException, IOException{
 		try{
-			//¹Ş¾Æ¿Â jwt ÅäÅ«À» ÆÄ½ÌÇØ¼­ String¿¡ Áı¾î ³Ö´Â´Ù.
+			//ë°›ì•„ì˜¨ jwt í† í°ì„ íŒŒì‹±í•´ì„œ Stringì— ì§‘ì–´ ë„£ëŠ”ë‹¤.
 			String jwt = parseJwt(request);
 			
-			//ÅäÅ«ÀÌ nullÀÌ ¾Æ´Ï°í, À¯È¿ÇÑ ÅäÅ«ÀÌ¶ó¸é ¾Æ·¡ ÀıÂ÷¸¦ ÁøÇàÇÑ´Ù.
+			//í† í°ì´ nullì´ ì•„ë‹ˆê³ , ìœ íš¨í•œ í† í°ì´ë¼ë©´ ì•„ë˜ ì ˆì°¨ë¥¼ ì§„í–‰í•œë‹¤.
 			if(jwt != null && jwtUtils.validateJwtToken(jwt)) {
 				String username = jwtUtils.getUserNameFromJwtToken(jwt);
 				
@@ -58,13 +58,13 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 			filterChain.doFilter(request, response);
 		}
 		
-		//jwtÅäÅ«À» ÆÄ½ÌÇÑ´Ù. ¹Ù·Î À§¿¡¼­ ¾²ÀÌ´Â ¸Ş¼­µåÀÌ´Ù.
+		//jwtí† í°ì„ íŒŒì‹±í•œë‹¤. ë°”ë¡œ ìœ„ì—ì„œ ì“°ì´ëŠ” ë©”ì„œë“œì´ë‹¤.
 		private String parseJwt(HttpServletRequest request) {
 			
 			String headerAuth = request.getHeader("Authorization");
 			
 			if(StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
-			//´ëºÎºĞ ÅäÅ« ¾Õ¿¡ "Bearer "À» ºÙ¿©ÁÜ, ±×·¡¼­ "Bearer "À» Á¦°ÅÇÏ±â À§ÇØ substring(7)À» ÇØÁÜ.
+			//ëŒ€ë¶€ë¶„ í† í° ì•ì— "Bearer "ì„ ë¶™ì—¬ì¤Œ, ê·¸ë˜ì„œ "Bearer "ì„ ì œê±°í•˜ê¸° ìœ„í•´ substring(7)ì„ í•´ì¤Œ.
 				return headerAuth.substring(7, headerAuth.length());
 			}
 			return null;

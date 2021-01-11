@@ -16,17 +16,19 @@
        <template v-slot:item="row">
          <tr>     
            <td>
-            <!-- 상품 이름과 사진 불러오기 -->
-           </td>
-           <td>
              <!--상품은 주문상세내역 완료 후 받아오도록 하기 -->
-             {{row.item.product}}
+             {{row.item.code}}
            </td>
            <td>
-             {{row.item.date}}
+            <!-- 상품 이름과 사진 불러오기 -->
+            {{row.item.product}}
+            {{row.item.image}}
            </td>
            <td>
-             {{row.item.total_price}}
+             {{row.item.count}}
+           </td>
+           <td>
+             {{row.item.price}}
            </td>
          </tr>
        </template>
@@ -35,19 +37,19 @@
       <tbody>
         <tr>     
           <th style="text-align:center; background-color:rgb(245, 245, 245);">최종결제금액</th>
-          <td><input style="height:100%; width:100%;" v-model="id"></td>
+          <td>999,999원</td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">배송지</th>
-          <td><input style="height:100%; width:100%;" v-model="name"></td>
+          <td>{{this.$store.state.orderDetailList[0].address}}</td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">받는사람</th>
-          <td><input style="height:100%; width:100%;" v-model="text"></td>
+          <td>{{this.$store.state.orderDetailList[0].name}}</td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">연락처</th>
-          <td><input style="height:100%; width:100%;" v-model="price"></td>
+          <td>{{this.$store.state.orderDetailList[0].phone}}</td>
         </tr>
     </tbody>
   </table>
@@ -79,10 +81,7 @@ import { mapState, mapActions } from "vuex"
       }
     },
     methods:{
-      Detail(){
 
-
-      },
     }
   }
 </script>
