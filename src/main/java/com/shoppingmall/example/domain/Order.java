@@ -1,14 +1,13 @@
 package com.shoppingmall.example.domain;
 
-import java.util.Date;
+import java.util.List;
 
 public class Order {
 	
-	private String state;//주문상태
-	
-	private int id; //주문정보
-	private int total_price; //주문정보
-	private String count; //주문정보 od_count
+
+	private String state;//주문상태 o_state 
+	private int id; //주문정보 o_id
+	private int total_price; //주문정보 o_total_price
 
 	private String name; //사용자정보 user_name
 	private String phone; //사용자정보 user_phone
@@ -20,7 +19,37 @@ public class Order {
 	private String image; //상품정보 pi_image
 	
 	
+	private List<OrderDetail> orderdetail;
+	//private List<User> user_map;
+	private List<User> user;
+	private List<Product> product_map;
+	private List<Product_img> product_img_map;
+
+
 	
+	public List<OrderDetail> getOrderdetail() {
+		return orderdetail;
+	}
+	public void setOrderdetail(List<OrderDetail> orderdetail) {
+		this.orderdetail = orderdetail;
+	}
+	public List<Product> getProduct_map() {
+		return product_map;
+	}
+	public void setProduct_map(List<Product> product_map) {
+		this.product_map = product_map;
+	}
+
+	/*
+	 * public List<User> getUser_map() { return user_map; } public void
+	 * setUser_map(List<User> user_map) { this.user_map = user_map; }
+	 */
+	public List<Product_img> getProduct_img_map() {
+		return product_img_map;
+	}
+	public void setProduct_img_map(List<Product_img> product_img_map) {
+		this.product_img_map = product_img_map;
+	}
 	public String getState() {
 		return state;
 	}
@@ -44,12 +73,6 @@ public class Order {
 	}
 	public void setCode(String code) {
 		this.code = code;
-	}
-	public String getCount() {
-		return count;
-	}
-	public void setCount(String count) {
-		this.count = count;
 	}
 	public String getPhone() {
 		return phone;
@@ -95,6 +118,13 @@ public class Order {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	public List<User> getUser() {
+		return user;
+	}
+	public void setUser(List<User> user) {
+		this.user = user;
+	}
+	
 	
 
 }

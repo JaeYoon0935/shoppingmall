@@ -76,8 +76,7 @@ export default new Vuex.Store({
       {text:'판매가격', value:'total_price'},
     ],
     orderlist:[],
-    orderdetaillist:[],
-
+    orderDetailList:[],
   },
   mutations: {
       SET_USER(state, data) {

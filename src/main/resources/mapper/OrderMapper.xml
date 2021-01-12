@@ -9,19 +9,67 @@
 						user_id
 		FROM			orders
 	</select>
-	
-	
-	<resultMap id="o_productData" type="Product">
+
+  	<!-- resultmap 되는 소스 	
+	<resultMap id="User" type="User">
+		<result column="user_name" property="name" />
+		<result column="user_address" property="address" />
+		<result column="user_phone" property="phone" />
 	</resultMap>
 	
-	<resultMap id="o_productImage" type="Product_img">
+	<resultMap id="Order" type="Order">
+		<result column="o_id" property="id" />
+		<result column="o_state" property="state" />
+		<collection property="user" resultMap="User" />
 	</resultMap>
- 
- 	<resultMap id="o_User" type="User">
+ -->
+
+
+<!--
+	원래는 order와 product가 1:N의 관계가 되어야 한다. 
+	바로 order와 product의 관계까 아니라,
+	orderdetail은 product를 감싸고 있는 것과 비슷하다.  
+	그래서 order과 orderdetail이 1:N관계가 되어야한다.
+	-->
+
+<!-- 1. order (1) : order_detail(N) -->
+<!-- 2. order_detail (1) : product(1) , order_detail은 prodcut를 감싸고 있는 것과 비슷하다.-->
+<!-- 3. product(1) : pruduct_img(N)  -->
+	
+	<resultMap id="OrderDetail" type="Orderdetail">
+		<result column="od_id" property="id" />
+		<result column="od_product" property="product" />
+		<result column="od_price" property="price" />
+		<result column="p_id" property="p_id" />
+	</resultMap>
+	
+	<resultMap id="Order" type="Order">
+		<result column="o_id" property="id" />
+		<result column="o_total_price" property="total_price" />
+		<result column="o_state" property="state" />
+		<collection property="orderdetail" resultMap="OrderDetail" />
 	</resultMap>
 
-	
-	<select id="readOrderDetails" parameterType="Integer" resultMap="o_productData, o_productImage, o_User">
+
+	<select id="readOrderDetails" parameterType="Order" resultMap="Order">
+		SELECT  		tb.od_id,
+						tb.od_product,
+						tb.od_price,
+						tb.p_id,
+						tb.o_id,
+						ta.o_state,
+						ta.o_total_price,
+						ta.o_id
+
+		FROM orders ta
+		
+		LEFT JOIN order_detail tb ON (ta.o_id = tb.o_id)
+
+		
+		WHERE ta.o_id = #{id}
+		
+		
+		<!-- 
 		SELECT  		user.user_name as name, 			
 						user.user_address as address, 
 						user.user_phone as phone,
@@ -39,6 +87,7 @@
 		LEFT JOIN product_img ON(product.p_id = product_img.p_id)
 		
 		WHERE order_detail.o_id = #{id}
+		 -->
 	</select>
 
 </mapper>

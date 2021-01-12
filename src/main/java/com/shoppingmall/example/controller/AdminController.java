@@ -192,11 +192,12 @@ public class AdminController {
 		return new ResponseEntity<>(orderList, HttpStatus.OK);
 	}
 	
-	//상품상세정정보 불러오기
+	//상품 상세정보 불러오기
 	@PostMapping("/orderdetail")
 	public ResponseEntity<?> read_orderDetail(@Validated @RequestBody Order order){
-		System.out.println("asdasfd:"+ order.getId());
+		System.out.println("order ID: "+ order.getId());
 		List<Order> orderList = orderService.readOrderDetails(order);
+		System.out.println(orderList);
 		return new ResponseEntity<>(orderList, HttpStatus.OK);
 	}
 	

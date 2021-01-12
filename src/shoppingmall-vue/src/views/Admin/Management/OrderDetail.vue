@@ -21,14 +21,14 @@
            </td>
            <td>
             <!-- 상품 이름과 사진 불러오기 -->
-            {{row.item.product}}
+            {{product}}
             {{row.item.image}}
            </td>
            <td>
              {{row.item.count}}
            </td>
            <td>
-             {{row.item.price}}
+             {{price}}
            </td>
          </tr>
        </template>
@@ -41,15 +41,15 @@
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">배송지</th>
-          <td>{{this.$store.state.orderDetailList[0].address}}</td>
+          <!-- <td>{{this.$store.state.orderDetailList[0].orderdetail[0]}}</td> -->
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">받는사람</th>
-          <td>{{this.$store.state.orderDetailList[0].name}}</td>
+          <!-- <td>{{this.$store.state.orderDetailList[0].name}}</td> -->
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">연락처</th>
-          <td>{{this.$store.state.orderDetailList[0].phone}}</td>
+          <!-- <td>{{this.$store.state.orderDetailList[0].phone}}</td> -->
         </tr>
     </tbody>
   </table>
@@ -78,6 +78,9 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
+        product: this.$store.state.orderDetailList[0].orderdetail[0].product,
+        quantity: this.$store.state.orderDetailList[0].orderdetail[0].quantity,
+        price:this.$store.state.orderDetailList[0].orderdetail[0].price,
       }
     },
     methods:{

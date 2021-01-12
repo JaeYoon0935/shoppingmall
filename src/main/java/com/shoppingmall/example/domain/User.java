@@ -1,6 +1,8 @@
 package com.shoppingmall.example.domain;
 
 import java.util.Collection;
+import java.util.List;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,6 +15,7 @@ public class User implements UserDetails{
 	private String password;
 	private String name;
 	private String phone;
+	private String address;
 	private String point; //일단은 테스트를 위해 int 대신 string으로 사용
 	private String uDateTime;
 	private Collection<? extends GrantedAuthority> authorities;
@@ -21,7 +24,25 @@ public class User implements UserDetails{
 	private Boolean isCredentialsNonExpired;
 	private Boolean isEnabled;
 
+	private List<User> user_map;
 	
+
+	public List<User> getUser_map() {
+		return user_map;
+	}
+
+	public void setUser_map(List<User> user_map) {
+		this.user_map = user_map;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getPoint() {
 		return point;
 	}
