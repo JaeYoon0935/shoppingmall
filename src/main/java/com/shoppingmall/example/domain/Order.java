@@ -2,6 +2,8 @@ package com.shoppingmall.example.domain;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 public class Order {
 	
 
@@ -16,12 +18,11 @@ public class Order {
 	private String code; //상품코드 p_id
 	private String product; //상품명 p_name
 	private String price; //상품정보 p_price
-	private String image; //상품정보 pi_image
+	private String image; //상품정보 pi_image , 너무 복잡해져서 우선은 임시로 od_image로 대체함.
 	
 	
 	private List<OrderDetail> orderdetail;
-	//private List<User> user_map;
-	private List<User> user;
+	private List<UserInfo> user;
 	private List<Product> product_map;
 	private List<Product_img> product_img_map;
 
@@ -118,10 +119,10 @@ public class Order {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public List<User> getUser() {
+	public List<UserInfo> getUser() {
 		return user;
 	}
-	public void setUser(List<User> user) {
+	public void setUser(List<UserInfo> user) {
 		this.user = user;
 	}
 	

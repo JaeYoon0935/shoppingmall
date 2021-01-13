@@ -6,10 +6,18 @@ public class OrderDetail {
 	private String product; //od_product
 	private String price; //od_price
 	private String count; //od_count
+	private String image; //od_image
+	
 	private int p_id;
 	private int o_id;
 	
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public int getId() {
 		return id;
 	}

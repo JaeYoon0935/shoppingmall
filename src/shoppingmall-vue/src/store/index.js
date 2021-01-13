@@ -74,6 +74,7 @@ export default new Vuex.Store({
       {text:'상품정보', value:'id'},
       {text:'주문수량', value:'product'},
       {text:'판매가격', value:'total_price'},
+      {text:'관리', value: ''}
     ],
     orderlist:[],
     orderDetailList:[],

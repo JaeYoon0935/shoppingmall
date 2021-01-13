@@ -3,53 +3,73 @@
     <h2 class="pt-2">주문상세내역</h2>
     <table>
       <tr>
-        <td><h6 class="pt-2 pr-5">주문번호 :{{$route.params.id }}</h6><td>
+        <td><h6 class="pt-2 pr-5">주문번호 :{{$route.params.id}}</h6><td>
         <td><h6 class="pt-2">주문일자 : 2020-12-23 </h6></td>
       </tr>
     </table>
       <v-data-table
         :headers="$store.state.orderdetail_headers_1"
-        :items="$store.state.orderlist"
-        :items-per-page="5"
+        :items="$store.state.orderDetailList[0].orderdetail"
+        :items-per-page="3"
         class="elevation-1"
       >
        <template v-slot:item="row">
-         <tr>     
-           <td>
-             <!--상품은 주문상세내역 완료 후 받아오도록 하기 -->
-             {{row.item.code}}
+         <tr>
+           <td style="width:200px; padding-left:35px;">
+             <!--상품코드 -->
+             {{row.item.id}}
            </td>
-           <td>
+           <td style="width:420px;">
             <!-- 상품 이름과 사진 불러오기 -->
-            {{product}}
-            {{row.item.image}}
+              <v-row style="display:flex; width:420px; align-items:center;"> 
+              <v-col><img :src="image(row.item.image)"/></v-col>  
+              <v-col>{{row.item.product}}</v-col>
+            </v-row>
            </td>
-           <td>
+           <td style="padding-left:30px;">
              {{row.item.count}}
            </td>
+           <td style="text-align:left;">
+              가격: {{priceToString(row.item.price)}}원
+           </td>
            <td>
-             {{price}}
+             <v-row style="display:flex;">
+                <div>  
+                  <v-btn dark small color="grey" class="ma-2" @click="ProductUpdate(row.item)">수정</v-btn>
+                </div>
+                <div>
+                  <v-btn dark small color="grey" class="ma-2" @click="ProductDelete(row.item)">삭제</v-btn>
+                </div>
+              </v-row>
            </td>
          </tr>
        </template>
   </v-data-table>
-  <table class="detail" style="width:650px">
+  <table class="detail" style="width:650px;">
       <tbody>
         <tr>     
           <th style="text-align:center; background-color:rgb(245, 245, 245);">최종결제금액</th>
-          <td>999,999원</td>
+          <td style="text-align:center;">
+            999,999원
+          </td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">배송지</th>
-          <!-- <td>{{this.$store.state.orderDetailList[0].orderdetail[0]}}</td> -->
+          <td style="text-align:center;">
+            {{this.$store.state.orderDetailList[0].user[0].address}}
+          </td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">받는사람</th>
-          <!-- <td>{{this.$store.state.orderDetailList[0].name}}</td> -->
+          <td style="text-align:center;">
+            {{this.$store.state.orderDetailList[0].user[0].name}}
+          </td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">연락처</th>
-          <!-- <td>{{this.$store.state.orderDetailList[0].phone}}</td> -->
+          <td style="text-align:center;">
+            {{this.$store.state.orderDetailList[0].user[0].phone}}
+          </td>
         </tr>
     </tbody>
   </table>
@@ -59,7 +79,7 @@
 <style scoped>
 .detail{
     height:300px;
-    margin:50px 0 0 130px;
+    margin:70px 0 200px 130px;
     border:1px solid rgb(185, 185, 185);
 }
 .detail tr{
@@ -68,6 +88,10 @@
 .detail tr td{
     border:1px solid rgb(185, 185, 185);
 }
+img{
+  width:90%; height:100px;
+}
+
 </style>
 
 <script>
@@ -78,13 +102,19 @@ import { mapState, mapActions } from "vuex"
     },
     data () {
       return {     
-        product: this.$store.state.orderDetailList[0].orderdetail[0].product,
-        quantity: this.$store.state.orderDetailList[0].orderdetail[0].quantity,
-        price:this.$store.state.orderDetailList[0].orderdetail[0].price,
+
       }
     },
     methods:{
-
+     image(image){ //경로를 조합해줄 메서드.
+      if(image == null){
+        return require('@/assets/null.jpg');
+      }
+      return require('@/assets/'+ image +'.jpg');
+      },
+     priceToString(price) {
+         return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      },
     }
   }
 </script>

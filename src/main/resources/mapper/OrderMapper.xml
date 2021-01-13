@@ -36,18 +36,28 @@
 <!-- 2. order_detail (1) : product(1) , order_detail은 prodcut를 감싸고 있는 것과 비슷하다.-->
 <!-- 3. product(1) : pruduct_img(N)  -->
 	
-	<resultMap id="OrderDetail" type="Orderdetail">
+	<resultMap id="OrderDetail" type="OrderDetail">
 		<result column="od_id" property="id" />
 		<result column="od_product" property="product" />
 		<result column="od_price" property="price" />
+		<result column="od_count" property="count" />
 		<result column="p_id" property="p_id" />
+		<result column="od_image" property="image" />
 	</resultMap>
+	
+	<resultMap id="UserInfo" type="UserInfo">
+		<result column="user_name" property="name" />
+		<result column="user_address" property="address" />
+		<result column="user_phone" property="phone" />	
+	</resultMap>
+	
 	
 	<resultMap id="Order" type="Order">
 		<result column="o_id" property="id" />
 		<result column="o_total_price" property="total_price" />
 		<result column="o_state" property="state" />
 		<collection property="orderdetail" resultMap="OrderDetail" />
+		<collection property="user" resultMap="UserInfo" />
 	</resultMap>
 
 
@@ -55,16 +65,21 @@
 		SELECT  		tb.od_id,
 						tb.od_product,
 						tb.od_price,
+						tb.od_count,
+						tb.od_image,
 						tb.p_id,
 						tb.o_id,
 						ta.o_state,
 						ta.o_total_price,
-						ta.o_id
-
+						ta.o_id,
+						tc.user_name,
+						tc.user_address,
+						tc.user_phone
+						
 		FROM orders ta
 		
 		LEFT JOIN order_detail tb ON (ta.o_id = tb.o_id)
-
+		LEFT JOIN user tc ON (ta.user_id = tc.user_id)
 		
 		WHERE ta.o_id = #{id}
 		
