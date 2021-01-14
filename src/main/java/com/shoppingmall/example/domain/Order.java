@@ -5,16 +5,20 @@ import java.util.List;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class Order {
-	
 
 	private String state;//주문상태 o_state 
 	private int id; //주문정보 o_id
 	private int total_price; //주문정보 o_total_price
-
-	private String name; //사용자정보 user_name
+	private String date; // 주문정보 o_date
+	private String user_id; //주문정보 user_id (주문한 사람의 아이디)
+	private List<String> productList;  //상품정보 o_id에 해당하는 od_product들을 담고있을 리스트 
+	
+	
+	private String name; //사용자정보 user_name (주문한 사람의 이름)
 	private String phone; //사용자정보 user_phone
 	private String address; //사용자정보 user_address
-
+	
+	
 	private String code; //상품코드 p_id
 	private String product; //상품명 p_name
 	private String price; //상품정보 p_price
@@ -22,12 +26,24 @@ public class Order {
 	
 	
 	private List<OrderDetail> orderdetail;
-	private List<UserInfo> user;
+	private UserInfo user;
 	private List<Product> product_map;
 	private List<Product_img> product_img_map;
 
-
 	
+	
+	public List<String> getProductList() {
+		return productList;
+	}
+	public void setProductList(List<String> productList) {
+		this.productList = productList;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 	public List<OrderDetail> getOrderdetail() {
 		return orderdetail;
 	}
@@ -99,7 +115,7 @@ public class Order {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	private String date;
+
 
 	public int getId() {
 		return id;
@@ -119,10 +135,10 @@ public class Order {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public List<UserInfo> getUser() {
+	public UserInfo getUser() {
 		return user;
 	}
-	public void setUser(List<UserInfo> user) {
+	public void setUser(UserInfo user) {
 		this.user = user;
 	}
 	

@@ -77,7 +77,12 @@ export default new Vuex.Store({
       {text:'관리', value: ''}
     ],
     orderlist:[],
-    orderDetailList:[],
+    orderDetailList:{},
+  },
+  getters: {
+    doneorderDetailList: state => {
+      return state.orderDetailList
+    }
   },
   mutations: {
       SET_USER(state, data) {
@@ -328,6 +333,20 @@ export default new Vuex.Store({
               })
       })
     },
+    // OrderList({commit},payload) {
+    //   console.log(payload)
+    //   return new Promise((resolve, reject) => {
+    //       axios.post('http://localhost:9000/api/admin/orderlist',payload)
+    //           .then(Response => {
+    //               console.log(Response.data)
+    //               commit('SET_ORDER', Response.data)
+    //           })
+    //           .catch(Error => {
+    //               console.log('error')
+    //               reject(Error)
+    //           })
+    //   })
+    // },
     OrderDetail({commit},payload) {
       var obj = {id: router.currentRoute.params.id};
       payload = obj;

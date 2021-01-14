@@ -4,48 +4,48 @@
     <table>
       <tr>
         <td><h6 class="pt-2 pr-5">주문번호 :{{$route.params.id}}</h6><td>
-        <td><h6 class="pt-2">주문일자 : 2020-12-23 </h6></td>
+        <td><h6 class="pt-2">주문일자 : {{$store.state.orderDetailList.date}} </h6></td>
       </tr>
     </table>
-      <v-data-table
+    <v-data-table
         :headers="$store.state.orderdetail_headers_1"
-        :items="$store.state.orderDetailList[0].orderdetail"
+        :items="$store.state.orderDetailList.orderdetail"
         :items-per-page="3"
         class="elevation-1"
-      >
-       <template v-slot:item="row">
-         <tr>
-           <td style="width:200px; padding-left:35px;">
-             <!--상품코드 -->
-             {{row.item.id}}
-           </td>
-           <td style="width:420px;">
+    >
+      <template v-slot:item="row">
+        <tr>
+          <td style="width:200px; padding-left:35px;">
+            <!--상품코드 -->
+            {{row.item.id}}
+          </td>
+          <td style="width:420px;">
             <!-- 상품 이름과 사진 불러오기 -->
-              <v-row style="display:flex; width:420px; align-items:center;"> 
+            <v-row style="display:flex; width:420px; align-items:center;"> 
               <v-col><img :src="image(row.item.image)"/></v-col>  
               <v-col>{{row.item.product}}</v-col>
             </v-row>
-           </td>
-           <td style="padding-left:30px;">
-             {{row.item.count}}
-           </td>
-           <td style="text-align:left;">
+          </td>
+          <td style="padding-left:30px;">
+            {{row.item.count}}
+          </td>
+          <td style="text-align:left;">
               가격: {{priceToString(row.item.price)}}원
-           </td>
-           <td>
-             <v-row style="display:flex;">
-                <div>  
-                  <v-btn dark small color="grey" class="ma-2" @click="ProductUpdate(row.item)">수정</v-btn>
-                </div>
-                <div>
-                  <v-btn dark small color="grey" class="ma-2" @click="ProductDelete(row.item)">삭제</v-btn>
-                </div>
-              </v-row>
+          </td>
+          <td>
+            <v-row style="display:flex;">
+              <div>  
+                <v-btn dark small color="grey" class="ma-2" @click="ProductUpdate(row.item)">수정</v-btn>
+              </div>
+              <div>
+                <v-btn dark small color="grey" class="ma-2" @click="ProductDelete(row.item)">삭제</v-btn>
+              </div>
+            </v-row>
            </td>
          </tr>
-       </template>
-  </v-data-table>
-  <table class="detail" style="width:650px;">
+      </template>
+    </v-data-table>
+    <table class="detail" style="width:650px;">
       <tbody>
         <tr>     
           <th style="text-align:center; background-color:rgb(245, 245, 245);">최종결제금액</th>
@@ -56,23 +56,24 @@
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">배송지</th>
           <td style="text-align:center;">
-            {{this.$store.state.orderDetailList[0].user[0].address}}
+           <span v-if="this.$store.state.temp != null"> {{$store.getters.doneorderDetailList.user.address}}</span>
+           <!-- <span v-if="this.$store.state.temp != null"> {{$store.state.orderDetailList.user.address}}</span> -->
           </td>
         </tr>
         <tr>
-          <th style="text-align:center; background-color:rgb(245, 245, 245);">받는사람</th>
-          <td style="text-align:center;">
-            {{this.$store.state.orderDetailList[0].user[0].name}}
-          </td>
+            <th style="text-align:center; background-color:rgb(245, 245, 245);">받는사람</th>
+            <td style="text-align:center;">
+              <span v-if="this.$store.state.temp != null">{{this.$store.getters.doneorderDetailList.user.name}}</span>
+            </td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">연락처</th>
           <td style="text-align:center;">
-            {{this.$store.state.orderDetailList[0].user[0].phone}}
+            <span v-if="this.$store.state.temp != null">{{this.$store.getters.doneorderDetailList.user.phone}}</span>
           </td>
         </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -96,9 +97,28 @@ img{
 
 <script>
 import { mapState, mapActions } from "vuex"
+import { mapGetters } from 'vuex'
   export default {
     created(){
       this.$store.dispatch('OrderDetail')
+      this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+    },
+    mounted(){
+      console.log('mount')
+      // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+    },
+    beforeUpdate(){
+      console.log('beforeUpdate')
+      this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+    },
+    updated(){
+      console.log('updated')
+      // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+    },
+    computed: {
+      ...mapGetters([
+        'doneorderDetailList',
+      ])
     },
     data () {
       return {     

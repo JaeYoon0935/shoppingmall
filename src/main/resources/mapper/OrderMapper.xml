@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shoppingmall.example.mapper.OrderMapper">
+
+
+<!-- 여기에 상품이랑 사용자아이디 추가해주면됨 -->
+
 	<select id="readOrder" resultType="Order">
-		SELECT			o_id as id,
+		SELECT			ta.o_id as id,
 						o_date as date,
 						o_total_price as total_price,
 						o_state as state,
-						user_id
-		FROM			orders
+						user_id as user_id,
+						od_product as productList
+		
+		FROM			orders ta
+		
+		left JOIN order_detail tb ON(ta.o_id = tb.o_id)
+				
 	</select>
 
   	<!-- resultmap 되는 소스 	
@@ -55,9 +64,11 @@
 	<resultMap id="Order" type="Order">
 		<result column="o_id" property="id" />
 		<result column="o_total_price" property="total_price" />
+		<result column="o_date" property="date" />
 		<result column="o_state" property="state" />
-		<collection property="orderdetail" resultMap="OrderDetail" />
-		<collection property="user" resultMap="UserInfo" />
+		<association property="user" resultMap="UserInfo"></association>
+		<collection property="orderdetail" resultMap="OrderDetail"></collection>
+	    <!-- <collection property="user" resultMap="UserInfo" /> --> 
 	</resultMap>
 
 
@@ -71,6 +82,7 @@
 						tb.o_id,
 						ta.o_state,
 						ta.o_total_price,
+						ta.o_date,
 						ta.o_id,
 						tc.user_name,
 						tc.user_address,
@@ -82,27 +94,6 @@
 		LEFT JOIN user tc ON (ta.user_id = tc.user_id)
 		
 		WHERE ta.o_id = #{id}
-		
-		
-		<!-- 
-		SELECT  		user.user_name as name, 			
-						user.user_address as address, 
-						user.user_phone as phone,
-		    			product.p_name as product, 
-		    			product.p_price as price, 
-		    			product.p_id as code,
-			 			product_img.pi_image as image,
-			 			order_detail.od_count as count
-	
-		FROM order_detail
-		
-		LEFT JOIN orders ON (order_detail.o_id = orders.o_id)
-		LEFT JOIN user ON (orders.user_id = user.user_id)
-		LEFT JOIN product ON(order_detail.p_id = product.p_id)
-		LEFT JOIN product_img ON(product.p_id = product_img.p_id)
-		
-		WHERE order_detail.o_id = #{id}
-		 -->
 	</select>
 
 </mapper>

@@ -9,7 +9,7 @@ public interface OrderService {
 	
 	public List<Order> readOrder();
 	
-	public ArrayList<Order> readOrderDetails(Order order);
+	public Order readOrderDetails(Order order);
 
 	
 	

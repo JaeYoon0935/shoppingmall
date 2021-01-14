@@ -189,6 +189,7 @@ public class AdminController {
 	@GetMapping("/orderlist")
 	public ResponseEntity<?> read_order(){
 		List<Order> orderList = orderService.readOrder();
+		System.out.println(orderList);
 		return new ResponseEntity<>(orderList, HttpStatus.OK);
 	}
 	
@@ -196,9 +197,9 @@ public class AdminController {
 	@PostMapping("/orderdetail")
 	public ResponseEntity<?> read_orderDetail(@Validated @RequestBody Order order){
 		System.out.println("order ID: "+ order.getId());
-		List<Order> orderList = orderService.readOrderDetails(order);
-		System.out.println(orderList);
-		return new ResponseEntity<>(orderList, HttpStatus.OK);
+		Order orderDetail = orderService.readOrderDetails(order);
+		System.out.println(orderDetail);
+		return new ResponseEntity<>(orderDetail, HttpStatus.OK);
 	}
 	
 	
