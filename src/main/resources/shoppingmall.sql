@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- 호스트:                          127.0.0.1
--- 서버 버전:                        10.5.4-MariaDB - mariadb.org binary distribution
+-- 서버 버전:                        10.5.8-MariaDB - mariadb.org binary distribution
 -- 서버 OS:                        Win64
 -- HeidiSQL 버전:                  11.0.0.5919
 -- --------------------------------------------------------
@@ -44,29 +44,30 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `user_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user테이블의 id\r\n';
 
--- 테이블 데이터 shoppingmall.orders:~6 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.orders:~2 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`o_id`, `o_date`, `o_total_price`, `o_state`, `user_id`) VALUES
-	(1, '2020-12-23', 200000, '배송중', 'jy0935'),
-	(2, '2020-12-23', 50000, '배송완료', 'jy0935'),
-	(3, '2021-01-01', 80000, '배송준비중', 'jy0935'),
-	(4, '2021-01-02', 100000, '배송중', 'jy0935'),
-	(5, '2021-01-04', 5000, '입금완료', 'jy0935'),
-	(6, '2021-01-04', 200000, '입금완료', 'jy0935');
+	(1, '2020-12-23', 480000, '배송중', 'jy0935'),
+	(2, '2020-12-23', 50000, '배송완료', 'jy1234');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.order_detail 구조 내보내기
 CREATE TABLE IF NOT EXISTS `order_detail` (
   `od_id` int(10) DEFAULT NULL,
-  `od_product` varchar(255) DEFAULT NULL,
   `od_price` int(10) DEFAULT NULL,
   `od_count` int(10) DEFAULT NULL,
   `o_id` int(10) DEFAULT NULL,
   `p_id` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='해당상품의 갯수에 따른 해당상품의 총 주문금액';
 
--- 테이블 데이터 shoppingmall.order_detail:~0 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.order_detail:~5 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
+INSERT INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
+	(1, 200000, 1, 1, 1),
+	(2, 70000, 1, 1, 2),
+	(3, 5000, 2, 1, 4),
+	(4, 10000, 3, 2, 6),
+	(5, 150000, 4, 2, 5);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product 구조 내보내기
@@ -104,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `product_img` (
   `p_id` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.product_img:~9 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.product_img:~7 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product_img` DISABLE KEYS */;
 INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`) VALUES
 	(1, 'livingLamp40', 1),
@@ -113,9 +114,7 @@ INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`) VALUES
 	(4, 'multiPlug', 4),
 	(5, 'diningLamp', 5),
 	(6, 'switchTwo', 6),
-	(7, 'ledStand', 7),
-	(150, NULL, 150),
-	(123, NULL, 123);
+	(7, 'ledStand', 7);
 /*!40000 ALTER TABLE `product_img` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.user 구조 내보내기
