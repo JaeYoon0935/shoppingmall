@@ -80,7 +80,7 @@ export default new Vuex.Store({
     orderDetailList:{},
   },
   getters: {
-    doneorderDetailList: state => {
+    get_orderDetailList: state => {
       return state.orderDetailList
     }
   },
@@ -333,20 +333,6 @@ export default new Vuex.Store({
               })
       })
     },
-    // OrderList({commit},payload) {
-    //   console.log(payload)
-    //   return new Promise((resolve, reject) => {
-    //       axios.post('http://localhost:9000/api/admin/orderlist',payload)
-    //           .then(Response => {
-    //               console.log(Response.data)
-    //               commit('SET_ORDER', Response.data)
-    //           })
-    //           .catch(Error => {
-    //               console.log('error')
-    //               reject(Error)
-    //           })
-    //   })
-    // },
     OrderDetail({commit},payload) {
       var obj = {id: router.currentRoute.params.id};
       payload = obj;

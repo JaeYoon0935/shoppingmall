@@ -3,23 +3,7 @@
 <mapper namespace="com.shoppingmall.example.mapper.OrderMapper">
 
 
-<!-- 여기에 상품이랑 사용자아이디 추가해주면됨 -->
-
-	<select id="readOrder" resultType="Order">
-		SELECT			ta.o_id as id,
-						o_date as date,
-						o_total_price as total_price,
-						o_state as state,
-						user_id as user_id,
-						od_product as productList
-		
-		FROM			orders ta
-		
-		left JOIN order_detail tb ON(ta.o_id = tb.o_id)
-				
-	</select>
-
-  	<!-- resultmap 되는 소스 	
+ <!-- resultmap 되는 소스 	
 	<resultMap id="User" type="User">
 		<result column="user_name" property="name" />
 		<result column="user_address" property="address" />
@@ -45,13 +29,12 @@
 <!-- 2. order_detail (1) : product(1) , order_detail은 prodcut를 감싸고 있는 것과 비슷하다.-->
 <!-- 3. product(1) : pruduct_img(N)  -->
 	
+	
 	<resultMap id="OrderDetail" type="OrderDetail">
 		<result column="od_id" property="id" />
-		<result column="od_product" property="product" />
 		<result column="od_price" property="price" />
 		<result column="od_count" property="count" />
 		<result column="p_id" property="p_id" />
-		<result column="od_image" property="image" />
 	</resultMap>
 	
 	<resultMap id="UserInfo" type="UserInfo">
@@ -61,18 +44,31 @@
 	</resultMap>
 	
 	
-	<resultMap id="Order" type="Order">
+	<resultMap id="OrderMap" type="Order">
 		<result column="o_id" property="id" />
-		<result column="o_total_price" property="total_price" />
 		<result column="o_date" property="date" />
+		<result column="o_total_price" property="total_price" />
 		<result column="o_state" property="state" />
+		<result column="user_id" property="user_id" />
 		<association property="user" resultMap="UserInfo"></association>
 		<collection property="orderdetail" resultMap="OrderDetail"></collection>
-	    <!-- <collection property="user" resultMap="UserInfo" /> --> 
 	</resultMap>
+	
+	
+	<select id="readOrder" parameterType="Order" resultMap="OrderMap">
+		SELECT			ta.o_id,
+						o_date,
+						o_total_price,
+						o_state,
+						user_id,
+						tb.od_count
 
+		FROM			orders ta	
+		LEFT JOIN       order_detail tb ON(ta.o_id = tb.o_id)
+	</select>
+	
 
-	<select id="readOrderDetails" parameterType="Order" resultMap="Order">
+	<select id="readOrderDetails" parameterType="Order" resultMap="OrderMap">
 		SELECT  		tb.od_id,
 						tb.od_product,
 						tb.od_price,
@@ -95,5 +91,6 @@
 		
 		WHERE ta.o_id = #{id}
 	</select>
+
 
 </mapper>

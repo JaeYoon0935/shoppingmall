@@ -13,7 +13,6 @@
              {{row.item.id}}
            </td>
            <td>
-             <!--상품은 주문상세내역 완료 후 받아오도록 하기 -->
              {{row.item.product}}
            </td>
            <td>
@@ -30,7 +29,6 @@
            </td>
            <td>
               <v-btn dark small color="grey" router :to="{name: 'OrderDetail', params: {id: row.item.id}}">상세보기</v-btn>
-              <!-- <v-btn dark small color="grey" class="ml-2" router :to="{name: 'Product_User', params: {id: row.item.id}}">상품보기</v-btn> -->
            </td>
          </tr>
        </template>
@@ -41,6 +39,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex"
+// import { mapGetters } from 'vuex'
   export default {
     created(){
       this.$store.dispatch('OrderList')
@@ -49,6 +48,10 @@ import { mapState, mapActions } from "vuex"
       return {     
       }
     },
+    // beforeUpdate(){
+    //   console.log('beforeUpdate')
+    //   this.$store.state.temp = this.$store.getters.get_orderDetailList.user
+    // },
     methods:{
       Detail(){
 

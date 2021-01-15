@@ -56,20 +56,20 @@
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">배송지</th>
           <td style="text-align:center;">
-           <span v-if="this.$store.state.temp != null"> {{$store.getters.doneorderDetailList.user.address}}</span>
+           <span v-if="this.$store.state.temp != null"> {{$store.getters.get_orderDetailList.user.address}}</span>
            <!-- <span v-if="this.$store.state.temp != null"> {{$store.state.orderDetailList.user.address}}</span> -->
           </td>
         </tr>
         <tr>
             <th style="text-align:center; background-color:rgb(245, 245, 245);">받는사람</th>
             <td style="text-align:center;">
-              <span v-if="this.$store.state.temp != null">{{this.$store.getters.doneorderDetailList.user.name}}</span>
+              <span v-if="this.$store.state.temp != null">{{this.$store.getters.get_orderDetailList.user.name}}</span>
             </td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">연락처</th>
           <td style="text-align:center;">
-            <span v-if="this.$store.state.temp != null">{{this.$store.getters.doneorderDetailList.user.phone}}</span>
+            <span v-if="this.$store.state.temp != null">{{this.$store.getters.get_orderDetailList.user.phone}}</span>
           </td>
         </tr>
       </tbody>
@@ -101,23 +101,23 @@ import { mapGetters } from 'vuex'
   export default {
     created(){
       this.$store.dispatch('OrderDetail')
-      this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+      this.$store.state.temp = this.$store.getters.get_orderDetailList.user
     },
-    mounted(){
-      console.log('mount')
-      // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
-    },
+    // mounted(){
+    //   console.log('mount')
+    //   // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+    // },
     beforeUpdate(){
       console.log('beforeUpdate')
-      this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+      this.$store.state.temp = this.$store.getters.get_orderDetailList.user
     },
-    updated(){
-      console.log('updated')
-      // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
-    },
+    // updated(){
+    //   console.log('updated')
+    //   // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
+    // },
     computed: {
       ...mapGetters([
-        'doneorderDetailList',
+        'get_orderDetailList',
       ])
     },
     data () {
