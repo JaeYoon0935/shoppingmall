@@ -1,11 +1,11 @@
 package com.shoppingmall.example.mapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import com.shoppingmall.example.domain.Order;
+import com.shoppingmall.example.domain.OrderDetail;
 
 @Mapper
 public interface OrderMapper {
@@ -13,4 +13,7 @@ public interface OrderMapper {
 	public List<Order> readOrder();
 
 	public Order readOrderDetails(Order order);
+	
+	public void orderDetailDelete(OrderDetail orderdetail);
+
 }

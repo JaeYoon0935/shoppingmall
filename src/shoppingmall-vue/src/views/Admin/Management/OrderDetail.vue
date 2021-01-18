@@ -3,14 +3,14 @@
     <h2 class="pt-2">주문상세내역</h2>
     <table>
       <tr>
-        <td><h6 class="pt-2 pr-5">주문번호 :{{$route.params.id}}</h6><td>
+        <td><h6 class="pt-2 pr-5">주문번호 : {{$route.params.id}}</h6><td>
         <td><h6 class="pt-2">주문일자 : {{$store.state.orderDetailList.date}} </h6></td>
       </tr>
     </table>
     <v-data-table
         :headers="$store.state.orderdetail_headers_1"
         :items="$store.state.orderDetailList.orderdetail"
-        :items-per-page="3"
+        :items-per-page="5"
         class="elevation-1"
     >
       <template v-slot:item="row">
@@ -21,13 +21,14 @@
           </td>
           <td style="width:420px;">
             <!-- 상품 이름과 사진 불러오기 -->
-            <v-row style="display:flex; width:420px; align-items:center;"> 
-              <v-col><img :src="image(row.item.image)"/></v-col>  
-              <v-col>{{row.item.product}}</v-col>
+            <v-row style="display:flex; width:400px; align-items:center;"> 
+              <v-col cols="5">상품명: {{row.item.product}}</v-col>
+              <v-col cols="6"><img :src="image(row.item.image)"/></v-col>  
+              <v-col cols="1"></v-col>
             </v-row>
           </td>
           <td style="padding-left:30px;">
-            {{row.item.count}}
+            {{row.item.count}}개
           </td>
           <td style="text-align:left;">
               가격: {{priceToString(row.item.price)}}원
@@ -35,10 +36,10 @@
           <td>
             <v-row style="display:flex;">
               <div>  
-                <v-btn dark small color="grey" class="ma-2" @click="ProductUpdate(row.item)">수정</v-btn>
+                <v-btn dark small color="grey" class="ma-1" @click="ProductUpdate(row.item)">수정</v-btn>
               </div>
               <div>
-                <v-btn dark small color="grey" class="ma-2" @click="ProductDelete(row.item)">삭제</v-btn>
+                <v-btn dark small color="grey" class="ma-1" @click="OrderDetailDelete(row.item)">삭제</v-btn>
               </div>
             </v-row>
            </td>
@@ -49,15 +50,17 @@
       <tbody>
         <tr>     
           <th style="text-align:center; background-color:rgb(245, 245, 245);">최종결제금액</th>
-          <td style="text-align:center;">
-            999,999원
+          <td style="text-align:center;">   
+            <!-- beforeUpdate 이후에 값이 들어옴으로, 랜더링시 오류를 방지하기 위해 v-if를 사용함.-->
+            <span v-if="this.$store.state.temp != null">
+              {{priceToString($store.state.orderDetailList.total_price)}}원
+            </span>
           </td>
         </tr>
         <tr>
           <th style="text-align:center; background-color:rgb(245, 245, 245);">배송지</th>
           <td style="text-align:center;">
            <span v-if="this.$store.state.temp != null"> {{$store.getters.get_orderDetailList.user.address}}</span>
-           <!-- <span v-if="this.$store.state.temp != null"> {{$store.state.orderDetailList.user.address}}</span> -->
           </td>
         </tr>
         <tr>
@@ -126,6 +129,7 @@ import { mapGetters } from 'vuex'
       }
     },
     methods:{
+      ...mapActions(["OrderDetailDelete"]),
      image(image){ //경로를 조합해줄 메서드.
       if(image == null){
         return require('@/assets/null.jpg');

@@ -3,7 +3,7 @@ package com.shoppingmall.example.domain;
 public class OrderDetail {
 	
 	private int id; //od_id
-	private String product; //od_product
+	private String product; //p_name
 	private String price; //od_price
 	private String count; //od_count
 	private String image; //od_image

@@ -22,7 +22,7 @@
              {{row.item.date}}
            </td>
            <td>
-             {{row.item.total_price}}
+             {{priceToString(row.item.total_price)}}원
            </td>
            <td>
              {{row.item.state}}
@@ -53,6 +53,9 @@ import { mapState, mapActions } from "vuex"
     //   this.$store.state.temp = this.$store.getters.get_orderDetailList.user
     // },
     methods:{
+      priceToString(price) {
+         return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      },
       Detail(){
 
 

@@ -63,7 +63,7 @@ export default new Vuex.Store({
     order_headers:[
       {text:'주문번호', value:'id'},
       {text:'주문상품', value:'product'},
-      {text:'회원아이디', value:'user_id'},
+      {text:'주문자', value:'user_id'},
       {text:'주문일자', value:'date'},
       {text:'총 주문금액', value:'total_price'},
       {text:'주문상태', value:'state'},
@@ -348,6 +348,22 @@ export default new Vuex.Store({
                   reject(Error)
               })
       })
+    },
+    OrderDetailDelete({commit},payload) {
+      console.log(payload)
+      if(confirm('해당 주문을 삭제하시겠습니까?') == true){
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/orderdetail',payload)
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_PRODUCT_LIST', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+        })
+      }
     },
 
     // -------------- 아래부터 사용자 화면 ----------------

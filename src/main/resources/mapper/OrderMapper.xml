@@ -34,6 +34,8 @@
 		<result column="od_id" property="id" />
 		<result column="od_price" property="price" />
 		<result column="od_count" property="count" />
+		<result column="pi_image" property="image"/>
+		<result column="p_name" property="product"/>
 		<result column="p_id" property="p_id" />
 	</resultMap>
 	
@@ -43,52 +45,67 @@
 		<result column="user_phone" property="phone" />	
 	</resultMap>
 	
-	
 	<resultMap id="OrderMap" type="Order">
 		<result column="o_id" property="id" />
 		<result column="o_date" property="date" />
 		<result column="o_total_price" property="total_price" />
 		<result column="o_state" property="state" />
 		<result column="user_id" property="user_id" />
+		<result column="p_total_name" property="product"/>
 		<association property="user" resultMap="UserInfo"></association>
 		<collection property="orderdetail" resultMap="OrderDetail"></collection>
 	</resultMap>
-	
-	
+
+
+	<delete id="orderDetailDelete" parameterType="Order">
+		DELETE FROM order_detail where od_id=#{id}
+	</delete>
+
+
 	<select id="readOrder" parameterType="Order" resultMap="OrderMap">
-		SELECT			ta.o_id,
+		SELECT		    ta.o_id,
 						o_date,
-						o_total_price,
+						SUM(tb.od_count*tb.od_price) o_total_price,
 						o_state,
 						user_id,
-						tb.od_count
-
+						GROUP_CONCAT( tc.p_name SEPARATOR ', ') p_total_name
+						
 		FROM			orders ta	
 		LEFT JOIN       order_detail tb ON(ta.o_id = tb.o_id)
+		LEFT JOIN   	 product tc ON(tb.p_id = tc.p_id)
+		GROUP BY o_id
 	</select>
-	
 
 	<select id="readOrderDetails" parameterType="Order" resultMap="OrderMap">
 		SELECT  		tb.od_id,
-						tb.od_product,
 						tb.od_price,
 						tb.od_count,
-						tb.od_image,
 						tb.p_id,
 						tb.o_id,
 						ta.o_state,
-						ta.o_total_price,
 						ta.o_date,
 						ta.o_id,
 						tc.user_name,
 						tc.user_address,
-						tc.user_phone
+						tc.user_phone,
+						td.o_total_price,
+						te.p_name,
+						tf.pi_image
 						
-		FROM orders ta
-		
-		LEFT JOIN order_detail tb ON (ta.o_id = tb.o_id)
-		LEFT JOIN user tc ON (ta.user_id = tc.user_id)
-		
+		FROM 			orders ta		
+		LEFT JOIN 	order_detail tb ON (ta.o_id = tb.o_id)
+		LEFT JOIN 	user tc ON (ta.user_id = tc.user_id)
+		LEFT JOIN			
+						(
+						SELECT  		ta.o_id,
+										SUM(tb.od_price*tb.od_count) o_total_price
+						FROM 			orders ta		
+						LEFT JOIN 	order_detail tb ON (ta.o_id = tb.o_id)
+						GROUP BY 	ta.o_id
+						) td ON ta.o_id = td.o_id
+		LEFT JOIN   product te ON (tb.p_id = te.p_id)
+		LEFT JOIN   product_img tf ON (te.p_id = tf.p_id)
+	
 		WHERE ta.o_id = #{id}
 	</select>
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shoppingmall.example.domain.Order;
+import com.shoppingmall.example.domain.OrderDetail;
 import com.shoppingmall.example.mapper.OrderMapper;
 
 @Service("OrderServiceImpl")
@@ -24,4 +25,9 @@ public class OrderServiceImpl implements OrderService{
 		return ordermapper.readOrderDetails(order);
 	};
 
+	@Override
+	public void orderDetailDelete(OrderDetail orderdetail) {
+		ordermapper.orderDetailDelete(orderdetail);
+	};
+	
 }
