@@ -10,7 +10,8 @@
     <v-data-table
         :headers="$store.state.orderdetail_headers_1"
         :items="$store.state.orderDetailList.orderdetail"
-        :items-per-page="5"
+        :items-per-page="3"
+        :footer-props="footerProps"
         class="elevation-1"
     >
       <template v-slot:item="row">
@@ -28,7 +29,10 @@
             </v-row>
           </td>
           <td style="padding-left:30px;">
-            {{row.item.count}}개
+              <span v-if="temp != row.item.id">
+                <input :style="{width:'40px'}" v-model="count">
+              </span>
+              <span v-else>{{row.item.count}}개</span>
           </td>
           <td style="text-align:left;">
               가격: {{priceToString(row.item.price)}}원
@@ -36,7 +40,7 @@
           <td>
             <v-row style="display:flex;">
               <div>  
-                <v-btn dark small color="grey" class="ma-1" @click="ProductUpdate(row.item)">수정</v-btn>
+                <v-btn dark small color="grey" class="ma-1" @click="Update(row.item)">수정</v-btn>
               </div>
               <div>
                 <v-btn dark small color="grey" class="ma-1" @click="OrderDetailDelete(row.item)">삭제</v-btn>
@@ -125,7 +129,9 @@ import { mapGetters } from 'vuex'
     },
     data () {
       return {     
-
+        count:'',
+        price:'',
+        footerProps: {'items-per-page-options': [3, 6, 9, 12]}
       }
     },
     methods:{
@@ -139,6 +145,18 @@ import { mapGetters } from 'vuex'
      priceToString(price) {
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       },
+     Update(orderdetail) {
+         this.$store.state.temp=orderdetail.id
+         this.temp=orderdetail.id
+         this.count = orderdetail.count
+         this.price = orderdetail.price
+        },
+      Update_cancle: function(){
+      this.temp=0  
+      },
+      reload() {
+        window.location.reload()
+      }
     }
   }
 </script>
