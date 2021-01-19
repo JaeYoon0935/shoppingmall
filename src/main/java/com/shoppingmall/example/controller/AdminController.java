@@ -71,6 +71,7 @@ public class AdminController {
 	
 	@Autowired
 	OrderService orderService;
+
 	
 	@GetMapping("/adminPage")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -206,15 +207,13 @@ public class AdminController {
 	@PostMapping("/orderdetaildelete")
 	public ResponseEntity<?> orderDetailDelete(@Validated @RequestBody OrderDetail orderdetail){
 		
-		//삭제하는 부분 구현해주기
+		//미리 o_id를 입력해둔다.
+		Order order = new Order();
+		order.setId(orderdetail.getO_id());
 		
-		System.out.println("order ID: "+ orderdetail.getId());
-		
-		//상세 주문내역중 하나를 지우고 o_id를 반환해주도록 다시 만든다.
+		//주문을 삭제한다.
 		orderService.orderDetailDelete(orderdetail); 
-		
-		//반환받은 o_id를 통해서 상세주문내역페이지를 다시 불러오도록 한다.
-		
+		//o_id를 통해서 상세주문내역페이지를 다시 불러오도록 한다.	
 		Order orderDetail = orderService.readOrderDetails(order);
 		
 		return new ResponseEntity<>(orderDetail, HttpStatus.OK);

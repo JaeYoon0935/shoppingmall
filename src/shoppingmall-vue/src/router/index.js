@@ -16,7 +16,6 @@ import ProductRegistration from '../views/Admin/Management/ProductRegistration.v
 import ProductUpdate from '../views/Admin/Management/ProductUpdate.vue'
 import Admin from '../views/Admin.vue'
 
-
 Vue.use(VueRouter)
 
 const routes = [

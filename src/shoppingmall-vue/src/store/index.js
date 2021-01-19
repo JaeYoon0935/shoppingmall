@@ -353,10 +353,10 @@ export default new Vuex.Store({
       console.log(payload)
       if(confirm('해당 주문을 삭제하시겠습니까?') == true){
       return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/api/admin/orderdetail',payload)
+          axios.post('http://localhost:9000/api/admin/orderdetaildelete',payload)
               .then(Response => {
                   console.log(Response.data)
-                  commit('SET_PRODUCT_LIST', Response.data)
+                  commit('SET_ORDER_DETAIL', Response.data)
               })
               .catch(Error => {
                   console.log('error')
