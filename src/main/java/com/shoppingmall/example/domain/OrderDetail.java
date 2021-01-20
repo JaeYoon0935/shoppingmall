@@ -2,7 +2,7 @@ package com.shoppingmall.example.domain;
 
 public class OrderDetail {
 	
-	private int id; //od_id
+	private int od_id; //od_id
 	private String product; //p_name
 	private String price; //od_price
 	private String count; //od_count
@@ -18,11 +18,12 @@ public class OrderDetail {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public int getId() {
-		return id;
+
+	public int getOd_id() {
+		return od_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setOd_id(int od_id) {
+		this.od_id = od_id;
 	}
 	public String getProduct() {
 		return product;

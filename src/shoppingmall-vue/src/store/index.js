@@ -363,9 +363,47 @@ export default new Vuex.Store({
                   reject(Error)
               })
         })
+      } 
+    },
+    OrderDetailUpdate({commit},payload) {
+      console.log(payload)
+      if(confirm('주문정보를 수정하시겠습니까?') == true){
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/orderdetailupdate',payload)
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_ORDER_DETAIL', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+        })
+      } else{
+        return;
       }
     },
-
+    // UserUpdate({commit},payload) {
+    //   console.log(payload)
+    //   if(confirm('회원정보를 수정하시겠습니까?') == true){
+    //   return new Promise((resolve, reject) => {
+    //       axios.post('http://localhost:9000/api/admin/userupdate',payload)
+    //           .then(Response => {
+    //                 console.log(Response.data)
+    //                 console.log(this.state.temp)
+    //                 this.state.temp=0
+    //                 console.log(this.state.temp)
+    //                 commit('SET_USER', Response.data) 
+    //           })
+    //           .catch(Error => {
+    //               console.log('error')
+    //               reject(Error)
+    //           })           
+    //       })
+    //   } else{
+    //      return;
+    //   }
+    // },
     // -------------- 아래부터 사용자 화면 ----------------
     Product({commit},payload) {
       var obj = {id: router.currentRoute.params.id};

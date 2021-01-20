@@ -30,4 +30,8 @@ public class OrderServiceImpl implements OrderService{
 		ordermapper.orderDetailDelete(orderdetail);
 	};
 	
+	@Override
+	public void updateOrderDetail(OrderDetail orderdetail) {
+		ordermapper.updateOrderDetail(orderdetail);
+	}
 }

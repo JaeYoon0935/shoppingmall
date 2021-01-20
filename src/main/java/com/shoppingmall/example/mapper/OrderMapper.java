@@ -16,4 +16,5 @@ public interface OrderMapper {
 	
 	public void orderDetailDelete(OrderDetail orderdetail);
 
+	public void updateOrderDetail(OrderDetail orderdetail);
 }

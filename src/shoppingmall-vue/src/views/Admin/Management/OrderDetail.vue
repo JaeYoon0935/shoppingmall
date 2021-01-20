@@ -4,12 +4,12 @@
     <table>
       <tr>
         <td><h6 class="pt-2 pr-5">주문번호 : {{$route.params.id}}</h6><td>
-        <td><h6 class="pt-2">주문일자 : {{$store.state.orderDetailList.date}} </h6></td>
+        <td><h6 class="pt-2">주문일자 : {{$store.state.orderDetailList.date}}</h6></td>
       </tr>
     </table>
     <v-data-table
-        :headers="$store.state.orderdetail_headers_1"
-        :items="$store.state.orderDetailList.orderdetail"
+        :headers="orderdetail_headers_1"
+        :items="orderDetailList.orderdetail"
         :items-per-page="3"
         :footer-props="footerProps"
         class="elevation-1"
@@ -18,7 +18,7 @@
         <tr>
           <td style="width:200px; padding-left:35px;">
             <!--상품코드 -->
-            {{row.item.id}}
+            {{row.item.od_id}}
           </td>
           <td style="width:420px;">
             <!-- 상품 이름과 사진 불러오기 -->
@@ -29,23 +29,52 @@
             </v-row>
           </td>
           <td style="padding-left:30px;">
-              <span v-if="temp != row.item.id">
-                <input :style="{width:'40px'}" v-model="count">
+              <span v-if="temp == row.item.od_id">
+                <input :style="{width:'40px'}" v-model="count">개
               </span>
               <span v-else>{{row.item.count}}개</span>
           </td>
           <td style="text-align:left;">
-              가격: {{priceToString(row.item.price)}}원
+              <span v-if="temp == row.item.od_id">
+                <input :style="{width:'100px'}" v-model="price">원
+              </span>
+              <span v-else>가격: {{priceToString(row.item.price)}}원</span>
           </td>
           <td>
             <v-row style="display:flex;">
-              <div>  
+              <!-- <div>  
                 <v-btn dark small color="grey" class="ma-1" @click="Update(row.item)">수정</v-btn>
               </div>
               <div>
                 <v-btn dark small color="grey" class="ma-1" @click="OrderDetailDelete(row.item)">삭제</v-btn>
-              </div>
+              </div> -->
+              <span v-if="temp != row.item.od_id">
+                <v-card-actions class="justify-start">  
+                  <v-btn dark small color="grey" class="ma-1" @click="Update(row.item)">수정</v-btn>
+                  <v-btn dark small color="grey" class="ma-1" @click="OrderDetailDelete(row.item)">삭제</v-btn>
+                </v-card-actions>
+              </span>
+              <span v-else>
+                <v-card-actions class="justify-start">  
+                  <v-btn dark small color="grey" class="ma-1"
+                    @click="[OrderDetailUpdate({count, price, od_id, o_id}),reload()]">수정완료</v-btn>
+                    <v-btn dark small color="grey" class="ma-1" @click="Update_cancle()">취소</v-btn>
+                </v-card-actions>
+              </span>
             </v-row>
+              <!-- <span v-if="temp != row.item.username">
+              <v-card-actions class="justify-start">  
+                <v-btn dark small color="grey" @click="Update(row.item)">수정</v-btn>
+                <v-btn dark small color="grey" @click="UserDelete(row.item)">탈퇴</v-btn>
+              </v-card-actions>
+              </span>
+              <span v-else>
+                <v-card-actions class="justify-start">  
+                <v-btn dark small color="grey" 
+                @click="[UserUpdate({new_username, temp, password, name, address, phone, email, point}),reload()]">수정완료</v-btn>
+                <v-btn dark small color="grey" @click="Update_cancle()">취소</v-btn>
+              </v-card-actions>
+              </span> -->
            </td>
          </tr>
       </template>
@@ -123,6 +152,7 @@ import { mapGetters } from 'vuex'
     //   // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
     // },
     computed: {
+      ...mapState(["orderDetailList","orderdetail_headers_1"]),
       ...mapGetters([
         'get_orderDetailList',
       ])
@@ -131,11 +161,13 @@ import { mapGetters } from 'vuex'
       return {     
         count:'',
         price:'',
+        temp:' ',
         footerProps: {'items-per-page-options': [3, 6, 9, 12]}
       }
     },
     methods:{
       ...mapActions(["OrderDetailDelete"]),
+      ...mapActions(["OrderDetailUpdate"]),
      image(image){ //경로를 조합해줄 메서드.
       if(image == null){
         return require('@/assets/null.jpg');
@@ -146,13 +178,14 @@ import { mapGetters } from 'vuex'
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       },
      Update(orderdetail) {
-         this.$store.state.temp=orderdetail.id
-         this.temp=orderdetail.id
+         this.temp = orderdetail.od_id
          this.count = orderdetail.count
          this.price = orderdetail.price
+         this.od_id = orderdetail.od_id
+         this.o_id = orderdetail.o_id
         },
       Update_cancle: function(){
-      this.temp=0  
+      this.temp = 0  
       },
       reload() {
         window.location.reload()

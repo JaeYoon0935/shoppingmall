@@ -31,7 +31,7 @@
 	
 	
 	<resultMap id="OrderDetail" type="OrderDetail">
-		<result column="od_id" property="id" />
+		<result column="od_id" property="od_id" />
 		<result column="o_id"  property="o_id"/>
 		<result column="od_price" property="price" />
 		<result column="od_count" property="count" />
@@ -61,7 +61,28 @@
 	<delete id="orderDetailDelete" parameterType="Order">
 		DELETE FROM order_detail where od_id=#{id}
 	</delete>
-
+	
+	<update id="updateOrderDetail" parameterType="Order">
+		update			order_detail					set
+						od_count = #{count},
+						od_price = #{price}
+					
+						where od_id = #{od_id}	
+	</update>
+	<!-- 
+		<update id="updateUser" parameterType="UserInfo">
+			update			user								set
+							user_id = #{new_username},
+							user_password = #{password},
+							user_name = #{name},
+							user_address = #{address},
+							user_phone = #{phone},
+							user_email = #{email},
+							user_point = #{point}
+							
+							where user_id= #{temp}
+		</update>
+	 -->
 
 	<select id="readOrder" parameterType="Order" resultMap="OrderMap">
 		SELECT		    ta.o_id,

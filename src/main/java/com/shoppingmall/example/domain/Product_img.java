@@ -1,11 +1,21 @@
 package com.shoppingmall.example.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Product_img {
 
-	public int pi_id;
-	public String image;
-	public int p_id;
+	private int pi_id;
+	private String image;
+	private MultipartFile multipartFile;
+	private int p_id;
 	
+
+	public MultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+	public void setMultipartFile(MultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	}
 	public int getPi_id() {
 		return pi_id;
 	}

@@ -99,7 +99,7 @@ public class AdminController {
 	
 	//회원정보 수정하기
 	@PostMapping("/userupdate")
-	public ResponseEntity<?> updateData(@Validated @RequestBody UserInfo userinfo){
+	public ResponseEntity<?> update_user(@Validated @RequestBody UserInfo userinfo){
 		userService.updateUser(userinfo);
 		List<UserInfo> userList = userService.shopping_readUser();
 		return new ResponseEntity<>(userList, HttpStatus.OK);
@@ -213,6 +213,32 @@ public class AdminController {
 		
 		//주문을 삭제한다.
 		orderService.orderDetailDelete(orderdetail); 
+		//o_id를 통해서 상세주문내역페이지를 다시 불러오도록 한다.	
+		Order orderDetail = orderService.readOrderDetails(order);
+		
+		return new ResponseEntity<>(orderDetail, HttpStatus.OK);
+	}
+	
+//	//회원정보 수정하기
+//	@PostMapping("/userupdate")
+//	public ResponseEntity<?> updateData(@Validated @RequestBody UserInfo userinfo){
+//		userService.updateUser(userinfo);
+//		List<UserInfo> userList = userService.shopping_readUser();
+//		return new ResponseEntity<>(userList, HttpStatus.OK);
+//	}
+	
+	@PostMapping("/orderdetailupdate")
+	public ResponseEntity<?> orderDetailUpdate(@Validated @RequestBody OrderDetail orderdetail){
+		
+		//od_id, o_id, count, price 이렇게 4개 파라미터로 넘겨받아야한다.
+		
+		
+		//미리 o_id를 입력해둔다.
+		Order order = new Order();
+		order.setId(orderdetail.getO_id());
+		
+		//업데이트 한다.
+		orderService.updateOrderDetail(orderdetail); 
 		//o_id를 통해서 상세주문내역페이지를 다시 불러오도록 한다.	
 		Order orderDetail = orderService.readOrderDetails(order);
 		
