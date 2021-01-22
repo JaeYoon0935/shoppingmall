@@ -1,32 +1,37 @@
 <template>
-  <v-app>
-     <!-- <div class="home">           
-      </div> -->
-      <div class="parent" style="height: 150px;">
-          <div class="child">
-          </div>
-          <div class="child">
-            <p align="center" style="margin-top:20px; width:100%;">
-              <router-link to='/' style="color:#000; text-decoration:none">
-                 ShoppingMall           
-              </router-link>
-             </p>
-          </div>
-          <div class="child">
-          </div>
-      </div>
+<v-app >
+    <div class="parent" style="height: 150px;">
+        <div class="child">
+        </div>
+        <div class="child">
+          <p align="center" style="margin-top:20px; width:100%;">
+            <router-link to='/' style="color:#000; text-decoration:none">
+                ShoppingMall           
+            </router-link>
+            </p>
+        </div>
+        <div class="child">
+        </div>
+    </div>
 
+    <!--우선은 테스트용으로 v-btn으로 네비게이션 바를 만들어서 사용하고, 
+        홈화면 작업에 들어갈때 그떄 제대로 작업하도록 한다. -->
 
-      <div>
-        <v-row style="height:100px;">
-          <v-btn  router :to="{name: 'Admin'}">관리자 페이지</v-btn>           
-        </v-row>    
-       <Main v-if="$route.name == 'Home'"></Main>
-       <router-view/>
-      </div> 
-  </v-app>
-
-
+    <p>
+      <v-btn>Home</v-btn>
+      <v-btn>LED거실등</v-btn>    
+      <v-btn>LED식탁등</v-btn>
+      <v-btn>LED방등</v-btn>    
+      <v-btn>LED주방등</v-btn>
+      <v-btn>스탠드</v-btn>    
+      <v-btn>전기재료</v-btn>
+      <v-btn color="blue" style="color:white;" router :to="{name: 'Admin'}">관리자 페이지</v-btn>    
+    </p>
+    <div>
+      <Main v-if="$route.name == 'Home'"></Main>
+      <router-view/>
+    </div> 
+</v-app>
 </template>
 
 <style scoped>

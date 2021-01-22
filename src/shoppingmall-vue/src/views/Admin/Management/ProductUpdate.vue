@@ -31,12 +31,13 @@
           <!-- <td><v-btn width="100px" class="ml-3 mt-4">파일첨부</v-btn></td> -->
           <th>이미지 업로드</th>
           <td>
-            <v-file-input
-              accept="image/*"
-              label="Image Upload"
-              outlined
-              prepend-icon="mdi-camera"
-            ></v-file-input>
+             <v-file-input
+                accept="image/*"
+                v-model="files" 
+                label="Image Upload"
+                outlined
+                prepend-icon="mdi-camera"
+              ></v-file-input>
           </td>
         </tr>
     </tbody>
@@ -55,7 +56,7 @@
             sm="4"
             md="4"
           >
-           <v-btn width="100px" class="mr-5 ml-10" @click="ProductDataUpdate({id, name, price, category, quantity, text})"> 수정완료</v-btn>
+           <v-btn width="100px" class="mr-5 ml-10" @click="ProductDataUpdate({files, id, name, price, category, quantity, text})"> 수정완료</v-btn>
            <v-btn width="100px" router :to="{name:'Product'}">취소</v-btn>
         </v-col> 
     </v-row>
@@ -111,6 +112,7 @@ import { mapState, mapActions } from "vuex"
         category: this.$store.state.product[0].category,
         quantity: this.$store.state.product[0].quantity,
         text: this.$store.state.product[0].text,
+        files:[],
       }
     },
       computed: {

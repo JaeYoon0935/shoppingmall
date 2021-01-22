@@ -16,13 +16,20 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-//RestController로 만들어줘야하는지?
-@Controller
+//@Controller
+
+
+//CrossOrigin을 사용하지 않으면 종종 8080(뷰)에 있는게 교류가 안될떄가 있어서 적어준다.
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RestController
+@RequestMapping("/")
 public class UploadController {
 	
 	//uploadForm이라는 url이 넘어오면, Upload.jsp를 띄워주는 테스트용 메서드
@@ -33,9 +40,8 @@ public class UploadController {
 	
 	 //업로드
 	@RequestMapping(value="/upload", method=RequestMethod.POST)
-	public String upload(@RequestParam("file") MultipartFile multipartFile) {
+	public String upload(@RequestParam("File") MultipartFile multipartFile) {
 		
-//		String path = "/Users/lcomputer/Documents/work/fileupload/src/main/resources/static/images/";
 		String path = "/Users/l4/Documents/Project/shoppingmall/src/shoppingmall-vue/src/assets/";
 		String thumbPath = path + "thumb/";
 		String filename = multipartFile.getOriginalFilename();

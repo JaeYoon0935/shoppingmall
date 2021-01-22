@@ -187,6 +187,15 @@ public class AdminController {
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
 	
+//	//상품정보수정하기 백업
+//	@PostMapping("/productdataupdate")
+//	public ResponseEntity<?> productDataUpdate(@Validated @RequestBody Product product){
+//		productService.productDataUpdate(product);
+//		productService.productImgUpdate(product);
+//		List<Product> productList = productService.readAllProduct();
+//		return new ResponseEntity<>(productList, HttpStatus.OK);
+//	}
+	
 	//상품정보 불러오기
 	@GetMapping("/orderlist")
 	public ResponseEntity<?> read_order(){

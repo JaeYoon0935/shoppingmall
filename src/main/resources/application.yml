@@ -27,7 +27,8 @@ spring:
         max-file-size: 1000MB
         max-request-size: 1000MB        
         enabled: true      
-   
+        file-size-threshold: 1MB
+        location: C:/Temp
       
 server:
  port: 9000

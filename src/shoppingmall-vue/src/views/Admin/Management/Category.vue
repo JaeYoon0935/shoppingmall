@@ -4,9 +4,21 @@
       <v-data-table
         :headers="$store.state.category_headers"
         :items="$store.state.categorylist"
-        :items-per-page="10"
+        :items-per-page="20"
         class="elevation-1"
-      ></v-data-table>
+      >
+      <template v-slot:item="row">
+        <tr>
+          <td>{{row.item.id}}</td>
+          <td>{{row.item.name}}</td>
+          <td>{{row.item.product_count}}</td>
+          <td>
+            <v-btn dark small color="grey" class="ma-1">분류명 수정</v-btn>
+            <v-btn dark small color="grey" class="ma-1">하위분류 추가</v-btn>
+          </td>
+        </tr>
+      </template>
+      </v-data-table>
   </div>
 </template>
 

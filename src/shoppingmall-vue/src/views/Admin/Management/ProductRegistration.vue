@@ -29,7 +29,16 @@
         </tr>
         <tr>
           <th>이미지 업로드</th>
-          <td><v-btn width="100px" class="ml-3 mt-4">파일첨부</v-btn></td>
+          <td><v-file-input
+              accept="image/*"
+              v-model="files" 
+              label="Image Upload"
+              outlined
+              prepend-icon="mdi-camera"
+            ></v-file-input>
+             <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+              <button v-on:click="submitFile()">Submit</button>
+          </td>
         </tr>
     </tbody>
   </table>
@@ -48,6 +57,7 @@
             md="4"
           >
            <v-btn width="100px" class="mr-5 ml-10" @click="ProductCreate({id, name, price, category, quantity, text})"> 등록</v-btn>
+           <v-btn width="100px" class="mr-5 ml-10" @click="Test({files, id, name, price, category, quantity, text})">업로드테스트</v-btn>
            <v-btn width="100px" router :to="{name:'Product'}">취소</v-btn>
         </v-col> 
     </v-row>
@@ -100,16 +110,24 @@ import { mapState, mapActions } from "vuex"
         category:'',
         quantity:'',
         text:'',
+        files:'',
       }
     },
     methods:{
       ...mapActions(["ProductCreate"]),
+      ...mapActions(["Test"]),
       priceToString(price) {
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       },
       image(image){
         //경로를 조합해줄 메서드.
         return require('@/assets/'+ image +'.jpg');
+      },
+      handleFileUpload(){
+        this.file = this.$refs.file.files[0];
+      },
+      submitFile(){
+
       },
     }
   }
