@@ -18,37 +18,66 @@ USE `shoppingmall`;
 
 -- 테이블 shoppingmall.category 구조 내보내기
 CREATE TABLE IF NOT EXISTS `category` (
-  `cg_id` int(10) DEFAULT NULL,
+  `cg_id` int(10) NOT NULL,
   `cg_name` varchar(255) DEFAULT NULL,
-  `cg_product_count` int(10) DEFAULT NULL
+  `cg_product_count` int(10) DEFAULT NULL,
+  PRIMARY KEY (`cg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.category:~7 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.category:~19 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
-	(2030, '주방등', 8),
-	(20, '등', 8),
-	(30, '스탠드', 3),
-	(2010, '거실등', 3),
-	(2020, '방등', 2),
-	(40, '전기재료', 5),
-	(0, '전체', 9999999);
+	(0, '전체', 9999999),
+	(20, '거실등', 4),
+	(30, '식탁등', 4),
+	(40, '방등', 4),
+	(50, '주방등', 4),
+	(60, '스탠드', 4),
+	(70, '전기재료', 4),
+	(2010, '거실등 30평형', 2),
+	(2020, '거실등 40평형', 2),
+	(3010, '소형 식탁등', 2),
+	(3020, '대형 식탁등', 2),
+	(4010, '소형 방등', 2),
+	(4020, '대형 방등', 2),
+	(5010, '싱크대', 2),
+	(5020, '레일형', 2),
+	(6010, 'LED스탠드', 2),
+	(6020, '일반스탠드', 2),
+	(7010, '2구스위치', 2),
+	(7020, '멀티탭', 2);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
+
+-- 테이블 shoppingmall.category_small 구조 내보내기
+CREATE TABLE IF NOT EXISTS `category_small` (
+  `cgs_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='카테고리 테이블의 칼럼을 대분류 소분류로 나눠야 하는지???\r\n20,30,40 이런식으로 대분류 칼럼과 1:N관계로 해서,\r\n2020,2030,2040 등이 모여있는 테이블(소분류)도 있어야 하는지??';
+
+-- 테이블 데이터 shoppingmall.category_small:~0 rows (대략적) 내보내기
+/*!40000 ALTER TABLE `category_small` DISABLE KEYS */;
+/*!40000 ALTER TABLE `category_small` ENABLE KEYS */;
+
+-- 뷰 shoppingmall.myview01 구조 내보내기
+-- VIEW 종속성 오류를 극복하기 위해 임시 테이블을 생성합니다.
+CREATE TABLE `myview01` (
+	`o_id` INT(10) NULL,
+	`o_date` DATE NULL,
+	`user_id` VARCHAR(255) NULL COLLATE 'utf8_general_ci'
+) ENGINE=MyISAM;
 
 -- 테이블 shoppingmall.orders 구조 내보내기
 CREATE TABLE IF NOT EXISTS `orders` (
   `o_id` int(10) DEFAULT NULL,
   `o_date` date DEFAULT NULL,
-  `o_total_price` int(10) DEFAULT NULL,
   `o_state` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user테이블의 id\r\n';
 
--- 테이블 데이터 shoppingmall.orders:~2 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.orders:~3 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` (`o_id`, `o_date`, `o_total_price`, `o_state`, `user_id`) VALUES
-	(1, '2020-12-23', 480000, '배송중', 'jy0935'),
-	(2, '2020-12-23', 50000, '배송완료', 'jy1234');
+INSERT INTO `orders` (`o_id`, `o_date`, `o_state`, `user_id`) VALUES
+	(1, '2020-12-23', '배송중', 'jy0935'),
+	(2, '2020-12-25', '배송완료', 'jy1234');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.order_detail 구조 내보내기
@@ -63,11 +92,11 @@ CREATE TABLE IF NOT EXISTS `order_detail` (
 -- 테이블 데이터 shoppingmall.order_detail:~5 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
 INSERT INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
-	(1, 200000, 1, 1, 1),
-	(2, 70000, 1, 1, 2),
-	(3, 5000, 2, 1, 4),
-	(4, 10000, 3, 2, 6),
-	(5, 150000, 4, 2, 5);
+	(1, 250000, 3, 1, 1),
+	(5, 150000, 4, 2, 5),
+	(2, 2000, 2, 1, 2),
+	(3, 50000, 4, 1, 3),
+	(6, 30000, 3, 2, 3);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product 구조 내보내기
@@ -137,13 +166,20 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 테이블 데이터 shoppingmall.user:~6 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
-	('jy0935', '11111', '박모씨', '대구시 동구', '010-2354-8451', 'abc@naver.com', 50000, NULL, 1, 1, 1, 1),
-	('jy1234', '356484', '김모씨', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
+	('jy0935', '11111', '주문자1', '대구시 동구', '010-2354-8451', 'abc@naver.com', 50000, NULL, 1, 1, 1, 1),
+	('jy1234', '356484', '주문자2', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
 	('jy12345', '4234', '이모씨', '대구시 수성구', '010-1111-1234', 'fruit@naver.com', 1000, NULL, 1, 1, 1, 1),
 	('jy1515', '33311', '김모씨', '대구시 중구', '010-7555-1234', 'jkjk@naver.com', 20000, NULL, 1, 1, 1, 1),
 	('kkk333', '1523', '김모씨', '대구시 북구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1),
 	('sef', '3423', '박모씨', '대구시 남구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+-- 뷰 shoppingmall.myview01 구조 내보내기
+-- 임시 테이블을 제거하고 최종 VIEW 구조를 생성
+DROP TABLE IF EXISTS `myview01`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `myview01` AS SELECT o_id, o_date, user_id
+
+FROM orders ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
