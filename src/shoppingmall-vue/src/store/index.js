@@ -197,24 +197,6 @@ export default new Vuex.Store({
               })
       })
     },
-    // OrderDetailUpdate({commit},payload) {
-    //   console.log(payload)
-    //   if(confirm('주문정보를 수정하시겠습니까?') == true){
-    //   return new Promise((resolve, reject) => {
-    //       axios.post('http://localhost:9000/api/admin/orderdetailupdate',payload)
-    //           .then(Response => {
-    //               console.log(Response.data)
-    //               commit('SET_ORDER_DETAIL', Response.data)
-    //           })
-    //           .catch(Error => {
-    //               console.log('error')
-    //               reject(Error)
-    //           })
-    //     })
-    //   } else{
-    //     return;
-    //   }
-    // },
     CategoryUpdate({commit},payload) {
     if(confirm('분류명을 수정하시겠습니까?') == true){  
       return new Promise((resolve, reject) => {
@@ -232,10 +214,11 @@ export default new Vuex.Store({
         return;
       }
     },
-    CategoryAdd({commit}) {
-    if(prompt('하위분류명을 입력해주세요.') == true){
+    CategoryAdd({commit},payload) {
+      var input = prompt('하위분류명을 입력해주세요.')
+      alert(input)
       return new Promise((resolve, reject) => {
-          axios.get('http://localhost:9000/api/admin/categoryadd')
+          axios.post('http://localhost:9000/api/admin/categoryadd',payload)
               .then(Response => {
                   console.log(Response.data)
                   commit('SET_CATEGORY', Response.data)
@@ -245,9 +228,6 @@ export default new Vuex.Store({
                   reject(Error)
               })
       })
-      }else{
-        return
-      }
     },
     Ranking({commit}) {
       return new Promise((resolve, reject) => {

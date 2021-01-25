@@ -5,6 +5,7 @@
         :headers="$store.state.category_headers"
         :items="$store.state.categorylist"
         :items-per-page="20"
+        :footer-props="footerProps"
         class="elevation-1"
       >
       <template v-slot:item="row">
@@ -66,6 +67,7 @@ import { mapState, mapActions } from "vuex"
         name:'',
         product_count:'',
         temp:'554564',
+        footerProps: {'items-per-page-options': [20, 40, 60, 80]}
       }
     },
   }
