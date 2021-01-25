@@ -183,13 +183,13 @@ import { mapGetters } from 'vuex'
          this.price = orderdetail.price
          this.od_id = orderdetail.od_id
          this.o_id = orderdetail.o_id
-        },
-      Update_cancle: function(){
-      this.temp = 0  
       },
-      reload() {
-        window.location.reload()
-      }
-    }
+     Update_cancle: function(){
+      this.temp = 0  
+     },
+     reload() {
+      window.location.reload()
+     }
+  }
   }
 </script>

@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
 
     rank: 0,
-    temp: 0,
+    temp: 12345678911, //temp에 우선 쓰레기값 넣어놓음.
     all: '전체',
 
     //헤더랑 배열만 있으면 됨,
@@ -196,6 +196,58 @@ export default new Vuex.Store({
                   reject(Error)
               })
       })
+    },
+    // OrderDetailUpdate({commit},payload) {
+    //   console.log(payload)
+    //   if(confirm('주문정보를 수정하시겠습니까?') == true){
+    //   return new Promise((resolve, reject) => {
+    //       axios.post('http://localhost:9000/api/admin/orderdetailupdate',payload)
+    //           .then(Response => {
+    //               console.log(Response.data)
+    //               commit('SET_ORDER_DETAIL', Response.data)
+    //           })
+    //           .catch(Error => {
+    //               console.log('error')
+    //               reject(Error)
+    //           })
+    //     })
+    //   } else{
+    //     return;
+    //   }
+    // },
+    CategoryUpdate({commit},payload) {
+    if(confirm('분류명을 수정하시겠습니까?') == true){  
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/categoryupdate',payload)
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_CATEGORY', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+      }else{
+        return;
+      }
+    },
+    CategoryAdd({commit}) {
+    if(prompt('하위분류명을 입력해주세요.') == true){
+      return new Promise((resolve, reject) => {
+          axios.get('http://localhost:9000/api/admin/categoryadd')
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('SET_CATEGORY', Response.data)
+              })
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+      }else{
+        return
+      }
     },
     Ranking({commit}) {
       return new Promise((resolve, reject) => {
@@ -423,27 +475,6 @@ export default new Vuex.Store({
         return;
       }
     },
-    // UserUpdate({commit},payload) {
-    //   console.log(payload)
-    //   if(confirm('회원정보를 수정하시겠습니까?') == true){
-    //   return new Promise((resolve, reject) => {
-    //       axios.post('http://localhost:9000/api/admin/userupdate',payload)
-    //           .then(Response => {
-    //                 console.log(Response.data)
-    //                 console.log(this.state.temp)
-    //                 this.state.temp=0
-    //                 console.log(this.state.temp)
-    //                 commit('SET_USER', Response.data) 
-    //           })
-    //           .catch(Error => {
-    //               console.log('error')
-    //               reject(Error)
-    //           })           
-    //       })
-    //   } else{
-    //      return;
-    //   }
-    // },
     // -------------- 아래부터 사용자 화면 ----------------
     Product({commit},payload) {
       var obj = {id: router.currentRoute.params.id};

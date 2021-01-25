@@ -21,6 +21,14 @@
 		FROM			category						 	WHERE  cg_name = #{name}   
 	</select>
 
+	<update id="categoryUpdate" parameterType="Category">
+		update			category								set
+						cg_name = #{name}  
+						
+						where cg_id = #{id}	
+	</update>
+
+
 	<!-- 찾아낸 카테고리의 cg_id를 통해서 상품정보 찾아오기,
 		
 		아래 쿼리를 활용해서 20이면 그 하위 2010, 2020 등도 불러올수 있으려면 어떻게 해야할지 구상할것

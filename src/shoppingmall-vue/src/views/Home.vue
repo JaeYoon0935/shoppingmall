@@ -65,7 +65,6 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 import Main from '../views/User/Main.vue'
 
 export default {

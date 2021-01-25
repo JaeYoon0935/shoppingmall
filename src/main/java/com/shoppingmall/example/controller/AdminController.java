@@ -113,6 +113,14 @@ public class AdminController {
 		return new ResponseEntity<>(categoryList, HttpStatus.OK);
 	}
 	
+	//카테고리정보 불러오기
+	@PostMapping("/categoryupdate")
+	public ResponseEntity<?> categoryUpdate(@Validated @RequestBody Category category){
+		categoryService.categoryUpdate(category);
+		List<Category> categoryList = categoryService.readCategory();
+		return new ResponseEntity<>(categoryList, HttpStatus.OK);
+	}
+	
 	//상품랭킹 불러오기
 	@GetMapping("/ranking")
 	public ResponseEntity<?> readRanking(){

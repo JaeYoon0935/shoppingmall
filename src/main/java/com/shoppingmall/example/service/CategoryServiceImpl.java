@@ -30,4 +30,8 @@ public class CategoryServiceImpl implements CategoryService{
 		return categorymapper.findCg_id(name);
 	};
 	
+	@Override
+	public void categoryUpdate(Category category) {
+		categorymapper.categoryUpdate(category);
+	};
 }
