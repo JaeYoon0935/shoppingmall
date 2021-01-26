@@ -28,26 +28,26 @@
 						where cg_id = #{cg_id}	
 	</update>
 	
-	<select id="nextCategory" parameterType="String" resultType="int">
+	<select id="nextCategory" parameterType="Category" resultType="int">
 		SELECT 				1 + (SELECT   MAX(ta.cg_id)
 							FROM 
 							(SELECT			cg_id 
 							FROM			category 
 							WHERE       cg_id
-							LIKE			'20%') ta);
+							LIKE		CONCAT(#{cg_id}, '%')) ta);
 	</select>
 	
+	<!-- insert 할때는 칼럼명을 똑바로 원형으로 써줘야 한다. as name 이런거 붙이면 안된다. -->
 	<insert id="categoryAdd" parameterType="Category" >      
 		INSERT INTO category (
 			cg_id, 
-			cg_name          as name, 
-			cg_product_count					as	    product_count
+			cg_name, 
+			cg_product_count
 		) VALUES (
 			#{cg_id}, 
 			#{name}, 
 			0
 		)
 	</insert>
-
 
 </mapper>

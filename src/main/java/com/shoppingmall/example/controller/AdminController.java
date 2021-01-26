@@ -124,13 +124,7 @@ public class AdminController {
 	//카테고리정보 불러오기
 	@PostMapping("/categoryadd")
 	public ResponseEntity<?> categoryAdd(@Validated @RequestBody Category category){
-
-		categoryService.categoryAdd(category);
-		
-		
-		
-		
-		
+		categoryService.categoryAdd(category);		
 		List<Category> categoryList = categoryService.readCategory();
 		return new ResponseEntity<>(categoryList, HttpStatus.OK);
 	}
