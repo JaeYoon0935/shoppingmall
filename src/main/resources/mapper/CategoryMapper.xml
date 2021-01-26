@@ -3,7 +3,7 @@
 <mapper namespace="com.shoppingmall.example.mapper.CategoryMapper">
 		<!-- 카테고리 불러오기 -->
 	<select id="readCategory" parameterType="String" resultType="Category">
-		SELECT			cg_id					            as 	id,
+		SELECT			cg_id,					           
 						cg_name 							as 	name,
 						cg_product_count					as	    product_count
 		FROM			category
@@ -17,7 +17,7 @@
 	
 		<!-- 분류명을 통해 분류명에 해당하는 id를 찾기 -->
 	<select id="findCg_id" parameterType="String" resultType="int">
-		SELECT			cg_id 							    as 	id
+		SELECT			cg_id, 							  
 		FROM			category						 	WHERE  cg_name = #{name}   
 	</select>
 
@@ -25,20 +25,29 @@
 		update			category								set
 						cg_name = #{name}  
 						
-						where cg_id = #{id}	
+						where cg_id = #{cg_id}	
 	</update>
-
-
-	<!-- 찾아낸 카테고리의 cg_id를 통해서 상품정보 찾아오기,
-		
-		아래 쿼리를 활용해서 20이면 그 하위 2010, 2020 등도 불러올수 있으려면 어떻게 해야할지 구상할것
 	
-		SELECT			p_id					        as 	id,
-						p_name 							as 	name,
-						p_order_count					as	order_count,
-						p_rank                          as  rank						 
-		FROM product, (SELECT cg_id as id FROM category WHERE cg_id LIKE '20%') ta1
-		where  ta1.id = product.p_category 
-	 -->
-	 
+	<select id="nextCategory" parameterType="String" resultType="int">
+		SELECT 				1 + (SELECT   MAX(ta.cg_id)
+							FROM 
+							(SELECT			cg_id 
+							FROM			category 
+							WHERE       cg_id
+							LIKE			'20%') ta);
+	</select>
+	
+	<insert id="categoryAdd" parameterType="Category" >      
+		INSERT INTO category (
+			cg_id, 
+			cg_name          as name, 
+			cg_product_count					as	    product_count
+		) VALUES (
+			#{cg_id}, 
+			#{name}, 
+			0
+		)
+	</insert>
+
+
 </mapper>

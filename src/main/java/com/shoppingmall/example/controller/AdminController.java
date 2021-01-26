@@ -121,6 +121,20 @@ public class AdminController {
 		return new ResponseEntity<>(categoryList, HttpStatus.OK);
 	}
 	
+	//카테고리정보 불러오기
+	@PostMapping("/categoryadd")
+	public ResponseEntity<?> categoryAdd(@Validated @RequestBody Category category){
+
+		categoryService.categoryAdd(category);
+		
+		
+		
+		
+		
+		List<Category> categoryList = categoryService.readCategory();
+		return new ResponseEntity<>(categoryList, HttpStatus.OK);
+	}
+	
 	//상품랭킹 불러오기
 	@GetMapping("/ranking")
 	public ResponseEntity<?> readRanking(){
@@ -143,13 +157,13 @@ public class AdminController {
 		//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
 		int findCg_id = categoryService.findCg_id(category.getName());
 		System.out.println(findCg_id);
-		category.setId(findCg_id);
+		category.setCg_id(findCg_id);
 		
 		if(findCg_id == 0) {
 			List<Product> lowCgData = productService.lowCgData_all();
 			return new ResponseEntity<>(lowCgData, HttpStatus.OK);
 		} else {
-			List<Product> lowCgData = productService.lowCgData(category.getId());
+			List<Product> lowCgData = productService.lowCgData(category.getCg_id());
 			return new ResponseEntity<>(lowCgData, HttpStatus.OK);
 	    }
 	}	
@@ -194,16 +208,7 @@ public class AdminController {
 		List<Product> productList = productService.readAllProduct();
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
-	
-//	//상품정보수정하기 백업
-//	@PostMapping("/productdataupdate")
-//	public ResponseEntity<?> productDataUpdate(@Validated @RequestBody Product product){
-//		productService.productDataUpdate(product);
-//		productService.productImgUpdate(product);
-//		List<Product> productList = productService.readAllProduct();
-//		return new ResponseEntity<>(productList, HttpStatus.OK);
-//	}
-	
+
 	//상품정보 불러오기
 	@GetMapping("/orderlist")
 	public ResponseEntity<?> read_order(){
@@ -235,14 +240,6 @@ public class AdminController {
 		
 		return new ResponseEntity<>(orderDetail, HttpStatus.OK);
 	}
-	
-//	//회원정보 수정하기
-//	@PostMapping("/userupdate")
-//	public ResponseEntity<?> updateData(@Validated @RequestBody UserInfo userinfo){
-//		userService.updateUser(userinfo);
-//		List<UserInfo> userList = userService.shopping_readUser();
-//		return new ResponseEntity<>(userList, HttpStatus.OK);
-//	}
 	
 	@PostMapping("/orderdetailupdate")
 	public ResponseEntity<?> orderDetailUpdate(@Validated @RequestBody OrderDetail orderdetail){

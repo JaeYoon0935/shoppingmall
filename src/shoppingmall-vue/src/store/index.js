@@ -215,8 +215,13 @@ export default new Vuex.Store({
       }
     },
     CategoryAdd({commit},payload) {
-      var input = prompt('하위분류명을 입력해주세요.')
-      alert(input)
+      var name = prompt('하위분류명을 입력해주세요.')
+      alert(name)
+      payload.name = name //이렇게 하면, 부모카테고리의 내용물에서 분류명만 현재 입력받은 분류명으로 바뀌어서 스프링으로 넘어가게 된다.
+      // let info = {
+      //   payload, name
+      // }  
+      console.log(payload)
       return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/admin/categoryadd',payload)
               .then(Response => {

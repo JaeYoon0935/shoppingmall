@@ -16,4 +16,8 @@ public interface CategoryMapper {
 	public int findCg_id(String name);
 	
 	public void categoryUpdate(Category category);
+	
+	public int nextCategory(Category category);
+	
+	public void categoryAdd(Category category);
 }
