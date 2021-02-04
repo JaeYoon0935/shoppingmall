@@ -1,12 +1,22 @@
 package com.shoppingmall.example.controller;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,7 +28,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+
 
 import com.shoppingmall.example.config.JwtUtils;
 import com.shoppingmall.example.domain.Category;
@@ -168,12 +184,52 @@ public class AdminController {
 		List<Product> productList = productService.readAllProduct();		
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
-	
+
 	//상품정보 등록하기
-	@PostMapping("/productcreate")
-	public ResponseEntity<?> create_product(@Validated @RequestBody Product product){
+//	@PostMapping("/productcreate")
+	@RequestMapping(value="/productcreate", method=RequestMethod.POST)
+	//public ResponseEntity<?> upload(@RequestParam("file") MultipartFile multipartFile)
+	public ResponseEntity<?> upload(Product product)
+	{
+		MultipartFile multipartFile = product.getFile();
+		System.out.println("check2: " + multipartFile);
+		System.out.println("multipart2: " + multipartFile.getOriginalFilename());
+		System.out.println("multipart size2: " + multipartFile.getSize());
+		System.out.println("product: "+product);
 		productService.createProduct(product);		
 		productService.createImage(product);
+		
+		//경로 수정해주기.
+		String path = "/Users/belle/Documents/workspace-spring-tool-suite-4-4.7.1.RELEASE/fileupload-vue/src/main/resources/static/images/";
+		String thumbPath = path + "thumb/";
+		String filename = multipartFile.getOriginalFilename();
+		String ext = filename.substring(filename.lastIndexOf(".")+1);
+		
+		File file = new File(path + filename);
+		File thumbFile = new File(thumbPath + filename);
+		try {
+			// 원본파일 저장
+			InputStream input = multipartFile.getInputStream();
+			FileUtils.copyInputStreamToFile(input, file);
+			
+			// 썸네일 생성
+			BufferedImage imageBuf = ImageIO.read(file);
+			int fixWidth = 500;
+			double ratio = imageBuf.getWidth() / (double)fixWidth;
+			int thumbWidth = fixWidth;
+			int thumbHeight = (int)(imageBuf.getHeight() / ratio);
+			BufferedImage thumbImageBf = new BufferedImage(thumbWidth, thumbHeight, BufferedImage.TYPE_3BYTE_BGR);
+			Graphics2D g = thumbImageBf.createGraphics();
+			Image thumbImage = imageBuf.getScaledInstance(thumbWidth, thumbHeight, Image.SCALE_SMOOTH);
+			g.drawImage(thumbImage, 0, 0, thumbWidth, thumbHeight, null);
+			g.dispose();
+			ImageIO.write(thumbImageBf, ext, thumbFile);
+			
+		} catch (IOException e) {
+			FileUtils.deleteQuietly(file);
+			e.printStackTrace();
+		}
+		
 		List<Product> productList = productService.readAllProduct();	
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}

@@ -1,0 +1,265 @@
+15:11:40.353 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on DESKTOP-PQ5J03J with PID 1524 (C:\Users\l4\Documents\Project\shoppingmall\bin\main started by l4 in C:\Users\l4\Documents\Project\shoppingmall) 
+15:11:40.356 DEBUG --- [restartedMain] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+15:11:40.356 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+15:11:41.464 DEBUG --- [restartedMain] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+15:11:41.832 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 1.765 seconds (JVM running for 2.284) 
+15:14:09.747 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on DESKTOP-PQ5J03J with PID 15740 (C:\Users\l4\Documents\Project\shoppingmall\bin\main started by l4 in C:\Users\l4\Documents\Project\shoppingmall) 
+15:14:09.749 DEBUG --- [restartedMain] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+15:14:09.749 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+15:14:10.790 DEBUG --- [restartedMain] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+15:14:11.165 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 1.694 seconds (JVM running for 2.173) 
+15:16:00.238 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+15:16:00.256 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+15:16:00.271 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+15:16:00.271 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 11111, 주문자1, 대구시 동구, 010-2354-8451, abc@naver.com, 5000 
+15:16:00.273 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy1234, 356484, 주문자2, 대구시 서구, 010-1111-1234, abced@naver.com, 500000 
+15:16:00.273 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy12345, 4234, 이모씨, 대구시 수성구, 010-1111-1234, fruit@naver.com, 1000 
+15:16:00.273 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: jy1515, 33311, 김모씨, 대구시 중구, 010-7555-1234, jkjk@naver.com, 20000 
+15:16:00.273 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: kkk333, 1523, 김모씨, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+15:16:00.274 TRACE --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+15:16:00.274 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+15:16:01.654 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id, cg_name as name, cg_product_count as product_count FROM category 
+15:16:01.655 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+15:16:01.655 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==    Columns: cg_id, name, product_count 
+15:16:01.655 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 0, 전체, 9999999 
+15:16:01.656 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, 거실등, 4 
+15:16:01.656 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2011, 거실등 30평형, 2 
+15:16:01.656 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2012, 거실등 40평형, 2 
+15:16:01.656 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 30, 식탁등, 4 
+15:16:01.657 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 3011, 소형 식탁등, 2 
+15:16:01.657 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 3012, 중형 식탁등, 2 
+15:16:01.657 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 40, 방등, 4 
+15:16:01.658 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 4011, 소형 방등, 2 
+15:16:01.658 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 4012, 대형 방등, 2 
+15:16:01.658 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 50, 주방등, 4 
+15:16:01.658 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 5011, 싱크대, 2 
+15:16:01.659 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 5012, 레일형, 2 
+15:16:01.659 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 60, 스탠드, 4 
+15:16:01.659 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 6011, LED스탠드, 2 
+15:16:01.659 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 6012, 일반스탠드, 2 
+15:16:01.660 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 70, 전기재료, 4 
+15:16:01.661 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 7011, 2구스위치, 2 
+15:16:01.661 TRACE --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==        Row: 7012, 멀티탭, 2 
+15:16:01.661 DEBUG --- [http-nio-9000-exec-2] c.s.e.m.CategoryMapper.readCategory : <==      Total: 19 
+15:16:02.660 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.OrderMapper.readOrder : ==>  Preparing: SELECT ta.o_id, o_date, SUM(tb.od_count*tb.od_price) o_total_price, o_state, user_id, GROUP_CONCAT( tc.p_name SEPARATOR ', ') p_total_name FROM orders ta LEFT JOIN order_detail tb ON(ta.o_id = tb.o_id) LEFT JOIN product tc ON(tb.p_id = tc.p_id) GROUP BY o_id 
+15:16:02.660 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.OrderMapper.readOrder : ==> Parameters:  
+15:16:02.670 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.OrderMapper.readOrder : <==    Columns: o_id, o_date, o_total_price, o_state, user_id, p_total_name 
+15:16:02.670 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.OrderMapper.readOrder : <==        Row: 1, 2020-12-23, 704000, 배송중, jy0935, <<BLOB>> 
+15:16:02.672 TRACE --- [http-nio-9000-exec-3] c.s.e.mapper.OrderMapper.readOrder : <==        Row: 2, 2020-12-25, 690000, 배송완료, jy1234, <<BLOB>> 
+15:16:02.672 DEBUG --- [http-nio-9000-exec-3] c.s.e.mapper.OrderMapper.readOrder : <==      Total: 2 
+15:16:04.161 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+15:16:04.161 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+15:16:04.162 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+15:16:04.162 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 11111, 주문자1, 대구시 동구, 010-2354-8451, abc@naver.com, 5000 
+15:16:04.162 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy1234, 356484, 주문자2, 대구시 서구, 010-1111-1234, abced@naver.com, 500000 
+15:16:04.162 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy12345, 4234, 이모씨, 대구시 수성구, 010-1111-1234, fruit@naver.com, 1000 
+15:16:04.163 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy1515, 33311, 김모씨, 대구시 중구, 010-7555-1234, jkjk@naver.com, 20000 
+15:16:04.163 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: kkk333, 1523, 김모씨, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+15:16:04.163 TRACE --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+15:16:04.163 DEBUG --- [http-nio-9000-exec-4] c.s.e.m.U.shopping_readUser : <==      Total: 6 
+15:16:05.993 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : ==>  Preparing: SELECT product.p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity, pi_image as image, p_text as text FROM product JOIN product_img ON (product.p_id = product_img.p_id); 
+15:16:05.993 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : ==> Parameters:  
+15:16:05.994 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==    Columns: id, name, price, order_count, views, category, quantity, image, text 
+15:16:05.994 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3, livingLamp40, <<BLOB>> 
+15:16:05.994 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==        Row: 2, 방등, 70000, 35, 4, 4010, 2, roomLamp, <<BLOB>> 
+15:16:05.994 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 6020, 3, lightStand, <<BLOB>> 
+15:16:05.995 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 7020, 5, multiPlug, <<BLOB>> 
+15:16:05.995 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==        Row: 5, 식탁등, 150000, 25, 3, 3010, 5, diningLamp, <<BLOB>> 
+15:16:05.995 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==        Row: 6, 2구 스위치, 10000, 25, 3, 7010, 4, switchTwo, <<BLOB>> 
+15:16:05.995 TRACE --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 6010, 3, ledStand, <<BLOB>> 
+15:16:05.996 DEBUG --- [http-nio-9000-exec-5] c.s.e.m.P.readAllProduct : <==      Total: 7 
+15:16:08.035 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==>  Preparing: SELECT product.p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity, pi_image as image, p_text as text FROM product JOIN product_img ON (product.p_id = product_img.p_id) WHERE product.p_id = ? 
+15:16:08.035 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : ==> Parameters: 1(Integer) 
+15:16:08.036 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==    Columns: id, name, price, order_count, views, category, quantity, image, text 
+15:16:08.036 TRACE --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3, livingLamp40, <<BLOB>> 
+15:16:08.036 DEBUG --- [http-nio-9000-exec-7] c.s.e.m.ProductMapper.readProduct : <==      Total: 1 
+15:16:08.066 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : ==>  Preparing: SELECT product.p_id as id, p_name as name, p_price as price, p_order_count as order_count, p_views as views, p_category as category, p_quantity as quantity, pi_image as image, p_text as text FROM product JOIN product_img ON (product.p_id = product_img.p_id); 
+15:16:08.067 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : ==> Parameters:  
+15:16:08.067 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==    Columns: id, name, price, order_count, views, category, quantity, image, text 
+15:16:08.067 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==        Row: 1, 거실등, 200000, 30, 5, 2010, 3, livingLamp40, <<BLOB>> 
+15:16:08.068 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==        Row: 2, 방등, 70000, 35, 4, 4010, 2, roomLamp, <<BLOB>> 
+15:16:08.068 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==        Row: 3, 형광등 스탠드, 70000, 20, 2, 6020, 3, lightStand, <<BLOB>> 
+15:16:08.068 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==        Row: 4, 멀티탭, 5000, 5, 2, 7020, 5, multiPlug, <<BLOB>> 
+15:16:08.068 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==        Row: 5, 식탁등, 150000, 25, 3, 3010, 5, diningLamp, <<BLOB>> 
+15:16:08.068 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==        Row: 6, 2구 스위치, 10000, 25, 3, 7010, 4, switchTwo, <<BLOB>> 
+15:16:08.069 TRACE --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==        Row: 7, LED 스탠드, 100000, 15, 2, 6010, 3, ledStand, <<BLOB>> 
+15:16:08.070 DEBUG --- [http-nio-9000-exec-8] c.s.e.m.P.readAllProduct : <==      Total: 7 
+15:59:00.432 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on DESKTOP-PQ5J03J with PID 15740 (C:\Users\l4\Documents\Project\shoppingmall\bin\main started by l4 in C:\Users\l4\Documents\Project\shoppingmall) 
+15:59:00.432 DEBUG --- [restartedMain] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+15:59:00.432 INFO  --- [restartedMain] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+15:59:00.654 ERROR --- [restartedMain] o.s.b.w.e.tomcat.TomcatStarter : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [C:\Users\l4\Documents\Project\shoppingmall\bin\main\com\shoppingmall\example\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [mapper/]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access. 
+15:59:00.656 WARN  --- [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat 
+15:59:00.661 ERROR --- [restartedMain] o.s.boot.SpringApplication : Application run failed 
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.shoppingmall.example.ShoppingmallApplication.main(ShoppingmallApplication.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:142)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:437)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:191)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:178)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158)
+	... 14 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [C:\Users\l4\Documents\Project\shoppingmall\bin\main\com\shoppingmall\example\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [mapper/]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1176)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:174)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:169)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:154)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:255)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:229)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5128)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:841)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [C:\Users\l4\Documents\Project\shoppingmall\bin\main\com\shoppingmall\example\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [mapper/]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 69 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [C:\Users\l4\Documents\Project\shoppingmall\bin\main\com\shoppingmall\example\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [mapper/]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1404)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 82 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [mapper/]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:655)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:635)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1176)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1509)
+	... 93 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [mapper/]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:650)
+	... 106 common frames omitted
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [mapper/]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1385)
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1038)
+	at org.springframework.core.io.ClassPathResource.resolveURL(ClassPathResource.java:155)
+	at org.springframework.core.io.ClassPathResource.getURL(ClassPathResource.java:193)
+	at org.springframework.core.io.support.PathMatchingResourcePatternResolver.findPathMatchingResources(PathMatchingResourcePatternResolver.java:498)
+	at org.springframework.core.io.support.PathMatchingResourcePatternResolver.getResources(PathMatchingResourcePatternResolver.java:298)
+	at org.mybatis.spring.boot.autoconfigure.MybatisProperties.getResources(MybatisProperties.java:210)
+	at org.mybatis.spring.boot.autoconfigure.MybatisProperties.lambda$resolveMapperLocations$0(MybatisProperties.java:205)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:271)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:550)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:517)
+	at org.mybatis.spring.boot.autoconfigure.MybatisProperties.resolveMapperLocations(MybatisProperties.java:205)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:161)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2f5e8873.CGLIB$sqlSessionFactory$0(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2f5e8873$$FastClassBySpringCGLIB$$8cbc024e.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2f5e8873.sqlSessionFactory(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 107 common frames omitted
+16:00:24.548 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on DESKTOP-PQ5J03J with PID 11260 (C:\Users\l4\Documents\Project\shoppingmall\build\libs\shop.war started by l4 in C:\Users\l4\Documents\Project\shoppingmall\build\libs) 
+16:00:24.551 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+16:00:24.551 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+16:00:27.162 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+16:00:27.705 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 3.729 seconds (JVM running for 4.212) 
+16:01:24.973 WARN  --- [http-nio-9005-exec-1] o.s.web.servlet.PageNotFound : No mapping for GET / 
+16:02:01.636 WARN  --- [http-nio-9005-exec-2] o.s.web.servlet.PageNotFound : No mapping for GET /userlist 
+16:02:21.244 DEBUG --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : ==>  Preparing: SELECT user_id as username, user_password as password, user_name as name, user_address as address, user_phone as phone, user_email as email, user_point as point FROM user 
+16:02:21.262 DEBUG --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : ==> Parameters:  
+16:02:21.277 TRACE --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==    Columns: username, password, name, address, phone, email, point 
+16:02:21.278 TRACE --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy0935, 11111, 주문자1, 대구시 동구, 010-2354-8451, abc@naver.com, 5000 
+16:02:21.280 TRACE --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy1234, 356484, 주문자2, 대구시 서구, 010-1111-1234, abced@naver.com, 500000 
+16:02:21.281 TRACE --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy12345, 4234, 이모씨, 대구시 수성구, 010-1111-1234, fruit@naver.com, 1000 
+16:02:21.282 TRACE --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: jy1515, 33311, 김모씨, 대구시 중구, 010-7555-1234, jkjk@naver.com, 20000 
+16:02:21.283 TRACE --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: kkk333, 1523, 김모씨, 대구시 북구, 010-1111-1234, 123c@naver.com, 10000 
+16:02:21.283 TRACE --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==        Row: sef, 3423, 박모씨, 대구시 남구, 010-1111-1234, 123c@naver.com, 10000 
+16:02:21.283 DEBUG --- [http-nio-9005-exec-4] c.s.e.m.U.shopping_readUser : <==      Total: 6 

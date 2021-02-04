@@ -5,22 +5,15 @@ spring:
 
 ---
 
-
 spring:
   profiles:
   - local
          
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/shoppingmall?characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/shoppingmall?characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
- 
-  devtools:
-    livereload:
-      enabled: true
-    restart:
-      log-condition-evaluation-delta: false
   
   servlet:
       multipart:
@@ -29,6 +22,12 @@ spring:
         enabled: true      
         file-size-threshold: 1MB
         location: C:/Temp
+        
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      log-condition-evaluation-delta: false
       
 server:
  port: 9000

@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.2.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
-	
+	id 'war'
 }
 
 group = 'com.shoppingmall.example'
@@ -15,7 +15,26 @@ repositories {
 	mavenCentral()
 }
 
+task myTask {
+    group = 'my group'
+    description = 'my description'
+}
+
+apply plugin: 'war'
+war {
+    baseName = 'shoppingmall'    
+}
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
 dependencies {
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -37,15 +56,16 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl
 	compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0'
 	compile group: 'commons-io', name: 'commons-io', version: '2.6'
-	
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	
 
 }
 
-
-
-
-test {
-	
+test {	
 	useJUnitPlatform()
+}
+
+bootWar {
+	archiveBaseName = "shop"
+	archiveFileName = "shop.war"
 }

@@ -38,6 +38,7 @@
                 outlined
                 prepend-icon="mdi-camera"
               ></v-file-input>
+              <v-file-input id="file" ref="file" v-model="fileinput" v-on:change="submitFile(fileinput)"></v-file-input>
           </td>
         </tr>
     </tbody>
@@ -83,7 +84,7 @@ td{
   border-color: rgb(200, 200, 200);
 }
 .v-text-field{
-      width: 250px;
+  width: 250px;
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
@@ -118,7 +119,6 @@ import { mapState, mapActions } from "vuex"
       computed: {
       ...mapState(["product"])
     },
-
     methods:{
       ...mapActions(["ProductDataUpdate"]),
       priceToString(price) {

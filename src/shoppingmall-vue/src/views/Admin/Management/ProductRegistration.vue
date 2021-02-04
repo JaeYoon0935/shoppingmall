@@ -28,16 +28,10 @@
           <td><input style="height:100%; width:100%;" v-model="quantity"></td>
         </tr>
         <tr>
-          <th>이미지 업로드</th>
-          <td><v-file-input
-              accept="image/*"
-              v-model="files" 
-              label="Image Upload"
-              outlined
-              prepend-icon="mdi-camera"
-            ></v-file-input>
-             <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-              <button v-on:click="submitFile()">Submit</button>
+          <th>이미지 업로드</th> 
+          <!-- 여기에 파일 업로드를 해볼 것이다.-->
+          <td>
+            <v-file-input id="file" ref="file" v-model="fileinput"></v-file-input>
           </td>
         </tr>
     </tbody>
@@ -56,8 +50,7 @@
             sm="4"
             md="4"
           >
-           <v-btn width="100px" class="mr-5 ml-10" @click="ProductCreate({id, name, price, category, quantity, text})"> 등록</v-btn>
-           <v-btn width="100px" class="mr-5 ml-10" @click="Test({files, id, name, price, category, quantity, text})">업로드테스트</v-btn>
+           <v-btn width="100px" class="mr-5 ml-10" @click="ProductCreate({id, name, price, category, quantity, text, fileinput})"> 등록</v-btn>
            <v-btn width="100px" router :to="{name:'Product'}">취소</v-btn>
         </v-col> 
     </v-row>
@@ -110,7 +103,8 @@ import { mapState, mapActions } from "vuex"
         category:'',
         quantity:'',
         text:'',
-        files:'',
+        file: [],
+        fileinput:null
       }
     },
     methods:{
@@ -122,12 +116,6 @@ import { mapState, mapActions } from "vuex"
       image(image){
         //경로를 조합해줄 메서드.
         return require('@/assets/'+ image +'.jpg');
-      },
-      handleFileUpload(){
-        this.file = this.$refs.file.files[0];
-      },
-      submitFile(){
-
       },
     }
   }

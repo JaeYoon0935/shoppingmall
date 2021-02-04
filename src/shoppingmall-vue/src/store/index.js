@@ -288,10 +288,24 @@ export default new Vuex.Store({
       })
     },
     ProductCreate({commit},payload) {
-      console.log(payload)
+      let formData = new FormData()
+      console.dir(payload)
+      formData.append('file', payload.fileinput)
+      formData.append('id', payload.id)
+      formData.append('name', payload.name)
+      formData.append('price', payload.price)
+      formData.append('category', payload.category)
+
       if(confirm('상품을 등록하시겠습니까?') == true){
       return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/api/admin/productcreate',payload)
+          axios.post('http://localhost:9000/api/admin/productcreate',
+            formData,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*'
+              }
+          })
           .then(Response => {
             console.log(Response.data)
             commit('SET_PRODUCT_LIST', Response.data)},
@@ -339,16 +353,16 @@ export default new Vuex.Store({
         })     
     },
     ProductDataUpdate({commit},payload) {
-      console.log(payload.files.name)
-      console.log(payload)
+      // console.log(payload.files.name)
+      // console.log(payload)
 
-      var frm = new FormData(); 
-      /*
-        여기서files는 파일의 정보를 담고있는 객체이다. 
-        다른 곳에서는 파일이 여러개라면 files[0], files[1] 이렇게 사용되던데, 
-        배열이 아닌 객체로 넘어와서 그런지 위와같이 사용이 안되는 것 같다.
-      */
-      frm.append("image", payload.files);
+      // var frm = new FormData(); 
+      // /*
+      //   여기서files는 파일의 정보를 담고있는 객체이다. 
+      //   다른 곳에서는 파일이 여러개라면 files[0], files[1] 이렇게 사용되던데, 
+      //   배열이 아닌 객체로 넘어와서 그런지 위와같이 사용이 안되는 것 같다.
+      // */
+      // frm.append("image", payload.files);
 
       if(confirm('상품정보를 수정하시겠습니까?') == true){
       return new Promise((resolve, reject) => {
@@ -367,35 +381,6 @@ export default new Vuex.Store({
       } else{
          return;
       }
-    },
-    Test({commit},payload) {
-      console.log(payload)
-      var frm = new FormData(); 
-      /*
-        여기서files는 파일의 정보를 담고있는 객체이다. 
-        다른 곳에서는 파일이 여러개라면 files[0], files[1] 이렇게 사용되던데, 
-        배열이 아닌 객체로 넘어와서 그런지 위와같이 사용이 안되는 것 같다.
-      */
-      frm.append("image", payload.files);
-      if(confirm('업로드 하시겠습니까?') == true){
-      return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/upload',payload, 
-           frm, { headers: { 'Content-Type': 'multipart/form-data' } })
-          .then(Response => {
-            console.log(Response.data)
-            commit('SET_PRODUCT_LIST', Response.data)},
-            alert('상품이 등록되었습니다.'))    
-          .then(() => router.push({ name: 'Product' }))
-              .catch(Error => {
-                  console.log('error')
-                  reject(Error)
-                  alert('상품등록에러')
-                  .then(() => router.push({name:'ProductRegistration'}))
-              })
-      })
-       }else{
-         return;
-       }
     },
     OrderList({commit}) {
       return new Promise((resolve, reject) => {
@@ -478,6 +463,27 @@ export default new Vuex.Store({
       })
     },
   }, 
+    submitFile({commit},payload){
+      // this.file = payload;
+      console.log("actions"+payload)
+      let formData = new FormData();
+      formData.append('file', payload);
+      axios.post('http://localhost:9000/upload',
+          formData,
+          {
+          headers: {
+              'Content-Type': 'multipart/form-data',
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
+      )
+      .then(Response => {
+        console.log(Response.data)
+      })
+      .catch(Error => {
+          console.log('error')
+      })
+    },
   modules: {
   }
 })

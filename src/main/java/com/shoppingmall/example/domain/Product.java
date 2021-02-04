@@ -1,5 +1,7 @@
 package com.shoppingmall.example.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Product {
 
 	private int id; //상품코드
@@ -12,6 +14,7 @@ public class Product {
 	private String image; //이미지
 	private int views; // 조회수
 	private String text;
+	MultipartFile file;
 
 	
 	
@@ -76,9 +79,17 @@ public class Product {
 		this.order_count = order_count;
 	}
 	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", quantity=" + quantity + ", order_count=" + order_count + "]";
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", order_count="
+				+ order_count + ", rank=" + rank + ", category=" + category + ", image=" + image + ", views=" + views
+				+ ", text=" + text + ", file=" + file + "]";
 	}
 
 }
