@@ -289,12 +289,13 @@ export default new Vuex.Store({
     },
     ProductCreate({commit},payload) {
       let formData = new FormData()
-      console.dir(payload)
       formData.append('file', payload.fileinput)
       formData.append('id', payload.id)
       formData.append('name', payload.name)
       formData.append('price', payload.price)
       formData.append('category', payload.category)
+      formData.append('quantity', payload.quantity)
+      formData.append('text', payload.text)
 
       if(confirm('상품을 등록하시겠습니까?') == true){
       return new Promise((resolve, reject) => {

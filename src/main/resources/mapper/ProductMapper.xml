@@ -97,7 +97,7 @@
 			pi_id
 		) VALUES (
 			#{id}, 
-			null, 
+			#{image}, 
 			#{id}
 		)
 	</insert>
