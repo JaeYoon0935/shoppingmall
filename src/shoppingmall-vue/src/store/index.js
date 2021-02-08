@@ -322,7 +322,61 @@ export default new Vuex.Store({
        }else{
          return;
        }
+    },    
+    
+    ProductDataUpdate({commit},payload) {
+      let formData = new FormData()
+      if(payload.fileinput != null){
+        formData.append('file', payload.fileinput)
+      }
+      formData.append('id', payload.id)
+      formData.append('name', payload.name)
+      formData.append('price', payload.price)
+      formData.append('category', payload.category)
+      formData.append('quantity', payload.quantity)
+      formData.append('text', payload.text)
+
+      if(confirm('상품정보를 수정하시겠습니까?') == true){
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/productdataupdate', 
+            formData,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*'
+              }  
+          })
+          .then(Response => {
+                console.log(Response.data)
+                commit('SET_PRODUCT_LIST', Response.data) 
+          })
+          .then(() => router.push({ name: 'Product' }))
+          .catch(Error => {
+              console.log('error')
+              reject(Error)
+              alert('상품수정에러')
+          })           
+        })
+      } else{
+         return;
+      }
     },
+ 
+    ProductUpdate({commit},payload) {
+      return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/admin/productupdate',payload)
+              .then(Response => {
+                  console.log(Response.data)
+                  commit('UPDATE_PRODUCT', Response.data)
+              })
+              .then(() => router.push({ name:'ProductUpdate'}))
+              .catch(Error => {
+                  console.log('error')
+                  reject(Error)
+              })
+        })     
+    },
+
     ProductDelete({commit},payload) {
       console.log(payload)
       if(confirm('상품을 삭제하시겠습니까?') == true){
@@ -339,50 +393,7 @@ export default new Vuex.Store({
         })
       }
     },
-    ProductUpdate({commit},payload) {
-      return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/api/admin/productupdate',payload)
-              .then(Response => {
-                  console.log(Response.data)
-                  commit('UPDATE_PRODUCT', Response.data)
-              })
-              .then(() => router.push({ name:'ProductUpdate'}))
-              .catch(Error => {
-                  console.log('error')
-                  reject(Error)
-              })
-        })     
-    },
-    ProductDataUpdate({commit},payload) {
-      // console.log(payload.files.name)
-      // console.log(payload)
 
-      // var frm = new FormData(); 
-      // /*
-      //   여기서files는 파일의 정보를 담고있는 객체이다. 
-      //   다른 곳에서는 파일이 여러개라면 files[0], files[1] 이렇게 사용되던데, 
-      //   배열이 아닌 객체로 넘어와서 그런지 위와같이 사용이 안되는 것 같다.
-      // */
-      // frm.append("image", payload.files);
-
-      if(confirm('상품정보를 수정하시겠습니까?') == true){
-      return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/api/admin/productdataupdate',payload, 
-          frm, { headers: { 'Content-Type': 'multipart/form-data' } })
-              .then(Response => {
-                    console.log(Response.data)
-                    commit('SET_PRODUCT_LIST', Response.data) 
-              })
-              .then(() => router.push({ name: 'Product' }))
-              .catch(Error => {
-                  console.log('error')
-                  reject(Error)
-              })           
-          })
-      } else{
-         return;
-      }
-    },
     OrderList({commit}) {
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/orderlist')

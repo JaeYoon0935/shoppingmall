@@ -249,43 +249,52 @@ public class AdminController {
 	@RequestMapping(value="/productdataupdate", method=RequestMethod.POST)
 	public ResponseEntity<?> productDataUpdate(Product product){
 		
-		MultipartFile multipartFile = product.getFile();
-		System.out.println("product: "+ product);
-		String temp = multipartFile.getOriginalFilename();
-		String org_file = temp.substring(0, temp.length()-4);
-		System.out.println(org_file);
-		product.setImage(org_file);
-		productService.productDataUpdate(product);
-		productService.productImgUpdate(product);
-		
-		String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\main\\resources\\static\\img\\";
-		String thumbPath = path + "thumb\\";
-		String filename = multipartFile.getOriginalFilename();
-		String ext = filename.substring(filename.lastIndexOf(".")+1);
-		File file = new File(path + filename);
-		File thumbFile = new File(thumbPath + filename);
-		try {
-			// 원본파일 저장
-			InputStream input = multipartFile.getInputStream();
-			FileUtils.copyInputStreamToFile(input, file);
-			
-			// 썸네일 생성
-			BufferedImage imageBuf = ImageIO.read(file);
-			int fixWidth = 500;
-			double ratio = imageBuf.getWidth() / (double)fixWidth;
-			int thumbWidth = fixWidth;
-			int thumbHeight = (int)(imageBuf.getHeight() / ratio);
-			BufferedImage thumbImageBf = new BufferedImage(thumbWidth, thumbHeight, BufferedImage.TYPE_3BYTE_BGR);
-			Graphics2D g = thumbImageBf.createGraphics();
-			Image thumbImage = imageBuf.getScaledInstance(thumbWidth, thumbHeight, Image.SCALE_SMOOTH);
-			g.drawImage(thumbImage, 0, 0, thumbWidth, thumbHeight, null);
-			g.dispose();
-			ImageIO.write(thumbImageBf, ext, thumbFile);
-			
-		} catch (IOException e) {
-			FileUtils.deleteQuietly(file);
-			e.printStackTrace();
+		//이미지는 업로드를 안할때
+		if(product.getFile() == null) {
+			productService.productDataUpdate(product);
 		}
+		
+		//이미지도 업로드 할때
+		else if(product.getFile() != null) {
+			MultipartFile multipartFile = product.getFile();
+			System.out.println("product: "+ product);
+			String temp = multipartFile.getOriginalFilename();
+			String org_file = temp.substring(0, temp.length()-4);
+			System.out.println(org_file);
+			product.setImage(org_file);
+			productService.productDataUpdate(product);
+			productService.productImgUpdate(product);
+			
+			String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\main\\resources\\static\\img\\";
+			String thumbPath = path + "thumb\\";
+			String filename = multipartFile.getOriginalFilename();
+			String ext = filename.substring(filename.lastIndexOf(".")+1);
+			File file = new File(path + filename);
+			File thumbFile = new File(thumbPath + filename);
+			try {
+				// 원본파일 저장
+				InputStream input = multipartFile.getInputStream();
+				FileUtils.copyInputStreamToFile(input, file);
+				
+				// 썸네일 생성
+				BufferedImage imageBuf = ImageIO.read(file);
+				int fixWidth = 500;
+				double ratio = imageBuf.getWidth() / (double)fixWidth;
+				int thumbWidth = fixWidth;
+				int thumbHeight = (int)(imageBuf.getHeight() / ratio);
+				BufferedImage thumbImageBf = new BufferedImage(thumbWidth, thumbHeight, BufferedImage.TYPE_3BYTE_BGR);
+				Graphics2D g = thumbImageBf.createGraphics();
+				Image thumbImage = imageBuf.getScaledInstance(thumbWidth, thumbHeight, Image.SCALE_SMOOTH);
+				g.drawImage(thumbImage, 0, 0, thumbWidth, thumbHeight, null);
+				g.dispose();
+				ImageIO.write(thumbImageBf, ext, thumbFile);
+				
+			} catch (IOException e) {
+				FileUtils.deleteQuietly(file);
+				e.printStackTrace();
+			}
+		}	
+		
 		
 		List<Product> productList = productService.readAllProduct();
 		return new ResponseEntity<>(productList, HttpStatus.OK);

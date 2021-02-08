@@ -109,7 +109,6 @@ import { mapState, mapActions } from "vuex"
     },
     methods:{
       ...mapActions(["ProductCreate"]),
-      ...mapActions(["Test"]),
       priceToString(price) {
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       },
