@@ -202,8 +202,9 @@ public class AdminController {
 		product.setImage(org_file);
 		productService.createProduct(product);	
 		productService.createImage(product);
-		
-		String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\main\\resources\\static\\img\\";
+					   
+		String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\shoppingmall-vue\\src\\images\\";
+//		String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\main\\resources\\static\\img\\";
 		String thumbPath = path + "thumb\\";
 		String filename = multipartFile.getOriginalFilename();
 		String ext = filename.substring(filename.lastIndexOf(".")+1);

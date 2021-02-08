@@ -170,9 +170,9 @@ import { mapGetters } from 'vuex'
       ...mapActions(["OrderDetailUpdate"]),
      image(image){ //경로를 조합해줄 메서드.
       if(image == null){
-        return require('@/assets/null.jpg');
+        return require('@/images/null.jpg');
       }
-      return require('@/assets/'+ image +'.jpg');
+      return require('@/images/'+ image +'.jpg');
       },
      priceToString(price) {
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

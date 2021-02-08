@@ -61,7 +61,7 @@
             md="6"
           >
         <!-- <img :src="image($store.state.product[0].image)"> -->
-            <img :src="require('@/assets/detail.jpg')">
+            <img :src="require('@/images/detail.jpg')">
       </v-col>
        <v-col
             cols="6"
@@ -161,9 +161,9 @@ export default {
       image(image){
         //경로를 조합해줄 메서드.
         if(image == null){
-          return require('@/assets/null.jpg');
+          return require('@/images/null.jpg');
         }
-        return require('@/assets/'+ image +'.jpg');
+        return require('@/images/'+ image +'.jpg');
       },
       total(amount){
           return (amount * this.$store.state.product[0].price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
