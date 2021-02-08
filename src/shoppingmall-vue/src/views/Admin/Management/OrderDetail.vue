@@ -169,7 +169,7 @@ import { mapGetters } from 'vuex'
       ...mapActions(["OrderDetailDelete"]),
       ...mapActions(["OrderDetailUpdate"]),
      image(image){ //경로를 조합해줄 메서드.
-      if(image == null){
+      if(image == null){ 
         return require('@/images/null.jpg');
       }
       return require('@/images/'+ image +'.jpg');

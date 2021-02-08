@@ -8,8 +8,14 @@ public class Product_img {
 	private String image;
 	private MultipartFile multipartFile;
 	private int p_id;
+	private String unique; //고유한 파일이름
 	
-
+	public String getUnique() {
+		return unique;
+	}
+	public void setUnique(String unique) {
+		this.unique = unique;
+	}
 	public MultipartFile getMultipartFile() {
 		return multipartFile;
 	}

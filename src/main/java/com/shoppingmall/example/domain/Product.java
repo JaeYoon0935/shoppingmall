@@ -11,13 +11,21 @@ public class Product {
 	private String order_count; //상품 누적주문수
 	private String rank; //순위
 	private String category; //카테고리
-	private String image; //이미지
 	private int views; // 조회수
 	private String text;
 	MultipartFile file;
-
+	
+	// 이미지 부분은 실제 테이블 칼럼상에는 없는 부분이나 편의상 product vo를 사용해서 작업함.
+	private String image; //이미지, 실제 product테이블 상에는 없지만 임의로 사용
+	private String unique; //고유한 파일명
 	
 	
+	public String getUnique() {
+		return unique;
+	}
+	public void setUnique(String unique) {
+		this.unique = unique;
+	}
 	public String getText() {
 		return text;
 	}

@@ -44,7 +44,7 @@
 						p_views                         as  views,	
 						p_category                      as  category,
 						p_quantity			            as  quantity,
-						pi_image                      as image,
+						pi_unique                      as image,
 						p_text                        as text
 		FROM 			product 
 		JOIN product_img ON (product.p_id = product_img.p_id);
@@ -58,7 +58,7 @@
 						p_views                         as  views,	
 						p_category                      as  category,
 						p_quantity			            as  quantity,
-						pi_image                      as image,
+						pi_unique                      as image,
 						p_text                        as text
 		FROM 			product
 		JOIN product_img ON (product.p_id = product_img.p_id)
@@ -94,11 +94,13 @@
 		INSERT INTO product_img (
 			p_id, 
 			pi_image, 
-			pi_id
+			pi_id,
+			pi_unique
 		) VALUES (
 			#{id}, 
 			#{image}, 
-			#{id}
+			#{id},
+			#{unique}
 		)
 	</insert>
 

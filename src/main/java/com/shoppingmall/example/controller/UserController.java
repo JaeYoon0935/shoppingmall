@@ -57,8 +57,6 @@ public class UserController {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	
-	//상품수정하기
 	@PostMapping("/product")
 	public ResponseEntity<?> productUpdate(@Validated @RequestBody Product product){
 		List<Product> product_one = productService.readProduct(product);
