@@ -23,6 +23,10 @@
             <td style="width:420px;">
                 <v-row style="display:flex; width:420px; align-items:center;"> 
                   <v-col style="overflow:hidden;">
+                    <!-- <img :src="image(row.item.image)"/> -->
+                    <!-- <span v-if="temp != null">
+                        <img :src="image(row.item.image)"/>
+                    </span> -->
                     <img :src="image(row.item.image)"/>
                   </v-col>
                   <v-col>
@@ -84,9 +88,13 @@ import { mapState, mapActions } from "vuex"
     created(){
       this.$store.dispatch('ProductList')
     },
+    beforeUpdate(){
+      this.$store.state.temp = 1
+      console.log('beforeUpdate')
+    },
     data () {
       return {     
-
+         temp:' ',
       }
     },
     methods:{
@@ -100,7 +108,13 @@ import { mapState, mapActions } from "vuex"
         if(image == null){
           return require('@/images/null.jpg');
         }
-        return require('@/images/'+ image +'.jpg');
+        /* 랜더링 되는 시간 때문에 발생하는 오류를 try, catch로 잡아준다. */
+        try {
+          return require('@/images/'+ image +'.jpg')
+        } catch (e) {
+          //console.dir(e)
+          return require('@/images/null.jpg')
+        }
       },
     }
   }

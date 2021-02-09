@@ -109,35 +109,39 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- 테이블 데이터 shoppingmall.product:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`, `p_text`) VALUES
-	(1, '거실등', 200000, 3, 30, NULL, 2010, 5, '30평형 거실등 입니다.'),
+	(1, '거실등 1', 200000, 3, 30, NULL, 2010, 5, '30평형 거실등 입니다.'),
 	(2, '방등', 70000, 2, 35, NULL, 4010, 4, '소형 방등 입니다.'),
 	(3, '형광등 스탠드', 70000, 3, 20, NULL, 6020, 2, '일반 형광등 스탠드입니다.'),
 	(4, '멀티탭', 5000, 5, 5, NULL, 7020, 2, '멀티탭 입니다.'),
 	(5, '식탁등', 150000, 5, 25, NULL, 3010, 3, '소형 식탁등 입니다.'),
 	(6, '2구 스위치', 10000, 4, 25, NULL, 7010, 3, '2구 스위치 입니다.'),
 	(7, 'LED 스탠드', 100000, 3, 15, NULL, 6010, 2, 'LED스탠드 입니다.'),
-	(123, '제품2', 1500000, 212, 0, NULL, 4564564, 0, '임시제품'),
-	(150, '제품111', 200000, 50, 0, NULL, 456456456, 0, NULL);
+	(8, '3구 스위치', 50000, 6, 20, NULL, 7030, 0, '3구 스위치 입니다.'),
+	(9, '거실등 2', 600000, 5, 10, NULL, 2010, 0, '30평형 거실등 입니다.');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product_img 구조 내보내기
 CREATE TABLE IF NOT EXISTS `product_img` (
   `pi_id` int(10) NOT NULL,
-  `pi_image` varchar(255) DEFAULT NULL,
+  `pi_image` varchar(255) DEFAULT NULL COMMENT '사용자가 저장하는 이름',
   `p_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`pi_id`)
+  `pi_unique` varchar(255) DEFAULT NULL COMMENT '실제로 서버에 저장되는 이름',
+  PRIMARY KEY (`pi_id`),
+  KEY `pi_unique` (`pi_unique`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.product_img:~7 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.product_img:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product_img` DISABLE KEYS */;
-INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`) VALUES
-	(1, 'livingLamp40', 1),
-	(2, 'roomLamp', 2),
-	(3, 'lightStand', 3),
-	(4, 'multiPlug', 4),
-	(5, 'diningLamp', 5),
-	(6, 'switchTwo', 6),
-	(7, 'ledStand', 7);
+INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`, `pi_unique`) VALUES
+	(1, '20210208_1735562.jpg', 1, '20210209_1658426'),
+	(2, 'roomLamp', 2, '20210208_1235562'),
+	(3, 'lightStand', 3, '20210205_1622562'),
+	(4, 'multiPlug', 4, '20210205_1622522'),
+	(5, 'diningLamp', 5, '20210209_1635562'),
+	(6, '20210206_1631562.jpg', 6, '20210209_1545351'),
+	(7, 'ledStand', 7, '20210210_1635562'),
+	(8, 'switchThree.JPG', 8, '20210208_1635562'),
+	(9, '20210208_1648326.jpg', 9, '20210209_1659745');
 /*!40000 ALTER TABLE `product_img` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.user 구조 내보내기

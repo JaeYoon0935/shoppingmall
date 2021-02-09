@@ -199,7 +199,6 @@ public class AdminController {
 		String filename = multipartFile.getOriginalFilename(); //서버로 부터 넘어오는 파일 전체이름
 //		String org_file = temp.substring(0, temp.length()-4); // ~~.jpg에서 .jpg를 뺀 파일이름
 			
-		
 		//고유한 파일이름을 만들어 주기 위해 작업하는 부분
 		Calendar cal = Calendar.getInstance()  ;
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
@@ -258,19 +257,43 @@ public class AdminController {
 		else if(product.getFile() != null) {
 			MultipartFile multipartFile = product.getFile();
 			System.out.println("product: "+ product);
-			String temp = multipartFile.getOriginalFilename();
-			String org_file = temp.substring(0, temp.length()-4);
-			System.out.println(org_file);
-			product.setImage(org_file);
+			String filename = multipartFile.getOriginalFilename();
+//			String org_file = temp.substring(0, temp.length()-4);
+			
+			//고유한 파일이름을 만들어 주기 위해 작업하는 부분
+			Calendar cal = Calendar.getInstance();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
+		    String time = dateFormat.format(cal.getTime());
+		    
+			product.setImage(filename);
+			product.setUnique(time);
+		    
 			productService.productDataUpdate(product);
 			productService.productImgUpdate(product);
 			
-			String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\main\\resources\\static\\img\\";
+			
+//			MultipartFile multipartFile = product.getFile();
+//			System.out.println("product: "+ product);
+//			String filename = multipartFile.getOriginalFilename(); //서버로 부터 넘어오는 파일 전체이름
+////			String org_file = temp.substring(0, temp.length()-4); // ~~.jpg에서 .jpg를 뺀 파일이름
+//				
+//			//고유한 파일이름을 만들어 주기 위해 작업하는 부분
+//			Calendar cal = Calendar.getInstance()  ;
+//			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
+//		    String time = dateFormat.format(cal.getTime());
+//		    
+//			
+//			product.setImage(filename); //
+//			product.setUnique(time);
+//			productService.createProduct(product);	
+//			productService.createImage(product);
+				
+			String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\shoppingmall-vue\\src\\images\\";
 			String thumbPath = path + "thumb\\";
-			String filename = multipartFile.getOriginalFilename();
 			String ext = filename.substring(filename.lastIndexOf(".")+1);
-			File file = new File(path + filename);
-			File thumbFile = new File(thumbPath + filename);
+			File file = new File(path + time + ".jpg");
+			File thumbFile = new File(thumbPath + time + ".jpg");
+			
 			try {
 				// 원본파일 저장
 				InputStream input = multipartFile.getInputStream();

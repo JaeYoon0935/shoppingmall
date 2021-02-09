@@ -129,7 +129,8 @@
 	<update id="productImgUpdate" parameterType="Product">
 		update			product_img								set
 						p_id = #{id},
-						pi_image = null,
+						pi_image = #{image},
+						pi_unique = #{unique},
 						pi_id = #{id}
 							
 						where p_id= #{id}		

@@ -326,6 +326,7 @@ export default new Vuex.Store({
     
     ProductDataUpdate({commit},payload) {
       let formData = new FormData()
+      console.log("파일 넘어오는 여부 체크 " + payload.fileinput)
       if(payload.fileinput != null){
         formData.append('file', payload.fileinput)
       }
