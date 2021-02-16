@@ -42,12 +42,6 @@
           </td>
           <td>
             <v-row style="display:flex;">
-              <!-- <div>  
-                <v-btn dark small color="grey" class="ma-1" @click="Update(row.item)">수정</v-btn>
-              </div>
-              <div>
-                <v-btn dark small color="grey" class="ma-1" @click="OrderDetailDelete(row.item)">삭제</v-btn>
-              </div> -->
               <span v-if="temp != row.item.od_id">
                 <v-card-actions class="justify-start">  
                   <v-btn dark small color="grey" class="ma-1" @click="Update(row.item)">수정</v-btn>
@@ -62,19 +56,6 @@
                 </v-card-actions>
               </span>
             </v-row>
-              <!-- <span v-if="temp != row.item.username">
-              <v-card-actions class="justify-start">  
-                <v-btn dark small color="grey" @click="Update(row.item)">수정</v-btn>
-                <v-btn dark small color="grey" @click="UserDelete(row.item)">탈퇴</v-btn>
-              </v-card-actions>
-              </span>
-              <span v-else>
-                <v-card-actions class="justify-start">  
-                <v-btn dark small color="grey" 
-                @click="[UserUpdate({new_username, temp, password, name, address, phone, email, point}),reload()]">수정완료</v-btn>
-                <v-btn dark small color="grey" @click="Update_cancle()">취소</v-btn>
-              </v-card-actions>
-              </span> -->
            </td>
          </tr>
       </template>
@@ -139,18 +120,10 @@ import { mapGetters } from 'vuex'
       this.$store.dispatch('OrderDetail')
       this.$store.state.temp = this.$store.getters.get_orderDetailList.user
     },
-    // mounted(){
-    //   console.log('mount')
-    //   // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
-    // },
     beforeUpdate(){
       console.log('beforeUpdate')
       this.$store.state.temp = this.$store.getters.get_orderDetailList.user
     },
-    // updated(){
-    //   console.log('updated')
-    //   // this.$store.state.temp = this.$store.getters.doneorderDetailList.user
-    // },
     computed: {
       ...mapState(["orderDetailList","orderdetail_headers_1"]),
       ...mapGetters([

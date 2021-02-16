@@ -12,6 +12,7 @@ import Product from '../views/Admin/Management/Product.vue'
 import Product_User from '../views/User/Product.vue'
 import Ranking from '../views/Admin/Situation/Ranking.vue'
 import Sales from '../views/Admin/Situation/Sales.vue'
+import SalesData from '../views/Admin/Situation/SalesData.vue'
 import ProductRegistration from '../views/Admin/Management/ProductRegistration.vue'
 import ProductUpdate from '../views/Admin/Management/ProductUpdate.vue'
 import Admin from '../views/Admin.vue'
@@ -80,6 +81,11 @@ const routes = [
         path: 'sales',
         name: 'Sales',
         component: Sales
+      },
+      {
+        path: 'salesdata',
+        name: 'SalesData',
+        component: SalesData
       },
       {
         path: 'ranking',

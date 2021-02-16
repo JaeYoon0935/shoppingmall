@@ -6,7 +6,7 @@
           <span>일일 매출</span>
           <input type="date" class="i_size">
           <span>일 하루</span>
-          <v-btn color="indigo lighten-1" class="v_size">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
         </v-row>
         <v-row>
           <span>일간 매출</span>
@@ -14,7 +14,7 @@
           <span>일 ~</span>
           <input type="date" class="i_size">
           <span>일</span>
-          <v-btn color="indigo lighten-1" class="v_size">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
         </v-row>
         <v-row>
           <span>월간 매출</span>
@@ -22,7 +22,7 @@
           <span>월 ~</span>
           <input type="month" class="i_size">
           <span>월</span>
-          <v-btn color="indigo lighten-1" class="v_size">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
         </v-row>
         <v-row>
           <span>연간 매출</span>
@@ -56,7 +56,7 @@
             <option value="2025">2025</option>
           </select>
           <span>년</span>
-          <v-btn color="indigo lighten-1" class="v_size">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
         </v-row>
     </div>
   </div>
@@ -81,12 +81,6 @@
   height:20px;
   color:white;
 }
-/* select{
-    text-align-last:right;
-    padding-right: 10px;
-    direction: rtl;
-} */
-
 </style>
 <script>
 window.onload = function(){

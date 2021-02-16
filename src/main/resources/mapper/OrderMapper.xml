@@ -35,7 +35,7 @@
 		<result column="o_id"  property="o_id"/>
 		<result column="od_price" property="price" />
 		<result column="od_count" property="count" />
-		<result column="pi_image" property="image"/>
+		<result column="pi_unique" property="image"/>
 		<result column="p_name" property="product"/>
 		<result column="p_id" property="p_id" />
 	</resultMap>
@@ -112,7 +112,8 @@
 						tc.user_phone,
 						td.o_total_price,
 						te.p_name,
-						tf.pi_image
+						tf.pi_image,
+						tf.pi_unique
 						
 		FROM 			orders ta		
 		LEFT JOIN 	order_detail tb ON (ta.o_id = tb.o_id)

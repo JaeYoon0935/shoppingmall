@@ -112,7 +112,6 @@ import { mapState, mapActions } from "vuex"
         try {
           return require('@/images/'+ image +'.jpg')
         } catch (e) {
-          //console.dir(e)
           return require('@/images/null.jpg')
         }
       },

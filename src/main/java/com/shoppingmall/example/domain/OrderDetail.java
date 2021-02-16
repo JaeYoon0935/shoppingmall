@@ -7,11 +7,18 @@ public class OrderDetail {
 	private String price; //od_price
 	private String count; //od_count
 	private String image; //od_image
+	private String unique; //pi_unique
 	
 	private int p_id;
 	private int o_id;
 	
 	
+	public String getUnique() {
+		return unique;
+	}
+	public void setUnique(String unique) {
+		this.unique = unique;
+	}
 	public String getImage() {
 		return image;
 	}

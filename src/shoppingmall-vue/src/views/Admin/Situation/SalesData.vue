@@ -1,9 +1,14 @@
 <template>
   <div class="about">
     <h2 class="pt-2">매출통계</h2>
+      <table>
+        <tr>
+          <td><h5 style="margin-left:10px; margin-top:2px;">20XX-XX-XX일 매출현황</h5></td>
+        </tr>
+      </table>
       <v-data-table
-        :headers="$store.state.order_headers"
-        :items="$store.state.orderlist"
+        :headers="$store.state.sales_headers"
+        :items="$store.state.saleslist"
         :items-per-page="10"
         class="elevation-1"
       >

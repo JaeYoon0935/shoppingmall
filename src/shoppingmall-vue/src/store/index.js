@@ -78,6 +78,14 @@ export default new Vuex.Store({
     ],
     orderlist:[],
     orderDetailList:{},
+    sales_headers:[
+      {text:'주문번호', value:'id'},
+      {text:'주문자아이디', value:'id'},
+      {text:'주문자성명', value:'id'},
+      {text:'휴대폰', value:'id'},
+      {text:'주문합계', value:'id'},
+    ],
+    saleslist:[],
   },
   getters: {
     get_orderDetailList: state => {
