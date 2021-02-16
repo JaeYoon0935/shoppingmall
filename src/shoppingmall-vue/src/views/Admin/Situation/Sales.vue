@@ -4,29 +4,32 @@
     <div>
         <v-row>
           <span>일일 매출</span>
-          <input type="date" class="i_size">
+          <input type="date" v-model="day" class="i_size">
           <span>일 하루</span>
-          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData', params: {date1: day}}">확인</v-btn>
+
+          <!-- <v-btn dark small color="grey" class="ml-2" router :to="{name: 'Product_User', params: {id: row.item.id}}">상품보기</v-btn> -->
+
         </v-row>
         <v-row>
           <span>일간 매출</span>
-          <input type="date" class="i_size">
+          <input type="date" v-model="day1" class="i_size">
           <span>일 ~</span>
-          <input type="date" class="i_size">
+          <input type="date" v-model="day2" class="i_size">
           <span>일</span>
-          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData', params: {date1: day1, date2:day2}}">확인</v-btn>
         </v-row>
         <v-row>
           <span>월간 매출</span>
-          <input type="month" class="i_size">
+          <input type="month" v-model="month1" class="i_size">
           <span>월 ~</span>
-          <input type="month" class="i_size">
+          <input type="month" v-model="month2" class="i_size">
           <span>월</span>
-          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData', params: {date1: month1, date2:month2}}">확인</v-btn>
         </v-row>
         <v-row>
           <span>연간 매출</span>
-          <select class="i_size">
+          <select v-model="year1" class="i_size">
             <option value="" disabled selected>연도</option>
             <option value="2015">2015</option>
             <option value="2016">2016</option>
@@ -41,7 +44,7 @@
             <option value="2025">2025</option>
           </select>
           <span>년 ~</span>
-          <select class="i_size">
+          <select v-model="year2" class="i_size">
             <option value="" disabled selected>연도</option>
             <option value="2015">2015</option>
             <option value="2016">2016</option>
@@ -56,7 +59,7 @@
             <option value="2025">2025</option>
           </select>
           <span>년</span>
-          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData'}">확인</v-btn>
+          <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData', params: {date1: year1, date2:year2}}">확인</v-btn>
         </v-row>
     </div>
   </div>
@@ -82,13 +85,21 @@
   color:white;
 }
 </style>
+
+
 <script>
-window.onload = function(){
-  var year;
-  year = document.getElementById('year');
-  year.addEventListener("click", year_date);
-  function year_date(){
-    year.datepicker({dateFormat: 'yy'});
+import { mapState, mapActions } from "vuex"
+  export default {
+    data() {
+      return{
+        day:'',
+        day1:'',
+        day2:'',
+        month1:'',
+        month2:'',
+        year1:'',
+        year2:'',
+      }
+    },
   }
-}
 </script>

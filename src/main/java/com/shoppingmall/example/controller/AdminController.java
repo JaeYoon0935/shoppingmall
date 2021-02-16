@@ -197,7 +197,6 @@ public class AdminController {
 		MultipartFile multipartFile = product.getFile();
 		System.out.println("product: "+ product);
 		String filename = multipartFile.getOriginalFilename(); //서버로 부터 넘어오는 파일 전체이름
-//		String org_file = temp.substring(0, temp.length()-4); // ~~.jpg에서 .jpg를 뺀 파일이름
 			
 		//고유한 파일이름을 만들어 주기 위해 작업하는 부분
 		Calendar cal = Calendar.getInstance()  ;
@@ -258,8 +257,7 @@ public class AdminController {
 			MultipartFile multipartFile = product.getFile();
 			System.out.println("product: "+ product);
 			String filename = multipartFile.getOriginalFilename();
-//			String org_file = temp.substring(0, temp.length()-4);
-			
+
 			//고유한 파일이름을 만들어 주기 위해 작업하는 부분
 			Calendar cal = Calendar.getInstance();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
@@ -270,23 +268,6 @@ public class AdminController {
 		    
 			productService.productDataUpdate(product);
 			productService.productImgUpdate(product);
-			
-			
-//			MultipartFile multipartFile = product.getFile();
-//			System.out.println("product: "+ product);
-//			String filename = multipartFile.getOriginalFilename(); //서버로 부터 넘어오는 파일 전체이름
-////			String org_file = temp.substring(0, temp.length()-4); // ~~.jpg에서 .jpg를 뺀 파일이름
-//				
-//			//고유한 파일이름을 만들어 주기 위해 작업하는 부분
-//			Calendar cal = Calendar.getInstance()  ;
-//			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
-//		    String time = dateFormat.format(cal.getTime());
-//		    
-//			
-//			product.setImage(filename); //
-//			product.setUnique(time);
-//			productService.createProduct(product);	
-//			productService.createImage(product);
 				
 			String path = "C:\\Users\\l4\\Documents\\Project\\shoppingmall\\src\\shoppingmall-vue\\src\\images\\";
 			String thumbPath = path + "thumb\\";
@@ -322,15 +303,6 @@ public class AdminController {
 		List<Product> productList = productService.readAllProduct();
 		return new ResponseEntity<>(productList, HttpStatus.OK);
 	}
-	
-//	//상품정보수정하기
-//	@PostMapping("/productdataupdate")
-//	public ResponseEntity<?> productDataUpdate(@Validated @RequestBody Product product){
-//		productService.productDataUpdate(product);
-//		productService.productImgUpdate(product);
-//		List<Product> productList = productService.readAllProduct();
-//		return new ResponseEntity<>(productList, HttpStatus.OK);
-//	}
 	
 	//상품수정하기
 	@PostMapping("/productupdate")
@@ -373,10 +345,6 @@ public class AdminController {
 	
 	@PostMapping("/orderdetailupdate")
 	public ResponseEntity<?> orderDetailUpdate(@Validated @RequestBody OrderDetail orderdetail){
-		
-		//od_id, o_id, count, price 이렇게 4개 파라미터로 넘겨받아야한다.
-		
-		
 		//미리 o_id를 입력해둔다.
 		Order order = new Order();
 		order.setId(orderdetail.getO_id());
@@ -387,7 +355,20 @@ public class AdminController {
 		Order orderDetail = orderService.readOrderDetails(order);
 		
 		return new ResponseEntity<>(orderDetail, HttpStatus.OK);
+	}	
+	
+	@PostMapping("/salesdata")
+	public ResponseEntity<?> salesData(@Validated @RequestBody Order order){
+		
+		System.out.println("1");
+		
+//		System.out.println(order.getDateinfo());
+		
+		
+		Order orderDetail = orderService.readOrderDetails(order);	
+		return new ResponseEntity<>(orderDetail, HttpStatus.OK);
 	}
+	
 }
 
 

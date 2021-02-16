@@ -3,7 +3,18 @@
     <h2 class="pt-2">매출통계</h2>
       <table>
         <tr>
-          <td><h5 style="margin-left:10px; margin-top:2px;">20XX-XX-XX일 매출현황</h5></td>
+          <span v-if="$route.params.date2 == null">
+            <td><h5 style="margin-left:10px; margin-top:2px;">{{$route.params.date1}}일 매출현황</h5></td>
+          </span>
+          <span v-if="$route.params.date2 != null && 8< $route.params.date1.length">
+            <td><h5 style="margin-left:10px; margin-top:2px;">{{$route.params.date1}}일 ~ {{$route.params.date2}}일 매출현황</h5></td>
+          </span>
+          <span v-if=" 5< $route.params.date1.length && $route.params.date1.length < 8">
+            <td><h5 style="margin-left:10px; margin-top:2px;">{{$route.params.date1}}월 ~ {{$route.params.date2}}월 매출현황</h5></td>
+          </span>    
+          <span v-if="$route.params.date1.length <5">
+            <td><h5 style="margin-left:10px; margin-top:2px;">{{$route.params.date1}}년 ~ {{$route.params.date2}}년 매출현황</h5></td>
+          </span>          
         </tr>
       </table>
       <v-data-table
@@ -38,6 +49,40 @@
          </tr>
        </template>
   </v-data-table>
-
+  
+  <table class="detail">
+    <tbody>
+      <tr>
+        <td style="background-color:rgb(245, 245, 245);">최종합계</td>
+        <td style="background-color:rgb(245, 245, 245);">200,000원</td>
+      </tr>
+    </tbody>
+  </table>
   </div>
 </template>
+
+<style scoped>
+.detail{
+    width:650px;
+    height:110px;
+    margin:70px 0 200px 130px;
+    border:1px solid rgb(185, 185, 185);
+}
+.detail tr{
+    border:1px solid rgb(185, 185, 185);
+}
+.detail tr td{
+    text-align: center;
+    border:1px solid rgb(185, 185, 185);
+    font-size:20px;
+    font-weight:600;
+}
+</style>
+
+<script>
+export default {
+    created(){
+      this.$store.dispatch('SalesData')
+    },
+}
+</script>

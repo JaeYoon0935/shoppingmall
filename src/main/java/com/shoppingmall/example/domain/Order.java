@@ -2,8 +2,6 @@ package com.shoppingmall.example.domain;
 
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetails;
-
 public class Order {
 
 	private String state;//주문상태 o_state 
@@ -12,6 +10,9 @@ public class Order {
 	private String date; // 주문정보 o_date
 	private String user_id; //주문정보 user_id (주문한 사람의 아이디)
 	private List<String> productList;  //상품정보 o_id에 해당하는 od_product들을 담고있을 리스트 
+	
+	
+	private DateInfo dateinfo; //주문정보를 받을 객체
 	
 	
 	private String name; //사용자정보 user_name (주문한 사람의 이름)
@@ -140,6 +141,12 @@ public class Order {
 	}
 	public void setUser(UserInfo user) {
 		this.user = user;
+	}
+	public DateInfo getDateinfo() {
+		return dateinfo;
+	}
+	public void setDateinfo(DateInfo dateinfo) {
+		this.dateinfo = dateinfo;
 	}
 	
 	

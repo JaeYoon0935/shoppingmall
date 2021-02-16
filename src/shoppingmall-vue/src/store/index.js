@@ -12,7 +12,7 @@ export default new Vuex.Store({
     temp: 12345678911, //temp에 우선 쓰레기값 넣어놓음.
     all: '전체',
 
-    //헤더랑 배열만 있으면 됨,
+    //user
     userlist_headers: [
       { text: '아이디', value: 'username'},
       { text: '비밀번호', value: 'password'},
@@ -25,6 +25,7 @@ export default new Vuex.Store({
     ],
     userlist:[],
 
+    //category
     category_headers: [
       {
         text: '분류코드',
@@ -37,9 +38,9 @@ export default new Vuex.Store({
       { text: '관리', value: 'management' },
     ],
     categorylist:[],
-
     categoryname:[],
 
+    //ranking
     ranking_header: [
       { text: '순위', value: 'rank', },
       { text: '누적판매량', value: 'order_count', },
@@ -47,6 +48,7 @@ export default new Vuex.Store({
     ],
     ranking:[],
 
+    //product
     product_headers:[
       { text: '상품코드', value: 'id', },
       { text: '상품정보', value: 'price', },
@@ -60,6 +62,7 @@ export default new Vuex.Store({
       {id:' ', name:' ', price:' ', category:' ', quantity:' ', text:' '}
     ],
 
+    //order
     order_headers:[
       {text:'주문번호', value:'id'},
       {text:'주문상품', value:'product'},
@@ -78,6 +81,8 @@ export default new Vuex.Store({
     ],
     orderlist:[],
     orderDetailList:{},
+
+    //sales
     sales_headers:[
       {text:'주문번호', value:'id'},
       {text:'주문자아이디', value:'id'},
@@ -85,7 +90,7 @@ export default new Vuex.Store({
       {text:'휴대폰', value:'id'},
       {text:'주문합계', value:'id'},
     ],
-    saleslist:[],
+    salesdata:[],
   },
   getters: {
     get_orderDetailList: state => {
@@ -123,6 +128,9 @@ export default new Vuex.Store({
 
         state.categoryname = data
     },
+      SET_SALES_DATA(state,data){
+        state.salesdata = data
+      },
       SET_RANKING(state, data) {
 
         function oc_Sort(a, b) { 
@@ -226,9 +234,6 @@ export default new Vuex.Store({
       var name = prompt('하위분류명을 입력해주세요.')
       alert(name)
       payload.name = name //이렇게 하면, 부모카테고리의 내용물에서 분류명만 현재 입력받은 분류명으로 바뀌어서 스프링으로 넘어가게 된다.
-      // let info = {
-      //   payload, name
-      // }  
       console.log(payload)
       return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/admin/categoryadd',payload)
@@ -334,7 +339,6 @@ export default new Vuex.Store({
     
     ProductDataUpdate({commit},payload) {
       let formData = new FormData()
-      console.log("파일 넘어오는 여부 체크 " + payload.fileinput)
       if(payload.fileinput != null){
         formData.append('file', payload.fileinput)
       }
@@ -465,6 +469,22 @@ export default new Vuex.Store({
       } else{
         return;
       }
+    },
+    SalesData({commit},payload){
+      var dateinfo = {dateinfo:router.currentRoute.params}
+      console.log(dateinfo)
+      payload = dateinfo
+      return new Promise((resolve,reject) =>{
+          axios.post('http://localhost:9000/api/admin/salesdata',payload)
+              .then(Response =>{
+                console.log(Response.data)
+                commit('SET_SALES_DATA', Response.data)
+              })
+              .catch(Error =>{
+                  console.log('error')
+                  reject(Error)
+              })
+      })
     },
     // -------------- 아래부터 사용자 화면 ----------------
     Product({commit},payload) {
