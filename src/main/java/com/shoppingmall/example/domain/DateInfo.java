@@ -2,6 +2,7 @@ package com.shoppingmall.example.domain;
 
 public class DateInfo {
 	
+	private DateInfo dateinfo;
 	
 	public String date1;
 	public String date2;
@@ -16,7 +17,14 @@ public class DateInfo {
 	public String year2;
 	
 	
-	public String getDate1() {
+	public DateInfo getDateinfo() {
+		return dateinfo;
+	}
+	public void setDateinfo(DateInfo dateinfo) {
+		this.dateinfo = dateinfo;
+	}
+	
+	public String getDate1() { 
 		return date1;
 	}
 	public void setDate1(String date1) {

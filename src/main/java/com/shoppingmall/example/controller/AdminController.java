@@ -34,6 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.shoppingmall.example.config.JwtUtils;
 import com.shoppingmall.example.domain.Category;
+import com.shoppingmall.example.domain.DateInfo;
 import com.shoppingmall.example.domain.Order;
 import com.shoppingmall.example.domain.OrderDetail;
 import com.shoppingmall.example.domain.Product;
@@ -358,15 +359,13 @@ public class AdminController {
 	}	
 	
 	@PostMapping("/salesdata")
-	public ResponseEntity<?> salesData(@Validated @RequestBody Order order){
+	public ResponseEntity<?> salesData(@Validated @RequestBody DateInfo dateinfo){
 		
-		System.out.println("1");
+		System.out.println(dateinfo.getDateinfo().date1);
+		System.out.println(dateinfo.getDateinfo().date2);		
 		
-//		System.out.println(order.getDateinfo());
-		
-		
-		Order orderDetail = orderService.readOrderDetails(order);	
-		return new ResponseEntity<>(orderDetail, HttpStatus.OK);
+		List<Order> salesData = orderService.readSales(dateinfo.getDateinfo());	
+		return new ResponseEntity<>(salesData, HttpStatus.OK);
 	}
 	
 }

@@ -86,9 +86,10 @@ export default new Vuex.Store({
     sales_headers:[
       {text:'주문번호', value:'id'},
       {text:'주문자아이디', value:'id'},
-      {text:'주문자성명', value:'id'},
-      {text:'휴대폰', value:'id'},
-      {text:'주문합계', value:'id'},
+      {text:'주문자성명', value:'name'},
+      {text:'휴대폰', value:'phone'},
+      {text:'주문합계', value:'total_price'},
+      {text:'상세보기', value:''},
     ],
     salesdata:[],
   },
