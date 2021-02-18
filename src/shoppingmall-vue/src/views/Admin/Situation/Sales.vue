@@ -7,9 +7,6 @@
           <input type="date" v-model="day" class="i_size">
           <span>일 하루</span>
           <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData', params: {date1: day}}">확인</v-btn>
-
-          <!-- <v-btn dark small color="grey" class="ml-2" router :to="{name: 'Product_User', params: {id: row.item.id}}">상품보기</v-btn> -->
-
         </v-row>
         <v-row>
           <span>일간 매출</span>
@@ -86,10 +83,12 @@
 }
 </style>
 
-
 <script>
 import { mapState, mapActions } from "vuex"
   export default {
+    // mounted(){
+    //   this.$store.dispatch('Sales')
+    // },
     data() {
       return{
         day:'',

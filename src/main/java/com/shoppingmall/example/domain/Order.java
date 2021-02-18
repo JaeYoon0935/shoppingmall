@@ -7,6 +7,7 @@ public class Order {
 	private String state;//주문상태 o_state 
 	private int id; //주문정보 o_id
 	private int total_price; //주문정보 o_total_price
+	private int order_price; //주문정보 o_order_price
 	private String date; // 주문정보 o_date
 	private String user_id; //주문정보 user_id (주문한 사람의 아이디)
 	private List<String> productList;  //상품정보 o_id에 해당하는 od_product들을 담고있을 리스트 
@@ -30,9 +31,14 @@ public class Order {
 	private UserInfo user;
 	private List<Product> product_map;
 	private List<Product_img> product_img_map;
-
 	
 	
+	public int getOrder_price() {
+		return order_price;
+	}
+	public void setOrder_price(int order_price) {
+		this.order_price = order_price;
+	}
 	public List<String> getProductList() {
 		return productList;
 	}

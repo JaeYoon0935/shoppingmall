@@ -9,7 +9,7 @@
           <span v-if="$route.params.date2 != null && 8< $route.params.date1.length">
             <td><h5 style="margin-left:10px; margin-top:2px;">{{$route.params.date1}}일 ~ {{$route.params.date2}}일 매출현황</h5></td>
           </span>
-          <span v-if=" 5< $route.params.date1.length && $route.params.date1.length < 8">
+          <span v-if=" 5< $route.params.date1.length && $route.params.date1.length <8">
             <td><h5 style="margin-left:10px; margin-top:2px;">{{$route.params.date1}}월 ~ {{$route.params.date2}}월 매출현황</h5></td>
           </span>    
           <span v-if="$route.params.date1.length <5">
@@ -38,8 +38,7 @@
              {{row.item.user.phone}}
            </td>
            <td>
-             <!-- {{row.item.total_price}} -->
-             {{priceToString(row.item.total_price)}}원
+             {{priceToString(row.item.order_price)}}원
            </td>
            <td>
               <v-btn dark small color="grey" router :to="{name: 'OrderDetail', params: {id: row.item.id}}">상세보기</v-btn>
@@ -52,7 +51,7 @@
     <tbody>
       <tr>
         <td style="background-color:rgb(245, 245, 245);">최종합계</td>
-        <td style="background-color:rgb(245, 245, 245);">200,000원</td>
+        <td style="background-color:rgb(245, 245, 245);">{{priceToString($store.state.salesdata[0].total_price)}}원</td>
       </tr>
     </tbody>
   </table>

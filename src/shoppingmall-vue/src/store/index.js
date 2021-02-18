@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import router from "../router";
 import axios from 'axios'
 
@@ -11,7 +11,7 @@ export default new Vuex.Store({
     rank: 0,
     temp: 12345678911, //temp에 우선 쓰레기값 넣어놓음.
     all: '전체',
-
+    sales_flag: 0,
     //user
     userlist_headers: [
       { text: '아이디', value: 'username'},
@@ -475,11 +475,18 @@ export default new Vuex.Store({
       var dateinfo = {dateinfo:router.currentRoute.params}
       console.log(dateinfo)
       payload = dateinfo
+      commit('SET_SALES_DATA', null) //SalesData 페이지로 넘어가기 전에 우선 state.salesdata의 내용물을 null로 초기화함.
       return new Promise((resolve,reject) =>{
           axios.post('http://localhost:9000/api/admin/salesdata',payload)
               .then(Response =>{
                 console.log(Response.data)
-                commit('SET_SALES_DATA', Response.data)
+                if(Response.data == 'empty'){        
+                  router.push({ name: 'Sales' })      
+                  alert('표시할 데이터가 없습니다.')
+                  return;
+                }else{
+                  commit('SET_SALES_DATA', Response.data)
+                }
               })
               .catch(Error =>{
                   console.log('error')
@@ -514,7 +521,7 @@ export default new Vuex.Store({
           formData,
           {
           headers: {
-              'Content-Type': 'multipart/form-data',
+            'Content-Type': 'multipart/form-data',
             'Access-Control-Allow-Origin': '*'
           }
         }

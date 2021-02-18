@@ -364,8 +364,60 @@ public class AdminController {
 		System.out.println(dateinfo.getDateinfo().date1);
 		System.out.println(dateinfo.getDateinfo().date2);		
 		
-		List<Order> salesData = orderService.readSales(dateinfo.getDateinfo());	
-		return new ResponseEntity<>(salesData, HttpStatus.OK);
+		List<Order> salesData = null;
+		int len1, len2 = 0;
+		
+		if(dateinfo.getDateinfo().date1 != null) {
+			len1 = dateinfo.getDateinfo().date1.length();
+		}else {
+			len1 = 0;
+		}
+		
+		if(dateinfo.getDateinfo().date2 != null) {
+			len2 = dateinfo.getDateinfo().date2.length();
+		}else {
+			len2 = 0;
+		}
+	
+		
+		/* 
+		 * readSales를 4개 만들어준다.
+		 * 넘어오는 date1, date2의 길이를 가지고 아래 4개의 메서드로 분류해서 실행시켜준다.
+		 * readSales_oneday, readSales_days, readSales_month, readSales_year 
+		 * 
+		 * 
+		 * */
+		
+		try {
+			//일일 매출
+			if(len2 == 0) {
+				salesData = orderService.readSales_oneday(dateinfo.getDateinfo());
+			}
+			//일간매출
+			else if(len1 == 10 && len2 == 10) {
+				salesData = orderService.readSales_days(dateinfo.getDateinfo());	
+			}
+//			//월간매출
+//			else if() {
+//				salesData = orderService.readSales_Days(dateinfo.getDateinfo());
+//			}
+//			//연간매출
+//			else if() {
+//				salesData = orderService.readSales_Days(dateinfo.getDateinfo());
+//			}
+			
+		} catch(Exception e){
+			logger.error("매출통계값 확인 에러", e);
+		} 
+		
+		
+		if(salesData.isEmpty() == true) {
+			return new ResponseEntity<>("empty", HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(salesData, HttpStatus.OK);	
+		}
+		
 	}
 	
 }

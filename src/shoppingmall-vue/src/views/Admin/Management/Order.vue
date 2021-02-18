@@ -39,7 +39,6 @@
 
 <script>
 import { mapState, mapActions } from "vuex"
-// import { mapGetters } from 'vuex'
   export default {
     created(){
       this.$store.dispatch('OrderList')
@@ -48,17 +47,9 @@ import { mapState, mapActions } from "vuex"
       return {     
       }
     },
-    // beforeUpdate(){
-    //   console.log('beforeUpdate')
-    //   this.$store.state.temp = this.$store.getters.get_orderDetailList.user
-    // },
     methods:{
       priceToString(price) {
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      },
-      Detail(){
-
-
       },
     }
   }

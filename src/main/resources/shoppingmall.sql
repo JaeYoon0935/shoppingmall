@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   PRIMARY KEY (`cg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='정규화의 가장 큰 목적은 중복을 없애기 위함이다.\r\n현재 category테이블은 중복이 없으므로 그렇게 사용해도 상관이 없다.';
 
--- 테이블 데이터 shoppingmall.category:~19 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.category:~20 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 	('0', '전체', 9999999),
@@ -65,11 +65,16 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`o_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user테이블의 id\r\n';
 
--- 테이블 데이터 shoppingmall.orders:~2 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.orders:~7 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`o_id`, `o_date`, `o_state`, `user_id`) VALUES
 	(1, '2020-12-23', '배송중', 'jy0935'),
-	(2, '2020-12-25', '배송완료', 'jy1234');
+	(2, '2020-12-25', '배송완료', 'jy1234'),
+	(3, '2021-01-16', '배송중', 'jy0935'),
+	(4, '2021-02-16', '배송완료', 'jy0935'),
+	(5, '2021-03-16', '배송준비중', 'jy0935'),
+	(6, '2019-02-16', '배송완료', 'jy1234'),
+	(7, '2020-12-28', '배송완료', 'jy1234');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.order_detail 구조 내보내기
@@ -82,14 +87,22 @@ CREATE TABLE IF NOT EXISTS `order_detail` (
   PRIMARY KEY (`od_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='해당상품의 갯수에 따른 해당상품의 총 주문금액';
 
--- 테이블 데이터 shoppingmall.order_detail:~5 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.order_detail:~8 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
 INSERT INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
-	(1, 250000, 2, 1, 1),
-	(2, 2000, 2, 1, 2),
-	(3, 50000, 4, 1, 3),
+	(1, 200000, 2, 1, 1),
+	(2, 70000, 2, 1, 2),
+	(3, 70000, 4, 1, 3),
 	(5, 150000, 4, 2, 5),
-	(6, 30000, 3, 2, 3);
+	(6, 70000, 3, 2, 3),
+	(7, 70000, 2, 3, 3),
+	(8, 70000, 1, 3, 2),
+	(9, 200000, 1, 4, 1),
+	(10, 10000, 3, 4, 6),
+	(11, 150000, 2, 5, 5),
+	(12, 200000, 3, 5, 1),
+	(13, 70000, 2, 6, 2),
+	(14, 5000, 10, 7, 4);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product 구조 내보내기
@@ -106,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.product:~9 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.product:~10 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`, `p_text`) VALUES
 	(1, '거실등 1', 200000, 3, 30, NULL, 2010, 5, '30평형 거실등 입니다.'),
@@ -169,7 +182,7 @@ INSERT INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `us
 	('jy12345', '4234', '이모씨', '대구시 수성구', '010-1111-1234', 'fruit@naver.com', 1000, NULL, 1, 1, 1, 1),
 	('jy1515', '33311', '김모씨', '대구시 중구', '010-7555-1234', 'jkjk@naver.com', 20000, NULL, 1, 1, 1, 1),
 	('kkk333', '1523', '김모씨', '대구시 북구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1),
-	('sef', '3423', '박모씨', '대구시 남구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1);
+	('zzsfdx15', '3423', '박모씨', '대구시 남구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- 뷰 shoppingmall.myview01 구조 내보내기

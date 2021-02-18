@@ -37,7 +37,12 @@ public class OrderServiceImpl implements OrderService{
 	}
 	
 	@Override
-	public List<Order> readSales(DateInfo dateinfo) {
-		return ordermapper.readSales(dateinfo);
+	public List<Order> readSales_days(DateInfo dateinfo) {
+		return ordermapper.readSales_days(dateinfo);
+	}
+	
+	@Override
+	public List<Order> readSales_oneday(DateInfo dateinfo){
+		return ordermapper.readSales_oneday(dateinfo);
 	}
 }
