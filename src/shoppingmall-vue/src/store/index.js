@@ -421,6 +421,7 @@ export default new Vuex.Store({
               })
       })
     },
+    
     OrderDetail({commit},payload) {
       var obj = {id: router.currentRoute.params.id};
       payload = obj;
@@ -453,6 +454,7 @@ export default new Vuex.Store({
         })
       } 
     },
+
     OrderDetailUpdate({commit},payload) {
       console.log(payload)
       if(confirm('주문정보를 수정하시겠습니까?') == true){
@@ -471,6 +473,7 @@ export default new Vuex.Store({
         return;
       }
     },
+
     SalesData({commit},payload){
       var dateinfo = {dateinfo:router.currentRoute.params}
       console.log(dateinfo)

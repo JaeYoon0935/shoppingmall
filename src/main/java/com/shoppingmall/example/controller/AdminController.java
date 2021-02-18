@@ -363,6 +363,7 @@ public class AdminController {
 		
 		System.out.println(dateinfo.getDateinfo().date1);
 		System.out.println(dateinfo.getDateinfo().date2);		
+		System.out.println(dateinfo.getDateinfo().date2.length());
 		
 		List<Order> salesData = null;
 		int len1, len2 = 0;
@@ -384,9 +385,10 @@ public class AdminController {
 		 * readSales를 4개 만들어준다.
 		 * 넘어오는 date1, date2의 길이를 가지고 아래 4개의 메서드로 분류해서 실행시켜준다.
 		 * readSales_oneday, readSales_days, readSales_month, readSales_year 
-		 * 
-		 * 
 		 * */
+		
+		//readSales_month 부터 하기 -> length:7
+		//readSales_year -> length:4
 		
 		try {
 			//일일 매출
@@ -397,6 +399,7 @@ public class AdminController {
 			else if(len1 == 10 && len2 == 10) {
 				salesData = orderService.readSales_days(dateinfo.getDateinfo());	
 			}
+			
 //			//월간매출
 //			else if() {
 //				salesData = orderService.readSales_Days(dateinfo.getDateinfo());
@@ -405,6 +408,7 @@ public class AdminController {
 //			else if() {
 //				salesData = orderService.readSales_Days(dateinfo.getDateinfo());
 //			}
+			
 			
 		} catch(Exception e){
 			logger.error("매출통계값 확인 에러", e);

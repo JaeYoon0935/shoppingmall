@@ -19,4 +19,6 @@ public interface OrderService {
 	public List<Order> readSales_days(DateInfo dateinfo);
 	
 	public List<Order> readSales_oneday(DateInfo dateinfo);
+	
+	public List<Order> readSales_month(DateInfo dateinfo);
 }

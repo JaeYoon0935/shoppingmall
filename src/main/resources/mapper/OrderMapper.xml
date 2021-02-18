@@ -60,6 +60,44 @@
 	</resultMap>
 
 
+	<select id="readSales_month" parameterType="Dateinfo" resultMap="OrderMap">
+			SELECT		*
+						FROM			
+						(
+							SELECT         ta.o_id,
+										   tc.user_id,
+										   tc.user_name,
+										   tc.user_phone,
+										   tb.o_order_price
+																			
+							FROM            orders ta
+							LEFT JOIN       user tc
+										    ON ta.user_id = tc.user_id
+							left JOIN       (SELECT       o_id, 
+									         sum(od_price * od_count) o_order_price 
+									         FROM order_detail 
+									         GROUP BY o_id
+									         )tb ON ta.o_id = tb.o_id
+												
+								WHERE o_date BETWEEN date(#{date1}) AND date(#{date2})
+						)ta,
+						(		
+								SELECT         SUM(tb.o_order_price) o_total_price
+																												
+								FROM            orders ta						
+								JOIN            user tc
+											    ON ta.user_id = tc.user_id
+								left JOIN       (SELECT       o_id, 
+										         sum(od_price * od_count) o_order_price 
+										         FROM order_detail 
+										         GROUP BY o_id
+										         )tb ON ta.o_id = tb.o_id
+											 		
+								WHERE o_date BETWEEN DATE(#{date1}) AND DATE(#{date2})
+						)tb
+	</select>
+
+
 	<select id="readSales_days" parameterType="Dateinfo" resultMap="OrderMap">
 		SELECT		*
 					FROM			
