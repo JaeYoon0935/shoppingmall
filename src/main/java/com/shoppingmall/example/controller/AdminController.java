@@ -379,16 +379,6 @@ public class AdminController {
 		}else {
 			len2 = 0;
 		}
-	
-		
-		/* 
-		 * readSales를 4개 만들어준다.
-		 * 넘어오는 date1, date2의 길이를 가지고 아래 4개의 메서드로 분류해서 실행시켜준다.
-		 * readSales_oneday, readSales_days, readSales_month, readSales_year 
-		 * */
-		
-		//readSales_month 부터 하기 -> length:7
-		//readSales_year -> length:4
 		
 		try {		
 			//월간 매출 월 계산하기 위한 변수 
@@ -418,22 +408,32 @@ public class AdminController {
 				salesData = orderService.readSales_days(dateinfo.getDateinfo());	
 			}
 			
-//			//월간매출
-//			else if(len1 == 7 && len2 == 7) {
-//				dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01" ;
-////				if(dateinfo.getDateinfo().date2.toCharArray()[6] == '3') {
-////					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-31") ;
-////				}
-//				System.out.println(dateinfo.getDateinfo().date2.toCharArray()[6]);
-//				System.out.println(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6]));
-//				if(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6])) {
-//					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-31") ;
-//				}	
-//					
-//				System.out.println(dateinfo.getDateinfo().date1);
-//				System.out.println(dateinfo.getDateinfo().date2);
-//				salesData = orderService.readSales_month(dateinfo.getDateinfo());
-//			}
+			//월간매출
+			else if(len1 == 7 && len2 == 7) {
+				dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01" ;
+
+				System.out.println(dateinfo.getDateinfo().date2.toCharArray()[6]);
+				System.out.println(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6]));
+				
+				if(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6])) {
+					System.out.println("31");
+					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-31") ;
+				}
+				else if(thirty.contains(dateinfo.getDateinfo().date2.toCharArray()[6])){
+					System.out.println("30");
+					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-30") ;
+				}
+				else {
+					System.out.println("28");
+					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-28") ;
+				}
+				
+			
+					
+				System.out.println(dateinfo.getDateinfo().date1);
+				System.out.println(dateinfo.getDateinfo().date2);
+				salesData = orderService.readSales_month(dateinfo.getDateinfo());
+			}
 			
 			//연간매출
 			else if(len1 == 4 && len2 == 4) {
