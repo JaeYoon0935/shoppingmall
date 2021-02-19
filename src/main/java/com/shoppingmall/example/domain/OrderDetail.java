@@ -25,7 +25,6 @@ public class OrderDetail {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 	public int getOd_id() {
 		return od_id;
 	}

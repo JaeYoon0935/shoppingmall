@@ -19,17 +19,17 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public List<Order> readOrder(){
 		return ordermapper.readOrder();
-	};
+	}
 	
 	@Override
 	public Order readOrderDetails(Order order){
 		return ordermapper.readOrderDetails(order);
-	};
+	}
 
 	@Override
 	public void orderDetailDelete(OrderDetail orderdetail) {
 		ordermapper.orderDetailDelete(orderdetail);
-	};
+	}
 	
 	@Override
 	public void updateOrderDetail(OrderDetail orderdetail) {
@@ -49,5 +49,10 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public List<Order> readSales_month(DateInfo dateinfo){
 		return ordermapper.readSales_month(dateinfo);
+	}
+	
+	@Override
+	public List<Order> readSales_year(DateInfo dateinfo){
+		return ordermapper.readSales_year(dateinfo);
 	}
 }

@@ -24,4 +24,6 @@ public interface OrderMapper {
 	public List<Order> readSales_oneday(DateInfo dateinfo);
 	
 	public List<Order> readSales_month(DateInfo dateinfo);
+	
+	public List<Order> readSales_year(DateInfo dateinfo);
 }

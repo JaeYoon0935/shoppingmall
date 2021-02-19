@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -363,7 +364,6 @@ public class AdminController {
 		
 		System.out.println(dateinfo.getDateinfo().date1);
 		System.out.println(dateinfo.getDateinfo().date2);		
-		System.out.println(dateinfo.getDateinfo().date2.length());
 		
 		List<Order> salesData = null;
 		int len1, len2 = 0;
@@ -390,24 +390,62 @@ public class AdminController {
 		//readSales_month 부터 하기 -> length:7
 		//readSales_year -> length:4
 		
-		try {
+		try {		
+			//월간 매출 월 계산하기 위한 변수 
+			List<String> thirty_one = new ArrayList<String>();
+			List<String> thirty = new ArrayList<String>();
+			thirty_one.add("1");
+			thirty_one.add("3");
+			thirty_one.add("5");
+			thirty_one.add("7");
+			thirty_one.add("8");
+			thirty_one.add("10");
+			thirty_one.add("12");
+			thirty.add("4");
+			thirty.add("6");
+			thirty.add("9");
+			thirty.add("11");
+			char feb = 2;
+						
 			//일일 매출
 			if(len2 == 0) {
+				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
 				salesData = orderService.readSales_oneday(dateinfo.getDateinfo());
 			}
 			//일간매출
 			else if(len1 == 10 && len2 == 10) {
+				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
 				salesData = orderService.readSales_days(dateinfo.getDateinfo());	
 			}
 			
 //			//월간매출
-//			else if() {
-//				salesData = orderService.readSales_Days(dateinfo.getDateinfo());
+//			else if(len1 == 7 && len2 == 7) {
+//				dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01" ;
+////				if(dateinfo.getDateinfo().date2.toCharArray()[6] == '3') {
+////					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-31") ;
+////				}
+//				System.out.println(dateinfo.getDateinfo().date2.toCharArray()[6]);
+//				System.out.println(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6]));
+//				if(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6])) {
+//					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-31") ;
+//				}	
+//					
+//				System.out.println(dateinfo.getDateinfo().date1);
+//				System.out.println(dateinfo.getDateinfo().date2);
+//				salesData = orderService.readSales_month(dateinfo.getDateinfo());
 //			}
-//			//연간매출
-//			else if() {
-//				salesData = orderService.readSales_Days(dateinfo.getDateinfo());
-//			}
+			
+			//연간매출
+			else if(len1 == 4 && len2 == 4) {
+				
+				dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01-01";
+				dateinfo.getDateinfo().date2 = dateinfo.getDateinfo().date2 + "-12-31";
+				
+				System.out.println(dateinfo.getDateinfo().date1);
+				System.out.println(dateinfo.getDateinfo().date2);
+				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
+				salesData = orderService.readSales_year(dateinfo.getDateinfo());
+			}
 			
 			
 		} catch(Exception e){
