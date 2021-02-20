@@ -85,6 +85,7 @@ export default new Vuex.Store({
     //sales
     sales_headers:[
       {text:'주문번호', value:'id'},
+      {text:'주문날짜', value:'date'},
       {text:'주문자아이디', value:'id'},
       {text:'주문자성명', value:'name'},
       {text:'휴대폰', value:'phone'},

@@ -25,8 +25,11 @@
       >
        <template v-slot:item="row">
          <tr>     
-           <td>
+           <td style="width:150px;">
              {{row.item.id}}
+           </td>
+           <td>
+             {{row.item.date}}
            </td>
            <td>
              {{row.item.user_id}}
