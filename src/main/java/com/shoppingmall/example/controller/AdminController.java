@@ -362,8 +362,23 @@ public class AdminController {
 	@PostMapping("/salesdata")
 	public ResponseEntity<?> salesData(@Validated @RequestBody DateInfo dateinfo){
 		
+		//넘어오는 날짜 체크
 		System.out.println(dateinfo.getDateinfo().date1);
 		System.out.println(dateinfo.getDateinfo().date2);		
+			
+		List<Integer> thirty_one = new ArrayList<Integer>();
+		List<Integer> thirty = new ArrayList<Integer>();
+		thirty_one.add(1);
+		thirty_one.add(3);
+		thirty_one.add(5);
+		thirty_one.add(7);
+		thirty_one.add(8);
+		thirty_one.add(10);
+		thirty_one.add(12);
+		thirty.add(4);
+		thirty.add(6);
+		thirty.add(9);
+		thirty.add(11);
 		
 		List<Order> salesData = null;
 		int len1, len2 = 0;
@@ -381,22 +396,9 @@ public class AdminController {
 		}
 		
 		try {		
-			//월간 매출 월 계산하기 위한 변수 
-			List<String> thirty_one = new ArrayList<String>();
-			List<String> thirty = new ArrayList<String>();
-			thirty_one.add("1");
-			thirty_one.add("3");
-			thirty_one.add("5");
-			thirty_one.add("7");
-			thirty_one.add("8");
-			thirty_one.add("10");
-			thirty_one.add("12");
-			thirty.add("4");
-			thirty.add("6");
-			thirty.add("9");
-			thirty.add("11");
-			char feb = 2;
-						
+			//월간 매출 월 계산하기 위한 변수 	
+			
+			
 			//일일 매출
 			if(len2 == 0) {
 				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
@@ -411,17 +413,20 @@ public class AdminController {
 			//월간매출
 			else if(len1 == 7 && len2 == 7) {
 				dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01" ;
-
-				System.out.println(dateinfo.getDateinfo().date2.toCharArray()[6]);
-				System.out.println(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6]));
 				
-				if(thirty_one.contains(dateinfo.getDateinfo().date2.toCharArray()[6])) {
+				String date2_str = dateinfo.getDateinfo().date2.substring(dateinfo.getDateinfo().date2.length()-2, dateinfo.getDateinfo().date2.length());		
+				int date2_int = Integer.parseInt(date2_str);
+				
+				System.out.println("31" + thirty_one.contains(date2_int));
+				System.out.println("30" + thirty.contains(date2_int));
+
+				if(thirty_one.contains(date2_int)) {
 					System.out.println("31");
-					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-31") ;
+					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-31") ;
 				}
-				else if(thirty.contains(dateinfo.getDateinfo().date2.toCharArray()[6])){
+				else if(thirty.contains(date2_int)){
 					System.out.println("30");
-					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-30") ;
+					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-30") ;
 				}
 				else {
 					System.out.println("28");
@@ -432,6 +437,7 @@ public class AdminController {
 					
 				System.out.println(dateinfo.getDateinfo().date1);
 				System.out.println(dateinfo.getDateinfo().date2);
+				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
 				salesData = orderService.readSales_month(dateinfo.getDateinfo());
 			}
 			
@@ -445,8 +451,7 @@ public class AdminController {
 				System.out.println(dateinfo.getDateinfo().date2);
 				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
 				salesData = orderService.readSales_year(dateinfo.getDateinfo());
-			}
-			
+			}	
 			
 		} catch(Exception e){
 			logger.error("매출통계값 확인 에러", e);
@@ -463,10 +468,3 @@ public class AdminController {
 	}
 	
 }
-
-
-
-
-
-
-
