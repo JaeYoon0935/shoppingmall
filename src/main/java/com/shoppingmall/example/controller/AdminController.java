@@ -138,6 +138,7 @@ public class AdminController {
 	//카테고리정보 불러오기
 	@PostMapping("/categoryadd")
 	public ResponseEntity<?> categoryAdd(@Validated @RequestBody Category category){
+		System.out.println(category.getName()+"wjflwejfkljwlekfjkl");
 		categoryService.categoryAdd(category);		
 		List<Category> categoryList = categoryService.readCategory();
 		return new ResponseEntity<>(categoryList, HttpStatus.OK);
@@ -299,8 +300,7 @@ public class AdminController {
 				FileUtils.deleteQuietly(file);
 				e.printStackTrace();
 			}
-		}	
-		
+		}			
 		
 		List<Product> productList = productService.readAllProduct();
 		return new ResponseEntity<>(productList, HttpStatus.OK);
@@ -366,6 +366,7 @@ public class AdminController {
 		System.out.println(dateinfo.getDateinfo().date1);
 		System.out.println(dateinfo.getDateinfo().date2);		
 			
+		//월간 매출 월 계산하기 위한 변수 
 		List<Integer> thirty_one = new ArrayList<Integer>();
 		List<Integer> thirty = new ArrayList<Integer>();
 		thirty_one.add(1);
@@ -396,9 +397,6 @@ public class AdminController {
 		}
 		
 		try {		
-			//월간 매출 월 계산하기 위한 변수 	
-			
-			
 			//일일 매출
 			if(len2 == 0) {
 				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
@@ -432,8 +430,6 @@ public class AdminController {
 					System.out.println("28");
 					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-28") ;
 				}
-				
-			
 					
 				System.out.println(dateinfo.getDateinfo().date1);
 				System.out.println(dateinfo.getDateinfo().date2);
@@ -456,7 +452,6 @@ public class AdminController {
 		} catch(Exception e){
 			logger.error("매출통계값 확인 에러", e);
 		} 
-		
 		
 		if(salesData.isEmpty() == true) {
 			return new ResponseEntity<>("empty", HttpStatus.OK);

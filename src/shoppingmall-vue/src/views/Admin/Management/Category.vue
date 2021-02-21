@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2 class="pt-2">분류관리(하위분류 추가시 입력없으면 빈값이 추가되는 부분 고치기)</h2>
+    <h2 class="pt-2">분류관리</h2>
       <v-data-table
         :headers="$store.state.category_headers"
         :items="$store.state.categorylist"

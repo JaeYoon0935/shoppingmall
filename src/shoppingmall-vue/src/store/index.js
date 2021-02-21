@@ -233,7 +233,8 @@ export default new Vuex.Store({
       }
     },
     CategoryAdd({commit},payload) {
-      var name = prompt('하위분류명을 입력해주세요.')
+      var name;
+      if(name = prompt('하위분류명을 입력해주세요.')){
       alert(name)
       payload.name = name //이렇게 하면, 부모카테고리의 내용물에서 분류명만 현재 입력받은 분류명으로 바뀌어서 스프링으로 넘어가게 된다.
       console.log(payload)
@@ -248,6 +249,9 @@ export default new Vuex.Store({
                   reject(Error)
               })
       })
+      }else{
+        return;
+      }
     },
     Ranking({commit}) {
       return new Promise((resolve, reject) => {
