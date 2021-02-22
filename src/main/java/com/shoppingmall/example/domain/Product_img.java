@@ -8,7 +8,7 @@ public class Product_img {
 	private String image;
 	private MultipartFile multipartFile;
 	private int p_id;
-	private String unique; //°íÀ¯ÇÑ ÆÄÀÏÀÌ¸§
+	private String unique; //ê³ ìœ í•œ íŒŒì¼ì´ë¦„
 	
 	public String getUnique() {
 		return unique;

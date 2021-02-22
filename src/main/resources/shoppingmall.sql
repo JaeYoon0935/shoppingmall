@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   PRIMARY KEY (`cg_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='정규화의 가장 큰 목적은 중복을 없애기 위함이다.\r\n현재 category테이블은 중복이 없으므로 그렇게 사용해도 상관이 없다.';
 
--- 테이블 데이터 shoppingmall.category:~20 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.category:~19 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 	('0', '전체', 9999999),
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `order_detail` (
   PRIMARY KEY (`od_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='해당상품의 갯수에 따른 해당상품의 총 주문금액';
 
--- 테이블 데이터 shoppingmall.order_detail:~8 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.order_detail:~13 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
 INSERT INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
 	(1, 200000, 2, 1, 1),
