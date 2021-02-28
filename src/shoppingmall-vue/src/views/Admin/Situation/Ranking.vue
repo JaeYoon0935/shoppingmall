@@ -75,7 +75,6 @@ import { mapState, mapActions } from "vuex"
       return {     
         name: '전체',
         items:[
-   
         ],
         year:[
           '2015년',
