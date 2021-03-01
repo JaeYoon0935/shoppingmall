@@ -16,11 +16,6 @@ public class ProductServiceImpl implements ProductService{
 	ProductMapper productmapper; 
 	
 	@Override
-	public List<Product> ranking(){
-		return productmapper.ranking(); 
-	}
-	
-	@Override
 	public List<Product> lowCgData(int id){
 		return productmapper.lowCgData(id);
 	};

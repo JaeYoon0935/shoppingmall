@@ -8,7 +8,7 @@
         class="elevation-1"
       ></v-data-table>
 
-        <v-row no-gutters style="height: 60px;"></v-row>
+        <v-row no-gutters style="height: 50px;"></v-row>
 
          <v-row no-gutters>
             <v-col style="text-align:center;" :cols="1">
@@ -27,39 +27,44 @@
                 ></v-combobox>
             </v-col>
          </v-row>
-         <v-row no-gutters style="height: 20px;"></v-row>
-
+         <v-row no-gutters style="height: 10px;"></v-row>
          <v-row no-gutters>
-            <v-col style="text-align:center;" :cols="1">
+            <v-col style="text-align:left; margin-left:5px;" :cols="6">
               <v-icon>mdi-circle-medium</v-icon> 
                 판매시기설정:
+                <input type="month" v-model="month1" class="i_size">
+                <input type="month" v-model="month2" class="i_size">
+               <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData', params: {date1: month1, date2:month2}}">확인</v-btn>
             </v-col>
-            <v-col style="padding-left:0px;" :cols="1">
-              <v-combobox
-                class="ml-4"
-                :items="year"
-                label="연도"
-                outlined
-                dense
-                style = 'width:130px;'
-              ></v-combobox>   
-              </v-col>
-            <v-col style="padding-left:30px;" :cols="2">
-              <v-combobox
-                :items="month"
-                label="월"
-                outlined
-                dense
-                style = 'width:140px;'
-              ></v-combobox>
+            <v-col :cols="6">
+              
             </v-col>
-            <v-col :cols="2">
+         </v-row>
+         <v-row>
+            <v-col style="margin-left:5px; margin-top:25px; margin-bottom:100px;">
               <v-icon>mdi-circle-medium</v-icon> 
-                <label>전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3; padding-left:30px;'> 
+                <label style="margin-left:4px;">전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3; padding-left:30px;'> 
             </v-col>
          </v-row>
   </div>
 </template>
+
+<style scoped>
+.i_size{  
+  border:solid 1px; 
+  margin-bottom:5px; 
+  margin-right:5px; 
+  margin-left:10px;
+  width:150px;
+}
+.v_size{
+  margin-left:15px; 
+  bottom:3px;
+  width:50px;
+  height:20px;
+  color:white;
+}
+</style>
 
 <script>
 import { mapState, mapActions } from "vuex"

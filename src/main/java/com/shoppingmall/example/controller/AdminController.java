@@ -147,7 +147,7 @@ public class AdminController {
 	//상품랭킹 불러오기
 	@GetMapping("/ranking")
 	public ResponseEntity<?> readRanking(){
-		List<Product> ranking = productService.ranking();
+		List<Product> ranking = productService.lowCgData_all();
 		return new ResponseEntity<>(ranking, HttpStatus.OK);
 	}	
 

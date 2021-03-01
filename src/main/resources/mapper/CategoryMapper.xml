@@ -17,7 +17,7 @@
 	
 		<!-- 분류명을 통해 분류명에 해당하는 id를 찾기 -->
 	<select id="findCg_id" parameterType="String" resultType="int">
-		SELECT			cg_id, 							  
+		SELECT			cg_id 							  
 		FROM			category						 	WHERE  cg_name = #{name}   
 	</select>
 

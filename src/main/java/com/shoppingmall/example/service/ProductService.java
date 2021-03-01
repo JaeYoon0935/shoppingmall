@@ -6,9 +6,7 @@ import com.shoppingmall.example.domain.Product;
 import com.shoppingmall.example.domain.Product_img;
 
 public interface ProductService {
-	
-	public List<Product> ranking();
-	
+
 	public List<Product> lowCgData(int id);
 	
 	public List<Product> lowCgData_all();

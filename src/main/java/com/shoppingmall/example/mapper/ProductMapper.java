@@ -9,8 +9,6 @@ import com.shoppingmall.example.domain.Product_img;
 
 @Mapper
 public interface ProductMapper {
-	
-	public List<Product> ranking();
 
 	public List<Product> lowCgData(int id);
 	
