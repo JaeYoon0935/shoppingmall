@@ -34,7 +34,7 @@ export default new Vuex.Store({
         value: 'id',
       },
       { text: '분류명', value: 'name' },
-      { text: '상품수', value: 'product_count' },
+      { text: '상품재고수', value: 'product_count' },
       { text: '관리', value: 'management' },
     ],
     categorylist:[],

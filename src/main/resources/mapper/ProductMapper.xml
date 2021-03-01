@@ -5,16 +5,6 @@
 	<!-- 찾게된 카테고리 id를 갖고, 그에 해당하는 하위분류들에 대한 데이터를 반환  -->
 	<!-- 
 	<select id="lowCgData" parameterType="int" resultType="Product">
-		SELECT			p_id					        as 	id,
-						p_name 							as 	name,
-						p_order_count					as	order_count,
-						p_rank                          as  rank						 
-		FROM 			product, (SELECT cg_id as id FROM category WHERE cg_id LIKE CONCAT(#{id}, '%')) ta1
-		where  			ta1.id = product.p_category
-	</select>
-	 -->
-	
-	<select id="lowCgData" parameterType="int" resultType="Product">
 		SELECT 					ta.p_id AS id, 
 								tb.p_name as name, 
 								sum(ta.od_count) AS order_count,
@@ -26,8 +16,24 @@
 		ON 						tb.p_id = ta.p_id
 		group by 				ta.p_id 
 	</select>
-	
-	
+	 -->
+	 
+	<select id="lowCgData" parameterType="int" resultType="Product">
+		SELECT 					ta.p_id AS id, 
+								tb.p_name as name, 
+								sum(ta.od_count) AS order_count,
+								tb.p_rank AS rank 
+										
+		FROM					order_detail ta 
+		JOIN 					(SELECT 	p_category, p_id, p_name, p_rank 
+								FROM 		product
+								LEFT JOIN (SELECT cg_id as id FROM category WHERE cg_id LIKE CONCAT(#{id}, '%')) ta
+								ON 1=1
+								WHERE product.p_category= ta.id) tb
+		ON 						ta.p_id = tb.p_id
+		group by 				ta.p_id 
+	</select>
+		
 	<select id="lowCgData_all" parameterType="int" resultType="Product">
 		SELECT 					ta.p_id AS id, 
 								tb.p_name as name, 
@@ -39,7 +45,6 @@
 		ON 						tb.p_id = ta.p_id
 		group by 				ta.p_id 
 	</select>
-
 
 	<resultMap id="productData" type="Product">
 	</resultMap>
@@ -76,7 +81,6 @@
 		WHERE product.p_id = #{id}
 	</select>
 	
-
 	<insert id="createProduct" parameterType="Product" >      
 		INSERT INTO product (
 			p_id, 
@@ -99,7 +103,6 @@
 		)
 	</insert>
 
-
 	<!-- id로 입력한 값이 product_img에도 id로 일단은 입력되도록 설정함. -->
 	<insert id="createImage" parameterType="Product" >      
 		INSERT INTO product_img (
@@ -114,7 +117,6 @@
 			#{unique}
 		)
 	</insert>
-
 
 	<!-- 상품 삭제구현 -->
 	<delete id="productDelete" parameterType="Product">
@@ -146,6 +148,5 @@
 							
 						where p_id= #{id}		
 	</update>
-
 
 </mapper>
