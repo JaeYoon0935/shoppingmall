@@ -293,6 +293,22 @@ export default new Vuex.Store({
               })
       })
     },
+    SalesByTime({commit}, payload){
+      var dateinfo = {payload}
+      payload = dateinfo
+      console.log(payload)
+      return new Promise((resolve, reject) =>{
+          axios.post('http://localhost:9000/api/admin/salesbytime', payload)
+               .then(Response =>{
+                  console.log(Response.data)
+                  commit('SET_RANKING', Response.data)
+          })
+          .catch(Error =>{
+              console.log('error')
+              reject(Error)
+          })
+      })
+    },
     ProductList({commit}) {
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/productlist')

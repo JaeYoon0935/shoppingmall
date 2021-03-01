@@ -32,9 +32,10 @@
             <v-col style="text-align:left; margin-left:5px;" :cols="6">
               <v-icon>mdi-circle-medium</v-icon> 
                 판매시기설정:
-                <input type="month" v-model="month1" class="i_size">
-                <input type="month" v-model="month2" class="i_size">
-               <v-btn color="indigo lighten-1" class="v_size" router :to="{name:'SalesData', params: {date1: month1, date2:month2}}">확인</v-btn>
+                <input type="month" v-model="time1" class="i_size">
+                <input type="month" v-model="time2" class="i_size">
+               <v-btn color="indigo lighten-1" class="v_size" @click="SalesByTime({date1: time1, date2: time2})">확인</v-btn>
+           
             </v-col>
             <v-col :cols="6">
               
@@ -79,6 +80,8 @@ import { mapState, mapActions } from "vuex"
     data () {
       return {     
         name: '전체',
+        time1: '',
+        time2: '',
         items:[
         ],
         year:[
@@ -107,6 +110,7 @@ import { mapState, mapActions } from "vuex"
     },
     methods:{
        ...mapActions(["CategorySelect"]),
+       ...mapActions(["SalesByTime"]),
     },
   }
 </script>

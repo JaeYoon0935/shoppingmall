@@ -177,6 +177,18 @@ public class AdminController {
 	    }
 	}	
 	
+	@PostMapping("/salesbytime")
+	public ResponseEntity<?> salesbytime(@Validated @RequestBody DateInfo dateinfo){
+		
+		System.out.println("check12121212121212");
+		
+		//넘어오는 날짜 체크
+		System.out.println(dateinfo.getDateinfo().date1);
+		System.out.println(dateinfo.getDateinfo().date2);
+		
+		return new ResponseEntity<>("success", HttpStatus.OK);
+	}
+	
 	//상품정보 불러오기
 	@GetMapping("/productlist")
 	public ResponseEntity<?> read_product(){
@@ -428,7 +440,7 @@ public class AdminController {
 				}
 				else {
 					System.out.println("28");
-					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 +"-28") ;
+					dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-28") ;
 				}
 					
 				System.out.println(dateinfo.getDateinfo().date1);
