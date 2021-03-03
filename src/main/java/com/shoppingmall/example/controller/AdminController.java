@@ -186,6 +186,7 @@ public class AdminController {
 		System.out.println(dateinfo.getDateinfo().date1);
 		System.out.println(dateinfo.getDateinfo().date2);
 		
+		
 		return new ResponseEntity<>("success", HttpStatus.OK);
 	}
 	

@@ -294,7 +294,8 @@ export default new Vuex.Store({
       })
     },
     SalesByTime({commit}, payload){
-      var dateinfo = {payload}
+      //dateinfo라는 객체에 dateinfo라는 key값으로 payload를 value로 집어넣는다.
+      var dateinfo = {dateinfo:payload}
       payload = dateinfo
       console.log(payload)
       return new Promise((resolve, reject) =>{
