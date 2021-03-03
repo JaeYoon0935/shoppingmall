@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shoppingmall.example.mapper.ProductMapper">
-
-	<!-- 찾게된 카테고리 id를 갖고, 그에 해당하는 하위분류들에 대한 데이터를 반환  -->
-	<!-- 
-	<select id="lowCgData" parameterType="int" resultType="Product">
-		SELECT 					ta.p_id AS id, 
-								tb.p_name as name, 
-								sum(ta.od_count) AS order_count,
-								tb.p_rank AS rank 
-								
-		FROM					order_detail ta , (SELECT cg_id as id FROM category WHERE cg_id LIKE CONCAT(#{id}, '%')) ta1
-		where  		        	ta1.id = product.p_category
-		LEFT JOIN 				product tb
-		ON 						tb.p_id = ta.p_id
-		group by 				ta.p_id 
+	 
+	 
+	 <select id="salesbytime" parameterType="Dateinfo" resultType="Product">	
+		SELECT 			order_detail.p_id, 
+						sum(od_count) order_count, 
+						tc.p_name as name
+		FROM 			order_detail
+		
+		JOIN 			(SELECT o_id
+						 FROM orders
+						 WHERE o_date between DATE(#{date1}) AND DATE(#{date2}))ta		
+		ON ta.o_id = order_detail.o_id
+		
+		LEFT JOIN product tc
+		ON order_detail.p_id = tc.p_id
+		
+		group by p_id
 	</select>
-	 -->
 	 
 	<select id="lowCgData" parameterType="int" resultType="Product">
 		SELECT 					ta.p_id AS id, 

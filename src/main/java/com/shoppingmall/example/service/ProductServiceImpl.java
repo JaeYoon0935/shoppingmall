@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.shoppingmall.example.domain.DateInfo;
 import com.shoppingmall.example.domain.Product;
-import com.shoppingmall.example.domain.Product_img;
 import com.shoppingmall.example.mapper.ProductMapper;
 
 @Service("ProductServiceImpl")
@@ -24,6 +24,12 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> lowCgData_all(){
 		return productmapper.lowCgData_all();
 	};
+	
+	@Override
+	public List<Product> salesbytime(DateInfo dateinfo){
+		return productmapper.salesbytime(dateinfo);
+	}
+	
 	
 	@Override
 	public List<Product> readAllProduct(){

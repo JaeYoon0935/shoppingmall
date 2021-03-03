@@ -26,4 +26,6 @@ public interface OrderMapper {
 	public List<Order> readSales_month(DateInfo dateinfo);
 	
 	public List<Order> readSales_year(DateInfo dateinfo);
+	
+	public List<Order> salesbytime(DateInfo dateinfo);
 }

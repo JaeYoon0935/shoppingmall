@@ -180,14 +180,53 @@ public class AdminController {
 	@PostMapping("/salesbytime")
 	public ResponseEntity<?> salesbytime(@Validated @RequestBody DateInfo dateinfo){
 		
+		List<Product> salesData = null;
+		
 		System.out.println("check12121212121212");
 		
+		//월간 매출 월 계산하기 위한 변수 
+//		List<Integer> thirty_one = new ArrayList<Integer>();
+//		List<Integer> thirty = new ArrayList<Integer>();
+//		thirty_one.add(1);
+//		thirty_one.add(3);
+//		thirty_one.add(5);
+//		thirty_one.add(7);
+//		thirty_one.add(8);
+//		thirty_one.add(10);
+//		thirty_one.add(12);
+//		thirty.add(4);
+//		thirty.add(6);
+//		thirty.add(9);
+//		thirty.add(11);
+//		
+//		dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01" ;
+//		
+//		String date2_str = dateinfo.getDateinfo().date2.substring(dateinfo.getDateinfo().date2.length()-2, dateinfo.getDateinfo().date2.length());		
+//		int date2_int = Integer.parseInt(date2_str);
+//		
+//		System.out.println("31" + thirty_one.contains(date2_int));
+//		System.out.println("30" + thirty.contains(date2_int));
+//
+//		if(thirty_one.contains(date2_int)) {
+//			System.out.println("31");
+//			dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-31") ;
+//		}
+//		else if(thirty.contains(date2_int)){
+//			System.out.println("30");
+//			dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-30") ;
+//		}
+//		else {
+//			System.out.println("28");
+//			dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-28") ;
+//		}
+			
+		salesData = productService.salesbytime(dateinfo.getDateinfo());
+	
 		//넘어오는 날짜 체크
 		System.out.println(dateinfo.getDateinfo().date1);
 		System.out.println(dateinfo.getDateinfo().date2);
-		
-		
-		return new ResponseEntity<>("success", HttpStatus.OK);
+	
+		return new ResponseEntity<>(salesData, HttpStatus.OK);
 	}
 	
 	//상품정보 불러오기
