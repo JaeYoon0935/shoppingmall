@@ -56,8 +56,4 @@ public class OrderServiceImpl implements OrderService{
 		return ordermapper.readSales_year(dateinfo);
 	}
 	
-//	@Override
-//	public List<Order> salesbytime(DateInfo dateinfo){
-//		return ordermapper.salesbytime(dateinfo);
-//	}
 }

@@ -53,7 +53,7 @@ import com.shoppingmall.example.service.UserService;
 //RestController와 일반 스테레오타입의 그냥 Controller와의 차이점
 //리턴값을 보낼 때 단순 리턴값만 보내는 것이 아니라, HttpStatus.OK와 같은 상태값도 같이 보내야 한다는 것이다.
 //이를 위해서 리턴시에 new ResponseEntity<>를 사용하게 된다.
-//그리고 일반Controller을 사용할때는 ResponseBody어노테이션을 붙여줘야만, json값으로 리턴이 되어 프론트단으로 뿌릴수가 있었는데, 
+//그리고 일반 Controller을 사용할때는 ResponseBody어노테이션을 붙여줘야만, json값으로 리턴이 되어 프론트단으로 뿌릴수가 있었는데, 
 //ResponseEntity<>의 경우 ResponseBody어노테이션을 붙여주지 않아도 자동으로 리턴값을 json객체로 만들어주므로 ResponseBody 어노테이션을 사용할 필요가 없다.
 
 
@@ -161,20 +161,46 @@ public class AdminController {
 	//판매랭킹페이지 - 카테고리 선택 시 해당 카테고리에 연관된 제품 불러오기
 	@PostMapping("/categoryselect")
 	public ResponseEntity<?> categoryselect(@Validated @RequestBody Category category){
-		category.setName(category.getName());
 	
-		//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
-		int findCg_id = categoryService.findCg_id(category.getName());
-		System.out.println(findCg_id);
-		category.setCg_id(findCg_id);
+		System.out.println(category.getDate1());
+		System.out.println(category.getDate2());
 		
-		if(findCg_id == 0) {
-			List<Product> lowCgData = productService.lowCgData_all();
-			return new ResponseEntity<>(lowCgData, HttpStatus.OK);
-		} else {
-			List<Product> lowCgData = productService.lowCgData(category.getCg_id());
-			return new ResponseEntity<>(lowCgData, HttpStatus.OK);
-	    }
+		category.setName(category.getName());
+		
+		if(category.getDate1().length() < 2)  // 날짜 정보가 null인 경우
+		{
+			//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
+			int findCg_id = categoryService.findCg_id(category.getName());
+			System.out.println(findCg_id);
+			category.setCg_id(findCg_id);
+			
+			if(findCg_id == 0) {
+				List<Product> lowCgData = productService.lowCgData_all();
+				return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+			} else {
+				List<Product> lowCgData = productService.lowCgData(category.getCg_id());
+				return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+		    }
+		} 
+		else //날짜정보가 있는 경우
+		{
+			int findCg_id = categoryService.findCg_id(category.getName());
+			System.out.println(findCg_id);
+			category.setCg_id(findCg_id);
+			
+			if(findCg_id == 0) {
+				List<Product> lowCgData = productService.lowCgData_all();
+				return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+			} else {
+				List<Product> lowCgData = productService.CgData_Date(category);
+				return new ResponseEntity<>(lowCgData, HttpStatus.OK);
+		    }
+			
+			
+			
+		}
+		
+		
 	}	
 	
 	@PostMapping("/salesbytime")

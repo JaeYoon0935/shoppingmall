@@ -6,7 +6,22 @@ public class Category {
 	private String name; //카테고리 목록이름
 	private String product_count; //상품수
 	
-
+	//날짜정보가 있을 경우 날짜정보와 분류명을 함께 사용해서 데이터를 불러오기 위한 변수
+	public String date1;
+	public String date2;
+	
+	public String getDate1() {
+		return date1;
+	}
+	public void setDate1(String date1) {
+		this.date1 = date1;
+	}
+	public String getDate2() {
+		return date2;
+	}
+	public void setDate2(String date2) {
+		this.date2 = date2;
+	}
 	public int getCg_id() {
 		return cg_id;
 	}

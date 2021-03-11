@@ -22,7 +22,7 @@
                   v-model="name"
                   outlined
                   dense
-                  v-on:change="CategorySelect({name})"
+                  v-on:change="CategorySelect({name, date1: time1, date2: time2})"
                   style = 'width:130px;'
                 ></v-combobox>
             </v-col>

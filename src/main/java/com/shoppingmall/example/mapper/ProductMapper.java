@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.shoppingmall.example.domain.Category;
 import com.shoppingmall.example.domain.DateInfo;
 import com.shoppingmall.example.domain.Product;
-import com.shoppingmall.example.domain.Product_img;
 
 @Mapper
 public interface ProductMapper {
@@ -14,6 +14,8 @@ public interface ProductMapper {
 	public List<Product> lowCgData(int id);
 	
 	public List<Product> lowCgData_all();
+	
+	public List<Product> CgData_Date(Category category);
 	
 	public List<Product> salesbytime(DateInfo dateinfo);
 	

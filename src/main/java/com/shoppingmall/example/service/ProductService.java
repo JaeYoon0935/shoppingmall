@@ -2,6 +2,7 @@ package com.shoppingmall.example.service;
 
 import java.util.List;
 
+import com.shoppingmall.example.domain.Category;
 import com.shoppingmall.example.domain.DateInfo;
 import com.shoppingmall.example.domain.Product;
 
@@ -10,6 +11,8 @@ public interface ProductService {
 	public List<Product> lowCgData(int id);
 	
 	public List<Product> lowCgData_all();
+	
+	public List<Product> CgData_Date(Category category);
 	
 	public List<Product> salesbytime(DateInfo dateinfo);
 	
