@@ -119,6 +119,7 @@ public class AdminController {
 		return new ResponseEntity<>(userList, HttpStatus.OK);
 	}
 	
+	
 	//카테고리정보 불러오기
 	@GetMapping("/categorylist")
 	public ResponseEntity<?> readCategory(){
@@ -157,7 +158,7 @@ public class AdminController {
 		return new ResponseEntity<>(categoryname, HttpStatus.OK);
 	}	
 	
-	//판매랭킹페이지 - 분류명을 통해서 판매랭킹을 불러오는 경우
+	//판매랭킹페이지 - 카테고리 선택 시 해당 카테고리에 연관된 제품 불러오기
 	@PostMapping("/categoryselect")
 	public ResponseEntity<?> categoryselect(@Validated @RequestBody Category category){
 	
@@ -166,7 +167,7 @@ public class AdminController {
 		
 		category.setName(category.getName());
 		
-		if(category.getDate1().length() < 2)  //날짜 정보가 없는 경우 (null인 경우)
+		if(category.getDate1().length() < 2)  // 날짜 정보가 null인 경우
 		{
 			//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
 			int findCg_id = categoryService.findCg_id(category.getName());
@@ -194,10 +195,14 @@ public class AdminController {
 				List<Product> lowCgData = productService.CgData_Date(category);
 				return new ResponseEntity<>(lowCgData, HttpStatus.OK);
 		    }
-		}		
+			
+			
+			
+		}
+		
+		
 	}	
 	
-	//판매랭킹 페이지 - 기간을 고려해서 판매랭킹을 불러오는 경우.
 	@PostMapping("/salesbytime")
 	public ResponseEntity<?> salesbytime(@Validated @RequestBody DateInfo dateinfo){
 		
@@ -205,7 +210,7 @@ public class AdminController {
 		
 		System.out.println("check12121212121212");
 		
-//      월간 매출 월 계산하기 위한 변수 
+		//월간 매출 월 계산하기 위한 변수 
 //		List<Integer> thirty_one = new ArrayList<Integer>();
 //		List<Integer> thirty = new ArrayList<Integer>();
 //		thirty_one.add(1);
@@ -275,12 +280,12 @@ public class AdminController {
 		String filename = multipartFile.getOriginalFilename(); //서버로 부터 넘어오는 파일 전체이름
 			
 		//고유한 파일이름을 만들어 주기 위해 작업하는 부분
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance()  ;
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
 	    String time = dateFormat.format(cal.getTime());
 	    
 		
-		product.setImage(filename);
+		product.setImage(filename); //
 		product.setUnique(time);
 		productService.createProduct(product);	
 		productService.createImage(product);
@@ -480,6 +485,7 @@ public class AdminController {
 				//readSales_oneday 말고 나머지는 mapper에서 쓰이는 쿼리가 같기 때문에 나중에 리팩터링 해주기
 				salesData = orderService.readSales_days(dateinfo.getDateinfo());	
 			}
+			
 			//월간매출
 			else if(len1 == 7 && len2 == 7) {
 				dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01" ;
