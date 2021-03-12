@@ -161,6 +161,17 @@ public class AdminController {
 	@PostMapping("/categoryselect")
 	public ResponseEntity<?> categoryselect(@Validated @RequestBody Category category){
 	
+		
+		/*
+		1. 분류명을 선택 할 때,
+		  1-1. 판매시기 날짜를 설정하지 않은 상태라면, 전체기간을 조회하도록 해주고
+		  1-2. 판매시기 날짜가 설정되어있다면, 해당 기간에서 분류명으로 조회하도록 하기.
+
+		1-1. if date == null -> 전체기간으로 조회
+		1-2. else 선택된 기간으로 분류명과 함께 조회 (날짜로 전체 불러오는 쿼리에서 거기서 분류명만 join해주면 됨.)
+		
+		*/
+		
 		System.out.println(category.getDate1());
 		System.out.println(category.getDate2());
 		
@@ -202,45 +213,7 @@ public class AdminController {
 	public ResponseEntity<?> salesbytime(@Validated @RequestBody DateInfo dateinfo){
 		
 		List<Product> salesData = null;
-		
-		System.out.println("check12121212121212");
-		
-//      월간 매출 월 계산하기 위한 변수 
-//		List<Integer> thirty_one = new ArrayList<Integer>();
-//		List<Integer> thirty = new ArrayList<Integer>();
-//		thirty_one.add(1);
-//		thirty_one.add(3);
-//		thirty_one.add(5);
-//		thirty_one.add(7);
-//		thirty_one.add(8);
-//		thirty_one.add(10);
-//		thirty_one.add(12);
-//		thirty.add(4);
-//		thirty.add(6);
-//		thirty.add(9);
-//		thirty.add(11);
-//		
-//		dateinfo.getDateinfo().date1 = dateinfo.getDateinfo().date1 + "-01" ;
-//		
-//		String date2_str = dateinfo.getDateinfo().date2.substring(dateinfo.getDateinfo().date2.length()-2, dateinfo.getDateinfo().date2.length());		
-//		int date2_int = Integer.parseInt(date2_str);
-//		
-//		System.out.println("31" + thirty_one.contains(date2_int));
-//		System.out.println("30" + thirty.contains(date2_int));
-//
-//		if(thirty_one.contains(date2_int)) {
-//			System.out.println("31");
-//			dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-31") ;
-//		}
-//		else if(thirty.contains(date2_int)){
-//			System.out.println("30");
-//			dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-30") ;
-//		}
-//		else {
-//			System.out.println("28");
-//			dateinfo.getDateinfo().date2 = (dateinfo.getDateinfo().date2 + "-28") ;
-//		}
-			
+
 		salesData = productService.salesbytime(dateinfo.getDateinfo());
 	
 		//넘어오는 날짜 체크

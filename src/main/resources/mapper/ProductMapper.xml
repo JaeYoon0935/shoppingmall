@@ -7,14 +7,14 @@
 		SELECT 			order_detail.p_id, 
 						sum(od_count) order_count, 
 						tc.p_name as name
-		FROM 			order_detail
+		FROM 			order_detail  
 		
-		JOIN 			(SELECT o_id
+		JOIN 			(SELECT o_id 
 						 FROM orders
 						 WHERE o_date between DATE(#{date1}) AND DATE(#{date2}))ta		
-		ON ta.o_id = order_detail.o_id
+		ON ta.o_id = order_detail.o_id 
 		
-		LEFT JOIN product tc
+		LEFT JOIN 		product tc  
 		ON order_detail.p_id = tc.p_id
 		
 		group by p_id
