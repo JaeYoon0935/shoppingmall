@@ -156,7 +156,7 @@
 	<delete id="product_img_Delete" parameterType="Product">
 		DELETE FROM product_img where p_id=#{id}
 	</delete>
-		<!-- 상품정보 수정하기 -->
+	<!-- 상품정보 수정하기 -->
 	<update id="productDataUpdate" parameterType="Product">
 		update			product								set
 						p_id = #{id},

@@ -132,7 +132,6 @@
         { title: '주문내역', name: 'Order'},
         { title: '분류관리', name: 'Category'},
         { title: '상품관리', name: 'Product'},
-        { title: '1대1문의', name: 'Inquire'},
       ],
       item3: [
         { title: '판매순위', name: 'Ranking'},
