@@ -38,7 +38,6 @@
 	
 	
 	<select id="CgData_Date" parameterType="Category" resultType="Product">
-		
 		SELECT 				order_detail.p_id, 
 							sum(od_count) order_count, 
 							tc.p_name as NAME
@@ -54,14 +53,38 @@
 		
 		JOIN 				(SELECT 	p_category, p_id, p_name, p_rank 
 							 FROM 		product
-							 LEFT JOIN (SELECT cg_id as id FROM category WHERE cg_id LIKE CONCAT(#{id}, '%')) ta
+							 LEFT JOIN (SELECT cg_id as id FROM category WHERE cg_id LIKE CONCAT(#{cg_id}, '%')) ta
 							 ON 1=1
 							WHERE product.p_category= ta.id) td
 		ON order_detail.p_id = td.p_id
 		
 		group by p_id
 	
+	</select>
 	
+	
+	<select id="CgData_AllTime" parameterType="Category" resultType="Product">
+		SELECT 				order_detail.p_id, 
+							sum(od_count) order_count, 
+							tc.p_name as NAME
+		FROM 				order_detail
+		
+		JOIN 				(SELECT o_id
+							 FROM orders
+							 WHERE o_date between DATE(#{date1}) AND DATE(#{date2}))ta		
+		ON ta.o_id = order_detail.o_id
+		
+		LEFT JOIN product tc
+		ON order_detail.p_id = tc.p_id
+		
+		JOIN 				(SELECT 	p_category, p_id, p_name, p_rank 
+							 FROM 		product
+							 LEFT JOIN (SELECT cg_id as id FROM category) ta
+							 ON 1=1
+							WHERE product.p_category= ta.id) td
+		ON order_detail.p_id = td.p_id
+		
+		group by p_id
 	</select>
 		
 	<select id="lowCgData_all" parameterType="int" resultType="Product">

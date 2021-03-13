@@ -174,13 +174,15 @@ public class AdminController {
 		
 		System.out.println(category.getDate1());
 		System.out.println(category.getDate2());
+		System.out.println("확인 ㅎㅎ");
 		
 		category.setName(category.getName());
 		
-		if(category.getDate1().length() < 2)  //날짜 정보가 없는 경우 (null인 경우)
+		if(category.getDate1().length() < 2 || category.getDate2().length() < 2)  //날짜 정보가 없는 경우 (null인 경우)
 		{
 			//1차적으로 분류명을 통해 카테고리 id를 찾아오는 부분 구현하기
 			int findCg_id = categoryService.findCg_id(category.getName());
+			System.out.println("날짜정보 없음");
 			System.out.println(findCg_id);
 			category.setCg_id(findCg_id);
 			
@@ -194,17 +196,19 @@ public class AdminController {
 		} 
 		else //날짜정보가 있는 경우
 		{
+			
+			//0이면 다불러와야하는데, 0이면 하나도 못불러옴 이거 고쳐주기
 			int findCg_id = categoryService.findCg_id(category.getName());
 			System.out.println(findCg_id);
 			category.setCg_id(findCg_id);
 			
 			if(findCg_id == 0) {
-				List<Product> lowCgData = productService.lowCgData_all();
-				return new ResponseEntity<>(lowCgData, HttpStatus.OK);
-			} else {
+				List<Product> lowCgData = productService.CgData_AllTime(category);
+				return new ResponseEntity<>(lowCgData, HttpStatus.OK);	
+			}else {
 				List<Product> lowCgData = productService.CgData_Date(category);
-				return new ResponseEntity<>(lowCgData, HttpStatus.OK);
-		    }
+				return new ResponseEntity<>(lowCgData, HttpStatus.OK);	
+			}
 		}		
 	}	
 	

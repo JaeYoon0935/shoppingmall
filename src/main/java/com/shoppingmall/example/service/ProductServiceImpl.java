@@ -31,6 +31,10 @@ public class ProductServiceImpl implements ProductService{
 		return productmapper.CgData_Date(category);
 	};
 	
+	@Override
+	public List<Product> CgData_AllTime(Category category){
+		return productmapper.CgData_AllTime(category);
+	};
 	
 	@Override
 	public List<Product> salesbytime(DateInfo dateinfo){

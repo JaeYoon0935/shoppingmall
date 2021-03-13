@@ -14,6 +14,8 @@ public interface ProductService {
 	
 	public List<Product> CgData_Date(Category category);
 	
+	public List<Product> CgData_AllTime(Category category);
+	
 	public List<Product> salesbytime(DateInfo dateinfo);
 	
 	public List<Product> readAllProduct();
