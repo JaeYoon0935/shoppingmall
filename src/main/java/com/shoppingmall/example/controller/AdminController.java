@@ -160,22 +160,9 @@ public class AdminController {
 	//판매랭킹페이지 - 분류명을 통해서 판매랭킹을 불러오는 경우
 	@PostMapping("/categoryselect")
 	public ResponseEntity<?> categoryselect(@Validated @RequestBody Category category){
-	
-		
-		/*
-		1. 분류명을 선택 할 때,
-		  1-1. 판매시기 날짜를 설정하지 않은 상태라면, 전체기간을 조회하도록 해주고
-		  1-2. 판매시기 날짜가 설정되어있다면, 해당 기간에서 분류명으로 조회하도록 하기.
-
-		1-1. if date == null -> 전체기간으로 조회
-		1-2. else 선택된 기간으로 분류명과 함께 조회 (날짜로 전체 불러오는 쿼리에서 거기서 분류명만 join해주면 됨.)
-		
-		*/
 		
 		System.out.println(category.getDate1());
 		System.out.println(category.getDate2());
-		System.out.println("확인 ㅎㅎ");
-		
 		category.setName(category.getName());
 		
 		if(category.getDate1().length() < 2 || category.getDate2().length() < 2)  //날짜 정보가 없는 경우 (null인 경우)
@@ -195,8 +182,7 @@ public class AdminController {
 		    }
 		} 
 		else //날짜정보가 있는 경우
-		{
-			
+		{		
 			//0이면 다불러와야하는데, 0이면 하나도 못불러옴 이거 고쳐주기
 			int findCg_id = categoryService.findCg_id(category.getName());
 			System.out.println(findCg_id);
@@ -214,15 +200,25 @@ public class AdminController {
 	
 	//판매랭킹 페이지 - 기간을 고려해서 판매랭킹을 불러오는 경우.
 	@PostMapping("/salesbytime")
-	public ResponseEntity<?> salesbytime(@Validated @RequestBody DateInfo dateinfo){
+	public ResponseEntity<?> salesbytime(@Validated @RequestBody Category category){
 		
 		List<Product> salesData = null;
+		
+		//넘어오는 정보 체 크
+		System.out.println(category.getDate1());
+		System.out.println(category.getDate2());
+		System.out.println(category.getName());
+		
+		int findCg_id = categoryService.findCg_id(category.getName());
+		category.setCg_id(findCg_id);
 
-		salesData = productService.salesbytime(dateinfo.getDateinfo());
-	
-		//넘어오는 날짜 체크
-		System.out.println(dateinfo.getDateinfo().date1);
-		System.out.println(dateinfo.getDateinfo().date2);
+		if(category.getName().equals("전체")) {
+			System.out.println("전체 조회");
+			salesData = productService.salesbytime(category);
+		}
+		else {
+			salesData = productService.CgData_Date(category);
+		}
 	
 		return new ResponseEntity<>(salesData, HttpStatus.OK);
 	}

@@ -34,7 +34,7 @@
                 판매시기설정:
                 <input type="date" v-model="time1" class="i_size">
                 <input type="date" v-model="time2" class="i_size">
-               <v-btn color="indigo lighten-1" class="v_size" @click="SalesByTime({date1: time1, date2: time2})">확인</v-btn>
+               <v-btn color="indigo lighten-1" class="v_size" @click="SalesByTime({name, date1: time1, date2: time2})">확인</v-btn>
            
             </v-col>
             <v-col :cols="6">

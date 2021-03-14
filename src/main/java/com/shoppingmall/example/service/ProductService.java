@@ -18,6 +18,8 @@ public interface ProductService {
 	
 	public List<Product> salesbytime(DateInfo dateinfo);
 	
+	public List<Product> salesbytime(Category category);
+
 	public List<Product> readAllProduct();
 	
 	public List<Product> readProduct(Product product);

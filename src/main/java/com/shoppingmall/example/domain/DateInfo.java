@@ -8,6 +8,8 @@ public class DateInfo {
 	public String date2;
 	
 	
+	public String name; //날짜에 의한 검색을 하는 경우 제품의 이름도 편의상 dateinfo에서 받도록함.
+	
 	public String day;
 	public String day1;
 	public String day2;
@@ -15,8 +17,15 @@ public class DateInfo {
 	public String month2;
 	public String year1;
 	public String year2;
+
 	
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public DateInfo getDateinfo() {
 		return dateinfo;
 	}

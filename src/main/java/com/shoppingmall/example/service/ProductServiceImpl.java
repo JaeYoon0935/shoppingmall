@@ -40,7 +40,11 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> salesbytime(DateInfo dateinfo){
 		return productmapper.salesbytime(dateinfo);
 	}
-	
+
+	@Override
+	public List<Product> salesbytime(Category category){
+		return productmapper.salesbytime(category);
+	}
 	
 	@Override
 	public List<Product> readAllProduct(){

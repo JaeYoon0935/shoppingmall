@@ -3,7 +3,7 @@
 <mapper namespace="com.shoppingmall.example.mapper.ProductMapper">
 	 
 	 
-	 <select id="salesbytime" parameterType="Dateinfo" resultType="Product">	
+	 <select id="salesbytime" parameterType="Category" resultType="Product">	
 		SELECT 			order_detail.p_id, 
 						sum(od_count) order_count, 
 						tc.p_name as name
