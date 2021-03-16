@@ -204,7 +204,7 @@ public class AdminController {
 		
 		List<Product> salesData = null;
 		
-		//넘어오는 정보 체 크
+		//넘어오는 정보 체크
 		System.out.println(category.getDate1());
 		System.out.println(category.getDate2());
 		System.out.println(category.getName());

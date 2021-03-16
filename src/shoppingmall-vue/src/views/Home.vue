@@ -1,14 +1,16 @@
 <template>
-<v-app >
+<v-app>
     <div class="parent" style="height: 150px;">
-        <div class="child">
+        <div id="top" class="child">
+          <v-btn class="ml-8">로그인</v-btn>
+          <v-btn class="ml-3">회원가입</v-btn>
         </div>
         <div class="child">
           <p align="center" style="margin-top:20px; width:100%;">
             <router-link to='/' style="color:#000; text-decoration:none">
                 ShoppingMall           
             </router-link>
-            </p>
+          </p>
         </div>
         <div class="child">
         </div>
@@ -35,6 +37,9 @@
 </template>
 
 <style scoped>
+  #top{
+    text-align: left;
+  }
   .parent {
       display: flex;
   }
@@ -47,7 +52,8 @@
   div {
       width:1500px;    /* 가로 너비 */
       height:1000px;   /* 세로 너비 */
-      background-color:rgb(223, 222, 207);    /* 선택자 배경 색 */
+      background-color:rgb(241, 241, 241);    /* 선택자 배경 색 */
+      /* background-color:rgb(223, 222, 207);   */
       margin:0 auto;     /* 바깥 여백 
       / margin 속성을 0 auto로 지정하면 위, 아래 여백은 0, 왼쪽 오른쪽은 auto로 가운데 정렬 */
       padding:0px;    /* 내부 여백 */
