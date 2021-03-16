@@ -44,7 +44,7 @@
          <v-row>
             <v-col style="margin-left:5px; margin-top:25px; margin-bottom:100px;">
               <v-icon>mdi-circle-medium</v-icon> 
-                <label style="margin-left:4px;">전체기간으로 조회</label> <input type="checkbox" style='zoom:1.3; padding-left:30px;'> 
+                <label style="margin-left:4px;">전체기간으로 조회</label> <input type="checkbox" @click="allTime()" style='zoom:1.3; padding-left:30px;'> 
             </v-col>
          </v-row>
   </div>
@@ -111,6 +111,10 @@ import { mapState, mapActions } from "vuex"
     methods:{
        ...mapActions(["CategorySelect"]),
        ...mapActions(["SalesByTime"]),
+       allTime(){
+         this.time1 = '',
+         this.time2 = ''
+       }
     },
   }
 </script>
