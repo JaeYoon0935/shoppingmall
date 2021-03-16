@@ -32,8 +32,8 @@
             <v-col style="text-align:left; margin-left:5px;" :cols="6">
               <v-icon>mdi-circle-medium</v-icon> 
                 판매시기설정:
-                <input type="date" v-model="time1" class="i_size">
-                <input type="date" v-model="time2" class="i_size">
+                <input type="date" v-model="time1" class="i_size" @click="check()">
+                <input type="date" v-model="time2" class="i_size" @click="check()">
                <v-btn color="indigo lighten-1" class="v_size" @click="SalesByTime({name, date1: time1, date2: time2})">확인</v-btn>
            
             </v-col>
@@ -44,7 +44,13 @@
          <v-row>
             <v-col style="margin-left:5px; margin-top:25px; margin-bottom:100px;">
               <v-icon>mdi-circle-medium</v-icon> 
-                <label style="margin-left:4px;">전체기간으로 조회</label> <input type="checkbox" @click="allTime()" style='zoom:1.3; padding-left:30px;'> 
+                <label style="margin-left:4px;">전체기간으로 조회</label> 
+                <input type="checkbox" 
+                        v-model="toggle"
+                        true-value="yes"
+                        false-value="no"
+                        @click="[allTime(),CategorySelect({name, date1: time1, date2: time2})]" 
+                        style='zoom:1.3; padding-left:30px;'> 
             </v-col>
          </v-row>
   </div>
@@ -82,6 +88,7 @@ import { mapState, mapActions } from "vuex"
         name: '전체',
         time1: '',
         time2: '',
+        toggle: '',
         items:[
         ],
         year:[
@@ -114,6 +121,13 @@ import { mapState, mapActions } from "vuex"
        allTime(){
          this.time1 = '',
          this.time2 = ''
+       },
+       check(){
+         //만약 체크박스가 체크되어 있으면 해제하기
+         if(this.toggle == 'yes'){
+           this.toggle = 'no'
+         }
+        //  alert(this.toggle)
        }
     },
   }
