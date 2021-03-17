@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-   <h2 class="pt-2">회원관리</h2>
+   <h2 class="pt-2">회원정보</h2>
      <v-data-table
       class="elevation-1"
        :headers="userlist_headers"

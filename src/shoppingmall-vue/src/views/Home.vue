@@ -2,7 +2,7 @@
 <v-app>
     <div class="parent" style="height: 150px;">
         <div id="top" class="child">
-          <v-btn class="ml-8">로그인</v-btn>
+          <v-btn class="ml-8" router :to="{name: 'Login'}">로그인</v-btn>
           <v-btn class="ml-3">회원가입</v-btn>
         </div>
         <div class="child">

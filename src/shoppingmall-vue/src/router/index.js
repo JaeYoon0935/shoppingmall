@@ -14,6 +14,8 @@ import SalesData from '../views/Admin/Situation/SalesData.vue'
 import ProductRegistration from '../views/Admin/Management/ProductRegistration.vue'
 import ProductUpdate from '../views/Admin/Management/ProductUpdate.vue'
 import Admin from '../views/Admin.vue'
+import Login from '../views/Login/Login.vue'
+
 
 Vue.use(VueRouter)
 
@@ -29,6 +31,11 @@ const routes = [
         component: Product_User
       },
     ]
+  },
+  {
+    path:'/Login',
+    name:'Login',
+    component: Login
   },
   { 
     path:'/Admin',

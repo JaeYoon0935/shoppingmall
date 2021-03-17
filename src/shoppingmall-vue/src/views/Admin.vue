@@ -109,10 +109,30 @@
 
     <v-main>
       <v-row style="margin-left:0px;" v-if="$route.name == 'Admin'">
-        <h1>
-          관리자 메인페이지입니다.
-        </h1>
-      </v-row>
+        <div>
+          <h1>
+            관리자 메인페이지 입니다.
+          </h1>
+          <!-- <h1>
+            * 쇼핑몰 관리시스템
+          </h1>
+        </div>
+        <div>
+           <h2>
+              *소개: 쇼핑몰의 ~ 를 관리하는 시스템입니다.
+          </h2>
+        </div>
+        <div>
+          <h2>
+              *개발언어 : ~
+          </h2>
+        </div>
+        <div>
+          <h2>
+              *데이터베이스 : ~
+          </h2> -->
+        </div>
+      </v-row>   
       <router-view :key="$route.fullPath"/>
     </v-main>
   </v-app>
@@ -125,7 +145,6 @@
       selectedItem: 1,
       item1: [
         { title: '회원정보', name: 'UserList' },
-        { title: '포인트관리', name: 'Point' },
       ],
       item2: [
         { title: '주문내역', name: 'Order'},
