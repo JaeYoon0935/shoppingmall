@@ -7,7 +7,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
     rank: 0,
     temp: 12345678911, //temp에 우선 쓰레기값 넣어놓음.
     all: '전체',
@@ -293,23 +292,6 @@ export default new Vuex.Store({
               })
       })
     },
-    // SalesByTime({commit}, payload){
-    //   //dateinfo라는 객체에 dateinfo라는 key값으로 payload를 value로 집어넣는다.
-    //   var dateinfo = {dateinfo:payload}
-    //   payload = dateinfo
-    //   console.log(payload)
-    //   return new Promise((resolve, reject) =>{
-    //       axios.post('http://localhost:9000/api/admin/salesbytime', payload)
-    //            .then(Response =>{
-    //               console.log(Response.data)
-    //               commit('SET_RANKING', Response.data)
-    //       })
-    //       .catch(Error =>{
-    //           console.log('error')
-    //           reject(Error)
-    //       })
-    //   })
-    // },
     SalesByTime({commit}, payload){
       console.log(payload)
       return new Promise((resolve, reject) =>{

@@ -4,7 +4,6 @@ import Home from '../views/Home.vue'
 import UserList from '../views/Admin/Client/UserList.vue'
 import Point from '../views/Admin/Client/Point.vue'
 import Category from '../views/Admin/Management/Category.vue'
-import Information from '../views/Admin/Management/Information.vue'
 import Order from '../views/Admin/Management/Order.vue'
 import OrderDetail from '../views/Admin/Management/OrderDetail.vue'
 import Product from '../views/Admin/Management/Product.vue'
@@ -50,11 +49,6 @@ const routes = [
         path: 'category',
         name: 'Category',
         component: Category
-      },
-      {
-        path: 'information',
-        name: 'Information',
-        component: Information
       },
       {
         path: 'order',

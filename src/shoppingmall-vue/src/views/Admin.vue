@@ -128,7 +128,6 @@
         { title: '포인트관리', name: 'Point' },
       ],
       item2: [
-        { title: '쇼핑몰정보', name: 'Information'},
         { title: '주문내역', name: 'Order'},
         { title: '분류관리', name: 'Category'},
         { title: '상품관리', name: 'Product'},
