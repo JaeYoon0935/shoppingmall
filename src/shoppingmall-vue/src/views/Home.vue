@@ -52,7 +52,7 @@
   div {
       width:1500px;    /* 가로 너비 */
       height:1000px;   /* 세로 너비 */
-      background-color:rgb(241, 241, 241);    /* 선택자 배경 색 */
+      background-color:rgb(245, 240, 235);    /* 선택자 배경 색 */
       /* background-color:rgb(223, 222, 207);   */
       margin:0 auto;     /* 바깥 여백 
       / margin 속성을 0 auto로 지정하면 위, 아래 여백은 0, 왼쪽 오른쪽은 auto로 가운데 정렬 */

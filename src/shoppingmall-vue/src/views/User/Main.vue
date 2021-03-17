@@ -30,7 +30,7 @@
 div[data-v-fae5bece] {
     width: 1500px;
     height: 1000px;
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(245, 240, 235);
     margin: 0 auto;
     padding: 0px;
     border-radius: 10px;
