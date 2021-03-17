@@ -3,7 +3,7 @@
     <div class="parent" style="height: 150px;">
         <div id="top" class="child">
           <v-btn class="ml-8" router :to="{name: 'Login'}">로그인</v-btn>
-          <v-btn class="ml-3">회원가입</v-btn>
+          <v-btn class="ml-3" router :to="{name: 'Join'}">회원가입</v-btn>
         </div>
         <div class="child">
           <p align="center" style="margin-top:20px; width:100%;">

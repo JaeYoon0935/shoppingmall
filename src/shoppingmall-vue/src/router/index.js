@@ -15,7 +15,7 @@ import ProductRegistration from '../views/Admin/Management/ProductRegistration.v
 import ProductUpdate from '../views/Admin/Management/ProductUpdate.vue'
 import Admin from '../views/Admin.vue'
 import Login from '../views/Login/Login.vue'
-
+import Join from '../views/Login/Join.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +36,11 @@ const routes = [
     path:'/Login',
     name:'Login',
     component: Login
+  },
+  {
+    path:'/Join',
+    name:'Join',
+    component: Join
   },
   { 
     path:'/Admin',

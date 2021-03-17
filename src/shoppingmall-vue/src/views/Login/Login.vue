@@ -15,6 +15,6 @@
       <p>
         <input style="border: 0.5px solid; width:300px; height: 50px;" placeholder="비밀번호">
       </p>
-      <v-btn width="300px">로그인</v-btn>
+      <v-btn width="300px" height="50px">로그인</v-btn>
   </div>
 </template>
