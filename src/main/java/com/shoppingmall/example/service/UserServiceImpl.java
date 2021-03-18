@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		//System.out.println(username);
 		User user = userMapper.readUser(username);
 		user.setAuthorities(getAuthorities(username));	
 		return user;
@@ -78,5 +77,6 @@ public class UserServiceImpl implements UserService{
 	//회원탈퇴
 	public void delete_user(String username){
 		userMapper.delete_user(username);
-	};
+	}
+	
 }

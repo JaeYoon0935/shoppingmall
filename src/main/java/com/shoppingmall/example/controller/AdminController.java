@@ -96,6 +96,7 @@ public class AdminController {
 	}
 	
 	//회원정보 불러오기
+	//단순 조회기능은 모든 사용자에게 권한을 부여해준다.
 	@GetMapping("/userlist")
 	public ResponseEntity<?> read_user(){
 		List<UserInfo> userList = userService.shopping_readUser();		
@@ -104,6 +105,7 @@ public class AdminController {
 	}
 	
 	//회원탈퇴 처리하기
+	//이 로직으로 들어왔을때 권한이 없으면, alert로 권한이 없습니다를 띄워주도록 하기.
 	@PostMapping("/userdelete")
 	public ResponseEntity<?> delete_user(@Validated @RequestBody UserInfo userinfo){
 		userService.delete_user(userinfo.getUsername());		
@@ -112,6 +114,7 @@ public class AdminController {
 	}
 	
 	//회원정보 수정하기
+	//이 로직으로 들어왔을때 권한이 없으면, alert로 권한이 없습니다를 띄워주도록 하기.
 	@PostMapping("/userupdate")
 	public ResponseEntity<?> update_user(@Validated @RequestBody UserInfo userinfo){
 		userService.updateUser(userinfo);

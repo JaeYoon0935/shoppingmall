@@ -16,6 +16,7 @@ public class User implements UserDetails{
 	private String name;
 	private String phone;
 	private String address;
+	private String email;
 	private String point; //일단은 테스트를 위해 int 대신 string으로 사용
 	private String uDateTime;
 	private Collection<? extends GrantedAuthority> authorities;
@@ -25,7 +26,14 @@ public class User implements UserDetails{
 	private Boolean isEnabled;
 
 	private List<User> user_map;
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public List<User> getUser_map() {
 		return user_map;

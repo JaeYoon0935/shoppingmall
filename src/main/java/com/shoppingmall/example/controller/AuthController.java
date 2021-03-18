@@ -80,22 +80,21 @@ public class AuthController {
 		
 	}
 	@PostMapping("/signup")
-		public ResponseEntity<?> sinupUser(@Validated @RequestBody JoinRequest joinRequest){
+		public ResponseEntity<?> sinupUser(@Validated @RequestBody User user){
 		
-		String encodedPassword = new BCryptPasswordEncoder().encode(joinRequest.getPassword());
+		String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
 		
-		User user = new User();
-		
-		user.setUsername(joinRequest.getUsername());
-		user.setName(joinRequest.getName());
+		user.setUsername(user.getUsername());
+		user.setName(user.getName());
 		user.setPassword(encodedPassword);
-		user.setPhone(joinRequest.getPhone());
+		user.setPhone(user.getPhone());
+		user.setAddress(user.getAddress());
+		user.setEmail(user.getEmail());
 		user.setAccountNonExpired(true);
 		user.setEnabled(true);
 		user.setAccountNonLocked(true);
 		user.setCredentialsNonExpired(true);
 		user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
-		
 		
 		userService.createUser(user);
 		userService.createAuthority(user);
@@ -103,6 +102,30 @@ public class AuthController {
 		return new ResponseEntity<>("success", HttpStatus.OK);
 	}
 	
+//	@PostMapping("/signup")
+//	public ResponseEntity<?> sinupUser(@Validated @RequestBody JoinRequest joinRequest){
+//	
+//		String encodedPassword = new BCryptPasswordEncoder().encode(joinRequest.getPassword());
+//		
+//		User user = new User();
+//		
+//		user.setUsername(joinRequest.getUsername());
+//		user.setName(joinRequest.getName());
+//		user.setPassword(encodedPassword);
+//		user.setPhone(joinRequest.getPhone());
+//		user.setAccountNonExpired(true);
+//		user.setEnabled(true);
+//		user.setAccountNonLocked(true);
+//		user.setCredentialsNonExpired(true);
+//		user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
+//		
+//		
+//		userService.createUser(user);
+//		userService.createAuthority(user);
+//		
+//		return new ResponseEntity<>("success", HttpStatus.OK);
+//	}
+		
 	@GetMapping("/unpackToken")
 	public ResponseEntity<?> unpackToken(HttpServletRequest request) {
 		String token = new String();

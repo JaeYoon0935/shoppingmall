@@ -201,6 +201,35 @@ export default new Vuex.Store({
         return;
       }
     },
+    Login({commit},payload){
+        console.log(payload)
+        return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/auth/signin',payload)
+              .then(Response => {
+                  console.log(Response.data)                  
+              })
+              .then(() => router.push({ name: 'Home' }))
+              .catch(Error => {
+                  alert('아이디 또는 비밀번호를 확인해주세요.')
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
+    Join({commit},payload){
+        console.log(payload)
+        return new Promise((resolve, reject) => {
+          axios.post('http://localhost:9000/api/auth/signup',payload)
+              .then(Response => {
+                  console.log(Response.data)
+              })
+              .catch(Error => {
+                  alert('입력양식을 확인해주세요.')
+                  console.log('error')
+                  reject(Error)
+              })
+      })
+    },
     CategoryList({commit}) {
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/categorylist')
