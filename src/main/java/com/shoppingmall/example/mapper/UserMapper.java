@@ -25,6 +25,8 @@ public interface UserMapper {
 	
 	public void createAuthority(User user);
 	
+	//중복검사하기
+	public User duplicate(User user);
 	
 	//테스트 메서드
 	public List<UserInfo> shopping_readUser();

@@ -28,6 +28,10 @@ public interface UserService extends UserDetailsService{
 	
 	//-----------------------아래 부터 쇼핑몰 프로젝트---------------------------------
 	
+	
+	//중복검사하기
+	public User duplicate(User user);
+	
 	//회원 정보 불러오기
 	public List<UserInfo> shopping_readUser();
 	

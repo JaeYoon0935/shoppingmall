@@ -79,4 +79,9 @@ public class UserServiceImpl implements UserService{
 		userMapper.delete_user(username);
 	}
 	
+	//중복검사하기
+	public User duplicate(User user){
+		return userMapper.duplicate(user);
+	}
+	
 }

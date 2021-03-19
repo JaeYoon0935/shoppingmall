@@ -11,22 +11,9 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- shoppingmall 데이터베이스 구조 내보내기
-CREATE DATABASE IF NOT EXISTS `shoppingmall` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `shoppingmall`;
-
--- 테이블 shoppingmall.category 구조 내보내기
-CREATE TABLE IF NOT EXISTS `category` (
-  `cg_id` int(11) NOT NULL DEFAULT 0,
-  `cg_name` varchar(255) DEFAULT NULL,
-  `cg_product_count` int(10) DEFAULT NULL,
-  PRIMARY KEY (`cg_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='정규화의 가장 큰 목적은 중복을 없애기 위함이다.\r\n현재 category테이블은 중복이 없으므로 그렇게 사용해도 상관이 없다.';
-
 -- 테이블 데이터 shoppingmall.category:~20 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT IGNORE INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
+INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 	(0, '전체', 9999999),
 	(20, '거실등', 4),
 	(30, '식탁등', 4),
@@ -49,18 +36,9 @@ INSERT IGNORE INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 	(7013, '3구스위치', 2);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
--- 테이블 shoppingmall.orders 구조 내보내기
-CREATE TABLE IF NOT EXISTS `orders` (
-  `o_id` int(10) NOT NULL,
-  `o_date` date DEFAULT NULL,
-  `o_state` varchar(255) DEFAULT NULL,
-  `user_id` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`o_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='user테이블의 id\r\n';
-
 -- 테이블 데이터 shoppingmall.orders:~7 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT IGNORE INTO `orders` (`o_id`, `o_date`, `o_state`, `user_id`) VALUES
+INSERT INTO `orders` (`o_id`, `o_date`, `o_state`, `user_id`) VALUES
 	(1, '2020-12-23', '배송중', 'jy0935'),
 	(2, '2020-12-25', '배송완료', 'jy1234'),
 	(3, '2021-01-16', '배송중', 'jy0935'),
@@ -70,19 +48,9 @@ INSERT IGNORE INTO `orders` (`o_id`, `o_date`, `o_state`, `user_id`) VALUES
 	(7, '2020-12-28', '배송완료', 'jy1234');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
--- 테이블 shoppingmall.order_detail 구조 내보내기
-CREATE TABLE IF NOT EXISTS `order_detail` (
-  `od_id` int(10) NOT NULL,
-  `od_price` int(10) DEFAULT NULL,
-  `od_count` int(10) DEFAULT NULL,
-  `o_id` int(10) DEFAULT NULL,
-  `p_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`od_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='해당상품의 갯수에 따른 해당상품의 총 주문금액';
-
 -- 테이블 데이터 shoppingmall.order_detail:~13 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
-INSERT IGNORE INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
+INSERT INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
 	(1, 200000, 2, 1, 1),
 	(2, 70000, 2, 1, 2),
 	(3, 70000, 4, 1, 3),
@@ -98,23 +66,9 @@ INSERT IGNORE INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_i
 	(14, 5000, 10, 7, 4);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 
--- 테이블 shoppingmall.product 구조 내보내기
-CREATE TABLE IF NOT EXISTS `product` (
-  `p_id` int(10) NOT NULL,
-  `p_name` varchar(255) DEFAULT NULL,
-  `p_price` int(10) DEFAULT NULL,
-  `p_quantity` int(10) DEFAULT NULL,
-  `p_order_count` int(10) DEFAULT NULL,
-  `p_rank` int(10) DEFAULT NULL,
-  `p_category` int(10) DEFAULT NULL,
-  `p_views` int(10) DEFAULT NULL,
-  `p_text` text DEFAULT NULL,
-  PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- 테이블 데이터 shoppingmall.product:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT IGNORE INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`, `p_text`) VALUES
+INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`, `p_text`) VALUES
 	(1, '거실등 1', 200000, 3, 30, NULL, 2011, 5, '30평형 거실등 입니다.'),
 	(2, '방등', 70000, 2, 35, NULL, 4011, 4, '소형 방등 입니다.'),
 	(3, '형광등 스탠드', 70000, 3, 20, NULL, 6021, 2, '일반 형광등 스탠드입니다.'),
@@ -126,19 +80,9 @@ INSERT IGNORE INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_orde
 	(9, '거실등 2', 600000, 5, 10, NULL, 2011, 0, '30평형 거실등 입니다.');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
--- 테이블 shoppingmall.product_img 구조 내보내기
-CREATE TABLE IF NOT EXISTS `product_img` (
-  `pi_id` int(10) NOT NULL,
-  `pi_image` varchar(255) DEFAULT NULL COMMENT '사용자가 저장하는 이름',
-  `p_id` int(10) DEFAULT NULL,
-  `pi_unique` varchar(255) DEFAULT NULL COMMENT '실제로 서버에 저장되는 이름',
-  PRIMARY KEY (`pi_id`),
-  KEY `pi_unique` (`pi_unique`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- 테이블 데이터 shoppingmall.product_img:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product_img` DISABLE KEYS */;
-INSERT IGNORE INTO `product_img` (`pi_id`, `pi_image`, `p_id`, `pi_unique`) VALUES
+INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`, `pi_unique`) VALUES
 	(1, '20210208_1735562.jpg', 1, '20210209_1658426'),
 	(2, 'roomLamp', 2, '20210208_1235562'),
 	(3, 'lightStand', 3, '20210205_1622562'),
@@ -150,33 +94,42 @@ INSERT IGNORE INTO `product_img` (`pi_id`, `pi_image`, `p_id`, `pi_unique`) VALU
 	(9, '20210208_1648326.jpg', 9, '20210209_1659745');
 /*!40000 ALTER TABLE `product_img` ENABLE KEYS */;
 
--- 테이블 shoppingmall.user 구조 내보내기
-CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` varchar(255) NOT NULL,
-  `user_password` varchar(255) DEFAULT NULL,
-  `user_name` varchar(255) DEFAULT NULL,
-  `user_address` varchar(255) DEFAULT NULL,
-  `user_phone` varchar(255) DEFAULT NULL,
-  `user_email` varchar(255) DEFAULT NULL,
-  `user_point` int(255) DEFAULT NULL,
-  `user_datetime` date DEFAULT NULL,
-  `user_isAccountNonExpired` tinyint(4) DEFAULT NULL,
-  `user_isAccountNonLocked` tinyint(4) DEFAULT NULL,
-  `user_isCredentialNonExpired` tinyint(4) DEFAULT NULL,
-  `user_isEnabled` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 테이블 데이터 shoppingmall.user:~6 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.user:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT IGNORE INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
-	('jy0935', '11111', '주문자1', '대구시 동구', '010-2354-8451', 'abc@naver.com', 5000, NULL, 1, 1, 1, 1),
-	('jy1234', '356484', '주문자2', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
+INSERT INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
+	('jwkljlkwefj', '$2a$10$7gb4/nnRcK1x1xh2WKLDpOO2oXKkSwoXmeVP6X63oVOhEwaERvTTm', '13251', '53', '135153', '13', 1000, NULL, 1, 1, 1, 1),
+	('jy051351', '$2a$10$q2.TsG23qu4GQ0YCig.X0.gyOlzMLW6GXp8AoXvsQCIfeRhfvzmYm', 'jkjkl', 'ekjflw', '10151651', 'fwefewfwe', 1000, NULL, 1, 1, 1, 1),
+	('jy0935', '$2a$10$w.e6J3Syz9ImcY5VxbTvI.s4Izi8z/nY6s5Yr.fAUPZSbPO/D.0AS', '주문자1', '대구시 동구', '010-2345-5416', 'abc@naver.com', 1000, NULL, 1, 1, 1, 1),
+	('jy09353', '$2a$10$oXGieRAwx7Biior.XTzIYO6W542RmBymoVPUJdenMJqHawROoJdd6', 'wefw', 'fwejkl', '2340', 'wf;lwef', 1000, NULL, 1, 1, 1, 1),
+	('jy1234', '1234', '주문자2', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
 	('jy12345', '4234', '이모씨', '대구시 수성구', '010-1111-1234', 'fruit@naver.com', 1000, NULL, 1, 1, 1, 1),
 	('jy1515', '33311', '김모씨', '대구시 중구', '010-7555-1234', 'jkjk@naver.com', 20000, NULL, 1, 1, 1, 1),
 	('kkk333', '1523', '김모씨', '대구시 북구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1),
 	('zzsfdx15', '3423', '박모씨', '대구시 남구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+-- 테이블 데이터 shoppingmall.userauth:~18 rows (대략적) 내보내기
+/*!40000 ALTER TABLE `userauth` DISABLE KEYS */;
+INSERT INTO `userauth` (`user_auth`, `user_id`) VALUES
+	('ROLE_ADMIN', 'jy0935'),
+	('ROLE_USER', 'jy1234'),
+	('ROLE_USER', 'jy9871'),
+	('ROLE_USER', 'jy35234234'),
+	('ROLE_USER', 'jy0935'),
+	('ROLE_USER', 'jy051351'),
+	('ROLE_USER', 'fewf'),
+	('ROLE_USER', 'jwkljlkwefj'),
+	('ROLE_USER', ''),
+	('ROLE_USER', ''),
+	('ROLE_USER', 'dwd'),
+	('ROLE_USER', ''),
+	('ROLE_USER', ''),
+	('ROLE_USER', ''),
+	('ROLE_USER', 'wef'),
+	('ROLE_USER', 'few'),
+	('ROLE_USER', 'jy09353'),
+	('ROLE_USER', 'jyrdgre');
+/*!40000 ALTER TABLE `userauth` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

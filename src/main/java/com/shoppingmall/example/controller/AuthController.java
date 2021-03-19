@@ -82,49 +82,43 @@ public class AuthController {
 	@PostMapping("/signup")
 		public ResponseEntity<?> sinupUser(@Validated @RequestBody User user){
 		
-		String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+		if(userService.duplicate(user) == null) {
+			String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+			
+			user.setUsername(user.getUsername());
+			user.setName(user.getName());
+			user.setPassword(encodedPassword);
+			user.setPhone(user.getPhone());
+			user.setAddress(user.getAddress());
+			user.setEmail(user.getEmail());
+			user.setAccountNonExpired(true);
+			user.setEnabled(true);
+			user.setAccountNonLocked(true);
+			user.setCredentialsNonExpired(true);
+			user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
+			
+			userService.createUser(user);
+			userService.createAuthority(user);
+			
+			return new ResponseEntity<>("success", HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>("duplicate", HttpStatus.OK);
+		}
 		
-		user.setUsername(user.getUsername());
-		user.setName(user.getName());
-		user.setPassword(encodedPassword);
-		user.setPhone(user.getPhone());
-		user.setAddress(user.getAddress());
-		user.setEmail(user.getEmail());
-		user.setAccountNonExpired(true);
-		user.setEnabled(true);
-		user.setAccountNonLocked(true);
-		user.setCredentialsNonExpired(true);
-		user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
-		
-		userService.createUser(user);
-		userService.createAuthority(user);
-		
-		return new ResponseEntity<>("success", HttpStatus.OK);
 	}
 	
-//	@PostMapping("/signup")
-//	public ResponseEntity<?> sinupUser(@Validated @RequestBody JoinRequest joinRequest){
-//	
-//		String encodedPassword = new BCryptPasswordEncoder().encode(joinRequest.getPassword());
-//		
-//		User user = new User();
-//		
-//		user.setUsername(joinRequest.getUsername());
-//		user.setName(joinRequest.getName());
-//		user.setPassword(encodedPassword);
-//		user.setPhone(joinRequest.getPhone());
-//		user.setAccountNonExpired(true);
-//		user.setEnabled(true);
-//		user.setAccountNonLocked(true);
-//		user.setCredentialsNonExpired(true);
-//		user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
-//		
-//		
-//		userService.createUser(user);
-//		userService.createAuthority(user);
-//		
-//		return new ResponseEntity<>("success", HttpStatus.OK);
-//	}
+	@PostMapping("/duplicate")
+	public ResponseEntity<?> duplicate(@Validated @RequestBody User user){		
+
+		System.out.println(user.getUsername());
+	
+		if(userService.duplicate(user) == null) {
+			return new ResponseEntity<>("success", HttpStatus.OK);	
+		}else{
+			return new ResponseEntity<>("duplicate", HttpStatus.OK);
+		}
+		
+	}
 		
 	@GetMapping("/unpackToken")
 	public ResponseEntity<?> unpackToken(HttpServletRequest request) {

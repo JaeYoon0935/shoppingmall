@@ -103,7 +103,7 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>
           <v-btn router :to="{name: 'Admin'}" text>관리자 페이지 (메인) </v-btn>          
-          <v-btn color="indigo lighten-1" router :to="{name: 'Login'}"> <span class="white--text">로그인</span> </v-btn>
+          <v-btn color="grey lighten-1" class= "ml-3" router :to="{name: 'Login'}"> <span>로그인</span> </v-btn>
           <v-btn color="indigo lighten-1" class="mr-15" absolute right  router :to="{name: 'Home'}"> <span class="white--text">홈페이지로 이동</span> </v-btn>
         </v-toolbar-title>
     </v-app-bar>

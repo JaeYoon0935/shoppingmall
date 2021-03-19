@@ -127,9 +127,7 @@ table tr td {
 }
 </style>
 
-
 <script>
-
 export default {
   created(){
       this.$store.dispatch('Product')
@@ -137,8 +135,8 @@ export default {
     data () {
       return {     
         id:{
-               id: this.$route.params.id, 
-             },
+            id: this.$route.params.id, 
+            },
         name: this.$store.state.product[0].name,
         price: this.$store.state.product[0].price,
         quantity: this.$store.state.product[0].quantity,

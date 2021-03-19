@@ -71,10 +71,10 @@
 	</select>
 	<!-- 권한 읽기(새로고침) -->
     <select id="readAuthorities_refresh" parameterType="String" resultType="org.springframework.security.core.authority.SimpleGrantedAuthority">
-    	SELECT			u_auth
+    	SELECT			user_auth
     	FROM			userauth
     	WHERE 			1=1
-    	AND				u_id = #{username}
+    	AND				user_id = #{username}
     </select>
     
 	<!-- 회원 등록 -->
@@ -105,6 +105,16 @@
 			#{isEnabled}
 		)
 	</insert>	
+	
+	
+	<!-- 중복검사 -->
+	<select id="duplicate" parameterType="User" resultType="User">
+		SELECT		 user_id username
+		FROM         user
+		WHERE        user_id = #{username}
+	</select>
+	
+	
 	<!-- 회원 목록 불러오기(admin) -->
     <select id="read_user_list"  resultType="UserInfo">
     	SELECT		ta.u_id					username,

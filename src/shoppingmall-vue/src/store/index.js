@@ -221,13 +221,37 @@ export default new Vuex.Store({
         return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/auth/signup',payload)
               .then(Response => {
+                if(Response.data == 'success'){
                   console.log(Response.data)
+                  alert("회원가입이 완료되었습니다.")            
+                }else{
+                  alert('이미 사용중인 아이디입니다.')
+                }
               })
+              .then(() => router.push({ name: 'Home' }))
               .catch(Error => {
                   alert('입력양식을 확인해주세요.')
                   console.log('error')
                   reject(Error)
               })
+      })
+    },
+    duplicate({commit},payload){
+      console.log(payload)
+      return new Promise((resolve, reject) =>{
+        axios.post('http://localhost:9000/api/auth/duplicate',payload)
+          .then(Response =>{
+            console.log(Response.data)
+            if(Response.data == 'success'){
+              alert('사용 가능한 아이디입니다.')
+            }else{
+              alert('이미 사용중인 아이디입니다.')
+            }
+          })
+          .catch(Error => {
+            console.log('error')
+            reject(Error)
+        })
       })
     },
     CategoryList({commit}) {
