@@ -132,41 +132,41 @@ export default {
   created(){
       this.$store.dispatch('Product')
     },
-    data () {
-      return {     
-        id:{
-            id: this.$route.params.id, 
-            },
-        name: this.$store.state.product[0].name,
-        price: this.$store.state.product[0].price,
-        quantity: this.$store.state.product[0].quantity,
-        text: this.$store.state.product[0].text,
-
-        amount:1,
-      }
-    },
-    methods:{
-      priceToString(price) {
-              return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  data () {
+    return {     
+      id:{
+          id: this.$route.params.id, 
           },
-      change(num){
-            this.amount += num;
-            if(this.amount < 1) {
-               alert("더 이상 줄일 수 없습니다.");
-               this.amount = 1;
-            }   
-      },
-      image(image){
-        //경로를 조합해줄 메서드.
-        if(image == null){
-          return require('@/images/null.jpg');
-        }
-        return require('@/images/'+ image +'.jpg');
-      },
-      total(amount){
-          return (amount * this.$store.state.product[0].price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      }
+      name: this.$store.state.product[0].name,
+      price: this.$store.state.product[0].price,
+      quantity: this.$store.state.product[0].quantity,
+      text: this.$store.state.product[0].text,
+
+      amount:1,
+    }
+  },
+  methods:{
+    priceToString(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        },
+    change(num){
+          this.amount += num;
+          if(this.amount < 1) {
+              alert("더 이상 줄일 수 없습니다.");
+              this.amount = 1;
+          }   
     },
+    image(image){
+      //경로를 조합해줄 메서드.
+      if(image == null){
+        return require('@/images/null.jpg');
+      }
+      return require('@/images/'+ image +'.jpg');
+    },
+    total(amount){
+        return (amount * this.$store.state.product[0].price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+  },
 }
 
 </script>

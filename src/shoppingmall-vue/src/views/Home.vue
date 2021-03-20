@@ -2,8 +2,15 @@
 <v-app>
     <div class="parent" style="height: 150px;">
         <div id="top" class="child">
-          <v-btn class="ml-8" router :to="{name: 'Login'}">로그인</v-btn>
-          <v-btn class="ml-3" router :to="{name: 'Join'}">회원가입</v-btn>
+
+          <span style="padding-left:0px; padding-right:12px;" v-if="this.$store.state.login_flag == 0">
+           <v-btn class="ml-8" router :to="{name: 'Login'}">로그인</v-btn>
+          </span>
+          <span style="padding-left:0px; padding-right:12px;" v-else>
+            <v-btn class="ml-8" @click="logOut()">로그아웃</v-btn>
+          </span>
+
+          <v-btn  router :to="{name: 'Join'}">회원가입</v-btn>
         </div>
         <div class="child">
           <p align="center" style="margin-top:20px; width:100%;">
@@ -27,7 +34,7 @@
       <v-btn>LED주방등</v-btn>
       <v-btn>스탠드</v-btn>    
       <v-btn>전기재료</v-btn>
-      <v-btn color="blue" style="color:white;" router :to="{name: 'Admin'}">관리자 페이지</v-btn>    
+      <v-btn color="brown lighten-2" style="color:white;" router :to="{name: 'Admin'}">관리자 페이지</v-btn>    
     </p>
     <div>
       <Main v-if="$route.name == 'Home'"></Main>
@@ -72,11 +79,18 @@
 <script>
 // @ is an alias to /src
 import Main from '../views/User/Main.vue'
-
 export default {
+  created(){
+      this.$store.state.login_prev = 1;
+    },
   name: 'Home',
   components: {
     Main
+  },
+  methods:{
+    logOut(){
+      this.$store.state.login_flag = 0;
+    }
   }
 }
 </script>

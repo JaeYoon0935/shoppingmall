@@ -23,10 +23,6 @@
             <td style="width:420px;">
                 <v-row style="display:flex; width:420px; align-items:center;"> 
                   <v-col style="overflow:hidden;">
-                    <!-- <img :src="image(row.item.image)"/> -->
-                    <!-- <span v-if="temp != null">
-                        <img :src="image(row.item.image)"/>
-                    </span> -->
                     <img :src="image(row.item.image)"/>
                   </v-col>
                   <v-col>

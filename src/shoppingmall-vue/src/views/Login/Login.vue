@@ -23,9 +23,6 @@
         <span v-else>
               <v-btn width="300px" height="50px" @click="Login({username, password})">로그인</v-btn>
         </span>
-
-
-        <!-- <v-btn width="300px" height="50px" @click="Login({username, password})">로그인</v-btn> -->
       </form>
   </div>
 </template>

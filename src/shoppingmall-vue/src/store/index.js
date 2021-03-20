@@ -11,6 +11,8 @@ export default new Vuex.Store({
     temp: 12345678911, //temp에 우선 쓰레기값 넣어놓음.
     all: '전체',
     sales_flag: 0,
+    login_flag: 0, //로그인 성공시 1로 바뀌고 로그인 하지않았을 때나 로그아웃 시 0으로 바뀐다. 
+    login_prev: 0,
     //user
     userlist_headers: [
       { text: '아이디', value: 'username'},
@@ -99,29 +101,32 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-      SET_USER(state, data) {
+    SET_LOGIN(state){
+        state.login_flag = 1
+    },
+    SET_USER(state, data) {
         state.userlist = data      
     },
-      SET_PRODUCT_LIST(state, data){
+    SET_PRODUCT_LIST(state, data){
         state.productlist = data
     },
-      SET_PRODUCT(state, data){
+    SET_PRODUCT(state, data){
         state.product = data
         console.log(state.product)
     },
-      UPDATE_PRODUCT(state, data){
+    UPDATE_PRODUCT(state, data){
         state.product = data
     },
-      SET_ORDER(state, data){
+    SET_ORDER(state, data){
         state.orderlist = data
     },
-      SET_ORDER_DETAIL(state, data){
+    SET_ORDER_DETAIL(state, data){
         state.orderDetailList = data
     },
-      SET_CATEGORY(state, data) {
+    SET_CATEGORY(state, data) {
         state.categorylist = data
     },
-      SET_CATEGORY_NAME(state, data) {
+    SET_CATEGORY_NAME(state, data) {
 
         for(var item=0; item <data.length; item++)  {
           data[item] = data[item].name;
@@ -129,10 +134,10 @@ export default new Vuex.Store({
 
         state.categoryname = data
     },
-      SET_SALES_DATA(state,data){
+    SET_SALES_DATA(state,data){
         state.salesdata = data
       },
-      SET_RANKING(state, data) {
+    SET_RANKING(state, data) {
 
         function oc_Sort(a, b) { 
           return b.order_count - a.order_count;
@@ -206,9 +211,19 @@ export default new Vuex.Store({
         return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/auth/signin',payload)
               .then(Response => {
-                  console.log(Response.data)                  
+                  console.log(Response.data) 
+                  commit('SET_LOGIN')     
+                  console.log(this.state.login_prev)
+                  if(this.state.login_prev == 0){
+                    router.push({ name: 'Home' })   
+                  }
+                  else if(this.state.login_prev == 1){
+                    router.push({ name: 'Home' })   
+                  }
+                  else if(this.state.login_prev == 2){
+                    router.push({ name: 'Admin' })
+                  }   
               })
-              .then(() => router.push({ name: 'Home' }))
               .catch(Error => {
                   alert('아이디 또는 비밀번호를 확인해주세요.')
                   console.log('error')

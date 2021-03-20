@@ -102,8 +102,16 @@
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>
-          <v-btn router :to="{name: 'Admin'}" text>관리자 페이지 (메인) </v-btn>          
-          <v-btn color="grey lighten-1" class= "ml-3" router :to="{name: 'Login'}"> <span>로그인</span> </v-btn>
+          <v-btn router :to="{name: 'Admin'}" text>관리자 페이지 (메인) </v-btn>    
+
+          <span style="padding-left:0px;" v-if="this.$store.state.login_flag == 0">            
+           <v-btn color="#CACACA" class= "ml-3" router :to="{name: 'Login'}">로그인</v-btn>
+          </span>
+          <span style="padding-left:0px;" v-else>
+            <v-btn color="#CACACA" class="ml-3" @click="logOut()">로그아웃</v-btn>
+          </span>
+<!-- 
+          <v-btn color="#CACACA" class= "ml-5" router :to="{name: 'Login'}"> <span>로그인</span> </v-btn> -->
           <v-btn color="indigo lighten-1" class="mr-15" absolute right  router :to="{name: 'Home'}"> <span class="white--text">홈페이지로 이동</span> </v-btn>
         </v-toolbar-title>
     </v-app-bar>
@@ -141,6 +149,9 @@
 
 <script>
   export default {
+    created(){
+      this.$store.state.login_prev = 2;
+    },
     data: () => ({ 
       drawer: null, 
       selectedItem: 1,
@@ -157,5 +168,10 @@
         { title: '매출통계', name: 'Sales'},
       ],
     }),
+    methods:{
+      logOut(){
+        this.$store.state.login_flag = 0;
+      },
+    },
   }
 </script>
