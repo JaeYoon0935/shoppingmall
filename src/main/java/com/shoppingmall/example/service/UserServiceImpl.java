@@ -56,14 +56,17 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	//유저읽기 새로고침
+	@Override
 	public UserInfo readUser_refresh(String username) {
 		return userMapper.readUser_refresh(username);
 	}
 	//유저권한읽기 새로고침
+	@Override
 	public List<GrantedAuthority> readAuthorities_refresh(String username) {
 		return userMapper.readAuthorities_refresh(username);
 	}
 	//회원수정
+	@Override
 	public void updateUser(UserInfo userinfo) {
 		userMapper.updateUser(userinfo);
 	}
@@ -75,11 +78,13 @@ public class UserServiceImpl implements UserService{
 	};
 	
 	//회원탈퇴
+	@Override
 	public void delete_user(String username){
 		userMapper.delete_user(username);
 	}
 	
 	//중복검사하기
+	@Override
 	public User duplicate(User user){
 		return userMapper.duplicate(user);
 	}
