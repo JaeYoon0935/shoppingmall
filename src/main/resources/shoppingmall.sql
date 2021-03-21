@@ -51,7 +51,7 @@ INSERT IGNORE INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 -- 테이블 shoppingmall.orders 구조 내보내기
 CREATE TABLE IF NOT EXISTS `orders` (
   `o_id` int(10) DEFAULT NULL,
-  `o_date` date DEFAULT NULL,
+  `o_date` varchar(255) DEFAULT NULL,
   `o_total_price` int(10) DEFAULT NULL,
   `o_state` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL
@@ -95,6 +95,30 @@ INSERT IGNORE INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_i
 	(13, 70000, 2, 6, 2),
 	(14, 5000, 10, 7, 4);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
+
+-- 테이블 shoppingmall.point 구조 내보내기
+CREATE TABLE IF NOT EXISTS `point` (
+  `po_id` int(255) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) DEFAULT NULL,
+  `user_name` varchar(50) DEFAULT NULL,
+  `po_content` varchar(50) DEFAULT NULL,
+  `po_point` int(255) DEFAULT NULL,
+  `po_total_point` int(255) DEFAULT NULL,
+  `po_date` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`po_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 shoppingmall.point:~6 rows (대략적) 내보내기
+/*!40000 ALTER TABLE `point` DISABLE KEYS */;
+INSERT IGNORE INTO `point` (`po_id`, `user_id`, `user_name`, `po_content`, `po_point`, `po_total_point`, `po_date`) VALUES
+	(1, 'jy0935', '주문자1', '회원가입 축하', 1000, 1000, '20210101_1530429'),
+	(2, 'jy1234', '주문자2', '회원가입 축하', 1000, 1000, '20210101_1936429'),
+	(3, 'jy1234', '주문자2', '테스트 1', 1000, 2000, '20210221_1936429'),
+	(4, 'jy1234', '주문자2', '테스트 21', 1000, 3000, '20210310_1936429'),
+	(5, 'jy0935', '주문자1', '테스트33', 1000, 2000, '20210321_1936429'),
+	(33, 'jy0935', '주문자1', '테스트333', 50000, 52000, '20210321_2111538'),
+	(34, 'jy1234', '주문자2', '포인트 테스트', 2500, 5500, '20210321_211217');
+/*!40000 ALTER TABLE `point` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product 구조 내보내기
 CREATE TABLE IF NOT EXISTS `product` (
@@ -163,18 +187,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.user:~9 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.user:~5 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT IGNORE INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
-	('jwkljlkwefj', '$2a$10$7gb4/nnRcK1x1xh2WKLDpOO2oXKkSwoXmeVP6X63oVOhEwaERvTTm', '13251', '53', '135153', '13', 1000, NULL, 1, 1, 1, 1),
-	('jy051351', '$2a$10$q2.TsG23qu4GQ0YCig.X0.gyOlzMLW6GXp8AoXvsQCIfeRhfvzmYm', 'jkjkl', 'ekjflw', '10151651', 'fwefewfwe', 1000, NULL, 1, 1, 1, 1),
 	('jy0935', '$2a$10$w.e6J3Syz9ImcY5VxbTvI.s4Izi8z/nY6s5Yr.fAUPZSbPO/D.0AS', '주문자1', '대구시 동구', '010-2345-5416', 'abc@naver.com', 1000, NULL, 1, 1, 1, 1),
-	('jy09353', '$2a$10$oXGieRAwx7Biior.XTzIYO6W542RmBymoVPUJdenMJqHawROoJdd6', 'wefw', 'fwejkl', '2340', 'wf;lwef', 1000, NULL, 1, 1, 1, 1),
 	('jy1234', '1234', '주문자2', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
 	('jy12345', '4234', '이모씨', '대구시 수성구', '010-1111-1234', 'fruit@naver.com', 1000, NULL, 1, 1, 1, 1),
 	('jy1515', '33311', '김모씨', '대구시 중구', '010-7555-1234', 'jkjk@naver.com', 20000, NULL, 1, 1, 1, 1),
-	('kkk333', '1523', '김모씨', '대구시 북구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1),
-	('test1', '$2a$10$X74F3CwHHFb6aNijxLtWxOB7iBkGgpaIojSfhk2qQz3eY1Ta.JTGS', '3r', 'fwe', 'wef', 'wef', 1000, NULL, 1, 1, 1, 1);
+	('kkk333', '1523', '김모씨', '대구시 북구', '010-1111-1234', '123c@naver.com', 10000, NULL, 1, 1, 1, 1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.userauth 구조 내보내기
@@ -183,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `userauth` (
   `user_id` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.userauth:~13 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.userauth:~22 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `userauth` DISABLE KEYS */;
 INSERT IGNORE INTO `userauth` (`user_auth`, `user_id`) VALUES
 	('ROLE_ADMIN', 'jy0935'),
@@ -198,7 +218,16 @@ INSERT IGNORE INTO `userauth` (`user_auth`, `user_id`) VALUES
 	('ROLE_USER', 'few'),
 	('ROLE_USER', 'jy09353'),
 	('ROLE_USER', 'jyrdgre'),
-	('ROLE_USER', 'test1');
+	('ROLE_USER', 'test1'),
+	('ROLE_USER', 'wefewf'),
+	('ROLE_USER', 'ewfwefwefew'),
+	('ROLE_USER', 'wefwef'),
+	('ROLE_USER', 'jy0935ef'),
+	('ROLE_USER', 'jy09351'),
+	('ROLE_USER', 'reg'),
+	('ROLE_USER', 'yjergergrg'),
+	('ROLE_USER', 'erge'),
+	('ROLE_USER', 'jy0912');
 /*!40000 ALTER TABLE `userauth` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
