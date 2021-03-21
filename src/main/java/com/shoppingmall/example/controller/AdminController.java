@@ -38,11 +38,13 @@ import com.shoppingmall.example.domain.Category;
 import com.shoppingmall.example.domain.DateInfo;
 import com.shoppingmall.example.domain.Order;
 import com.shoppingmall.example.domain.OrderDetail;
+import com.shoppingmall.example.domain.Point;
 import com.shoppingmall.example.domain.Product;
 import com.shoppingmall.example.domain.UserInfo;
 import com.shoppingmall.example.service.BoardService;
 import com.shoppingmall.example.service.CategoryService;
 import com.shoppingmall.example.service.OrderService;
+import com.shoppingmall.example.service.PointService;
 import com.shoppingmall.example.service.ProductService;
 import com.shoppingmall.example.service.UserService;
 
@@ -86,6 +88,9 @@ public class AdminController {
 	@Autowired
 	OrderService orderService;
 
+	@Autowired
+	PointService pointService;
+	
 	
 	@GetMapping("/adminPage")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -120,6 +125,13 @@ public class AdminController {
 		userService.updateUser(userinfo);
 		List<UserInfo> userList = userService.shopping_readUser();
 		return new ResponseEntity<>(userList, HttpStatus.OK);
+	}
+	
+	//포인트정보 불러오기
+	@GetMapping("/point")
+	public ResponseEntity<?> point(){
+		List<Point> point = pointService.read_point();
+		return new ResponseEntity<>(point, HttpStatus.OK);
 	}
 	
 	//카테고리정보 불러오기

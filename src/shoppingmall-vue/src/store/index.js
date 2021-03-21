@@ -13,6 +13,7 @@ export default new Vuex.Store({
     sales_flag: 0,
     login_flag: 0, //로그인 성공시 1로 바뀌고 로그인 하지않았을 때나 로그아웃 시 0으로 바뀐다. 
     login_prev: 0,
+
     //user
     userlist_headers: [
       { text: '아이디', value: 'username'},
@@ -21,10 +22,21 @@ export default new Vuex.Store({
       { text: '주소', value: 'address'},
       { text: '전화번호', value: 'phone'},
       { text: '이메일', value: 'email'},
-      { text: '포인트', value: 'point'},
+      // { text: '포인트', value: 'point'},
       { text: '관리', value: 'management'},
     ],
     userlist:[],
+
+    //point
+    point_headers:[
+      { text:'아이디', value:'username'},
+      { text:'이름', value:'name'},
+      { text:'포인트내용', value:'content'},
+      { text:'포인트', value:'point'},
+      { text:'포인트합', value:'total_point'},
+    ],
+    point:[],
+
 
     //category
     category_headers: [
@@ -264,6 +276,19 @@ export default new Vuex.Store({
             }
           })
           .catch(Error => {
+            console.log('error')
+            reject(Error)
+        })
+      })
+    },
+    Point({commit}){
+      return new Promise((resolve,reject) => {
+        axios.get('http://localhost:9000/api/admin/point')
+        .then(Response => {
+            console.log(Response.data)
+            commit('SET_POINT', Response.data)
+        })
+        .catch(Error => {
             console.log('error')
             reject(Error)
         })

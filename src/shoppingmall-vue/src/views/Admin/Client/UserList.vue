@@ -20,19 +20,19 @@
               </span>
               <span v-else>{{row.item.password}}</span>
             </td>
-            <td>
+            <td style="width:100px;">
               <span v-if="temp == row.item.username">
                 <input :style="{width:'69px'}" v-model="name">
               </span>
               <span v-else>{{row.item.name}}</span>
             </td>
-            <td>
+            <td style="width:110px;">
               <span v-if="temp == row.item.username">
                 <input :style="{width:'104px'}" v-model="address">
               </span>
               <span v-else>{{row.item.address}}</span>
             </td>
-            <td>
+            <td style="width:130px;">
               <span v-if="temp == row.item.username">
                 <input :style="{width:'107px'}" v-model="phone">
               </span>
@@ -44,12 +44,12 @@
               </span>
               <span v-else>{{row.item.email}}</span>
             </td>
-            <td>
+            <!-- <td>
               <span v-if="temp == row.item.username">
                 <input :style="{width:'83px'}" v-model="point">
               </span>
               <span v-else>{{row.item.point}}</span>
-            </td>
+            </td> -->
             <td>
               <span v-if="temp != row.item.username">
               <v-card-actions class="justify-start">  
