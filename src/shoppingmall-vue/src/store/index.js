@@ -119,6 +119,9 @@ export default new Vuex.Store({
     SET_USER(state, data) {
         state.userlist = data      
     },
+    SET_POINT(state, data){
+        state.point = data
+    },
     SET_PRODUCT_LIST(state, data){
         state.productlist = data
     },

@@ -3,5 +3,16 @@
 <mapper namespace="com.shoppingmall.example.mapper.PointMapper">
 
 
+	<select id="read_point" parameterType="Point" resultType="Point">
+		SELECT        	user_id                as   username,
+						user_name              as   name,
+						po_content             as   content,
+						po_point               as   point,
+						po_total_point         as   total_point
+						
+		FROM 			point 
+	</select>
+
+	 
 
 </mapper>
