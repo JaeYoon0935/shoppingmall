@@ -19,4 +19,19 @@ public class PointServiceImpl implements PointService {
 		return pointmapper.read_point();
 	}
 
+	@Override
+	public Point sumPointById(Point point) {
+		return pointmapper.sumPointById(point);
+	};
+	
+	@Override
+	public void createPoint(Point point) {
+		pointmapper.createPoint(point);
+	};
+	
+	
+	@Override
+	public Point checkId(Point point) {
+		return pointmapper.checkId(point);
+	};
 }

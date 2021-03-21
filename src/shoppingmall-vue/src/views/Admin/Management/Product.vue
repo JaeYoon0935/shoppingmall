@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <v-row>
-      <v-col><h2 class="pt-2">상품관리</h2></v-col>
+      <v-col style="padding-top:0px; padding-bottom:20px;"><h2 class="pt-2">상품관리</h2></v-col>
       <v-col class="mr-7 mt-4">
         <v-btn color="indigo lighten-1" absolute right router :to="{name:'ProductRegistration'}">
           <span class="white--text">상품등록</span>

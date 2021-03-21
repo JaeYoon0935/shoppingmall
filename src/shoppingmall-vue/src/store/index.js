@@ -22,7 +22,6 @@ export default new Vuex.Store({
       { text: '주소', value: 'address'},
       { text: '전화번호', value: 'phone'},
       { text: '이메일', value: 'email'},
-      // { text: '포인트', value: 'point'},
       { text: '관리', value: 'management'},
     ],
     userlist:[],
@@ -33,7 +32,8 @@ export default new Vuex.Store({
       { text:'이름', value:'name'},
       { text:'포인트내용', value:'content'},
       { text:'포인트', value:'point'},
-      { text:'포인트합', value:'total_point'},
+      { text:'일시', value:'date'},
+      { text:'포인트총계', value:'total_point'},
     ],
     point:[],
 
@@ -120,6 +120,22 @@ export default new Vuex.Store({
         state.userlist = data      
     },
     SET_POINT(state, data){
+        
+        for(var item=0; item <data.length; item++)  {
+
+          var part1 = data[item].date.slice(0,8);
+          var part2 = data[item].date.slice(9,15);
+          
+          var time = part1 + part2;
+          data[item].time = time
+        }
+  
+        function date_Sort(a, b) { 
+          return b.time - a.time;
+        }
+        //날짜 순으로 정렬
+        data.sort(date_Sort);
+
         state.point = data
     },
     SET_PRODUCT_LIST(state, data){
@@ -292,6 +308,25 @@ export default new Vuex.Store({
             commit('SET_POINT', Response.data)
         })
         .catch(Error => {
+            console.log('error')
+            reject(Error)
+        })
+      })
+    },
+    PointAdd({commit}, payload){
+      console.log(payload)
+      return new Promise((resolve,reject) => {
+        axios.post('http://localhost:9000/api/admin/pointadd',payload)
+        .then(Response => {
+          if(Response.data == 'success'){
+            console.log(Response.data)
+            router.push({name:'Point'})
+          }else{
+            alert('존재하지 않는 아이디입니다.');
+          }
+        })
+        .catch(Error =>{
+            alert('입력양식을 확인해주세요.');
             console.log('error')
             reject(Error)
         })

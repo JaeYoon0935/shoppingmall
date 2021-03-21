@@ -16,6 +16,7 @@ import ProductUpdate from '../views/Admin/Management/ProductUpdate.vue'
 import Admin from '../views/Admin.vue'
 import Login from '../views/Login/Login.vue'
 import Join from '../views/Login/Join.vue'
+import PointAdd from '../views/Admin/Client/PointAdd.vue'
 
 Vue.use(VueRouter)
 
@@ -55,7 +56,12 @@ const routes = [
       {
         path: 'point',
         name: 'Point',
-        component: Point
+        component: Point,
+      },
+      {
+        path: 'pointadd',
+        name: 'PointAdd',
+        component: PointAdd
       },
       {
         path: 'category',

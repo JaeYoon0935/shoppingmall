@@ -8,11 +8,72 @@
 						user_name              as   name,
 						po_content             as   content,
 						po_point               as   point,
-						po_total_point         as   total_point
+						po_total_point         as   total_point,
+						po_date                as   date
 						
 		FROM 			point 
 	</select>
 
+	 
+	 <select id="sumPointById" parameterType="Point" resultType="Point">
+	 
+		 SELECT 		sum(po_point)         as total_point,
+		 				user_name             as name
+		 FROM 			point 
+		 WHERE			user_id = #{username}
+	 
+	 
+	 </select>
+	 
+	 
+	 <select id="checkId" parameterType="Point" resultType="Point">
+	 
+	 	SELECT         user_id                 as username
+	 	FROM           user
+	 
+	 	WHERE          user_id = #{username}
+	 
+	 </select>
+	 
+	 
+	 
+	 <insert id="createPoint" parameterType="Point">
+	 
+	 	INSERT 		INTO    point(
+	 				user_id,
+	 				user_name,
+	 				po_content,
+	 				po_point,
+	 				po_total_point,
+	 				po_date
+	 	) VALUES(
+	 		#{username},
+	 		#{name},
+	 		#{content},
+	 		#{point},
+	 		#{total_point},
+	 		#{date}
+	 	)
+	  
+	 </insert>
+	 
+	 
+	 	<!-- id로 입력한 값이 product_img에도 id로 일단은 입력되도록 설정함. -->
+	<insert id="createImage" parameterType="Product" >      
+		INSERT INTO product_img (
+			p_id, 
+			pi_image, 
+			pi_id,
+			pi_unique
+		) VALUES (
+			#{id}, 
+			#{image}, 
+			#{id},
+			#{unique}
+		)
+	</insert>
+	 
+	 
 	 
 
 </mapper>

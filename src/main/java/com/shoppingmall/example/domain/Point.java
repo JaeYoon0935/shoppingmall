@@ -8,7 +8,15 @@ public class Point {
 	public String content; //po_content
 	public String point; //po_point
 	public String total_point;  //po_total_point
+	public String date; // po_date
 	
+	
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	public int getPo_id() {
 		return po_id;
 	}
