@@ -103,6 +103,7 @@ public class AdminController {
 	//회원정보 불러오기
 	//단순 조회기능은 모든 사용자에게 권한을 부여해준다.
 	@GetMapping("/userlist")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> read_user(){
 		List<UserInfo> userList = userService.shopping_readUser();		
 		//이 부분 나중에 ResponseEntity<>를 사용하도록 고치기.

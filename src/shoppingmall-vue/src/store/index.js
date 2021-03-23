@@ -193,6 +193,8 @@ export default new Vuex.Store({
                   commit('SET_USER', Response.data)
               })
               .catch(Error => {
+                  router.push({ name: 'Admin' })
+                  alert('사용권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })
@@ -238,7 +240,7 @@ export default new Vuex.Store({
       }
     },
     Login({commit},payload){
-      //시큐리티로 부터 받아온 토큰을 여기에 저장해줘야 한다.
+      //시큐리티로부터 받아온 토큰을 여기에 저장해줘야 한다.
       // 1. 시큐리티로 받아온 토큰을 저장해준다.
       // 2. 로그인에 쓰인 아이디에 해당 유저를 불러오면서 그 아이디에 토큰을 심어준다.
       //    즉 토큰을 헤더에 포함시켜서 유저정보를 요청한다.
