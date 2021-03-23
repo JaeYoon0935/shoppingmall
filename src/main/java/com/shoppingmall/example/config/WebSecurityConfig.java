@@ -61,6 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and() 
 			//해당 경로 모두 허용
 			.authorizeRequests().antMatchers("/api/auth/**").permitAll()
+			.antMatchers("/api/auth/getuser/**").permitAll()
 			.antMatchers("/api/test/**").permitAll()
 			.antMatchers("/api/admin/**").permitAll()
 			.antMatchers("/api/**").permitAll()

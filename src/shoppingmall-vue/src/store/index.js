@@ -11,7 +11,7 @@ export default new Vuex.Store({
     temp: 12345678911, //temp에 우선 쓰레기값 넣어놓음.
     all: '전체',
     sales_flag: 0,
-    login_flag: 0, //로그인 성공시 1로 바뀌고 로그인 하지않았을 때나 로그아웃 시 0으로 바뀐다. 
+    login_flag: false, //로그인 성공시 1로 바뀌고 로그인 하지않았을 때나 로그아웃 시 0으로 바뀐다. 
     login_prev: 0,
 
     //user
@@ -114,7 +114,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_LOGIN(state){
-        state.login_flag = 1
+        state.login_flag = true
     },
     SET_USER(state, data) {
         state.userlist = data      
@@ -238,22 +238,38 @@ export default new Vuex.Store({
       }
     },
     Login({commit},payload){
+      //시큐리티로 부터 받아온 토큰을 여기에 저장해줘야 한다.
+      // 1. 시큐리티로 받아온 토큰을 저장해준다.
+      // 2. 로그인에 쓰인 아이디에 해당 유저를 불러오면서 그 아이디에 토큰을 심어준다.
+      //    즉 토큰을 헤더에 포함시켜서 유저정보를 요청한다.
         console.log(payload)
         return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/auth/signin',payload)
               .then(Response => {
-                  console.log(Response.data) 
-                  commit('SET_LOGIN')     
-                  console.log(this.state.login_prev)
-                  if(this.state.login_prev == 0){
-                    router.push({ name: 'Home' })   
+                console.log(Response) 
+                  // payload와 비슷하게 웹에서 config라고 하면 보안과 관련된
+                  // 헤더나 옵션을 설정해줄수 있다. config는 헤더값을 설정해줄수 있고
+                  // 우리는 헤더 내에 토큰을 포함시키려 하기 때문에 config를 사용하는 것이다.
+                  let token = Response.data.token
+                  let config = {
+                      headers:{
+                        "access-token":token
+                      }
                   }
-                  else if(this.state.login_prev == 1){
-                    router.push({ name: 'Home' })   
-                  }
-                  else if(this.state.login_prev == 2){
-                    router.push({ name: 'Admin' })
-                  }   
+                  console.log(Response.data.username)
+                  //get방식에 쿼리스트링으로 위에서 받아온 아이디를 넘겨주도록 한다.
+                  axios.get('http://localhost:9000/api/auth/getuser?username='+ Response.data.username, config)
+                  .then(res => {
+                    let userInfo = {
+                      id:Response.data.username,
+                      username:Response.data.name
+                    }
+                    console.log(res)
+                  })
+                  .catch(err => {
+                    console.log(err)
+                  })
+                  console.log(Response) 
               })
               .catch(Error => {
                   alert('아이디 또는 비밀번호를 확인해주세요.')
@@ -262,6 +278,31 @@ export default new Vuex.Store({
               })
       })
     },
+    // Login({commit},payload){
+    //     console.log(payload)
+    //     return new Promise((resolve, reject) => {
+    //       axios.post('http://localhost:9000/api/auth/signin',payload)
+    //           .then(Response => {
+    //               console.log(Response.data) 
+    //               commit('SET_LOGIN')     
+    //               console.log(this.state.login_prev)
+    //               if(this.state.login_prev == 0){
+    //                 router.push({ name: 'Home' })   
+    //               }
+    //               else if(this.state.login_prev == 1){
+    //                 router.push({ name: 'Home' })   
+    //               }
+    //               else if(this.state.login_prev == 2){
+    //                 router.push({ name: 'Admin' })
+    //               }   
+    //           })
+    //           .catch(Error => {
+    //               alert('아이디 또는 비밀번호를 확인해주세요.')
+    //               console.log('error')
+    //               reject(Error)
+    //           })
+    //   })
+    // },
     Join({commit},payload){
         console.log(payload)
         return new Promise((resolve, reject) => {

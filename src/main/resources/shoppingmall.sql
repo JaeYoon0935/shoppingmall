@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 
 -- 테이블 데이터 shoppingmall.category:~20 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT IGNORE INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
+INSERT INTO `category` (`cg_id`, `cg_name`, `cg_product_count`) VALUES
 	(0, '전체', 9999999),
 	(20, '거실등', 4),
 	(30, '식탁등', 4),
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 
 -- 테이블 데이터 shoppingmall.orders:~7 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT IGNORE INTO `orders` (`o_id`, `o_date`, `o_total_price`, `o_state`, `user_id`) VALUES
+INSERT INTO `orders` (`o_id`, `o_date`, `o_total_price`, `o_state`, `user_id`) VALUES
 	(1, '2020-12-23', NULL, '배송중', 'jy0935'),
 	(2, '2020-12-25', NULL, '배송완료', 'jy1234'),
 	(3, '2021-01-16', NULL, '배송중', 'jy0935'),
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `order_detail` (
 
 -- 테이블 데이터 shoppingmall.order_detail:~13 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
-INSERT IGNORE INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
+INSERT INTO `order_detail` (`od_id`, `od_price`, `od_count`, `o_id`, `p_id`) VALUES
 	(1, 200000, 2, 1, 1),
 	(2, 70000, 2, 1, 2),
 	(3, 70000, 4, 1, 3),
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `point` (
 
 -- 테이블 데이터 shoppingmall.point:~8 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `point` DISABLE KEYS */;
-INSERT IGNORE INTO `point` (`po_id`, `user_id`, `user_name`, `po_content`, `po_point`, `po_total_point`, `po_date`) VALUES
+INSERT INTO `point` (`po_id`, `user_id`, `user_name`, `po_content`, `po_point`, `po_total_point`, `po_date`) VALUES
 	(1, 'jy0935', '주문자1', '회원가입 축하', 1000, 1000, '20210101_1530429'),
 	(2, 'jy1234', '주문자2', '회원가입 축하', 1000, 1000, '20210101_1936429'),
 	(3, 'jy1234', '주문자2', '테스트 1', 1000, 2000, '20210221_1936429'),
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 -- 테이블 데이터 shoppingmall.product:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT IGNORE INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`, `p_text`) VALUES
+INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `p_quantity`, `p_order_count`, `p_rank`, `p_category`, `p_views`, `p_text`) VALUES
 	(1, '거실등 1', 200000, 3, 30, NULL, 2011, 5, '30평형 거실등 입니다.'),
 	(2, '방등', 70000, 2, 35, NULL, 4011, 4, '소형 방등 입니다.'),
 	(3, '형광등 스탠드', 70000, 3, 20, NULL, 6021, 2, '일반 형광등 스탠드입니다.'),
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `product_img` (
 
 -- 테이블 데이터 shoppingmall.product_img:~9 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `product_img` DISABLE KEYS */;
-INSERT IGNORE INTO `product_img` (`pi_id`, `pi_image`, `p_id`, `pi_unique`) VALUES
+INSERT INTO `product_img` (`pi_id`, `pi_image`, `p_id`, `pi_unique`) VALUES
 	(1, '20210208_1735562.jpg', 1, '20210209_1658426'),
 	(2, 'roomLamp', 2, '20210208_1235562'),
 	(3, 'lightStand', 3, '20210205_1622562'),
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 -- 테이블 데이터 shoppingmall.user:~5 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT IGNORE INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
+INSERT INTO `user` (`user_id`, `user_password`, `user_name`, `user_address`, `user_phone`, `user_email`, `user_point`, `user_datetime`, `user_isAccountNonExpired`, `user_isAccountNonLocked`, `user_isCredentialNonExpired`, `user_isEnabled`) VALUES
 	('jy0935', '$2a$10$w.e6J3Syz9ImcY5VxbTvI.s4Izi8z/nY6s5Yr.fAUPZSbPO/D.0AS', '주문자1', '대구시 동구', '010-2345-5416', 'abc@naver.com', 1000, NULL, 1, 1, 1, 1),
 	('jy1234', '1234', '주문자2', '대구시 서구', '010-1111-1234', 'abced@naver.com', 500000, NULL, 1, 1, 1, 1),
 	('jy12345', '4234', '이모씨', '대구시 수성구', '010-1111-1234', 'fruit@naver.com', 1000, NULL, 1, 1, 1, 1),
@@ -206,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `userauth` (
 
 -- 테이블 데이터 shoppingmall.userauth:~22 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `userauth` DISABLE KEYS */;
-INSERT IGNORE INTO `userauth` (`user_auth`, `user_id`) VALUES
+INSERT INTO `userauth` (`user_auth`, `user_id`) VALUES
 	('ROLE_ADMIN', 'jy0935'),
 	('ROLE_USER', 'jy1234'),
 	('ROLE_USER', 'jy9871'),

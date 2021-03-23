@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shoppingmall.example.config.JwtUtils;
@@ -57,6 +58,17 @@ public class AuthController {
 	
 	@Autowired
 	PointService pointService;
+	
+	
+	@GetMapping("/getuser")
+	public ResponseEntity<?> getuser(@RequestParam String username){
+		
+		System.out.println(username);
+		
+		return new ResponseEntity<>("success", HttpStatus.OK);
+	}
+	
+	
 	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest){
@@ -123,33 +135,7 @@ public class AuthController {
 		}else{
 			return new ResponseEntity<>("duplicate", HttpStatus.OK);
 		}
-		
-		
-//		if(userService.duplicate(user) == null) {
-//			String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
-//			
-//			user.setUsername(user.getUsername());
-//			user.setName(user.getName());
-//			user.setPassword(encodedPassword);
-//			user.setPhone(user.getPhone());
-//			user.setAddress(user.getAddress());
-//			user.setEmail(user.getEmail());
-//			user.setAccountNonExpired(true);
-//			user.setEnabled(true);
-//			user.setAccountNonLocked(true);
-//			user.setCredentialsNonExpired(true);
-//			user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
-//			
-//			result = userService.createUser(user);
-//			userService.createAuthority(user);
-//			
-//			System.out.println("테스트 + " + result);
-//			
-//			return new ResponseEntity<>("success", HttpStatus.OK);
-//		}else{
-//			return new ResponseEntity<>("duplicate", HttpStatus.OK);
-//		}
-		
+	
 	}
 	
 	@PostMapping("/duplicate")
