@@ -88,7 +88,7 @@ public class AuthController {
 		int result = 0;
 		
 		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");	 
 	    String date = dateFormat.format(cal.getTime());
 		
 		

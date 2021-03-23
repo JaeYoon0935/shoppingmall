@@ -147,7 +147,7 @@ public class AdminController {
 			sum = pointService.sumPointById(point);
 			
 			Calendar cal = Calendar.getInstance();
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");	 
 		    String date = dateFormat.format(cal.getTime());
 			
 			int temp_total = Integer.parseInt(sum.getTotal_point()) + Integer.parseInt(point.getPoint()); 
