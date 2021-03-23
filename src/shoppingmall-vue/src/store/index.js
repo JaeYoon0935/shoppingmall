@@ -33,7 +33,7 @@ export default new Vuex.Store({
       { text:'포인트내용', value:'content'},
       { text:'포인트', value:'point'},
       { text:'일시', value:'date'},
-      { text:'포인트총계', value:'total_point'},
+      { text:'포인트합계', value:'total_point'},
     ],
     point:[],
 

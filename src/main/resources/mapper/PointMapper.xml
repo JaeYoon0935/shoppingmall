@@ -58,6 +58,26 @@
 	 </insert>
 	 
 	 
+	 <insert id="join" parameterType="User">
+	 	INSERT 		INTO    point(
+	 				user_id,
+	 				user_name,
+	 				po_content,
+	 				po_point,
+	 				po_total_point,
+	 				po_date
+	 	) VALUES(
+	 		#{username},
+	 		#{name},
+	 		'회원가입 축하',
+	 		1000,
+	 		1000,
+	 		#{date}
+	 	)  
+	 </insert>
+	 
+	 
+	 
 	 	<!-- id로 입력한 값이 product_img에도 id로 일단은 입력되도록 설정함. -->
 	<insert id="createImage" parameterType="Product" >      
 		INSERT INTO product_img (

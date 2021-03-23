@@ -44,12 +44,6 @@
               </span>
               <span v-else>{{row.item.email}}</span>
             </td>
-            <!-- <td>
-              <span v-if="temp == row.item.username">
-                <input :style="{width:'83px'}" v-model="point">
-              </span>
-              <span v-else>{{row.item.point}}</span>
-            </td> -->
             <td>
               <span v-if="temp != row.item.username">
               <v-card-actions class="justify-start">  
@@ -87,7 +81,6 @@ import { mapState, mapActions } from "vuex"
         address:'',
         phone:'',
         email:'',
-        point:'',
       }
     },
     computed: {
@@ -105,7 +98,6 @@ import { mapState, mapActions } from "vuex"
          this.address = userinfo.address
          this.phone = userinfo.phone
          this.email = userinfo.email
-         this.point = userinfo.point
         },
         Update_cancle: function(){
         this.temp=0  

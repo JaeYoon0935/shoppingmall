@@ -137,8 +137,6 @@ public class AdminController {
 	//포인트 내역추가
 	@PostMapping("/pointadd")
 	public ResponseEntity<?> pointadd(@Validated @RequestBody Point point){
-
-		//없는 회원 아이디로 추가하면 오류내도록 한다.
 		
 		//회원 아이디가 없는 경우 에러를 반환한다.
 		if(pointService.checkId(point) == null) {
@@ -148,28 +146,20 @@ public class AdminController {
 			Point sum = new Point();
 			sum = pointService.sumPointById(point);
 			
-			
 			Calendar cal = Calendar.getInstance();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
 		    String date = dateFormat.format(cal.getTime());
 			
-			
 			int temp_total = Integer.parseInt(sum.getTotal_point()) + Integer.parseInt(point.getPoint()); 
 			String total = Integer.toString(temp_total);
-			
-			
+					
 			point.setDate(date);
 			point.setTotal_point(total);
 			point.setName(sum.getName());
 
 			pointService.createPoint(point);
-
 			
-			// 잘했다. 이제 날짜 추가하고 날짜순으로 정렬시켜주면 대략 끝난다.
-			
-			
-			return new ResponseEntity<>("success", HttpStatus.OK);
-			
+			return new ResponseEntity<>("success", HttpStatus.OK);			
 		}
 	}
 	

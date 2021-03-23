@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.shoppingmall.example.domain.Point;
+import com.shoppingmall.example.domain.User;
 import com.shoppingmall.example.mapper.PointMapper;
 
 @Service("PointServiceImpl")
@@ -33,5 +34,10 @@ public class PointServiceImpl implements PointService {
 	@Override
 	public Point checkId(Point point) {
 		return pointmapper.checkId(point);
+	};
+	
+	@Override
+	public void join(User user) {
+		pointmapper.join(user);
 	};
 }

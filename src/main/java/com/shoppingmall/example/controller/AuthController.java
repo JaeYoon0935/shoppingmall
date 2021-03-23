@@ -1,5 +1,7 @@
 package com.shoppingmall.example.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,13 +31,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shoppingmall.example.config.JwtUtils;
 import com.shoppingmall.example.domain.User;
 import com.shoppingmall.example.domain.UserInfo;
-import com.shoppingmall.example.request.JoinRequest;
 import com.shoppingmall.example.request.LoginRequest;
 import com.shoppingmall.example.response.JwtResponse;
+import com.shoppingmall.example.service.PointService;
 import com.shoppingmall.example.service.UserService;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 
 @CrossOrigin(origins= "*", maxAge = 3600)
 @RestController
@@ -54,6 +53,10 @@ public class AuthController {
 	
 	@Autowired
 	UserService userService;
+	
+	
+	@Autowired
+	PointService pointService;
 	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest){
@@ -82,6 +85,13 @@ public class AuthController {
 	@PostMapping("/signup")
 		public ResponseEntity<?> sinupUser(@Validated @RequestBody User user){
 		
+		int result = 0;
+		
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmSS");	 
+	    String date = dateFormat.format(cal.getTime());
+		
+		
 		if(userService.duplicate(user) == null) {
 			String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
 			
@@ -97,13 +107,48 @@ public class AuthController {
 			user.setCredentialsNonExpired(true);
 			user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
 			
-			userService.createUser(user);
+			user.setDate(date); //회원가입 축하 포인트에 사용될 날짜
+			
+			
+			result = userService.createUser(user);
 			userService.createAuthority(user);
+			
+			//회원가입이 성공 되었을 때만, 회원가입 축하 포인트를 줌.
+			if(result == 1) {
+				// 회원가입 축하 포인트 주는 로직 작성하기.
+				pointService.join(user);			
+			}
 			
 			return new ResponseEntity<>("success", HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>("duplicate", HttpStatus.OK);
 		}
+		
+		
+//		if(userService.duplicate(user) == null) {
+//			String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+//			
+//			user.setUsername(user.getUsername());
+//			user.setName(user.getName());
+//			user.setPassword(encodedPassword);
+//			user.setPhone(user.getPhone());
+//			user.setAddress(user.getAddress());
+//			user.setEmail(user.getEmail());
+//			user.setAccountNonExpired(true);
+//			user.setEnabled(true);
+//			user.setAccountNonLocked(true);
+//			user.setCredentialsNonExpired(true);
+//			user.setAuthorities(AuthorityUtils.createAuthorityList("ROLE_USER"));
+//			
+//			result = userService.createUser(user);
+//			userService.createAuthority(user);
+//			
+//			System.out.println("테스트 + " + result);
+//			
+//			return new ResponseEntity<>("success", HttpStatus.OK);
+//		}else{
+//			return new ResponseEntity<>("duplicate", HttpStatus.OK);
+//		}
 		
 	}
 	

@@ -40,21 +40,13 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapState} from "vuex"
   export default {
     created(){
       this.$store.dispatch('Point')
     },
-    data() {
-      return {     
-        new_username: '',
-        password: '',
-
-      }
-    },
     computed: {
       ...mapState(["point","point_headers"]),
-
     },
     methods:{
       date(time){
@@ -65,6 +57,5 @@ import { mapState, mapActions } from "vuex"
          return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       },
     }
-
   }
 </script>

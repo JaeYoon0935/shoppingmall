@@ -25,7 +25,20 @@ public class User implements UserDetails{
 	private Boolean isCredentialsNonExpired;
 	private Boolean isEnabled;
 
+	private String date; // 회원가입시 회원가입 축하 포인트를 줄때 사용할 날짜.
+
 	private List<User> user_map;
+	
+	
+	
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public String getEmail() {
 		return email;

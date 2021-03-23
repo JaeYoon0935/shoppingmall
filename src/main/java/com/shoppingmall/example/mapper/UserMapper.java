@@ -17,7 +17,7 @@ public interface UserMapper {
 	
 	public List<GrantedAuthority> readAuthorities_refresh(String username);
 	
-	public void createUser(User user);
+	public int createUser(User user);
 	
 	public List<UserInfo>read_user_list();
 	

@@ -40,9 +40,9 @@ public class UserServiceImpl implements UserService{
 		return authorities;
 	}
 
-	 @Override
-	   public void createUser(User user) {
-	      userMapper.createUser(user);
+	@Override
+	public int createUser(User user) {
+	     return userMapper.createUser(user);
 	   }
 
 	@Override

@@ -106,9 +106,9 @@ CREATE TABLE IF NOT EXISTS `point` (
   `po_total_point` int(255) DEFAULT NULL,
   `po_date` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`po_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 shoppingmall.point:~6 rows (대략적) 내보내기
+-- 테이블 데이터 shoppingmall.point:~8 rows (대략적) 내보내기
 /*!40000 ALTER TABLE `point` DISABLE KEYS */;
 INSERT IGNORE INTO `point` (`po_id`, `user_id`, `user_name`, `po_content`, `po_point`, `po_total_point`, `po_date`) VALUES
 	(1, 'jy0935', '주문자1', '회원가입 축하', 1000, 1000, '20210101_1530429'),
@@ -117,7 +117,8 @@ INSERT IGNORE INTO `point` (`po_id`, `user_id`, `user_name`, `po_content`, `po_p
 	(4, 'jy1234', '주문자2', '테스트 21', 1000, 3000, '20210310_1936429'),
 	(5, 'jy0935', '주문자1', '테스트33', 1000, 2000, '20210321_1936429'),
 	(33, 'jy0935', '주문자1', '테스트333', 50000, 52000, '20210321_2111538'),
-	(34, 'jy1234', '주문자2', '포인트 테스트', 2500, 5500, '20210321_211217');
+	(34, 'jy1234', '주문자2', '포인트 테스트', 2500, 5500, '20210321_211217'),
+	(35, 'jy0935', '주문자1', '테스트111', 5000, 57000, '20210322_2132270');
 /*!40000 ALTER TABLE `point` ENABLE KEYS */;
 
 -- 테이블 shoppingmall.product 구조 내보내기
