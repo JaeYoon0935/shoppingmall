@@ -243,45 +243,20 @@ export default new Vuex.Store({
         return;
       }
     },
-    Login({commit},payload){
-      //시큐리티로부터 받아온 토큰을 여기에 저장해줘야 한다.
-      // 1. 시큐리티로 받아온 토큰을 저장해준다.
-      // 2. 로그인에 쓰인 아이디에 해당 유저를 불러오면서 그 아이디에 토큰을 심어준다.
-      //    즉 토큰을 헤더에 포함시켜서 유저정보를 요청한다.
+    Login({dispatch},payload){
         return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/auth/signin',payload)
               .then(Response => {
                 console.log(Response) 
-                  // payload와 비슷하게 웹에서 config라고 하면 보안과 관련된
-                  // 헤더나 옵션을 설정해줄수 있다. config는 헤더값을 설정해줄수 있고
-                  // 우리는 헤더 내에 토큰을 포함시키려 하기 때문에 config를 사용하는 것이다.
+                  //토큰을 헤더에 포함시켜서 유저정보를 요청하는 부분
                   let token = Response.data.token
-                  let config = {
-                      headers:{
-                        "access-token":token
-                      }
-                  }
-                  //get방식에 쿼리스트링으로 위에서 받아온 아이디를 넘겨주도록 한다.
-                  axios.get('http://localhost:9000/api/auth/getuser?username='+ Response.data.username, config)
-                  .then(() => {
-                    let userInfo = {
-                      id:Response.data.username,
-                      username:Response.data.name
-                    }
-                    commit('SET_LOGIN', userInfo)
-                    if(this.state.login_prev == 0){
-                      router.push({ name: 'Home' })   
-                    }
-                    else if(this.state.login_prev == 1){
-                      router.push({ name: 'Home' })   
-                    }
-                    else if(this.state.login_prev == 2){
-                      router.push({ name: 'Admin' })
-                    }
-                  })
-                  .catch(() => {
-                    alert('아이디 또는 비밀번호를 확인해주세요.')
-                  })  
+                  let id = Response.data.username
+                  let username = Response.data.name
+                  //토큰을 로컬스토리지에 저장
+                  localStorage.setItem("access_token",token)
+                  localStorage.setItem("id",id)
+                  localStorage.setItem("username",username)
+                  dispatch("getMemberInfo")
               })
               .catch(Error => {
                   alert('아이디 또는 비밀번호를 확인해주세요.')
@@ -290,6 +265,35 @@ export default new Vuex.Store({
               })
       })
     },
+    getMemberInfo({commit}){
+        let token = localStorage.getItem("access_token");
+        let id = localStorage.getItem("id");
+        let username = localStorage.getItem("username");
+        let config = {
+          headers:{
+            "access-token": token
+            }
+          }
+          // 토큰 -> 멤버정보 반환
+                      // 새로고침 -> 토큰만 가지고 멤버정보를 요청
+          axios.get('http://localhost:9000/api/auth/getuser?username='+ id, config)
+          .then(() => {
+            let userInfo = {
+              id:id,
+              username:username
+            }
+            commit('SET_LOGIN', userInfo)
+            if(this.state.login_prev == 0){
+              router.push({ name: 'Home' })   
+            }
+            else if(this.state.login_prev == 1){
+              router.push({ name: 'Home' })   
+            }
+            else if(this.state.login_prev == 2){
+              router.push({ name: 'Admin' })
+            }
+        })
+      },
     // Login({commit},payload){
     //     console.log(payload)
     //     return new Promise((resolve, reject) => {
