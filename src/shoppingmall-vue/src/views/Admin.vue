@@ -108,10 +108,8 @@
            <v-btn color="#CACACA" class= "ml-3" router :to="{name: 'Login'}">로그인</v-btn>
           </span>
           <span style="padding-left:0px;" v-else>
-            <v-btn color="#CACACA" class="ml-3" @click="logOut()">로그아웃</v-btn>
+            <v-btn color="#CACACA" class="ml-3" @click="LogOut()">로그아웃</v-btn>
           </span>
-<!-- 
-          <v-btn color="#CACACA" class= "ml-5" router :to="{name: 'Login'}"> <span>로그인</span> </v-btn> -->
           <v-btn color="indigo lighten-1" class="mr-15" absolute right  router :to="{name: 'Home'}"> <span class="white--text">홈페이지로 이동</span> </v-btn>
         </v-toolbar-title>
     </v-app-bar>
@@ -148,6 +146,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex"
   export default {
     created(){
       this.$store.state.login_prev = 2;
@@ -170,9 +169,10 @@
       ],
     }),
     methods:{
-      logOut(){
-        this.$store.state.login_flag = 0;
-      },
+      ...mapActions(["LogOut"]),
+      // logOut(){
+      //   this.$store.state.login_flag = 0;
+      // },
     },
   }
 </script>

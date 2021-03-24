@@ -25,9 +25,9 @@ export default new Vuex.Store({
       { text: '관리', value: 'management'},
     ],
     userlist:[],
-
-    userInfo: null, //로그인 된 사용자의 정보
-
+    
+    //로그인 된 사용자의 정보
+    userInfo: null, 
 
     //point
     point_headers:[
@@ -119,6 +119,11 @@ export default new Vuex.Store({
     SET_LOGIN(state, payload){
         state.login_flag = true,
         state.userInfo = payload
+    },
+    SET_LOGOUT(state){
+        state.login_flag = false,
+        state.userInfo.id = null,
+        state.userInfo.username = null
     },
     SET_USER(state, data) {
         state.userlist = data      
@@ -252,10 +257,13 @@ export default new Vuex.Store({
                   let token = Response.data.token
                   let id = Response.data.username
                   let username = Response.data.name
+                  let login = 1
                   //토큰을 로컬스토리지에 저장
                   localStorage.setItem("access_token",token)
                   localStorage.setItem("id",id)
                   localStorage.setItem("username",username)
+                  //로그인 상태 
+                  localStorage.setItem("login", login)
                   dispatch("getMemberInfo")
               })
               .catch(Error => {
@@ -266,33 +274,46 @@ export default new Vuex.Store({
       })
     },
     getMemberInfo({commit}){
-        let token = localStorage.getItem("access_token");
-        let id = localStorage.getItem("id");
-        let username = localStorage.getItem("username");
-        let config = {
-          headers:{
-            "access-token": token
+        //이 부분은 뷰가 실행될 때 함께 실행되는 부분이다.
+        //로그인 시에 새로고침 기능을 위한 부분이다.
+        //로그인 플래그를 사용해서 로그인 플래그가 1이면 로그인 상태를 유지시켜주고
+        //로그아웃을 클릭하면 로그인 플래그를 0으로 만들어줘서 이 메서드를 실행시키지 말아야 한다.
+        let login = localStorage.getItem("login");
+        if(login == 1){
+          let token = localStorage.getItem("access_token");
+          let id = localStorage.getItem("id");
+          let username = localStorage.getItem("username");
+          let config = {
+            headers:{
+              "access-token": token
+              }
             }
-          }
-          // 토큰 -> 멤버정보 반환
-                      // 새로고침 -> 토큰만 가지고 멤버정보를 요청
-          axios.get('http://localhost:9000/api/auth/getuser?username='+ id, config)
-          .then(() => {
-            let userInfo = {
-              id:id,
-              username:username
-            }
-            commit('SET_LOGIN', userInfo)
-            if(this.state.login_prev == 0){
-              router.push({ name: 'Home' })   
-            }
-            else if(this.state.login_prev == 1){
-              router.push({ name: 'Home' })   
-            }
-            else if(this.state.login_prev == 2){
-              router.push({ name: 'Admin' })
-            }
-        })
+            // 토큰 -> 멤버정보 반환
+                        // 새로고침 -> 토큰만 가지고 멤버정보를 요청
+            axios.get('http://localhost:9000/api/auth/getuser?username='+ id, config)
+            .then(() => {
+              let userInfo = {
+                id:id,
+                username:username
+              }
+              commit('SET_LOGIN', userInfo)
+              if(this.state.login_prev == 0){
+                router.push({ name: 'Home' })   
+              }
+              else if(this.state.login_prev == 1){
+                router.push({ name: 'Home' })   
+              }
+              else if(this.state.login_prev == 2){
+                router.push({ name: 'Admin' })
+              }
+          })
+        }
+        
+      },
+      LogOut({commit}){
+        let login = 0;
+        localStorage.setItem("login", login)
+        commit('SET_LOGOUT')
       },
     // Login({commit},payload){
     //     console.log(payload)
