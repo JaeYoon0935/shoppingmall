@@ -32,6 +32,42 @@ public class User implements UserDetails{
 	
 	
 	
+	public Boolean getIsAccountNonExpired() {
+		return isAccountNonExpired;
+	}
+
+	public void setIsAccountNonExpired(Boolean isAccountNonExpired) {
+		this.isAccountNonExpired = isAccountNonExpired;
+	}
+
+	public Boolean getIsAccountNonLocked() {
+		return isAccountNonLocked;
+	}
+
+	public void setIsAccountNonLocked(Boolean isAccountNonLocked) {
+		this.isAccountNonLocked = isAccountNonLocked;
+	}
+
+	public Boolean getIsCredentialsNonExpired() {
+		return isCredentialsNonExpired;
+	}
+
+	public void setIsCredentialsNonExpired(Boolean isCredentialsNonExpired) {
+		this.isCredentialsNonExpired = isCredentialsNonExpired;
+	}
+
+	public Boolean getIsEnabled() {
+		return isEnabled;
+	}
+
+	public void setIsEnabled(Boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public String getDate() {
 		return date;
 	}
@@ -73,13 +109,13 @@ public class User implements UserDetails{
 	}
 
 
-	@Override
-	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", name=" + name + ", phone=" + phone
-				+ ", uDateTime=" + uDateTime + ", authorities=" + authorities + ", isAccountNonExpired="
-				+ isAccountNonExpired + ", isAccountNonLocked=" + isAccountNonLocked + ", isCredentialsNonExpired="
-				+ isCredentialsNonExpired + ", isEnabled=" + isEnabled + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "User [username=" + username + ", password=" + password + ", name=" + name + ", phone=" + phone
+//				+ ", uDateTime=" + uDateTime + ", authorities=" + authorities + ", isAccountNonExpired="
+//				+ isAccountNonExpired + ", isAccountNonLocked=" + isAccountNonLocked + ", isCredentialsNonExpired="
+//				+ isCredentialsNonExpired + ", isEnabled=" + isEnabled + "]";
+//	}
 
 	public String getuDateTime() {
 		return uDateTime;

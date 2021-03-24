@@ -26,6 +26,9 @@ export default new Vuex.Store({
     ],
     userlist:[],
 
+    userInfo: null, //로그인 된 사용자의 정보
+
+
     //point
     point_headers:[
       { text:'아이디', value:'username'},
@@ -113,8 +116,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    SET_LOGIN(state){
-        state.login_flag = true
+    SET_LOGIN(state, payload){
+        state.login_flag = true,
+        state.userInfo = payload
     },
     SET_USER(state, data) {
         state.userlist = data      
@@ -244,7 +248,6 @@ export default new Vuex.Store({
       // 1. 시큐리티로 받아온 토큰을 저장해준다.
       // 2. 로그인에 쓰인 아이디에 해당 유저를 불러오면서 그 아이디에 토큰을 심어준다.
       //    즉 토큰을 헤더에 포함시켜서 유저정보를 요청한다.
-        console.log(payload)
         return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/auth/signin',payload)
               .then(Response => {
@@ -258,20 +261,27 @@ export default new Vuex.Store({
                         "access-token":token
                       }
                   }
-                  console.log(Response.data.username)
                   //get방식에 쿼리스트링으로 위에서 받아온 아이디를 넘겨주도록 한다.
                   axios.get('http://localhost:9000/api/auth/getuser?username='+ Response.data.username, config)
-                  .then(res => {
+                  .then(() => {
                     let userInfo = {
                       id:Response.data.username,
                       username:Response.data.name
                     }
-                    console.log(res)
+                    commit('SET_LOGIN', userInfo)
+                    if(this.state.login_prev == 0){
+                      router.push({ name: 'Home' })   
+                    }
+                    else if(this.state.login_prev == 1){
+                      router.push({ name: 'Home' })   
+                    }
+                    else if(this.state.login_prev == 2){
+                      router.push({ name: 'Admin' })
+                    }
                   })
-                  .catch(err => {
-                    console.log(err)
-                  })
-                  console.log(Response) 
+                  .catch(() => {
+                    alert('아이디 또는 비밀번호를 확인해주세요.')
+                  })  
               })
               .catch(Error => {
                   alert('아이디 또는 비밀번호를 확인해주세요.')

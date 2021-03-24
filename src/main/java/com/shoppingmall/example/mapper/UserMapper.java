@@ -37,4 +37,7 @@ public interface UserMapper {
 	//회원수정
 	public void updateUser(UserInfo userinfo);
 	
+	//로그인 시 사용자정보 조회
+	public UserInfo getUser(UserInfo user);
+	
 }

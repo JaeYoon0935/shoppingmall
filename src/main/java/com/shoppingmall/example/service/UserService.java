@@ -35,6 +35,9 @@ public interface UserService extends UserDetailsService{
 	//회원 정보 불러오기
 	public List<UserInfo> shopping_readUser();
 	
+	//로그인 시 사용자 정보 조회
+	public UserInfo getUser(UserInfo user);
+
 	//회원탈퇴
 	public void delete_user(String username);
 

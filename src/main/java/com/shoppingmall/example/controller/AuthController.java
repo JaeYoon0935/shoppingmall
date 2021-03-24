@@ -63,9 +63,30 @@ public class AuthController {
 	@GetMapping("/getuser")
 	public ResponseEntity<?> getuser(@RequestParam String username){
 		
+//		System.out.println(username);
+//		
+//		User param = new User();
+//		param.setUsername(username);
+//		
+//		User user = userService.getUser(param);
+//		System.out.println(user.toString());
+		
+//		return new ResponseEntity<>(user, HttpStatus.OK);
+//		이렇게 넘기니까 json 오류가 났다. 생각해보니 user객체는 시큐리티 때문에 User클래스에서 UserDetails를 implements하고 있다.
+//		그래서 UserDetails에 모든게 구현된게 아니기 때문에 그 하위클래스인 User클래스 객체를 넘기는 과정에서 오류가 발생한 것 같다.
+//		아 맞네...
+//      밑에 signin처럼 User Vo를 넘길때는 반환 형식이 틀려지네		
+		
+//		해결책으로 Vo를 User 대신 UserInfo를 사용해서 넘기도록 한다.		
+		
 		System.out.println(username);
 		
-		return new ResponseEntity<>("success", HttpStatus.OK);
+		UserInfo param = new UserInfo();
+		param.setUsername(username);
+		
+		UserInfo user = userService.getUser(param);
+		System.out.println(user.toString());
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	

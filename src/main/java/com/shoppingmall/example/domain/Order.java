@@ -64,10 +64,6 @@ public class Order {
 		this.product_map = product_map;
 	}
 
-	/*
-	 * public List<User> getUser_map() { return user_map; } public void
-	 * setUser_map(List<User> user_map) { this.user_map = user_map; }
-	 */
 	public List<Product_img> getProduct_img_map() {
 		return product_img_map;
 	}
@@ -153,6 +149,14 @@ public class Order {
 	}
 	public void setDateinfo(DateInfo dateinfo) {
 		this.dateinfo = dateinfo;
+	}
+	@Override
+	public String toString() {
+		return "Order [state=" + state + ", id=" + id + ", total_price=" + total_price + ", order_price=" + order_price
+				+ ", date=" + date + ", user_id=" + user_id + ", productList=" + productList + ", dateinfo=" + dateinfo
+				+ ", name=" + name + ", phone=" + phone + ", address=" + address + ", code=" + code + ", product="
+				+ product + ", price=" + price + ", image=" + image + ", orderdetail=" + orderdetail + ", user=" + user
+				+ ", product_map=" + product_map + ", product_img_map=" + product_img_map + "]";
 	}
 	
 	

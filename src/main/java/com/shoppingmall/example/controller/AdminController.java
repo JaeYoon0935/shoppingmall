@@ -417,7 +417,7 @@ public class AdminController {
 	public ResponseEntity<?> read_orderDetail(@Validated @RequestBody Order order){
 		System.out.println("order ID: "+ order.getId());
 		Order orderDetail = orderService.readOrderDetails(order);
-		System.out.println(orderDetail);
+		System.out.println(orderDetail.toString());
 		return new ResponseEntity<>(orderDetail, HttpStatus.OK);
 	}
 	

@@ -89,4 +89,10 @@ public class UserServiceImpl implements UserService{
 		return userMapper.duplicate(user);
 	}
 	
+	//로그인 시 사용자 정보 조회
+	@Override
+	public UserInfo getUser(UserInfo user) {
+		return userMapper.getUser(user);
+	}
+	
 }

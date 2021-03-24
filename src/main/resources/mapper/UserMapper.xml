@@ -9,6 +9,17 @@
     	AND				user_id = #{username}
     </select>
 
+
+	<!-- 로그인 시 사용자 조회 -->
+	<select id="getUser" parameterType="UserInfo" resultType="UserInfo">
+		SELECT        user_id                  as username,
+					  user_name                as name
+		FROM		  user
+		WHERE         user_id  = #{username}
+	</select>
+
+
+
 	<!-- 테스트 메서드 (회원 불러오기) -->
 	<select id="readUser" parameterType="String" resultType="User">
 		SELECT			user_id									as 	username,
