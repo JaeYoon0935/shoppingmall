@@ -174,6 +174,7 @@ public class AuthController {
 		
 	@GetMapping("/unpackToken")
 	public ResponseEntity<?> unpackToken(HttpServletRequest request) {
+		System.out.println("체크");
 		String token = new String();
 		token = request.getHeader("Authorization");
 		
