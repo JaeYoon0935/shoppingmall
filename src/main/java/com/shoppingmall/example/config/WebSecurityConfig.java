@@ -54,6 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		System.out.println("체크 WebSecurityConfig");
 		//스프링 시큐리티와 동일하게 환경설정하는 부분
 		http.cors().and().csrf().disable()
 			//권한 없음 에러 처리

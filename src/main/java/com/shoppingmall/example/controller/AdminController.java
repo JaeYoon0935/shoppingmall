@@ -338,6 +338,7 @@ public class AdminController {
 	
 
 	//상품정보수정하기
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value="/productdataupdate", method=RequestMethod.POST)
 	public ResponseEntity<?> productDataUpdate(Product product){
 		
@@ -398,6 +399,7 @@ public class AdminController {
 	}
 	
 	//상품수정하기
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/productupdate")
 	public ResponseEntity<?> productUpdate(@Validated @RequestBody Product product){
 		List<Product> product_one = productService.readProduct(product);

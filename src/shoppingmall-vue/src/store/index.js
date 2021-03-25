@@ -311,8 +311,10 @@ export default new Vuex.Store({
         
       },
       LogOut({commit}){
-        let login = 0;
+        let login = 0
+        let token = null
         localStorage.setItem("login", login)
+        localStorage.setItem("token",token)
         commit('SET_LOGOUT')
       },
     // Login({commit},payload){
@@ -612,6 +614,7 @@ export default new Vuex.Store({
               })
               .then(() => router.push({ name:'ProductUpdate'}))
               .catch(Error => {
+                  alert('권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })

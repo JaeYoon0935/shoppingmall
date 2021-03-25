@@ -38,8 +38,10 @@ public class AuthTokenFilter extends OncePerRequestFilter{
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 	throws ServletException, IOException{
 		try{
+			System.out.println("체크 AuthTokenFilter");
 			//받아온 jwt 토큰을 파싱해서 String에 집어 넣는다.
 			String jwt = parseJwt(request);
+			System.out.println(jwt);
 			
 			//토큰이 null이 아니고, 유효한 토큰이라면 아래 절차를 진행한다.
 			if(jwt != null && jwtUtils.validateJwtToken(jwt)) {

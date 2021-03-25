@@ -34,7 +34,7 @@ public class JwtUtils {
 	
 	//jwt 생성 메소드
 	public String generateJwtToken(Authentication authentication) {
-
+		System.out.println("체크  JwtUtils");
 		User user = (User) authentication.getPrincipal();
 		//builder 패턴을 이용하여 jwt생성하는 과정
 		return Jwts.builder()

@@ -2,7 +2,7 @@
   <div class="about">
     <v-row>
       <v-col style="padding-top:0px; padding-bottom:25px;"><h2 class="pt-2">포인트관리</h2></v-col>
-      <v-col style="padding-top:0px; padding-bottom:25px;"><h2 class="pt-2">{{this.$store.state.userInfo.username}}님 환영합니다.</h2></v-col>
+      <!-- <v-col style="padding-top:0px; padding-bottom:25px;"><h2 class="pt-2">{{this.$store.state.userInfo.username}}님 환영합니다.</h2></v-col> -->
       <v-col class="mr-7 mt-4">
         <v-btn color="indigo lighten-1" absolute right router :to="{name:'PointAdd'}">
           <span class="white--text">포인트 내역추가</span>
