@@ -26,7 +26,7 @@
               </span>
               <span v-else>{{row.item.name}}</span>
             </td>
-            <td style="width:110px;">
+            <td style="width:130px;">
               <span v-if="temp == row.item.username">
                 <input :style="{width:'104px'}" v-model="address">
               </span>

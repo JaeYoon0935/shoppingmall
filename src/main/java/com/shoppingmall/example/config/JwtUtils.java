@@ -28,7 +28,7 @@ public class JwtUtils {
 
 	private static final String jwtSecret = "lcomputerstudyexample"; //시크릿키. 내가 임의로 지정함. 이 시크릿키를 통하여 토큰을 암호화하고 복구화하게됨
 	
-	private static final int jwtExpirationMs = 864000; //jwt토큰의 만료기간
+	private static final int jwtExpirationMs = 8640000; //jwt토큰의 만료기간
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	

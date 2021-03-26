@@ -14,7 +14,7 @@
           <input type="text" required style="border: 0.5px solid; width:300px; height: 50px;" v-model="username" placeholder="아이디">
         </p>
         <p>
-          <input type="text" required style="border: 0.5px solid; width:300px; height: 50px;" v-model="password" placeholder="비밀번호">
+          <input type="password" required style="border: 0.5px solid; width:300px; height: 50px;" v-model="password" placeholder="비밀번호">
         </p>
 
         <span v-if="username == '' || password ==''">

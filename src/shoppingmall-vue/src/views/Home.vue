@@ -27,14 +27,14 @@
         홈화면 작업에 들어갈때 그떄 제대로 작업하도록 한다. -->
 
     <p>
-      <v-btn>Home</v-btn>
-      <v-btn>LED거실등</v-btn>    
-      <v-btn>LED식탁등</v-btn>
-      <v-btn>LED방등</v-btn>    
-      <v-btn>LED주방등</v-btn>
-      <v-btn>스탠드</v-btn>    
-      <v-btn>전기재료</v-btn>
-      <v-btn color="brown lighten-2" style="color:white;" router :to="{name: 'Admin'}">관리자 페이지</v-btn>    
+      <v-btn style="width:135px;">Home</v-btn>
+      <v-btn style="width:135px;">LED 거실등</v-btn>    
+      <v-btn style="width:135px;">LED 식탁등</v-btn>
+      <v-btn style="width:135px;">LED 방등</v-btn>    
+      <v-btn style="width:135px;">LED 주방등</v-btn>
+      <v-btn style="width:135px;">스탠드</v-btn>    
+      <v-btn style="width:135px;">전기재료</v-btn>
+      <v-btn color="brown lighten-2" style="color:white; width:135px;" router :to="{name: 'Admin'}">관리자 페이지</v-btn>    
     </p>
     <div>
       <Main v-if="$route.name == 'Home'"></Main>

@@ -104,7 +104,7 @@
         <v-toolbar-title>
           <v-btn router :to="{name: 'Admin'}" text>관리자 페이지 (메인) </v-btn>    
 
-          <span style="padding-left:0px;" v-if="this.$store.state.login_flag == 0">            
+          <span style="padding-left:0px;" v-if="this.$store.state.login_flag == false">            
            <v-btn color="#CACACA" class= "ml-3" router :to="{name: 'Login'}">로그인</v-btn>
           </span>
           <span style="padding-left:0px;" v-else>

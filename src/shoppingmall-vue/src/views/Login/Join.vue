@@ -22,7 +22,7 @@
         <label style="margin-bottom:0px; text-align:left;">
           비밀번호
         </label>
-        <input required style="border: 0.5px solid; width:300px; height: 45px;" v-model="password">
+        <input type="password" style="border: 0.5px solid; width:300px; height: 45px;" v-model="password">
       </p>
 
       <p style="text-align:left;">

@@ -117,18 +117,13 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    SET_LOGIN(state, payload){
-        state.login_flag = true,
-        state.userInfo = payload
-    },
-    SET_LOGOUT(state){
-        state.login_flag = false,
-        state.userInfo.id = null,
-        state.userInfo.username = null
-    },
     SET_USERDATA(state, data) {
-        state.userlist = data,   
-        state.login_flag = true
+       //Userinfo는 객체고, userlist는 배열인데 어차피 배열로 회원목록 뿌려줘야하므로 userlist 그대로 사용하도록 한다.
+        state.userlist = data
+
+        //지금 보니까 이건 여기 들어갈 부분이 아닌데 왜 넣어놨던건지...
+        // state.login_flag = true //이 부분이 문제가 됨. 로그인 안했는데, 회원정보 페이지로 가면 로그인이 로그아웃 버튼으로 바뀜....
+        
     },
     SET_USER(state, data) {
       state.Userinfo.User_Id = data.username
@@ -150,8 +145,10 @@ export default new Vuex.Store({
       state.Userinfo.User_token = null
       state.login_flag = false
       localStorage.removeItem("token")
+      // localStorage.removeItem("Authorization")
       console.log(state.Userinfo)
       console.log("로그아웃됐니?, 토큰 값: "+localStorage.getItem("token"))
+      // console.log("로그아웃됐니?, 토큰 값: "+localStorage.getItem("Authorization"))
     },
     INSERT_TOKEN(state) {
       state.Userinfo.User_token = localStorage.getItem("token")
@@ -220,16 +217,20 @@ export default new Vuex.Store({
     },    
   },
   actions: {
-    UserList({commit}) {
+    UserList({commit, state}) {
       return new Promise((resolve, reject) => {
           axios.get('http://localhost:9000/api/admin/userlist')
               .then(Response => {
+                  console.log('------ response.data')
                   console.log(Response.data)
                   commit('SET_USERDATA', Response.data)
+
+                  console.dir(state.Userinfo.User_Id)
+                  console.dir(state.Userinfo.User_Name)
+                  console.log('----------------------------')
+                  console.dir(state.Userinfo)
               })
               .catch(Error => {
-                  router.push({ name: 'Admin' })
-                  alert('사용권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })
@@ -248,6 +249,7 @@ export default new Vuex.Store({
                     commit('SET_USER', Response.data) 
               })
               .catch(Error => {
+                  alert('권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })           
@@ -266,6 +268,7 @@ export default new Vuex.Store({
                         commit('SET_USER', Response.data)
                   })
                   .catch(Error => {
+                      alert('권한이 없습니다.')
                       console.log('error')
                       reject(Error)
                   })
@@ -503,6 +506,7 @@ export default new Vuex.Store({
                   commit('SET_CATEGORY', Response.data)
               })
               .catch(Error => {
+                  alert('권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })
@@ -524,6 +528,7 @@ export default new Vuex.Store({
                   commit('SET_CATEGORY', Response.data)
               })
               .catch(Error => {
+                  alert('권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })
@@ -666,7 +671,8 @@ export default new Vuex.Store({
           .catch(Error => {
               console.log('error')
               reject(Error)
-              alert('상품수정에러')
+              alert('권한이 없습니다.')
+              // alert('상품수정에러')
           })           
         })
       } else{
@@ -683,7 +689,6 @@ export default new Vuex.Store({
               })
               .then(() => router.push({ name:'ProductUpdate'}))
               .catch(Error => {
-                  alert('권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })
@@ -700,6 +705,7 @@ export default new Vuex.Store({
                   commit('SET_PRODUCT_LIST', Response.data)
               })
               .catch(Error => {
+                  alert('권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })
@@ -747,6 +753,7 @@ export default new Vuex.Store({
                   commit('SET_ORDER_DETAIL', Response.data)
               })
               .catch(Error => {
+                  alert('권한이 없습니다.')
                   console.log('error')
                   reject(Error)
               })
