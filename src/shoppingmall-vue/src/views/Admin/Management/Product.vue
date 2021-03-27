@@ -33,8 +33,8 @@
             </td>
             <td>{{row.item.category}}</td>
             <td>
-              <div>조회수: {{row.item.views}}회</div>
-              <div>판매량: {{row.item.order_count}}개</div>
+              <!-- <div>조회수: {{row.item.views}}회</div> -->
+              <div>판매량: {{checkNull(row.item.order_count)}}개</div>
             </td>
             <td>{{row.item.quantity}}개</td>
             <td>
@@ -111,6 +111,12 @@ import { mapState, mapActions } from "vuex"
           return require('@/images/null.jpg')
         }
       },
+      checkNull(count){
+        if(count == null)
+        return 0
+        else
+        return count
+      }
     }
   }
   </script>

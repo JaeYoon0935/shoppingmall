@@ -105,6 +105,7 @@
 	<resultMap id="productImage" type="Product_img">
 	</resultMap>
  
+ <!-- 
 	<select id="readAllProduct" resultMap="productData, productImage">
 		SELECT			product.p_id					        as 	id,
 						p_name 							as 	name,
@@ -117,6 +118,26 @@
 						p_text                        as text
 		FROM 			product 
 		JOIN product_img ON (product.p_id = product_img.p_id);
+	</select>
+	 -->
+	
+	<select id="readAllProduct" resultMap="productData, productImage">
+		SELECT			product.p_id					        as 	id,
+						p_name 							as 	name,
+						p_price                         as  price,
+						ta.p_order_count					as	order_count,
+						p_views                         as  views,	
+						p_category                      as  category,
+						p_quantity			            as  quantity,
+						pi_unique                      as image,
+						p_text                        as text
+		FROM 			product 
+		JOIN product_img 
+		ON (product.p_id = product_img.p_id)
+		left JOIN (SELECT SUM(od_count) p_order_count , p_id 
+				FROM order_detail
+				GROUP BY p_id) ta
+		ON product.p_id = ta.p_id
 	</select>
 	
 	<select id="readProduct" resultMap="productData, productImage">
