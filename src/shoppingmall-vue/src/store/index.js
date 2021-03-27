@@ -24,10 +24,11 @@ export default new Vuex.Store({
       { text: '이메일', value: 'email'},
       { text: '관리', value: 'management'},
     ],
-    userlist:[],
     
-    //로그인 된 사용자의 정보
-    // userInfo: null, 
+    //회원 목록에 뿌려질 사용자를 담을 리스트 배열
+    userlist:[],  
+
+    //로그인 된 사용자의 정보 
     Userinfo:{User_Id:null,User_Name:null,User_auth:[],User_token:null},
 
     //point
@@ -119,16 +120,12 @@ export default new Vuex.Store({
   mutations: {
     SET_USERDATA(state, data) {
        //Userinfo는 객체고, userlist는 배열인데 어차피 배열로 회원목록 뿌려줘야하므로 userlist 그대로 사용하도록 한다.
-        state.userlist = data
-
-        //지금 보니까 이건 여기 들어갈 부분이 아닌데 왜 넣어놨던건지...
-        // state.login_flag = true //이 부분이 문제가 됨. 로그인 안했는데, 회원정보 페이지로 가면 로그인이 로그아웃 버튼으로 바뀜....
-        
+        state.userlist = data      
     },
     SET_USER(state, data) {
       state.Userinfo.User_Id = data.username
       state.Userinfo.User_Name = data.name
-      state.Userinfo.User_auth = data.authorities
+      state.Userinfo.User_auth = data.roles
       state.Userinfo.User_token = data.token
       state.login_flag = true
    },
@@ -229,6 +226,9 @@ export default new Vuex.Store({
                   console.dir(state.Userinfo.User_Name)
                   console.log('----------------------------')
                   console.dir(state.Userinfo)
+                  console.dir(state.Userinfo.User_auth)
+                  console.dir(state.Userinfo.User_auth[0]) // login
+                  console.dir(state.Userinfo.User_auth[0].authority) // 새로고침시
               })
               .catch(Error => {
                   console.log('error')
@@ -236,7 +236,7 @@ export default new Vuex.Store({
               })
       })
     },
-    UserUpdate({commit},payload) {
+    UserUpdate({commit, state},payload) {
       console.log(payload)
       if(confirm('회원정보를 수정하시겠습니까?') == true){
       return new Promise((resolve, reject) => {
@@ -246,7 +246,7 @@ export default new Vuex.Store({
                     console.log(this.state.temp)
                     this.state.temp=0
                     console.log(this.state.temp)
-                    commit('SET_USER', Response.data) 
+                    commit('SET_USERDATA', Response.data) 
               })
               .catch(Error => {
                   alert('권한이 없습니다.')
@@ -265,7 +265,7 @@ export default new Vuex.Store({
               axios.post('http://localhost:9000/api/admin/userdelete',payload)
                   .then(Response => {
                         console.log(Response.data)
-                        commit('SET_USER', Response.data)
+                        commit('SET_USERDATA', Response.data)
                   })
                   .catch(Error => {
                       alert('권한이 없습니다.')
@@ -278,7 +278,6 @@ export default new Vuex.Store({
       }
     },
     Login({ commit }, payload) {
-      console.log(payload)
       return new Promise((resolve, reject) => {
           axios.post('http://localhost:9000/api/auth/signin', payload)
               .then(Response => {

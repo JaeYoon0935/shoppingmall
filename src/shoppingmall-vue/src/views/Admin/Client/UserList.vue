@@ -16,7 +16,7 @@
             </td>
             <td>
               <span v-if="temp == row.item.username">
-                <input :style="{width:'95px'}" v-model="password">
+                <input :style="{width:'350px'}" v-model="password">
               </span>
               <span v-else>{{row.item.password}}</span>
             </td>
@@ -54,7 +54,7 @@
               <span v-else>
                 <v-card-actions class="justify-start">  
                 <v-btn dark small color="grey" 
-                @click="[UserUpdate({new_username, temp, password, name, address, phone, email, point}),reload()]">수정완료</v-btn>
+                   @click="[UserUpdate({new_username, temp, password, name, address, phone, email, point}),reload()]">수정완료</v-btn>
                 <v-btn dark small color="grey" @click="Update_cancle()">취소</v-btn>
               </v-card-actions>
               </span>
@@ -90,17 +90,33 @@ import { mapState, mapActions } from "vuex"
         ...mapActions(["UserDelete"]),
         ...mapActions(["UserUpdate"]),
         Update(userinfo) {
-         this.$store.state.temp=userinfo.username
-         this.temp=userinfo.username
-         this.new_username = userinfo.username
-         this.password = userinfo.password
-         this.name = userinfo.name
-         this.address = userinfo.address
-         this.phone = userinfo.phone
-         this.email = userinfo.email
+          var login_flag = this.$store.state.login_flag
+          if(login_flag == true){
+
+            // 시큐리티 설정 때문에 권한을 넘겨받는 부분이 그냥 로그인 했을때와 새로고침했을때 변수명에서 조금 차이가 난다.
+            // 그래서 통일시키려면 작업이 많이 복잡하고 소요가 되므로 아래와 같이 처리하게 되었다.
+            var login_auth = this.$store.state.Userinfo.User_auth[0]
+            var refresh_auth = this.$store.state.Userinfo.User_auth[0].authority
+
+            if (login_auth == 'ROLE_ADMIN' || refresh_auth == 'ROLE_ADMIN'){
+                  this.$store.state.temp=userinfo.username
+                  this.temp=userinfo.username
+                  this.new_username = userinfo.username
+                  this.password = userinfo.password
+                  this.name = userinfo.name
+                  this.address = userinfo.address
+                  this.phone = userinfo.phone
+                  this.email = userinfo.email
+              }else{
+                alert('권한이 없습니다.')
+              }
+          }else{
+            alert('권한이 없습니다.')
+          }
         },
         Update_cancle: function(){
         this.temp=0  
+        this.$store.state.temp = 12345678911
         },
         reload() {
           window.location.reload()

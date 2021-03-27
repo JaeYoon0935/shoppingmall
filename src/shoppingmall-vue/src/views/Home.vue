@@ -10,7 +10,9 @@
             <v-btn class="ml-8" @click="LogOut()">로그아웃</v-btn>
           </span>
 
+          <span style="padding-left:0px; padding-right:12px;" v-if="this.$store.state.login_flag == 0">
           <v-btn  router :to="{name: 'Join'}">회원가입</v-btn>
+          </span>
         </div>
         <div class="child">
           <p align="center" style="margin-top:20px; width:100%;">

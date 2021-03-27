@@ -89,8 +89,6 @@ public class AuthController {
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
-	
-	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest){
 		
@@ -109,12 +107,16 @@ public class AuthController {
 				.map(item -> item.getAuthority())
 								.collect(Collectors.toList());
 		
+//		String username = loginRequest.getUsername();
+//		//편의상 새로고침때 권한을 얻어오는 Mapper을 사용해줌.
+//		user.setAuthorities(userService.readAuthorities_refresh(username));
+		
 		return ResponseEntity.ok(new JwtResponse(jwt,
 												user.getUsername(),
 												user.getName(),
 												roles));
-		
 	}
+	
 	@PostMapping("/signup")
 		public ResponseEntity<?> sinupUser(@Validated @RequestBody User user){
 		

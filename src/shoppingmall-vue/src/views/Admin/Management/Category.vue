@@ -48,12 +48,31 @@ import {mapActions } from "vuex"
     methods:{
       ...mapActions(["CategoryUpdate"]),
       ...mapActions(["CategoryAdd"]),
+      // Update(category) {
+      //     this.temp = category.cg_id
+      //     this.cg_id = category.cg_id
+      //     this.name = category.name
+      //     this.product_count = category.product_count
+      // },
       Update(category) {
-          this.temp = category.cg_id
-          this.cg_id = category.cg_id
-          this.name = category.name
-          this.product_count = category.product_count
-      },
+          var login_flag = this.$store.state.login_flag
+          if(login_flag == true){
+            // var auth = this.$store.state.Userinfo.User_auth[0].authority
+            var login_auth = this.$store.state.Userinfo.User_auth[0]
+            var refresh_auth = this.$store.state.Userinfo.User_auth[0].authority
+            
+            if (login_auth == 'ROLE_ADMIN' || refresh_auth == 'ROLE_ADMIN'){
+                this.temp = category.cg_id
+                this.cg_id = category.cg_id
+                this.name = category.name
+                this.product_count = category.product_count
+              }else{
+                alert('권한이 없습니다.')
+              }
+          }else{
+            alert('권한이 없습니다.')
+          }
+        },
       Update_cancle: function(){
         this.temp = 123456
       },
