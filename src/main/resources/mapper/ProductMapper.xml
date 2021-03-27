@@ -144,7 +144,6 @@
 		SELECT			product.p_id					        as 	id,
 						p_name 							as 	name,
 						p_price                         as  price,
-						p_order_count					as	order_count,
 						p_views                         as  views,	
 						p_category                      as  category,
 						p_quantity			            as  quantity,
@@ -162,7 +161,6 @@
 			p_price, 
 			p_category, 
 			p_quantity,
-			p_order_count,
 			p_views,
 			p_text
 		) VALUES (
@@ -171,7 +169,6 @@
 			#{price}, 
 			#{category},
 			#{quantity},
-			0,
 			0,
 			#{text}
 		)
