@@ -190,7 +190,8 @@
 
 <style scoped>
 .text{
-  color:rgb(124, 124, 124);
+  /* color:rgb(124, 124, 124); */
+  color:rgb(0, 0, 0);
 }
 </style>
 

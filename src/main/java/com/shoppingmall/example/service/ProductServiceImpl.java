@@ -87,6 +87,16 @@ public class ProductServiceImpl implements ProductService{
 		productmapper.productImgUpdate(product);
 	};
 	
+	@Override
+	public List<Product> imageByRank() {
+		return productmapper.imageByRank();
+	};
+	
+	@Override
+	public List<Product> imageLiving(){
+		return productmapper.imageLiving();
+	};
+	
 }
 
 

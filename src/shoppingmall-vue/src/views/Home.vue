@@ -41,15 +41,6 @@
             테스트
           </v-btn>
         </template>
-
-        <!-- <v-list>
-          <v-list-item
-            v-for="(item, index) in items"
-            :key="index"
-          >
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list> -->
       </v-menu>
 
 
@@ -124,6 +115,6 @@ export default {
     }),
   methods:{
     ...mapActions(["LogOut"]),
-  }
+  },
 }
 </script>

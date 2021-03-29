@@ -14,6 +14,14 @@ export default new Vuex.Store({
     login_flag: false, //로그인 성공시 1로 바뀌고 로그인 하지않았을 때나 로그아웃 시 0으로 바뀐다. 
     login_prev: 0,
 
+
+    //사용자단
+    imageByRank:[],
+    // imageLiving:[{text:'image', value: null},{text:'image', value: null},{text:'image', value: null},{text:'image', value: null}],
+    imageLiving:[],
+
+    //관리자단 
+
     //user
     userlist_headers: [
       { text: '아이디', value: 'username'},
@@ -118,6 +126,14 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+
+    SET_IMAGE_BY_RANK(state,data){
+      state.imageByRank = data
+    },
+    SET_IMAGE_LIVING(state, data){
+      state.imageLiving = data
+    },
+
     SET_USERDATA(state, data) {
        //Userinfo는 객체고, userlist는 배열인데 어차피 배열로 회원목록 뿌려줘야하므로 userlist 그대로 사용하도록 한다.
         state.userlist = data      
@@ -277,142 +293,55 @@ export default new Vuex.Store({
         return;
       }
     },
-    Login({ commit }, payload) {
-      return new Promise((resolve, reject) => {
-          axios.post('http://localhost:9000/api/auth/signin', payload)
+      Login({ commit }, payload) {
+        return new Promise((resolve, reject) => {
+            axios.post('http://localhost:9000/api/auth/signin', payload)
+                .then(Response => {
+                    console.log(Response.data)
+                    if (Response.data.username != null) {
+                      //로그인 시 헤더에 디폴트 값으로 포함되는 권한을 추가함.
+                        axios.defaults.headers.common['Authorization'] = `Bearer ${Response.data.token}`
+                        localStorage.setItem("token", Response.data.token)
+                        commit('SET_USER', Response.data)  
+                          if(this.state.login_prev == 0){
+                            router.push({ name: 'Home' })   
+                          }
+                          else if(this.state.login_prev == 1){
+                            router.push({ name: 'Home' })   
+                          }
+                          else if(this.state.login_prev == 2){
+                            router.push({ name: 'Admin' })
+                          }  
+                    }
+                })
+                .catch(Error => {
+                    alert('아이디 또는 비밀번호를 확인해주세요.')
+                    console.log('error')
+                    reject(Error)
+                })
+        })
+    },
+    UnpackToken({commit}) {
+        return new Promise((resolve, reject) => {
+          axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("token")}`
+          axios.get('http://localhost:9000/api/auth/unpackToken')
               .then(Response => {
-                  console.log(Response.data)
-                  if (Response.data.username != null) {
-                    //로그인 시 헤더에 디폴트 값으로 포함되는 권한을 추가함.
-                      axios.defaults.headers.common['Authorization'] = `Bearer ${Response.data.token}`
-                      localStorage.setItem("token", Response.data.token)
-                      commit('SET_USER', Response.data)  
-                        if(this.state.login_prev == 0){
-                          router.push({ name: 'Home' })   
-                        }
-                        else if(this.state.login_prev == 1){
-                          router.push({ name: 'Home' })   
-                        }
-                        else if(this.state.login_prev == 2){
-                          router.push({ name: 'Admin' })
-                        }  
-                  }
+                console.log(Response.data)
+                commit('SET_USER_REFRESH',Response.data)
               })
               .catch(Error => {
-                  alert('아이디 또는 비밀번호를 확인해주세요.')
-                  console.log('error')
-                  reject(Error)
+                console.log(Error)
+                  console.log('unpackToken_error')
               })
       })
-   },
-   UnpackToken({commit}) {
+    },
+    LogOut({commit}){
       return new Promise((resolve, reject) => {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("token")}`
-        axios.get('http://localhost:9000/api/auth/unpackToken')
-            .then(Response => {
-              console.log(Response.data)
-              commit('SET_USER_REFRESH',Response.data)
-            })
-            .catch(Error => {
-              console.log(Error)
-                console.log('unpackToken_error')
-            })
-    })
-  },
-  LogOut({commit}){
-    return new Promise((resolve, reject) => {
-      //로그아웃시 헤더에 디폴트 값으로 포함되는 권한을 null로 처리함.
-      axios.defaults.headers.common['Authorization'] = null;
-      commit('LogOut')
-    })
-  },
-    // Login({dispatch},payload){
-    //     return new Promise((resolve, reject) => {
-    //       axios.post('http://localhost:9000/api/auth/signin',payload)
-    //           .then(Response => {
-    //             console.log(Response) 
-    //               //토큰을 헤더에 포함시켜서 유저정보를 요청하는 부분
-    //               let token = Response.data.token
-    //               let id = Response.data.username
-    //               let username = Response.data.name
-    //               let login = 1
-    //               //토큰을 로컬스토리지에 저장
-    //               localStorage.setItem("Authorization",token)
-    //               localStorage.setItem("id",id)
-    //               localStorage.setItem("username",username)
-    //               //로그인 상태 
-    //               localStorage.setItem("login", login)
-    //               dispatch("getMemberInfo")
-    //           })
-    //           .catch(Error => {
-    //               alert('아이디 또는 비밀번호를 확인해주세요.')
-    //               console.log('error')
-    //               reject(Error)
-    //           })
-    //   })
-    // },
-    // getMemberInfo({commit}){
-    //     //이 부분은 뷰가 실행될 때 함께 실행되는 부분이다.
-    //     //로그인 시에 새로고침 기능을 위한 부분이다.
-    //     //로그인 플래그를 사용해서 로그인 플래그가 1이면 로그인 상태를 유지시켜주고
-    //     //로그아웃을 클릭하면 로그인 플래그를 0으로 만들어줘서 이 메서드를 실행시키지 말아야 한다.
-    //     let login = localStorage.getItem("login");
-    //     if(login == 1){
-    //       let token = localStorage.getItem("Authorization");
-    //       let id = localStorage.getItem("id");
-    //       let username = localStorage.getItem("username");
-    //       let config = {
-    //         headers:{
-    //           "Authorization": token
-    //           }
-    //         }
-    //         // 토큰 -> 멤버정보 반환
-    //         // 새로고침 -> 토큰만 가지고 멤버정보를 요청
-    //         axios.get('http://localhost:9000/api/auth/getuser?username='+ id, config)
-    //         .then(() => {
-    //           let userInfo = {
-    //             id:id,
-    //             username:username
-    //           }
-    //           commit('SET_LOGIN', userInfo)
-    //           if(this.state.login_prev == 0){
-    //             router.push({ name: 'Home' })   
-    //           }
-    //           else if(this.state.login_prev == 1){
-    //             router.push({ name: 'Home' })   
-    //           }
-    //           else if(this.state.login_prev == 2){
-    //             router.push({ name: 'Admin' })
-    //           }
-    //       })
-    //     }
-    //   },
-
-    // Login({commit},payload){
-    //     console.log(payload)
-    //     return new Promise((resolve, reject) => {
-    //       axios.post('http://localhost:9000/api/auth/signin',payload)
-    //           .then(Response => {
-    //               console.log(Response.data) 
-    //               commit('SET_LOGIN')     
-    //               console.log(this.state.login_prev)
-    //               if(this.state.login_prev == 0){
-    //                 router.push({ name: 'Home' })   
-    //               }
-    //               else if(this.state.login_prev == 1){
-    //                 router.push({ name: 'Home' })   
-    //               }
-    //               else if(this.state.login_prev == 2){
-    //                 router.push({ name: 'Admin' })
-    //               }   
-    //           })
-    //           .catch(Error => {
-    //               alert('아이디 또는 비밀번호를 확인해주세요.')
-    //               console.log('error')
-    //               reject(Error)
-    //           })
-    //   })
-    // },
+        //로그아웃시 헤더에 디폴트 값으로 포함되는 권한을 null로 처리함.
+        axios.defaults.headers.common['Authorization'] = null;
+        commit('LogOut')
+      })
+    },
     Join({commit},payload){
         console.log(payload)
         return new Promise((resolve, reject) => {
@@ -802,6 +731,7 @@ export default new Vuex.Store({
               })
       })
     },
+ 
     // -------------- 아래부터 사용자 화면 ----------------
     Product({commit},payload) {
       var obj = {id: router.currentRoute.params.id};
@@ -819,28 +749,35 @@ export default new Vuex.Store({
               })
       })
     },
-  }, 
-    submitFile({commit},payload){
-      // this.file = payload;
-      console.log("actions"+payload)
-      let formData = new FormData();
-      formData.append('file', payload);
-      axios.post('http://localhost:9000/upload',
-          formData,
-          {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            'Access-Control-Allow-Origin': '*'
-          }
-        }
-      )
-      .then(Response => {
-        console.log(Response.data)
-      })
-      .catch(Error => {
+    imageByRank({commit}){
+      console.log('상품랭킹 순 이미지')
+      return new Promise((resolve, reject) => {
+        axios.get('http://localhost:9000/api/imageByRank')
+        .then(Response => {
+          console.log(Response.data)
+          commit('SET_IMAGE_BY_RANK',Response.data)
+        })
+        .catch(Error => {
           console.log('error')
-      })
+          reject(Error)
+        })
+      })      
     },
+    imageLiving({commit}){
+      return new Promise((resolve, reject) => {
+        axios.get('http://localhost:9000/api/imageLiving')
+        .then(Response => {
+          console.log(Response.data)
+          commit('SET_IMAGE_LIVING',Response.data)
+        })
+        .catch(Error => {
+          console.log('error')
+          reject(Error)
+        })
+      })      
+    },
+
+  }, 
   modules: {
   }
 })

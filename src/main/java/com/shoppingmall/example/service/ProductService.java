@@ -35,6 +35,12 @@ public interface ProductService {
 	public void productDataUpdate(Product product);
 	
 	public void productImgUpdate(Product product);
+	
+	//홈화면에 상품랭킹에 따른 이미지
+	public List<Product> imageByRank();
+	
+	//홈화면에 거실등 이미지
+	public List<Product> imageLiving();
 
 }
 

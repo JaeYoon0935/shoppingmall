@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,5 +63,19 @@ public class UserController {
 		List<Product> product_one = productService.readProduct(product);
 		return new ResponseEntity<>(product_one, HttpStatus.OK);
 	}
+	
+	
+	@GetMapping("/imageByRank")
+	public ResponseEntity<?> imageByRank(){
+		List<Product> imageByRank = productService.imageByRank();
+		return new ResponseEntity<>(imageByRank, HttpStatus.OK);
+	}
+	
+	@GetMapping("/imageLiving")
+	public ResponseEntity<?> imageLiving(){
+		List<Product> imageLiving = productService.imageLiving();
+		return new ResponseEntity<>(imageLiving, HttpStatus.OK);
+	}
+	
 	
 }
