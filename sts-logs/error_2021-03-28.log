@@ -1,0 +1,29 @@
+16:38:07.944 INFO  --- [main] c.s.example.ShoppingmallApplication : Starting ShoppingmallApplication on LAPTOP-9DTE2H8I with PID 7660 (C:\Users\taswp\shoppingmall\bin\main started by taswp in C:\Users\taswp\shoppingmall) 
+16:38:07.950 DEBUG --- [main] c.s.example.ShoppingmallApplication : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE 
+16:38:07.950 INFO  --- [main] c.s.example.ShoppingmallApplication : The following profiles are active: local 
+16:38:11.082 DEBUG --- [main] c.s.example.config.AuthTokenFilter : Filter 'authenticationJwtTokenFilter' configured for use 
+16:38:12.141 INFO  --- [main] c.s.example.ShoppingmallApplication : Started ShoppingmallApplication in 5.252 seconds (JVM running for 6.538) 
+17:40:27.950 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==>  Preparing: SELECT cg_id, cg_name as name, cg_product_count as product_count FROM category 
+17:40:27.982 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : ==> Parameters:  
+17:40:28.018 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==    Columns: cg_id, name, product_count 
+17:40:28.018 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 0, 전체, 9999999 
+17:40:28.021 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 20, 거실등, 4 
+17:40:28.022 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 30, 식탁등, 4 
+17:40:28.022 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 40, 방등, 4 
+17:40:28.022 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 50, 주방등, 4 
+17:40:28.022 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 60, 스탠드, 4 
+17:40:28.023 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 70, 전기재료, 4 
+17:40:28.023 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2011, 거실등 30평형, 2 
+17:40:28.024 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 2012, 거실등 40평형, 2 
+17:40:28.024 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 3011, 소형 식탁등, 2 
+17:40:28.024 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 3012, 중형 식탁등, 2 
+17:40:28.025 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 4011, 소형 방등, 2 
+17:40:28.025 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 4012, 대형 방등, 2 
+17:40:28.025 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 5011, 싱크대, 2 
+17:40:28.025 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 5012, 레일형, 2 
+17:40:28.026 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 6011, LED스탠드, 2 
+17:40:28.029 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 6012, 일반스탠드, 2 
+17:40:28.030 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 7011, 2구스위치, 2 
+17:40:28.030 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 7012, 멀티탭, 2 
+17:40:28.030 TRACE --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==        Row: 7013, 3구스위치, 2 
+17:40:28.031 DEBUG --- [http-nio-9000-exec-1] c.s.e.m.CategoryMapper.readCategory : <==      Total: 20 

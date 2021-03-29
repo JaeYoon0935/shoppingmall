@@ -2,14 +2,12 @@
 <v-app>
     <div class="parent" style="height: 150px;">
         <div id="top" class="child">
-
           <span style="padding-left:0px; padding-right:12px;" v-if="this.$store.state.login_flag == 0">
            <v-btn class="ml-8" router :to="{name: 'Login'}">로그인</v-btn>
           </span>
           <span style="padding-left:0px; padding-right:12px;" v-else>
             <v-btn class="ml-8" @click="LogOut()">로그아웃</v-btn>
           </span>
-
           <span style="padding-left:0px; padding-right:12px;" v-if="this.$store.state.login_flag == 0">
           <v-btn  router :to="{name: 'Join'}">회원가입</v-btn>
           </span>
@@ -27,12 +25,38 @@
 
     <!--우선은 테스트용으로 v-btn으로 네비게이션 바를 만들어서 사용하고, 
         홈화면 작업에 들어갈때 그떄 제대로 작업하도록 한다. -->
-
     <p>
+      <v-menu
+        open-on-hover
+        top
+        offset-x
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="gray"
+            black
+            v-bind="attrs"
+            v-on="on"
+          >
+            테스트
+          </v-btn>
+        </template>
+
+        <!-- <v-list>
+          <v-list-item
+            v-for="(item, index) in items"
+            :key="index"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list> -->
+      </v-menu>
+
+
       <v-btn style="width:135px;">Home</v-btn>
       <v-btn style="width:135px;">LED 거실등</v-btn>    
-      <v-btn style="width:135px;">LED 식탁등</v-btn>
-      <v-btn style="width:135px;">LED 방등</v-btn>    
+      <v-btn style="width:135px;">LED 방등</v-btn>
+      <v-btn style="width:135px;">LED 식탁등</v-btn>    
       <v-btn style="width:135px;">LED 주방등</v-btn>
       <v-btn style="width:135px;">스탠드</v-btn>    
       <v-btn style="width:135px;">전기재료</v-btn>
@@ -90,6 +114,14 @@ export default {
   components: {
     Main
   },
+   data: () => ({ 
+      drawer: null, 
+      selectedItem: 1,
+      items: [
+        { title: '회원정보'},
+        { title: '포인트관리'},
+      ]
+    }),
   methods:{
     ...mapActions(["LogOut"]),
   }
