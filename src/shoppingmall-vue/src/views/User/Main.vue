@@ -5,7 +5,7 @@
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Ranking</p>
      <div style="text-align:left; margin-left:100px;">
         <span v-for="(item, index) in $store.state.imageByRank" v-bind:key="item">
-          <router-link to="product">
+          <router-link to="preparing">
             <span v-if="index <4">
                 <img :src="image(item.image)" style="width:200px;" >
             </span>
@@ -17,7 +17,7 @@
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Living Room</p>
      <div style="text-align:left; margin-left:100px;">
         <span v-for="(item, index) in $store.state.imageLiving" v-bind:key="item">
-          <router-link to="product">
+          <router-link to="preparing">
             <span v-if="index <4">
               <img :src="image(item.image)" style="width:200px;" >
             </span>
@@ -29,7 +29,7 @@
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Room Lamp</p>
      <div style="text-align:left; margin-left:100px;">
         <span v-for="(item, index) in $store.state.imageRoom" v-bind:key="item">
-          <router-link to="product">
+          <router-link to="preparing">
             <span v-if="index <4">
               <img :src="image(item.image)" style="width:200px;" >
             </span>
@@ -41,7 +41,7 @@
      <hr width = "100%" color = "gray" style="margin-top:100px">
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Electrical Materials</p>
      <span>
-        <router-link to="product">
+        <router-link to="preparing">
           <img :src="require('@/images/null.jpg')" router :to="{name:'Product_User'}">
         </router-link>
       </span>
