@@ -117,14 +117,69 @@
     <v-main>
       <v-row style="margin-left:0px;" v-if="$route.name == 'Admin'">
  
-        <div>
+        <v-card
+          max-width="600"
+          style="margin-left:30px; margin-top:20px;"
+
+        >
+          <v-img
+            class="white--text align-end"
+            height="180px"
+            src="@/images/mall.jpg"
+          >
+            <!-- <v-card-title style="font-size:30px; color:black;">쇼핑몰 관리시스템</v-card-title> -->
+           </v-img>
+        <!--
+         <v-card
+          class="mx-auto"
+          max-width="600"
+        >-->
+          <v-card-text>
+ 
+            <p class="display-1 text--primary">
+              쇼핑몰 관리시스템
+            </p>
+            <div class="text--primary card_text" style="margin-top:15px;">
+              개요<br style="margin-bottom:5px;">
+              : 웹사이트 관리자가 쇼핑몰의 데이터를 관리 할 수 있는 솔루션
+            </div>
+             <div class="text--primary card_text" style="margin-top:25px;">
+              개발인원<br>
+             : 1인 (개인프로젝트)
+            </div>
+             <div class="text--primary card_text" style="margin-top:25px;">
+              개발언어<br>
+              Front-end: Vue.js<br>
+              Back-end: Java, SpringBoot
+            </div>
+             <div class="text--primary card_text" style="margin-top:25px;">
+              데이터베이스<br>
+              : Mysql
+            </div>
+             <div class="text--primary card_text" style="margin-top:25px;">
+              배포<br>
+              : AWS EC2
+            </div>
+
+          </v-card-text>
+          <!-- <v-card-actions>
+            <v-btn
+              text
+              color="deep-purple accent-4"
+            >
+              Learn More
+            </v-btn>
+          </v-card-actions> -->
+        </v-card>
+
+        <!-- <div>
           <h2 style="padding-top:8px;">
             쇼핑몰 관리자 메인페이지
           </h2>
-        </div>
+        </div> -->
       </v-row>
 
-      <div class="text">
+      <!-- <div class="text">
         <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
           <div>
             <h5>
@@ -135,36 +190,6 @@
             </h5>
           </div>
         </v-row>
-
-
-          <!-- 뷰티파이의 information 카드이다.-->
-
-        <v-card
-          class="mx-auto"
-          max-width="344"
-        >
-          <v-card-text>
-            <div>Word of the Day</div>
-            <p class="display-1 text--primary">
-              be•nev•o•lent
-            </p>
-            <p>adjective</p>
-            <div class="text--primary">
-              well meaning and kindly.<br>
-              "a benevolent smile"
-            </div>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn
-              text
-              color="deep-purple accent-4"
-            >
-              Learn More
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-
-
 
         <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
           <div>
@@ -187,8 +212,6 @@
           </div>
         </v-row>
 
-        
-
         <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
           <div>
             <h5>
@@ -208,9 +231,8 @@
             </h5>
           </div>
         </v-row>   
+      </div> -->
 
-
-      </div>
       <router-view :key="$route.fullPath"/>
     </v-main>
   </v-app>
@@ -221,6 +243,24 @@
 .text{
   /* color:rgb(124, 124, 124); */
   color:rgb(0, 0, 0);
+}
+.card_text{
+  font-size:19px;
+  color:rgb(218, 213, 213);
+}
+.v-application .display-1 {
+    font-size: 30px!important;
+    font-weight: 400;
+    line-height: 2.5rem;
+    letter-spacing: 0.0073529412em !important;
+    font-family: "Roboto", sans-serif !important;
+}
+.v-card__subtitle, .v-card__text {
+    font-size: 0.875rem;
+    font-weight: 400;
+    /* line-height: 1.375rem; */
+    line-height: 1.6rem;
+    letter-spacing: 0.0071428571em;
 }
 </style>
 
