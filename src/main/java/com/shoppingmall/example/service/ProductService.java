@@ -42,5 +42,7 @@ public interface ProductService {
 	//홈화면에 거실등 이미지
 	public List<Product> imageLiving();
 
+	//홈화면에 방등 이미지
+	public List<Product> imageRoom();
 }
 

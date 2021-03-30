@@ -16,9 +16,10 @@ export default new Vuex.Store({
 
 
     //사용자단
-    imageByRank:[],
-    // imageLiving:[{text:'image', value: null},{text:'image', value: null},{text:'image', value: null},{text:'image', value: null}],
-    imageLiving:[],
+    imageByRank:[], //홈화면 랭킹
+    imageLiving:[], //홈화면 거실등
+    imageRoom:[], //홈화면 방등
+    imageMaterials:[], //홈화면 전기재료
 
     //관리자단 
 
@@ -132,6 +133,9 @@ export default new Vuex.Store({
     },
     SET_IMAGE_LIVING(state, data){
       state.imageLiving = data
+    },
+    SET_IMAGE_ROOM(state, data){
+      state.imageRoom = data
     },
 
     SET_USERDATA(state, data) {
@@ -769,6 +773,19 @@ export default new Vuex.Store({
         .then(Response => {
           console.log(Response.data)
           commit('SET_IMAGE_LIVING',Response.data)
+        })
+        .catch(Error => {
+          console.log('error')
+          reject(Error)
+        })
+      })      
+    },
+    imageRoom({commit}){
+      return new Promise((resolve, reject) => {
+        axios.get('http://localhost:9000/api/imageRoom')
+        .then(Response => {
+          console.log(Response.data)
+          commit('SET_IMAGE_ROOM',Response.data)
         })
         .catch(Error => {
           console.log('error')

@@ -97,6 +97,10 @@ public class ProductServiceImpl implements ProductService{
 		return productmapper.imageLiving();
 	};
 	
+	@Override
+	public List<Product> imageRoom(){
+		return productmapper.imageRoom();
+	};
 }
 
 

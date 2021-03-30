@@ -42,7 +42,6 @@
              <div class="total" style="height: 50px; width:300px;">
                   <div style="height: 50px; width:300px; ">
                     <div style="height: 50px;">총 주문 금액 :</div>
-                    <!-- <div style="height: 50px;"><input style="width:100px" v-model="total">원</div> -->
                     <div style="height: 50px; padding-left:10px">{{total(this.amount)}}원</div>
                   </div>
                 </div>

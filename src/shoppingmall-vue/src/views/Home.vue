@@ -26,24 +26,6 @@
     <!--우선은 테스트용으로 v-btn으로 네비게이션 바를 만들어서 사용하고, 
         홈화면 작업에 들어갈때 그떄 제대로 작업하도록 한다. -->
     <p>
-      <v-menu
-        open-on-hover
-        top
-        offset-x
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="gray"
-            black
-            v-bind="attrs"
-            v-on="on"
-          >
-            테스트
-          </v-btn>
-        </template>
-      </v-menu>
-
-
       <v-btn style="width:135px;">Home</v-btn>
       <v-btn style="width:135px;">LED 거실등</v-btn>    
       <v-btn style="width:135px;">LED 방등</v-btn>

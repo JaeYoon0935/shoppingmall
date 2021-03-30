@@ -120,7 +120,6 @@
         <v-card
           max-width="600"
           style="margin-left:30px; margin-top:20px;"
-
         >
           <v-img
             class="white--text align-end"
