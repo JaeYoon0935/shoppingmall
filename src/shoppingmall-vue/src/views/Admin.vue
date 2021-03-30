@@ -127,13 +127,7 @@
             height="180px"
             src="@/images/mall.jpg"
           >
-            <!-- <v-card-title style="font-size:30px; color:black;">쇼핑몰 관리시스템</v-card-title> -->
            </v-img>
-        <!--
-         <v-card
-          class="mx-auto"
-          max-width="600"
-        >-->
           <v-card-text>
  
             <p class="display-1 text--primary">
@@ -162,77 +156,8 @@
             </div>
 
           </v-card-text>
-          <!-- <v-card-actions>
-            <v-btn
-              text
-              color="deep-purple accent-4"
-            >
-              Learn More
-            </v-btn>
-          </v-card-actions> -->
         </v-card>
-
-        <!-- <div>
-          <h2 style="padding-top:8px;">
-            쇼핑몰 관리자 메인페이지
-          </h2>
-        </div> -->
       </v-row>
-
-      <!-- <div class="text">
-        <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
-          <div>
-            <h5>
-                개요
-            </h5>
-            <h5>
-                : 웹사이트 관리자가 쇼핑몰의 전반적인 데이터를 관리 할 수 있는 솔루션
-            </h5>
-          </div>
-        </v-row>
-
-        <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
-          <div>
-            <h5>
-                개발인원
-            </h5>
-            <h5>
-                : 1인 <span style="font-size:16px;">(개인프로젝트)</span>
-            </h5>
-          </div>
-        </v-row> 
-
-        <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
-          <div>
-            <h5>
-                개발언어
-            </h5>
-            <h5>Front-end: Vue.js</h5>
-            <h5>Back-end: Java, SpringBoot</h5>
-          </div>
-        </v-row>
-
-        <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
-          <div>
-            <h5>
-                데이터베이스
-            </h5>
-            <h5>: Mysql</h5>
-          </div>
-        </v-row>   
-
-        <v-row style="margin-left:10px; margin-top:20px;" v-if="$route.name == 'Admin'">
-          <div>
-            <h5>
-                배포
-            </h5>
-            <h5>
-                : AWS EC2
-            </h5>
-          </div>
-        </v-row>   
-      </div> -->
-
       <router-view :key="$route.fullPath"/>
     </v-main>
   </v-app>
