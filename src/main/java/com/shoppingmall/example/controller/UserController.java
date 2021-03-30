@@ -84,4 +84,10 @@ public class UserController {
 		return new ResponseEntity<>(imageRoom, HttpStatus.OK);
 	}
 	
+	@GetMapping("/imageMaterials")
+	public ResponseEntity<?> imageMaterials(){
+		List<Product> imageMaterials = productService.imageMaterials();
+		return new ResponseEntity<>(imageMaterials, HttpStatus.OK);
+	}
+	
 }

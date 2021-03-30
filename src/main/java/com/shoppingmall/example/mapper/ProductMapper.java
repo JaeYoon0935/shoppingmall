@@ -47,4 +47,7 @@ public interface ProductMapper {
 	
 	//홈화면에 방등 이미지
 	public List<Product> imageRoom();
+	
+	//홈화면에 전기지료 이미지
+    public List<Product> imageMaterials();
 }

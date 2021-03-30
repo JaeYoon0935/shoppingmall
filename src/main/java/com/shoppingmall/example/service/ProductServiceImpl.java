@@ -101,6 +101,11 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> imageRoom(){
 		return productmapper.imageRoom();
 	};
+	
+	@Override  //홈화면에 전기지료 이미지
+	public List<Product> imageMaterials(){
+		return productmapper.imageMaterials();
+	};
 }
 
 

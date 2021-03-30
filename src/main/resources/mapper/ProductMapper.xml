@@ -52,6 +52,20 @@
 	  
 	 </select>
 	 
+	  <select id="imageMaterials" resultType="Product">
+		
+		SELECT pi_unique AS image, ta.p_name AS name, ta.p_id
+		
+		FROM product_img
+		
+		JOIN (SELECT p_name, p_id
+				   FROM product
+				   WHERE p_category LIKE CONCAT(70, '%')) ta
+					  
+		ON product_img.p_id = ta.p_id
+	  
+	 </select>
+	 
 	 
 	 <select id="salesbytime" parameterType="Category" resultType="Product">	
 		SELECT 			order_detail.p_id, 

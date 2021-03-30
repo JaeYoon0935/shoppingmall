@@ -137,7 +137,9 @@ export default new Vuex.Store({
     SET_IMAGE_ROOM(state, data){
       state.imageRoom = data
     },
-
+    SET_IMAGE_MATERIALS(state, data){
+      state.imageMaterials = data
+    },
     SET_USERDATA(state, data) {
        //Userinfo는 객체고, userlist는 배열인데 어차피 배열로 회원목록 뿌려줘야하므로 userlist 그대로 사용하도록 한다.
         state.userlist = data      
@@ -793,7 +795,19 @@ export default new Vuex.Store({
         })
       })      
     },
-
+    imageMaterials({commit}){
+      return new Promise((resolve, reject) => {
+        axios.get('http://localhost:9000/api/imageMaterials')
+        .then(Response => {
+          console.log(Response.data)
+          commit('SET_IMAGE_MATERIALS',Response.data)
+        })
+        .catch(Error => {
+          console.log('error')
+          reject(Error)
+        })
+      })      
+    },
   }, 
   modules: {
   }
