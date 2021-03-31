@@ -4,7 +4,7 @@
      <hr width = "100%" color = "gray">
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Ranking</p>
      <div style="text-align:left; margin-left:100px;">
-        <span v-for="(item, index) in $store.state.imageByRank" v-bind:key="item">
+        <span v-for="(item, index) in $store.state.imageByRank" v-bind:key="index">
           <!-- <router-link to="preparing"> -->
             <span v-if="index <4">
                 <img :src="image(item.image)" class="image" @click="prepare()">
@@ -16,7 +16,7 @@
      <hr width = "100%" color = "gray" style="margin-top:100px">
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Living Room</p>
      <div style="text-align:left; margin-left:100px;">
-        <span v-for="(item, index) in $store.state.imageLiving" v-bind:key="item">
+        <span v-for="(item, index) in $store.state.imageLiving" v-bind:key="index">
           <!-- <router-link to="preparing"> -->
             <span v-if="index <4">
               <img :src="image(item.image)" class="image" @click="prepare()">
@@ -28,7 +28,7 @@
      <hr width = "100%" color = "gray" style="margin-top:100px">
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Room Lamp</p>
      <div style="text-align:left; margin-left:100px;">
-        <span v-for="(item, index) in $store.state.imageRoom" v-bind:key="item">
+        <span v-for="(item, index) in $store.state.imageRoom" v-bind:key="index">
           <!-- <router-link to="preparing"> -->
             <span v-if="index <4">
               <img :src="image(item.image)" class="image" @click="prepare()">
@@ -41,7 +41,7 @@
      <hr width = "100%" color = "gray" style="margin-top:100px">
      <p class="size24" style="text-align:left; margin-bottom:30px; margin-left:15px">Electrical Materials</p>
      <div style="text-align:left; margin-left:100px;">
-          <span v-for="(item, index) in $store.state.imageMaterials" v-bind:key="item">
+          <span v-for="(item, index) in $store.state.imageMaterials" v-bind:key="index">
             <!-- <router-link to="preparing"> -->
               <span v-if="index <4">
                 <img :src="image(item.image)" class="image" @click="prepare()">

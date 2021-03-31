@@ -165,7 +165,6 @@
 
 <style scoped>
 .text{
-  /* color:rgb(124, 124, 124); */
   color:rgb(0, 0, 0);
 }
 .card_text{
@@ -182,8 +181,7 @@
 .v-card__subtitle, .v-card__text {
     font-size: 0.875rem;
     font-weight: 400;
-    /* line-height: 1.375rem; */
-    line-height: 1.6rem;
+    line-height: 1.5rem;
     letter-spacing: 0.0071428571em;
 }
 </style>

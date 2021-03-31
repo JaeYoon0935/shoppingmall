@@ -127,7 +127,6 @@ import { mapState, mapActions } from "vuex"
          if(this.toggle == 'yes'){
            this.toggle = 'no'
          }
-        //  alert(this.toggle)
        }
     },
   }

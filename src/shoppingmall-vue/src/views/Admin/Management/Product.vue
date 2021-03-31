@@ -79,7 +79,7 @@ img{
 </style>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapActions } from "vuex"
   export default {
     created(){
       this.$store.dispatch('ProductList')
@@ -113,9 +113,9 @@ import { mapState, mapActions } from "vuex"
       },
       checkNull(count){
         if(count == null)
-        return 0
+          return 0
         else
-        return count
+          return count
       }
     }
   }

@@ -31,7 +31,6 @@
           <th>이미지 업로드</th>
           <td>
               <v-file-input id="file" ref="file" v-model="fileinput"></v-file-input>
-              <!-- <v-file-input id="file" ref="file" v-model="fileinput" v-on:change="submitFile(fileinput)"></v-file-input> -->
           </td>
         </tr>
     </tbody>

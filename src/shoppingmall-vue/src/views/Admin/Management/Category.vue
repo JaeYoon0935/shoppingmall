@@ -48,12 +48,6 @@ import {mapActions } from "vuex"
     methods:{
       ...mapActions(["CategoryUpdate"]),
       ...mapActions(["CategoryAdd"]),
-      // Update(category) {
-      //     this.temp = category.cg_id
-      //     this.cg_id = category.cg_id
-      //     this.name = category.name
-      //     this.product_count = category.product_count
-      // },
       Update(category) {
           var login_flag = this.$store.state.login_flag
           if(login_flag == true){
