@@ -62,7 +62,7 @@
      <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Information
        <span class="text">판매자 정보</span>
      </p>
-     <p class="size18" style="margin-bottom:0px; margin-top:10px;">
+     <p class="size18" style="margin-bottom:0px; margin-top:50px; font-weight:560">
        <span>CEO  홍길동</span>
        <span>Business License  000-00-00000</span>
        <span>Location  대구광역시 중구 대봉로 260</span>
@@ -87,8 +87,8 @@
   font-size:24px;
 }
 .image{
-  width:200px; 
-  height:160px;
+  width:11%; 
+  height:11%;
 }
 div[data-v-fae5bece] {
     width: 2200px;

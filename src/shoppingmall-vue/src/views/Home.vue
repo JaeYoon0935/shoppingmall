@@ -29,7 +29,7 @@
       <v-tabs
           centered
           class="mt-9"
-          color="grey darken-1"
+          color="blue darken-1"
         >
           <v-tab style="width:140px;">Home</v-tab>
           <v-tab style="width:140px;">LED 거실등</v-tab>
@@ -38,7 +38,7 @@
           <v-tab style="width:140px;">LED 주방등</v-tab>
           <v-tab style="width:140px;">스탠드</v-tab>
           <v-tab style="width:140px;">전기재료</v-tab>
-          <v-tab style="width:140px;" router :to="{name: 'Admin'}">관리자 페이지</v-tab>
+          <v-tab style="background-color:lightgrey; color:black; width:140px;" router :to="{name: 'Admin'}">관리자 페이지</v-tab>
         </v-tabs>
       </v-layout>
         </v-container>
@@ -47,7 +47,7 @@
     <v-main>
       <v-container>
   
-      <v-row>
+      <v-row style="text-align:center">
         <Main v-if="$route.name == 'Home'"></Main>
         <router-view/>
       </v-row>
@@ -57,8 +57,11 @@
   </v-app>
 </template>
 
-
 <style scoped>
+::v-deep .v-toolbar__content {
+  padding: 0px !important;
+}
+
 @media(min-width: 0px) {
   .container, .container-lg, .container-md, .container-sm, .container-xl {
     max-width: 100%;

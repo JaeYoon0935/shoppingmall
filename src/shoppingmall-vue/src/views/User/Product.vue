@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <v-divider></v-divider>
-    <v-row>
+    <v-row style="margin-top:50px;">
        <v-col
             cols="6"
             lg="6"
@@ -30,9 +30,9 @@
                 <tr>
                   <td>제품수량:</td>
                   <td class="pl-2">
-                    <a style='width:30px; background-color:rgb(180, 180, 180); color:black' href="#" @click="change(-1)">-</a>
-                      <input style='width:30px; background-color:white; text-align:center;' type='text' value='1' v-model="amount" readonly> 
-                    <a style='width:30px; background-color:rgb(180, 180, 180); color:black;' href="#" @click="change(1)">+</a>
+                    <a style='width:30px; height:30px; background-color:rgb(180, 180, 180); color:black' href="#" @click="change(-1)">-</a>
+                      <input style='width:30px; height:30px; background-color:white; border:1px solid black; text-align:center;' type='text' value='1' v-model="amount" readonly> 
+                    <a style='width:30px; height:30px; background-color:rgb(180, 180, 180); color:black;' href="#" @click="change(1)">+</a>
                   </td>
                 </tr>
                 <tr style="height:50px;">
@@ -46,13 +46,13 @@
                   </div>
                 </div>
           <v-row>
-            <v-btn class="ma-3">즉시구매</v-btn>
-            <v-btn class="ma-3">장바구니</v-btn>
+            <v-btn class="ml-14 mt-7">즉시구매</v-btn>
+            <v-btn class="ml-5 mt-7">장바구니</v-btn>
           </v-row>
         </v-col>
     </v-row>
     <v-divider></v-divider>
-    <v-row>
+    <v-row style="margin-top:50px; margin-bottom:50px;">
       <v-col
             cols="6"
             lg="6"
@@ -74,14 +74,14 @@
       </v-col>
     </v-row>
     <v-divider></v-divider>
-    <v-row class="information">
+    <v-row style="margin-top:50px; margin-left:10%; margin-bottom:1%" class="information">
       <!-- 아이콘 만드는 건 나중에 하기 -->
         <v-icon>alert-circle-outline</v-icon>구매시 주의사항
     </v-row>
-    <v-row class="information">
+    <v-row style="margin-left:10%; margin-bottom:1%" class="information">
         <v-icon>mdi-circle-medium</v-icon> 환불 및 교환 관련 규정
     </v-row>
-    <v-row class="information">
+    <v-row style="margin-left:10%; margin-bottom:1%" class="information">
         <v-icon>mdi-circle-medium</v-icon> 배송관련정보
     </v-row>
   </div>
@@ -89,6 +89,9 @@
 
 
 <style scoped>
+.home{
+  width:100%; 
+}
 .v-data-table > .v-data-table__wrapper > table {
   width:90%!important;
 }
@@ -107,17 +110,16 @@ a {
     color:black;
 }
 .information{
-    margin-left:0;
-    padding-left:20px;
+    
 }
 .row {
     font-size:20px;
-    font-weight: 700;       /* 글자 굵기 */
+    font-weight: 500;       /* 글자 굵기 */
     color:rgb(0, 0, 0)!important;   
 }
 table tr td {
   font-size:20px;
-  font-weight: 700;       /* 글자 굵기 */
+  font-weight: 500;       /* 글자 굵기 */
   color:rgb(0, 0, 0);
 }
 .theme--light.v-data-table {
