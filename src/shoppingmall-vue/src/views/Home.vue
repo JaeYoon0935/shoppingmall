@@ -26,18 +26,176 @@
       </v-layout>
 
       <v-layout>
+
       <v-tabs
           centered
           class="mt-9"
           color="blue darken-1"
         >
-          <v-tab style="width:140px;">Home</v-tab>
-          <v-tab style="width:140px;">LED 거실등</v-tab>
-          <v-tab style="width:140px;">LED 방등</v-tab>
-          <v-tab style="width:140px;">LED 식탁등</v-tab>
-          <v-tab style="width:140px;">LED 주방등</v-tab>
-          <v-tab style="width:140px;">스탠드</v-tab>
-          <v-tab style="width:140px;">전기재료</v-tab>
+
+          <!-- 홈탭 -->
+          <v-tab style="width:140px;" router :to="{name: 'Home'}">Home</v-tab>
+          
+
+
+
+
+          <!-- 
+
+            그림 이미지 클릭시, 해당 이미지로 이동하는 법,
+            일단 스프링에서 p_id도 같이 넘겨준다.
+            그래서 라우터에 router :to="{name: 'Product_User', params: {p_id}} (상품관리에 상품보기랑 똑같음.)
+            이런식으로 해주면 바로 이동 가능하다. 
+
+
+
+          -->
+
+
+
+
+
+
+
+          <!-- LED 거실등탭 -->
+          <v-menu
+            open-on-hover
+            bottom
+            offset-y
+          >
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab    v-bind="attrs"
+                      v-on="on"
+                      style="width:140px;">LED 거실등                  
+            </v-tab>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in Living"
+              :key="index"
+              router :to="{name: item.name}"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+          </v-menu>
+
+           <!-- LED 방등탭 -->
+          <v-menu
+            open-on-hover
+            bottom
+            offset-y
+          >
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab    v-bind="attrs"
+                      v-on="on"
+                      style="width:140px;">LED 방등
+            </v-tab>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in Room"
+              :key="index"
+              router :to="{name: item.name}"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+          </v-menu>
+
+           <!-- LED 식탁등탭 -->
+          <v-menu
+            open-on-hover
+            bottom
+            offset-y
+          >
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab    v-bind="attrs"
+                      v-on="on"
+                      style="width:140px;">LED 식탁등
+            </v-tab>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in Dining"
+              :key="index"
+              router :to="{name: item.name}"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+          </v-menu>
+
+
+          <!-- LED 주방등탭 -->
+          <v-menu
+            open-on-hover
+            bottom
+            offset-y
+          >
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab    v-bind="attrs"
+                      v-on="on"
+                      style="width:140px;">LED 주방등
+            </v-tab>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in Kitchen"
+              :key="index"
+              router :to="{name: item.name}"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+          </v-menu>
+
+          <!-- 스탠드 -->
+          <v-menu
+            open-on-hover
+            bottom
+            offset-y
+          >
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab    v-bind="attrs"
+                      v-on="on"
+                      style="width:140px;">스탠드
+            </v-tab>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in Stand"
+              :key="index"
+              router :to="{name: item.name}"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+          </v-menu>
+
+           <!-- 전기재료 -->
+          <v-menu
+            open-on-hover
+            bottom
+            offset-y
+          >
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab    v-bind="attrs"
+                      v-on="on"
+                      style="width:140px;">전기재료
+            </v-tab>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in Materials"
+              :key="index"
+              router :to="{name: item.name}"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+          </v-menu>
+
           <v-tab style="background-color:lightgrey; color:black; width:140px;" router :to="{name: 'Admin'}">관리자 페이지</v-tab>
         </v-tabs>
       </v-layout>
@@ -67,6 +225,10 @@
     max-width: 100%;
   }
 }
+
+.text{
+  color:grey
+}
 </style>
 
 
@@ -84,11 +246,30 @@ export default {
     Main
   },
    data: () => ({ 
-      drawer: null, 
-      selectedItem: 1,
-      items: [
-        { title: '회원정보'},
-        { title: '포인트관리'},
+      Living: [
+        { title: '거실등 30평형', name:'Product'},
+        { title: '거실등 40평형', name:'Product'},
+      ],
+      Room: [
+        { title: '소형 방등', name:'Product'},
+        { title: '대형 방등', name:'Product'},
+      ],
+      Dining: [
+        { title: '소형 식탁등', name:'Product'},
+        { title: '중형 식탁등', name:'Product'},
+      ],
+      Kitchen: [
+        { title: '싱크대', name:'Product'},
+        { title: '레일형', name:'Product'},
+      ],
+      Stand: [
+        { title: 'LED 스탠드', name:'Product'},
+        { title: '일반 스탠드', name:'Product'},
+      ],
+      Materials: [
+        { title: '스위치', name:'Product'},
+        { title: '멀티탭', name:'Product'},
+        { title: '콘센트', name:'Product'},
       ]
     }),
   methods:{
