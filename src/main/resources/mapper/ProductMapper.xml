@@ -6,7 +6,7 @@
 	 
 	 <select id="imageByRank" resultType="Product">
 		
-		SELECT pi_unique AS image, ta.p_id, ta.order_count, tb.p_name AS name
+		SELECT pi_unique AS image, ta.p_id as id, ta.order_count, tb.p_name AS name
 
 		FROM product_img
 		
@@ -25,7 +25,7 @@
 	 
 	  <select id="imageLiving" resultType="Product">
 		
-		SELECT pi_unique AS image, ta.p_name AS name, ta.p_id
+		SELECT pi_unique AS image, ta.p_name AS name, ta.p_id as id
 		
 		FROM product_img
 		
@@ -40,7 +40,7 @@
 	 
 	   <select id="imageRoom" resultType="Product">
 		
-		SELECT pi_unique AS image, ta.p_name AS name, ta.p_id
+		SELECT pi_unique AS image, ta.p_name AS name, ta.p_id as id
 		
 		FROM product_img
 		
@@ -54,7 +54,7 @@
 	 
 	  <select id="imageMaterials" resultType="Product">
 		
-		SELECT pi_unique AS image, ta.p_name AS name, ta.p_id
+		SELECT pi_unique AS image, ta.p_name AS name, ta.p_id as id
 		
 		FROM product_img
 		

@@ -100,7 +100,7 @@
 }
 .total > div{    
   background-color: white;
-  border:1px solid;
+  border:1px gray solid;
   height:50px!important;
   display:flex;
   justify-content: center;

@@ -1,16 +1,28 @@
 <template>
   <div class="home">
+
+          <!-- 
+
+            그림 이미지 클릭시, 해당 이미지로 이동하는 법,
+            일단 스프링에서 p_id도 같이 넘겨준다.
+            그래서 라우터에 router :to="{name: 'Product_User', params: {p_id}} (상품관리에 상품보기랑 똑같음.)
+            이런식으로 해주면 바로 이동 가능하다. 
+
+
+
+          -->
+
      <!-- 판매랭킹 사진 -->
      <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Ranking
        <span class="text">판매랭킹순</span>
      </p>
      <div style="text-align:left; margin-left:15%; margin-bottom:100px;">
         <span v-for="(item, index) in $store.state.imageByRank" v-bind:key="index">
-          <!-- <router-link to="preparing"> -->
+           <router-link :to="{name: 'Product_User', params: {id: item.id}}">
             <span v-if="index <4">
-                <img :src="image(item.image)" class="image" @click="prepare()">
+                <img :src="image(item.image)" class="image">
             </span>
-          <!-- </router-link> -->
+           </router-link>
         </span>
      </div>
      <!-- 거실등 사진 -->
@@ -20,11 +32,11 @@
      </p>
      <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
         <span v-for="(item, index) in $store.state.imageLiving" v-bind:key="index">
-          <!-- <router-link to="preparing"> -->
+          <router-link :to="{name: 'Product_User', params: {id: item.id}}">
             <span v-if="index <4">
-              <img :src="image(item.image)" class="image" @click="prepare()">
+              <img :src="image(item.image)" class="image">
             </span>
-          <!-- </router-link> -->
+          </router-link> 
         </span>
      </div>
      <!-- 방등 사진 -->
@@ -34,11 +46,11 @@
      </p>
      <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
         <span v-for="(item, index) in $store.state.imageRoom" v-bind:key="index">
-          <!-- <router-link to="preparing"> -->
+          <router-link :to="{name: 'Product_User', params: {id: item.id}}">
             <span v-if="index <4">
-              <img :src="image(item.image)" class="image" @click="prepare()">
+              <img :src="image(item.image)" class="image">
             </span>
-          <!-- </router-link> -->
+          </router-link>
         </span>
      </div>
 
@@ -49,11 +61,11 @@
      </p>
      <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
           <span v-for="(item, index) in $store.state.imageMaterials" v-bind:key="index">
-            <!-- <router-link to="preparing"> -->
+            <router-link :to="{name: 'Product_User', params: {id: item.id}}">
               <span v-if="index <4">
-                <img :src="image(item.image)" class="image" @click="prepare()">
+                <img :src="image(item.image)" class="image">
               </span>
-            <!-- </router-link> -->
+            </router-link>
           </span>
      </div>
 

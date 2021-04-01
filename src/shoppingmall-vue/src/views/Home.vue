@@ -36,27 +36,6 @@
           <!-- 홈탭 -->
           <v-tab style="width:140px;" router :to="{name: 'Home'}">Home</v-tab>
           
-
-
-
-
-          <!-- 
-
-            그림 이미지 클릭시, 해당 이미지로 이동하는 법,
-            일단 스프링에서 p_id도 같이 넘겨준다.
-            그래서 라우터에 router :to="{name: 'Product_User', params: {p_id}} (상품관리에 상품보기랑 똑같음.)
-            이런식으로 해주면 바로 이동 가능하다. 
-
-
-
-          -->
-
-
-
-
-
-
-
           <!-- LED 거실등탭 -->
           <v-menu
             open-on-hover
