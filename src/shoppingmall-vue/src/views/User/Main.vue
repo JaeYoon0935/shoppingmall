@@ -18,7 +18,7 @@
      <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Living Room
        <span class="text">LED 거실등</span>
      </p>
-     <div style="text-align:left; margin-left:15%; margin-bottom:100px;">
+     <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
         <span v-for="(item, index) in $store.state.imageLiving" v-bind:key="index">
           <!-- <router-link to="preparing"> -->
             <span v-if="index <4">
@@ -32,7 +32,7 @@
      <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Room Lamp
        <span class="text">LED 방등</span>
      </p>
-     <div style="text-align:left; margin-left:15%; margin-bottom:100px;">
+     <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
         <span v-for="(item, index) in $store.state.imageRoom" v-bind:key="index">
           <!-- <router-link to="preparing"> -->
             <span v-if="index <4">
@@ -47,7 +47,7 @@
      <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Electrical Materials
        <span class="text">전기재료</span>
      </p>
-     <div style="text-align:left; margin-left:15%; margin-bottom:100px;">
+     <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
           <span v-for="(item, index) in $store.state.imageMaterials" v-bind:key="index">
             <!-- <router-link to="preparing"> -->
               <span v-if="index <4">
@@ -87,8 +87,8 @@
   font-size:24px;
 }
 .image{
-  width:11%; 
-  height:11%;
+  width:12%; 
+  height:12%;
 }
 div[data-v-fae5bece] {
     width: 2200px;
