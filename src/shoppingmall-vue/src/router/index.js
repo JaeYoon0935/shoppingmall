@@ -17,6 +17,9 @@ import Admin from '../views/Admin.vue'
 import Login from '../views/Login/Login.vue'
 import Join from '../views/Login/Join.vue'
 import PointAdd from '../views/Admin/Client/PointAdd.vue'
+import Living from '../views/User/Tab/Living.vue'
+import Materials from '../views/User/Tab/Materials.vue'
+
 
 Vue.use(VueRouter)
 
@@ -42,6 +45,16 @@ const routes = [
     path:'/Join',
     name:'Join',
     component: Join
+  },
+  {
+    path:'/Living',
+    name:'Living',
+    component: Living
+  },
+  {
+    path:'/Materials',
+    name:'Materials',
+    component: Materials
   },
   { 
     path:'/Admin',

@@ -1,26 +1,9 @@
 <template>
   <div class="home">
-     <!-- 판매랭킹 사진 -->
-     <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Ranking
-       <span class="text">판매랭킹순</span>
-     </p>
-     <div style="text-align:left; margin-left:15%; margin-bottom:100px;">
-       <div>
-          <span v-for="(item, index) in $store.state.imageByRank" v-bind:key="index">
-            <router-link :to="{name: 'Product_User', params: {id: item.id}}">
-              <span v-if="index <4">
-                  <img :src="image(item.image)" class="image">
-              </span>
-            </router-link>
-            <!-- <span style="display:block">   {{item.name}} {{item.price}}</span> -->
-          </span>
-       </div>  
-     </div>
 
-     <!-- 거실등 사진 -->
-     <hr width = "80%" color = "gray" style="margin: auto;">
      <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Living Room
-       <span class="text">LED 거실등</span>
+       <span class="text">LED 거실등 전체</span>
+       <a href="#30" style="color:white;">맨 위로</a>
      </p>
      <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
         <span v-for="(item, index) in $store.state.imageLiving" v-bind:key="index">
@@ -31,36 +14,11 @@
           </router-link> 
         </span>
      </div>
-     
-     <!-- 방등 사진 -->
-     <hr width = "80%" color = "gray" style="margin: auto;">
-     <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Room Lamp
-       <span class="text">LED 방등</span>
-     </p>
-     <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
-        <span v-for="(item, index) in $store.state.imageRoom" v-bind:key="index">
-          <router-link :to="{name: 'Product_User', params: {id: item.id}}">
-            <span v-if="index <4">
-              <img :src="image(item.image)" class="image">
-            </span>
-          </router-link>
-        </span>
-     </div>
 
-     <!-- 전기재료 사진 -->
-     <hr width = "80%" color = "gray" style="margin: auto;">
-     <p class="size24" style="text-align:left; margin-top:30px; margin-left:10%">Electrical Materials
-       <span class="text">전기재료</span>
-     </p>
-     <div style="text-align:left; margin-left:15%; margin-top:30px; margin-bottom:100px;">
-          <span v-for="(item, index) in $store.state.imageMaterials" v-bind:key="index">
-            <router-link :to="{name: 'Product_User', params: {id: item.id}}">
-              <span v-if="index <4">
-                <img :src="image(item.image)" class="image">
-              </span>
-            </router-link>
-          </span>
-     </div>
+    <div id="30" style="margin-top:1000px;">
+        30평형
+    </div>
+
 
      <!-- 사용자 정보 -->
      <hr width = "80%" color = "gray" style="margin: auto;">
@@ -129,11 +87,14 @@ span{
 <script>
 export default {
    created(){
-    this.$store.dispatch('imageByRank')
     this.$store.dispatch('imageLiving')
-    this.$store.dispatch('imageRoom')
-    this.$store.dispatch('imageMaterials')
   },
+  data: () => ({ 
+      Living: [
+        { title: '거실등 30평형', name:'Product'},
+        { title: '거실등 40평형', name:'Product'},
+      ],
+    }),
   methods:{
     image(image){
         //경로를 조합해줄 메서드.

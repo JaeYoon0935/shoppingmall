@@ -13,7 +13,7 @@
           <v-btn class="ml-8" @click="LogOut()">로그아웃</v-btn>
         </span>
         <span style="padding-left:0px; padding-right:12px;" v-if="this.$store.state.login_flag == 0">
-        <v-btn  router :to="{name: 'Join'}">회원가입</v-btn>
+           <v-btn  router :to="{name: 'Join'}">회원가입</v-btn>
         </span>
       </v-layout>
 
@@ -26,167 +26,184 @@
       </v-layout>
 
       <v-layout>
-
-      <v-tabs
-          centered
-          class="mt-9"
-          color="blue darken-1"
-        >
-
-          <!-- 홈탭 -->
-          <v-tab style="width:140px;" router :to="{name: 'Home'}">Home</v-tab>
-          
-          <!-- LED 거실등탭 -->
-          <v-menu
-            open-on-hover
-            bottom
-            offset-y
+        <v-tabs
+            centered
+            class="mt-9"
+            color="blue darken-1"
           >
-          <template v-slot:activator="{ on, attrs }">
-            <v-tab    v-bind="attrs"
+            <!-- 홈탭 -->
+            <v-tab style="width:140px;" @click="category('Home')">Home</v-tab>
+
+            <!-- LED 거실등탭 -->
+            <v-menu
+              open-on-hover
+              bottom
+              offset-y
+            >
+            <template v-slot:activator="{ on, attrs }">
+              <v-tab  v-bind="attrs"
                       v-on="on"
+                      @click="category('Living')"
                       style="width:140px;">LED 거실등                  
-            </v-tab>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in Living"
-              :key="index"
-              router :to="{name: item.name}"
+              </v-tab>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in Living"
+                :key="index"
+                @click="move()"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            </v-menu>
+
+            <!-- LED 방등탭 -->
+            <v-menu
+              open-on-hover
+              bottom
+              offset-y
             >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-          </v-menu>
+            <template v-slot:activator="{ on, attrs }">
+              <v-tab    v-bind="attrs"
+                        v-on="on"
+                        style="width:140px;">LED 방등
+              </v-tab>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in Room"
+                :key="index"
+                router :to="{name: item.name}"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            </v-menu>
 
-           <!-- LED 방등탭 -->
-          <v-menu
-            open-on-hover
-            bottom
-            offset-y
-          >
-          <template v-slot:activator="{ on, attrs }">
-            <v-tab    v-bind="attrs"
-                      v-on="on"
-                      style="width:140px;">LED 방등
-            </v-tab>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in Room"
-              :key="index"
-              router :to="{name: item.name}"
+            <!-- LED 식탁등탭 -->
+            <v-menu
+              open-on-hover
+              bottom
+              offset-y
             >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-          </v-menu>
+            <template v-slot:activator="{ on, attrs }">
+              <v-tab    v-bind="attrs"
+                        v-on="on"
+                        style="width:140px;">LED 식탁등
+              </v-tab>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in Dining"
+                :key="index"
+                router :to="{name: item.name}"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            </v-menu>
 
-           <!-- LED 식탁등탭 -->
-          <v-menu
-            open-on-hover
-            bottom
-            offset-y
-          >
-          <template v-slot:activator="{ on, attrs }">
-            <v-tab    v-bind="attrs"
-                      v-on="on"
-                      style="width:140px;">LED 식탁등
-            </v-tab>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in Dining"
-              :key="index"
-              router :to="{name: item.name}"
+            <!-- LED 주방등탭 -->
+            <v-menu
+              open-on-hover
+              bottom
+              offset-y
             >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-          </v-menu>
+            <template v-slot:activator="{ on, attrs }">
+              <v-tab    v-bind="attrs"
+                        v-on="on"
+                        style="width:140px;">LED 주방등
+              </v-tab>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in Kitchen"
+                :key="index"
+                router :to="{name: item.name}"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            </v-menu>
 
-
-          <!-- LED 주방등탭 -->
-          <v-menu
-            open-on-hover
-            bottom
-            offset-y
-          >
-          <template v-slot:activator="{ on, attrs }">
-            <v-tab    v-bind="attrs"
-                      v-on="on"
-                      style="width:140px;">LED 주방등
-            </v-tab>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in Kitchen"
-              :key="index"
-              router :to="{name: item.name}"
+            <!-- 스탠드 -->
+            <v-menu
+              open-on-hover
+              bottom
+              offset-y
             >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-          </v-menu>
+            <template v-slot:activator="{ on, attrs }">
+              <v-tab    v-bind="attrs"
+                        v-on="on"
+                        style="width:140px;">스탠드
+              </v-tab>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in Stand"
+                :key="index"
+                router :to="{name: item.name}"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            </v-menu>
 
-          <!-- 스탠드 -->
-          <v-menu
-            open-on-hover
-            bottom
-            offset-y
-          >
-          <template v-slot:activator="{ on, attrs }">
-            <v-tab    v-bind="attrs"
-                      v-on="on"
-                      style="width:140px;">스탠드
-            </v-tab>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in Stand"
-              :key="index"
-              router :to="{name: item.name}"
+            <!-- 전기재료 -->
+            <!-- <v-menu
+              open-on-hover
+              bottom
+              offset-y
             >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-          </v-menu>
+            <template v-slot:activator="{ on, attrs }">
+              <v-tab    v-bind="attrs"
+                        v-on="on"
+                        style="width:140px;">전기재료
+              </v-tab>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in Materials"
+                :key="index"
+                router :to="{name: item.name}"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+            </v-menu> -->
+            <v-tab style="width:140px;" @click="category('Materials')">전기재료 </v-tab>
 
-           <!-- 전기재료 -->
-          <v-menu
-            open-on-hover
-            bottom
-            offset-y
-          >
-          <template v-slot:activator="{ on, attrs }">
-            <v-tab    v-bind="attrs"
-                      v-on="on"
-                      style="width:140px;">전기재료
-            </v-tab>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in Materials"
-              :key="index"
-              router :to="{name: item.name}"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-          </v-menu>
-
-          <v-tab style="background-color:lightgrey; color:black; width:140px;" router :to="{name: 'Admin'}">관리자 페이지</v-tab>
+            <v-tab style="background-color:lightgrey; color:black; width:140px;" router :to="{name: 'Admin'}">관리자 페이지</v-tab>
         </v-tabs>
-      </v-layout>
-        </v-container>
+       </v-layout>
+      </v-container>
     </v-app-bar>
 
     <v-main>
       <v-container>
   
       <v-row style="text-align:center">
-        <Main v-if="$route.name == 'Home'"></Main>
-        <router-view/>
+
+        <!-- 원래코드
+         <Main v-if="$route.name == 'Home'"></Main>
+         <router-view/>
+         -->
+
+        <Main v-if="'Home' == this.Tab"></Main>
+        <Living v-if="'Living' == this.Tab"></Living>
+        <Materials v-if="'Materials' == this.Tab"></Materials> 
+         <router-view/>
+
+        <!-- 
+        <Main v-if="'Home' == this.Tab"></Main>
+        <Living v-if="'Living' == this.Tab"></Living>
+        <Materials v-if="'Materials' == this.Tab"></Materials> 
+        -->
+
+        <!-- <Main v-if="this.Tab == 'Home'"></Main>
+        <Living v-if="this.Tab == 'Living'"></Living> -->
+        <!-- <router-view :key="$route.fullPath"/> -->
       </v-row>
 
       </v-container>
@@ -210,21 +227,23 @@
 }
 </style>
 
-
-
 <script>
 // @ is an alias to /src
 import { mapActions } from "vuex"
 import Main from '../views/User/Main.vue'
+import Living from '../views/User/Tab/Living.vue'
+import Materials from '../views/User/Tab/Materials.vue'
+
 export default {
   created(){
       this.$store.state.login_prev = 1;
     },
   name: 'Home',
   components: {
-    Main
+    Main, Living, Materials
   },
    data: () => ({ 
+      Tab: 'Home',
       Living: [
         { title: '거실등 30평형', name:'Product'},
         { title: '거실등 40평형', name:'Product'},
@@ -253,6 +272,12 @@ export default {
     }),
   methods:{
     ...mapActions(["LogOut"]),
+    category(text){
+      this.Tab = text;
+    },
+    move(){
+      window.scrollTo(0,500);
+    }
   },
 }
 </script>
