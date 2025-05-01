@@ -1,5 +1,6 @@
 package com.shoppingmall.controller
 
+import com.shoppingmall.dto.CategoryDto
 import com.shoppingmall.dto.ProductDto
 import com.shoppingmall.dto.ProductRequestDto
 import com.shoppingmall.service.ProductService
@@ -50,6 +51,13 @@ class ProductController(
     fun delProduct(@PathVariable id:Long): ResponseEntity<ProductDto>{
         val product = productService.delProduct(id)
         return ResponseEntity.ok(product)
+    }
+
+    // 카테고리 전체 조회
+    @GetMapping("/categories")
+    fun getAllCategories(): ResponseEntity<List<CategoryDto>> {
+        val categories = productService.getAllCategories()
+        return ResponseEntity.ok(categories)
     }
 
 }

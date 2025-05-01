@@ -1,62 +1,56 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useOutletContext, Link } from 'react-router-dom';
 
 function ShopMain() {
-   const categories = [
-    '분류1', '분류2', '분류3', '분류4', '분류5', '관리자 페이지'
-   ];
-    
-   const products = [
-    { title: 'Category1', label: '분류1' },
-    { title: 'Category2', label: '분류2' },
-    { title: 'Category3', label: '분류3' },
-    { title: 'Category4', label: '분류4' },
-    { title: 'Category5', label: '분류5' },
-   ];
+  const { categories } = useOutletContext();
 
-  const [activeTab, setActiveTab] = useState('분류1');
+  // 가짜 이미지 인덱스 리스트 (나중에 실제 상품 데이터로 교체 가능)
+  const [imageList, setImageList] = useState([1, 2, 3, 4]);
+
+  useEffect(() => {
+    console.log(categories);
+    // 예: 비동기로 상품 받아서 setImageList([...]) 가능
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b mt-2">
-        <ul className="flex justify-center space-x-24 px-6 overflow-x-auto">
-          {categories.map((category) =>
-            category === '관리자 페이지' ? (
-              <li key={category}>
-                <Link
-                  to="/admin"
-                  className="block py-3 px-4 text-sm font-medium text-gray-800 bg-gray-200 hover:bg-gray-300"
-                >
-                  {category}
-                </Link>
-              </li>
-            ) : (
-              <li
-                key={category}
-                className={`cursor-pointer py-3 px-2 text-sm font-medium border-b-2 transition-colors ${
-                  activeTab === category
-                    ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-600 hover:text-blue-500'
-                }`}
-                onClick={() => setActiveTab(category)}
-              >
-                {category}
-              </li>
-            )
-          )}
-        </ul>
-      </nav>
-
-      <main className="p-6 space-y-10">
-        {products.map((product, index) => (
-          <div key={index}>
+    <div className="px-4 md:px-8">
+      <main className="max-w-screen-xl mx-auto space-y-10 mt-8">
+        {categories.map((category, index) => (
+          <div key={category.id}>
             <h2 className="text-xl font-bold">
-              {product.title}{' '}
+              Category{index + 1}{' '}
               <span className="text-sm font-normal text-gray-500">
-                {product.label}
+                {category.name}
               </span>
             </h2>
             <hr className="mt-2" />
+
+            {/* 상품 목록 */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4 relative">
+              {imageList.map((imgIndex) => (
+                <div
+                  key={imgIndex}
+                  className="border rounded overflow-hidden flex justify-center items-center aspect-square"
+                >
+                  <img
+                    src={'/default-image.png'}
+                    alt={`Product ${imgIndex}`}
+                    className="w-full h-full object-contain p-4"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* 더보기 버튼 */}
+            <div className="mt-2 flex justify-end">
+              <Link
+                to={`/category/${category.id}`}
+                state={{index, name: category.name}}
+                className="px-3 py-1 text-sm text-gray-700 border border-gray-300 rounded hover:bg-gray-100 transition"
+              >
+                더보기
+              </Link>
+            </div>
           </div>
         ))}
       </main>

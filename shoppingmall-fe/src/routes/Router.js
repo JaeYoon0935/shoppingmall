@@ -8,7 +8,8 @@ import ProductManagement from '../admin/pages/product/ProductManagement';
 import ProductRegistration from '../admin/pages/product/ProductRegistration';
 import ProductEdit from '../admin/pages/product/ProductEdit';
 import ShopMain from '../shop/pages/ShopMain';
-import Layout from '../shop/layouts/Layout'; 
+import Category from '../shop/pages/Category';
+import Layout from '../shop/layouts/Layout';
 
 function Router() {
 
@@ -30,6 +31,7 @@ function Router() {
       {/* 쇼핑몰 페이지*/}
       <Route path="/" element={<Layout />} >
         <Route index element={<ShopMain />} />
+        <Route path="category/:id" element={<Category />} />
       </Route>
     </Routes>
   );

@@ -25,7 +25,7 @@ function UserInfo() {
         const response = await api.put(
           `/admin/user/${id}/delete`
         );
-        if(response.statut = 200){
+        if(response.status = 200){
           alert("회원정보가 삭제되었습니다.");
           setUsers((prev) => prev.filter(user => user.id != id));
         }
