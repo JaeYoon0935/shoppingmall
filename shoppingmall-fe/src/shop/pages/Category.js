@@ -1,22 +1,33 @@
+import api from "../../api/apiClient";
 import { useState, useEffect } from 'react';
 import { useParams, useLocation } from "react-router-dom";
 
 function Category() {
   const { id } = useParams();
-  const { state } = useLocation();
-  const categoryName = state?.name;
-  const categoryOrd = Number(state?.index) + 1;
+  const location = useLocation();
 
-  // 가짜 이미지 인덱스 리스트 (나중에 실제 상품 데이터로 교체 가능)
-  const [imageList, setImageList] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+  const searchParams = new URLSearchParams(location.search);
+  const index = Number(searchParams.get("index") ?? 0)
+  const categoryOrd = Number(index) + 1;
+
+  const [productList, setProductList] = useState([]);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(8);
-  const [totalPages, setTotalPages] = useState(3);
-
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    // 예: 비동기로 상품 받아서 setImageList([...]) 가능
-  }, []);
+    setPage(0)
+  }, [id]);
+
+  useEffect(() => {
+    api.get(`/products/category/${id}?page=${page}&size=${size}`)
+    .then(response => {
+        setProductList(response.data.content);
+        setTotalPages(response.data.totalPages);
+    }).catch(error => {
+        console.error("상품목록을 불러오지 못하였습니다.", error);
+      });
+  }, [id, page, size]);
 
   return (
     <div className="px-4 md:px-8">
@@ -25,7 +36,7 @@ function Category() {
           <h2 className="text-xl font-bold">
             Category{categoryOrd}{' '}
             <span className="text-sm font-normal text-gray-500">
-              {categoryName}
+              분류{categoryOrd}
             </span>
           </h2>
           <hr className="mt-2" />
@@ -33,14 +44,14 @@ function Category() {
 
         {/* 상품 목록 */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4 relative">
-          {imageList.map((imgIndex) => (
+          {productList.map((product) => (
             <div
-              key={imgIndex}
+              key={product.id}
               className="border rounded overflow-hidden flex justify-center items-center aspect-square"
             >
               <img
-                src={'/default-image.png'}
-                alt={`Product ${imgIndex}`}
+                src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
+                alt={`Product ${product.id}`}
                 className="w-full h-full object-contain p-4"
               />
             </div>

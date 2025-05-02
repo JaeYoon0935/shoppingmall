@@ -1,15 +1,18 @@
+import api from "../../api/apiClient";
 import { useState, useEffect } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 
 function ShopMain() {
   const { categories } = useOutletContext();
-
-  // 가짜 이미지 인덱스 리스트 (나중에 실제 상품 데이터로 교체 가능)
-  const [imageList, setImageList] = useState([1, 2, 3, 4]);
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    console.log(categories);
-    // 예: 비동기로 상품 받아서 setImageList([...]) 가능
+    api.get('/products/top-by-category?limit=4')
+    .then(response => {
+        setProductList(response.data);
+    }).catch(error => {
+        console.error("상품목록을 불러오지 못하였습니다.", error);
+      });
   }, []);
 
   return (
@@ -27,14 +30,16 @@ function ShopMain() {
 
             {/* 상품 목록 */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4 relative">
-              {imageList.map((imgIndex) => (
+              {productList
+                .filter(product => product.categoryId === category.id)
+                .map((product) => (
                 <div
-                  key={imgIndex}
+                  key={product.id}
                   className="border rounded overflow-hidden flex justify-center items-center aspect-square"
                 >
                   <img
-                    src={'/default-image.png'}
-                    alt={`Product ${imgIndex}`}
+                    src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
+                    alt={`Product ${product.id}`}
                     className="w-full h-full object-contain p-4"
                   />
                 </div>
@@ -44,8 +49,7 @@ function ShopMain() {
             {/* 더보기 버튼 */}
             <div className="mt-2 flex justify-end">
               <Link
-                to={`/category/${category.id}`}
-                state={{index, name: category.name}}
+                to={`/category/${category.id}?index=${index}`}
                 className="px-3 py-1 text-sm text-gray-700 border border-gray-300 rounded hover:bg-gray-100 transition"
               >
                 더보기

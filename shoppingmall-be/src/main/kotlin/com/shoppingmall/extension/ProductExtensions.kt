@@ -14,7 +14,11 @@ fun Product.toDto(): ProductDto {
         imagePath = this.imagePath,
         categoryName = this.category?.name,
         categoryId = this.category?.id,
-        delYn = this.delYn
+        delYn = this.delYn,
+        regDts = this.regDts,
+        regUser = this.regUser,
+        modDts = this.modDts,
+        modUser = this.modUser
     )
 }
 

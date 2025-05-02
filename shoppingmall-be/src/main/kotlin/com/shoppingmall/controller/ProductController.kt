@@ -1,6 +1,7 @@
 package com.shoppingmall.controller
 
 import com.shoppingmall.dto.CategoryDto
+import com.shoppingmall.dto.ProductCardDto
 import com.shoppingmall.dto.ProductDto
 import com.shoppingmall.dto.ProductRequestDto
 import com.shoppingmall.service.ProductService
@@ -15,6 +16,23 @@ import org.springframework.web.bind.annotation.*
 class ProductController(
     private val productService: ProductService
 ) {
+
+    // 쇼핑몰 메인화면 목록
+    @GetMapping("/top-by-category")
+    fun getMainProducts(@RequestParam(defaultValue = "4") limit: Int) : ResponseEntity<List<ProductCardDto>> {
+        val products = productService.getMainProducts(limit)
+        return ResponseEntity.ok(products)
+    }
+
+    // 카테고리 별 상품 목록
+    @GetMapping("/category/{id}")
+    fun getProductsByCategory(@PathVariable id: Long,
+                                    @RequestParam(defaultValue = "0") page: Int,
+                                    @RequestParam(defaultValue = "8") size: Int) : ResponseEntity<Page<ProductCardDto>>{
+        val pageable = PageRequest.of(page, size, Sort.by("regDts").descending())
+        val products = productService.getProductsByCategory(id, pageable)
+        return ResponseEntity.ok(products)
+    }
 
     // 상품 전체 조회
     @GetMapping

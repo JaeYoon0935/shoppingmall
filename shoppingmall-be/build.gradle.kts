@@ -76,3 +76,13 @@ kapt {
 		arg("querydsl.jakarta", "true") // ← 요거 추가
 	}
 }
+
+// querydsl QClass 경로 설정
+sourceSets["main"].java.srcDirs("build/generated/source/kapt/main")
+
+// compileQuerydsl task 등록
+tasks.register("compileQuerydsl") {
+	group = "build"
+	description = "Generate QueryDSL Q classes"
+	dependsOn("kaptKotlin") // kaptKotlin을 실행하게 연결
+}

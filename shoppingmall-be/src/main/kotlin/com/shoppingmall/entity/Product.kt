@@ -1,5 +1,6 @@
 package com.shoppingmall.entity
 import jakarta.persistence.*
+import java.time.LocalDateTime
 
 @Entity
 @Table(name= "products")
@@ -26,9 +27,21 @@ class Product (
     @Column(name="del_yn", nullable = false)
     var delYn: String = "N",
 
+    @Column(name="reg_dts")
+    var regDts: LocalDateTime? = null,
+
+    @Column(name="reg_user")
+    var regUser: String? = null,
+
+    @Column(name="mod_dts")
+    var modDts: LocalDateTime? = null,
+
+    @Column(name="mod_user")
+    var modUser: String? = null,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
-    var category: Category
+    open var category: Category
 ) {
     override fun toString(): String {
         return "Product(id=$id, name=$name, price=$price, stock=$stock, imagePath=$imagePath, delYn=$delYn)"

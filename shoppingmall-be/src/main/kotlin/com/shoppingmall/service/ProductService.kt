@@ -1,6 +1,7 @@
 package com.shoppingmall.service
 
 import com.shoppingmall.dto.CategoryDto
+import com.shoppingmall.dto.ProductCardDto
 import com.shoppingmall.dto.ProductDto
 import com.shoppingmall.dto.ProductRequestDto
 import com.shoppingmall.entity.Product
@@ -18,6 +19,14 @@ class ProductService (
     private val productRepository: ProductRepository,
     private val fileService: FileService
 ){
+
+    fun getMainProducts(limit: Int): List<ProductCardDto>{
+        return productRepository.findRecentTopProductsByCategory(limit)
+    }
+
+    fun getProductsByCategory(id:Long, pageable: Pageable): Page<ProductCardDto>{
+        return productRepository.findProductsByCategory(id, pageable)
+    }
 
     fun getAllProducts(pageable: Pageable): Page<ProductDto> {
         return productRepository.findNotDeletedWithCategory(pageable).map{it.toDto()}

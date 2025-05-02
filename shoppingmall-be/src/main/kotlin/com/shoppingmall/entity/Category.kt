@@ -13,7 +13,7 @@ class Category (
     var name: String,
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    var products: MutableList<Product> = ArrayList()
+    open var products: MutableList<Product> = ArrayList()
 ){
     override fun toString(): String {
         return "Category(id=$id, name=$name)"

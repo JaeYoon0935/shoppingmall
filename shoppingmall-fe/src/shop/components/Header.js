@@ -61,8 +61,7 @@ function Header({ categories }) {
                 className="py-3 px-2 text-sm font-medium"
               >
                 <Link
-                  to={`/category/${category.id}`}
-                  state={{ index, name: category.name }}
+                  to={`/category/${category.id}?index=${index}`}
                   className="block cursor-pointer transition-colors border-b-2 border-transparent text-gray-600 hover:text-blue-500"
                 >
                   {category.name}
