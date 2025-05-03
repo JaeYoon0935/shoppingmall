@@ -33,8 +33,9 @@ function ShopMain() {
               {productList
                 .filter(product => product.categoryId === category.id)
                 .map((product) => (
-                <div
+                <Link
                   key={product.id}
+                  to={`/productDetail/${product.id}`}
                   className="border rounded overflow-hidden flex justify-center items-center aspect-square"
                 >
                   <img
@@ -42,7 +43,7 @@ function ShopMain() {
                     alt={`Product ${product.id}`}
                     className="w-full h-full object-contain p-4"
                   />
-                </div>
+                </Link>
               ))}
             </div>
             

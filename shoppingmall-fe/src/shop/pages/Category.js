@@ -1,6 +1,6 @@
 import api from "../../api/apiClient";
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 function Category() {
   const { id } = useParams();
@@ -45,8 +45,9 @@ function Category() {
         {/* 상품 목록 */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4 relative">
           {productList.map((product) => (
-            <div
+            <Link
               key={product.id}
+              to={`/productDetail/${product.id}`}
               className="border rounded overflow-hidden flex justify-center items-center aspect-square"
             >
               <img
@@ -54,7 +55,7 @@ function Category() {
                 alt={`Product ${product.id}`}
                 className="w-full h-full object-contain p-4"
               />
-            </div>
+            </Link>
           ))}
         </div>
 

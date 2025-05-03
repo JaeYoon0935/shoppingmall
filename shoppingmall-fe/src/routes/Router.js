@@ -9,6 +9,7 @@ import ProductRegistration from '../admin/pages/product/ProductRegistration';
 import ProductEdit from '../admin/pages/product/ProductEdit';
 import ShopMain from '../shop/pages/ShopMain';
 import Category from '../shop/pages/Category';
+import ProductDetail from '../shop/pages/ProductDetail';
 import Layout from '../shop/layouts/Layout';
 
 function Router() {
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/" element={<Layout />} >
         <Route index element={<ShopMain />} />
         <Route path="category/:id" element={<Category />} />
+        <Route path="productDetail/:id" element={<ProductDetail />} />
       </Route>
     </Routes>
   );

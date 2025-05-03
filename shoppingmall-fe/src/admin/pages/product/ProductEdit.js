@@ -22,7 +22,7 @@ function ProductEdit() {
   const navigate = useNavigate();
 
   useEffect(() => {
-      const fetchData = async () => {
+    const fetchData = async () => {
         try{
           const [resProduct, resCategories] = await Promise.all([
             api.get(`/admin/products/${id}`),
@@ -98,6 +98,11 @@ function ProductEdit() {
         [name]: value,
       }));
     }
+  };
+
+  const extractFileName = (path) => {
+    const fileName = path.split('/').pop();
+    return fileName.split('_').pop();
   };
 
   return (
@@ -233,11 +238,6 @@ function ProductEdit() {
         </div>
     </div>
   );
-}
-
-function extractFileName(path) {
-  const fileName = path.split('/').pop();
-  return fileName.split('_').pop();
 }
 
 export default ProductEdit;
