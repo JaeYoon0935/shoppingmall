@@ -55,7 +55,10 @@ function ProductRegistration() {
             if (response.status === 200) {
                 alert("등록 되었습니다.");
                 navigate('/admin/product-management');
+            }else{
+              alert("등록에 실패하였습니다.");
             }
+
         }
     } catch (error) {
         alert("등록에 실패하였습니다.");

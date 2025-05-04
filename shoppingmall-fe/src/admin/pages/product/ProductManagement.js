@@ -28,6 +28,8 @@ function ProductManagement() {
         if(response.status == 200){
           alert("상품이 삭제되었습니다.");
           setProducts((prev) => prev.filter(product => product.id !== id));
+        }else{
+          alert("상품삭제에 실패하였습니다.");  
         }
       }
     } catch (error) {

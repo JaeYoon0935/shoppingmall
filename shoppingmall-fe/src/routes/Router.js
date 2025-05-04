@@ -11,6 +11,8 @@ import ShopMain from '../shop/pages/ShopMain';
 import Category from '../shop/pages/Category';
 import ProductDetail from '../shop/pages/ProductDetail';
 import Layout from '../shop/layouts/Layout';
+import Login from '../auth/Login';
+import SignUp from '../auth/SignUp';
 
 function Router() {
 
@@ -35,6 +37,10 @@ function Router() {
         <Route path="category/:id" element={<Category />} />
         <Route path="productDetail/:id" element={<ProductDetail />} />
       </Route>
+
+      {/* 로그인 / 회원가입 페이지 */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signUp" element={<SignUp />} />
     </Routes>
   );
 }

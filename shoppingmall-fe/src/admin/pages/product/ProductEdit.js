@@ -69,6 +69,8 @@ function ProductEdit() {
             if (response.status === 200) {
                 alert("수정 되었습니다.");
                 navigate('/admin/product-management');
+            }else{
+                alert("수정에 실패하였습니다.");      
             }
         }
     } catch (error) {

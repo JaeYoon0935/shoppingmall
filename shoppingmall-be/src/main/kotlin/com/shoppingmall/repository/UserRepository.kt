@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface UserRepository: JpaRepository<User, Long> {
     fun findByDelYn(delYn: String, pageable: Pageable): Page<User>
+
+    fun existsByEmail(email: String): Boolean
 }

@@ -18,7 +18,7 @@ function Header({ categories }) {
       <header className="bg-gray-100 shadow py-6 px-6 relative">
         <div className="flex items-center justify-between">
           {/* 로고 */}
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-2xl font-bold text-gray-800">
             <Link to="/">ShoppingMall</Link>
           </h1>
 
@@ -36,8 +36,8 @@ function Header({ categories }) {
 
           {/* 로그인 / 회원가입 */}
           <div className="flex space-x-2">
-            <button className="border px-4 py-1 rounded">로그인</button>
-            <button className="border px-4 py-1 rounded">회원가입</button>
+            <Link to={"/login"} className="border px-4 py-1 rounded">로그인</Link>
+            <Link to={"/signUp"} className="border px-4 py-1 rounded">회원가입</Link>
           </div>
         </div>
       </header>
