@@ -1,5 +1,6 @@
 package com.shoppingmall.entity
 import jakarta.persistence.*
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "users")
@@ -22,6 +23,26 @@ class User (
     var phone: String? = null,
 
     @Column(name = "del_yn", nullable = false)
-    var delYn: String = "N"
+    var delYn: String = "N",
 
-)
+    @Column(name="reg_dts")
+    var regDts: LocalDateTime = LocalDateTime.now(),
+
+    @Column(name="reg_user")
+    var regUser: String? = null,
+
+    @Column(name="mod_dts")
+    var modDts: LocalDateTime? = null,
+
+    @Column(name="mod_user")
+    var modUser: String? = null,
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = [JoinColumn(name = "user_id")],
+        inverseJoinColumns = [JoinColumn(name = "role_id")]
+    )
+    val roles: Set<Role> = mutableSetOf()
+
+    )

@@ -1,5 +1,7 @@
 package com.shoppingmall.config
 
+import com.shoppingmall.config.AuthWhitelist
+import com.shoppingmall.filter.JwtAuthenticationFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -9,18 +11,22 @@ import org.springframework.security.web.SecurityFilterChain
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 import org.springframework.web.filter.CorsFilter
-import java.util.GregorianCalendar.BC
 
 @Configuration
-class SecurityConfig {
+class SecurityConfig(
+    private val jwtAuthenticationFilter: JwtAuthenticationFilter
+) {
 
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.csrf { it.disable() }
+            .cors { }
             .authorizeHttpRequests {
-                it.requestMatchers("/**").permitAll()
-                    .anyRequest().authenticated()
+                it.requestMatchers(*AuthWhitelist.PATH_PATTERNS.toTypedArray()).permitAll()
+                it.requestMatchers("/api/admin/**").hasRole("ADMIN")
+                it.anyRequest().authenticated()
             }
+            .addFilterBefore(jwtAuthenticationFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter::class.java)
         return http.build()
     }
 

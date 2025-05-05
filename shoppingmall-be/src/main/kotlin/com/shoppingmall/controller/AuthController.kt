@@ -1,5 +1,7 @@
 package com.shoppingmall.controller
 
+import com.shoppingmall.dto.LoginRequestDto
+import com.shoppingmall.dto.LoginResponseDto
 import com.shoppingmall.dto.SignupRequestDto
 import com.shoppingmall.dto.UserDto
 import com.shoppingmall.service.UserService
@@ -18,6 +20,12 @@ class AuthController(
     @PostMapping("/signUp")
     fun signUp(@RequestBody param: SignupRequestDto): ResponseEntity<UserDto>{
         val user = userService.signUp(param)
+        return ResponseEntity.ok(user)
+    }
+
+    @PostMapping("/login")
+    fun login(@RequestBody param: LoginRequestDto): ResponseEntity<LoginResponseDto>{
+        val user = userService.login(param)
         return ResponseEntity.ok(user)
     }
 

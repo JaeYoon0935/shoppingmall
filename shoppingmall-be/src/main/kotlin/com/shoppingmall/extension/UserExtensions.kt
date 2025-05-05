@@ -10,6 +10,11 @@ fun User.toDto(): UserDto {
         address = this.address,
         phone = this.phone,
         email = this.email,
-        delYn = this.delYn
+        delYn = this.delYn,
+        regDts = this.regDts,
+        regUser = this.regUser,
+        modDts = this.modDts,
+        modUser = this.modUser,
+        roles = roles.map { it.name }
     )
 }

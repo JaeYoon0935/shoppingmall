@@ -1,16 +1,24 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 function Header({ categories }) {
+  const { userInfo, dispatch } = useContext(AuthContext);
 
   useEffect(() => {
     console.log(categories);
   }, [categories]);
 
-  const renderedCategories = [
-    ...categories,
-    { id: 999, name: '관리자 페이지', isAdminLink: true }
-  ];
+  const isAdmin = userInfo?.roles?.includes("ROLE_ADMIN");
+
+  const renderedCategories = isAdmin ? [...categories, { id: 999, name: '관리자 페이지', isAdminLink: true }] : [...categories];
+
+  const navigate = useNavigate();
+  const handelLogout = () => {
+      dispatch({ type: 'LOGOUT'});
+      alert("로그아웃 되었습니다.");
+      //navigate('/');
+  }
 
   return (
     <div>
@@ -36,8 +44,19 @@ function Header({ categories }) {
 
           {/* 로그인 / 회원가입 */}
           <div className="flex space-x-2">
-            <Link to={"/login"} className="border px-4 py-1 rounded">로그인</Link>
-            <Link to={"/signUp"} className="border px-4 py-1 rounded">회원가입</Link>
+            {userInfo.token ? (
+              <button
+                onClick={ handelLogout }
+                className="border px-4 py-1 rounded"
+                >
+                  로그아웃
+              </button>
+            ) : (
+              <>
+              <Link to={"/login"} className="border px-4 py-1 rounded">로그인</Link>
+              <Link to={"/signUp"} className="border px-4 py-1 rounded">회원가입</Link>  
+              </>
+            )}
           </div>
         </div>
       </header>
