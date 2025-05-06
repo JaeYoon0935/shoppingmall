@@ -4,10 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 function ProductRegistration() {
 
-  const [productData, setProductData] = useState({
+  const [product, setProduct] = useState({
     id: "",
     name: "",
-    discription: "",
+    description: "",
     price: "",
     stock: "",
     uploadImage: null,
@@ -32,14 +32,14 @@ function ProductRegistration() {
         if(window.confirm("상품을 등록하시겠습니까?")){
 
             const param = new FormData();
-            param.append("name", productData.name);
-            param.append("description", productData.description);
-            param.append("price", productData.price);
-            param.append("stock", productData.stock);
-            param.append("categoryId", productData.categoryId);
+            param.append("name", product.name);
+            param.append("description", product.description);
+            param.append("price", product.price);
+            param.append("stock", product.stock);
+            param.append("categoryId", product.categoryId);
 
-            if (productData.uploadImage) {
-              param.append("uploadImage", productData.uploadImage);
+            if (product.uploadImage) {
+              param.append("uploadImage", product.uploadImage);
             }
 
             const response = await api.post(
@@ -71,7 +71,7 @@ function ProductRegistration() {
     if (type === "file") {
       const file = files?.[0];
       if (file) {
-        setProductData(prev => ({
+        setProduct(prev => ({
           ...prev,
           [name]: file,
         }));
@@ -80,7 +80,7 @@ function ProductRegistration() {
         setPreviewImage(null);
       }
     } else {
-      setProductData(prev => ({
+      setProduct(prev => ({
         ...prev,
         [name]: value,
       }));
@@ -98,7 +98,7 @@ function ProductRegistration() {
               <td className="px-4 py-3">
                 <input
                   name="name"
-                  value={productData.name}
+                  value={product.name}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
@@ -110,7 +110,7 @@ function ProductRegistration() {
               <td className="px-4 py-3">
                 <textarea
                   name="description"
-                  value={productData.description}
+                  value={product.description}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
@@ -123,7 +123,7 @@ function ProductRegistration() {
                 <input
                   name="price"
                   type="number"
-                  value={productData.price}
+                  value={product.price}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
@@ -135,7 +135,7 @@ function ProductRegistration() {
               <td className="px-4 py-3">
                 <select
                   name="categoryId"
-                  value={productData.categoryId}
+                  value={product.categoryId}
                   onChange={handleChange}
                   className="border px-2 py-1"
                   required
@@ -155,7 +155,7 @@ function ProductRegistration() {
                 <input
                   name="stock"
                   type="number"
-                  value={productData.stock}
+                  value={product.stock}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required

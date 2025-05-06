@@ -11,10 +11,12 @@ import ProductEdit from '../admin/pages/product/ProductEdit';
 import ShopMain from '../shop/pages/ShopMain';
 import Category from '../shop/pages/Category';
 import ProductDetail from '../shop/pages/ProductDetail';
+import Checkout from '../shop/pages/Checkout';
 import Layout from '../shop/layouts/Layout';
 import Login from '../auth/Login';
 import SignUp from '../auth/SignUp';
 import { AuthProvider } from "../context/AuthContext";
+import { CheckoutProvider } from "../context/CheckoutContext";
 import Unauthorized from '../common/pages/Unathorized';
 
 function Router() {
@@ -23,35 +25,38 @@ function Router() {
 
   return (
     <AuthProvider>
-      <Routes>
+      <CheckoutProvider>
+        <Routes>
 
-        {/* 로그인 / 회원가입 페이지 (로그인 인증 없이 접근가능) */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signUp" element={<SignUp />} />
+          {/* 로그인 / 회원가입 페이지 (로그인 인증 없이 접근가능) */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
 
-        {/* 권한 없음 처리 페이지 */}
-        <Route path="/unauthorized" element={<Unauthorized/>}/>
+          {/* 권한 없음 처리 페이지 */}
+          <Route path="/unauthorized" element={<Unauthorized/>}/>
 
-        {/* 쇼핑몰 페이지*/}
-        <Route path="/" element={<Layout />} >
-          <Route index element={<ShopMain />} />
-          <Route path="category/:id" element={<Category />} />
-          <Route path="productDetail/:id" element={<ProductDetail />} />
-        </Route>
-
-        {/* 관리자 페이지 */}
-        <Route path="/admin" element={<AdminRoute />}>
-          <Route element={<AdminLayout />}>
-            <Route index element={<AdminHome />} />
-            <Route path="user-info" element={<UserInfo />} />
-            <Route path="user-edit/:id" element={<UserEdit />}/>
-            <Route path="order-history" element={<OrderHistory />} />
-            <Route path="product-management" element={<ProductManagement />} />
-            <Route path="product-registration" element={<ProductRegistration />} />
-            <Route path="product-edit/:id" element={<ProductEdit /> }/>
+          {/* 쇼핑몰 페이지*/}
+          <Route path="/" element={<Layout />} >
+            <Route index element={<ShopMain />} />
+            <Route path="category/:id" element={<Category />} />
+            <Route path="productDetail/:id" element={<ProductDetail />} />
+            <Route path="checkout" element={<Checkout />}/>
           </Route>
-        </Route>
-      </Routes>
+
+          {/* 관리자 페이지 */}
+          <Route path="/admin" element={<AdminRoute />}>
+            <Route element={<AdminLayout />}>
+              <Route index element={<AdminHome />} />
+              <Route path="user-info" element={<UserInfo />} />
+              <Route path="user-edit/:id" element={<UserEdit />}/>
+              <Route path="order-history" element={<OrderHistory />} />
+              <Route path="product-management" element={<ProductManagement />} />
+              <Route path="product-registration" element={<ProductRegistration />} />
+              <Route path="product-edit/:id" element={<ProductEdit /> }/>
+            </Route>
+          </Route>
+        </Routes>
+      </CheckoutProvider>
     </AuthProvider>
   );
 }

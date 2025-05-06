@@ -5,7 +5,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 function ProductEdit() {
 
   const { id } = useParams();
-  const [productData, setProductData] = useState({
+  const [product, setProduct] = useState({
     name: "",
     description: "",
     price: "",
@@ -29,7 +29,7 @@ function ProductEdit() {
             api.get(`/admin/categories`)
           ]);
           setCategories(resCategories.data);
-          setProductData(resProduct.data);
+          setProduct(resProduct.data);
         } catch(error) {
           console.error('데이터 불러오기 실패', error);
         }
@@ -46,14 +46,14 @@ function ProductEdit() {
           console.log("ID", id);
 
             const param = new FormData();
-            param.append("name", productData.name);
-            param.append("description", productData.description);
-            param.append("price", productData.price);
-            param.append("stock", productData.stock);
-            param.append("categoryId", productData.categoryId);
+            param.append("name", product.name);
+            param.append("description", product.description);
+            param.append("price", product.price);
+            param.append("stock", product.stock);
+            param.append("categoryId", product.categoryId);
 
-            if (productData.uploadImage) {
-              param.append("uploadImage", productData.uploadImage);
+            if (product.uploadImage) {
+              param.append("uploadImage", product.uploadImage);
             }
 
             const response = await api.put(
@@ -84,7 +84,7 @@ function ProductEdit() {
     if (type === "file") {
       const file = files?.[0];
       if (file) {
-        setProductData(prev => ({
+        setProduct(prev => ({
           ...prev,
           [name]: file,
         }));
@@ -95,7 +95,7 @@ function ProductEdit() {
         setUploadedFileName("");
       }
     } else {
-      setProductData(prev => ({
+      setProduct(prev => ({
         ...prev,
         [name]: value,
       }));
@@ -118,7 +118,7 @@ function ProductEdit() {
               <td className="px-4 py-3">
                 <input
                   name="name"
-                  value={productData.name}
+                  value={product.name}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
@@ -130,7 +130,7 @@ function ProductEdit() {
               <td className="px-4 py-3">
                 <textarea
                   name="description"
-                  value={productData.description}
+                  value={product.description}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
@@ -143,7 +143,7 @@ function ProductEdit() {
                 <input
                   name="price"
                   type="number"
-                  value={productData.price}
+                  value={product.price}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
@@ -155,7 +155,7 @@ function ProductEdit() {
               <td className="px-4 py-3">
                 <select
                   name="categoryId"
-                  value={productData.categoryId}
+                  value={product.categoryId}
                   onChange={handleChange}
                   className="border px-2 py-1"
                   required
@@ -175,7 +175,7 @@ function ProductEdit() {
                 <input
                   name="stock"
                   type="number"
-                  value={productData.stock}
+                  value={product.stock}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
@@ -186,26 +186,26 @@ function ProductEdit() {
               <td className="px-4 py-3 bg-gray-100">이미지 업로드</td>
               <td className="px-4 py-3">
                 {/* 기존 등록된 이미지 표시 */}
-                {(previewImage || productData.imagePath) && (
+                {(previewImage || product.imagePath) && (
                   <div className="mb-4">
                     <div className="flex items-center space-x-2">
                       <img
-                        src={ previewImage ? previewImage : `http://localhost:8080${productData.imagePath}`}
-                        alt={productData.name}
+                        src={ previewImage ? previewImage : `http://localhost:8080${product.imagePath}`}
+                        alt={product.name}
                         className="w-16 h-16 object-cover rounded"
                       />
                       <span className="text-sm text-gray-600">
-                        {uploadedFileName || extractFileName(productData.imagePath)}
+                        {uploadedFileName || extractFileName(product.imagePath)}
                       </span>
                     </div>
                   </div>
                 )}
                 <div>
-                    {(previewImage || productData.imagePath) && (
+                    {(previewImage || product.imagePath) && (
                       <button
                         type="button"
                         onClick={() => {
-                          setProductData({ ...productData, imagePath: "", uploadImage: null});
+                          setProduct({ ...product, imagePath: "", uploadImage: null});
                           setPreviewImage(null);
                           setUploadedFileName("");
                           if (fileInputRef.current) {
@@ -218,7 +218,7 @@ function ProductEdit() {
                       </button>
                     )}
                     <label htmlFor="uploadImage" className="cursor-pointer inline-block bg-gray-200 px-4 py-2 rounded">
-                      { (previewImage || productData.imagePath) ? "이미지 변경" : "이미지 등록" }
+                      { (previewImage || product.imagePath) ? "이미지 변경" : "이미지 등록" }
                     </label>
                     <input
                       id="uploadImage"

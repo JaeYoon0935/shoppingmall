@@ -52,7 +52,7 @@ class UserService (
         val roles = user.roles.map { it.name }
         val token: String = jwtUtil.generateToken(user.email, roles)
 
-        return LoginResponseDto(user.email, user.name, roles, token)
+        return LoginResponseDto( user.id,user.email, user.name, roles, token)
     }
 
 
@@ -85,6 +85,11 @@ class UserService (
 
     fun getUser(id: Long): UserDto{
         val user = userRepository.findById(id).orElseThrow{ IllegalArgumentException("사용자를 찾을 수 없습니다.") }
+        return user.toDto()
+    }
+
+    fun getUserByEmail(email: String): UserDto{
+        val user = userRepository.findByEmail(email) ?: throw  IllegalArgumentException("사용자를 찾을 수 없습니다.")
         return user.toDto()
     }
 

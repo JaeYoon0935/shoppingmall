@@ -1,9 +1,13 @@
 import api from "../../api/apiClient";
-import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useState, useEffect, useContext } from 'react';
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { getDeliveryDate } from "../../utils/commUtils";
+import { CheckoutContext } from "../../context/CheckoutContext";
 
 function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { dispatch } = useContext(CheckoutContext);
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({
     name: "",
@@ -28,13 +32,13 @@ function ProductDetail() {
     console.log(id);
   }, [id]);
 
-  const getDeliveryDate = () => {
-    const date = new Date();
-    date.setDate(date.getDate() + 3);
-    const week = ['일', '월', '화', '수', '목', '금', '토'];
-    const formatted = `${date.getMonth() + 1}/${date.getDate()}(${week[date.getDay()]})`;
-    return formatted;
-  };
+  const handleBuyNow = () => {
+    dispatch({
+      type: "SET_ITEMS",
+      payload: [{ product_id: Number(id), quantity}]
+    });
+    navigate("/checkout");
+  }
 
   return (
     <div className="max-w-5xl mx-auto p-8">
@@ -100,9 +104,18 @@ function ProductDetail() {
 
           {/* 구매 버튼 */}
           <div className="flex justify-center">
-            <button className="w-48 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded text-lg">
+            <button
+              onClick={handleBuyNow}
+              className="w-48 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded text-lg text-center"
+            >
               구매하기
             </button>
+            {/* <Link
+              to={`/checkout/${id}?quantity=${quantity}`}
+              className="w-48 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded text-lg text-center block"
+            >
+              구매하기
+            </Link> */}
           </div>
         </div>
       </div>

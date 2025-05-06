@@ -1,9 +1,11 @@
 import { useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { CheckoutContext } from '../../context/CheckoutContext';
 
 function Header({ categories }) {
-  const { userInfo, dispatch } = useContext(AuthContext);
+  const { userInfo, dispatch: authDispatch } = useContext(AuthContext);
+  const { dispatch: checkoutDispatch } =  useContext(CheckoutContext);
 
   useEffect(() => {
     console.log(categories);
@@ -15,9 +17,10 @@ function Header({ categories }) {
 
   const navigate = useNavigate();
   const handelLogout = () => {
-      dispatch({ type: 'LOGOUT'});
+      authDispatch({ type: "LOGOUT"});
+      checkoutDispatch({ type: "CLEAR_ITEMS"})
       alert("로그아웃 되었습니다.");
-      //navigate('/');
+      navigate('/');
   }
 
   return (
