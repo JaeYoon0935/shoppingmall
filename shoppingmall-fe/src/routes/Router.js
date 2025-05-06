@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import AdminRoute from '../routes/AdminRoute';
 import AdminLayout from '../admin/layouts/AdminLayout';
 import AdminHome from '../admin/pages/AdminHome';
 import UserInfo from '../admin/pages/user/UserInfo';
@@ -14,6 +15,7 @@ import Layout from '../shop/layouts/Layout';
 import Login from '../auth/Login';
 import SignUp from '../auth/SignUp';
 import { AuthProvider } from "../context/AuthContext";
+import Unauthorized from '../common/pages/Unathorized';
 
 function Router() {
 
@@ -27,6 +29,9 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
 
+        {/* 권한 없음 처리 페이지 */}
+        <Route path="/unauthorized" element={<Unauthorized/>}/>
+
         {/* 쇼핑몰 페이지*/}
         <Route path="/" element={<Layout />} >
           <Route index element={<ShopMain />} />
@@ -35,16 +40,17 @@ function Router() {
         </Route>
 
         {/* 관리자 페이지 */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminHome />} />
-          <Route path="user-info" element={<UserInfo />} />
-          <Route path="user-edit/:id" element={<UserEdit />}/>
-          <Route path="order-history" element={<OrderHistory />} />
-          <Route path="product-management" element={<ProductManagement />} />
-          <Route path="product-registration" element={<ProductRegistration />} />
-          <Route path="product-edit/:id" element={<ProductEdit /> }/>
+        <Route path="/admin" element={<AdminRoute />}>
+          <Route element={<AdminLayout />}>
+            <Route index element={<AdminHome />} />
+            <Route path="user-info" element={<UserInfo />} />
+            <Route path="user-edit/:id" element={<UserEdit />}/>
+            <Route path="order-history" element={<OrderHistory />} />
+            <Route path="product-management" element={<ProductManagement />} />
+            <Route path="product-registration" element={<ProductRegistration />} />
+            <Route path="product-edit/:id" element={<ProductEdit /> }/>
+          </Route>
         </Route>
-        
       </Routes>
     </AuthProvider>
   );
