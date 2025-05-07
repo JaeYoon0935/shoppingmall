@@ -50,7 +50,7 @@ class UserService (
         }
 
         val roles = user.roles.map { it.name }
-        val token: String = jwtUtil.generateToken(user.email, roles)
+        val token: String = jwtUtil.generateToken(user.email, roles, user.id)
 
         return LoginResponseDto( user.id,user.email, user.name, roles, token)
     }

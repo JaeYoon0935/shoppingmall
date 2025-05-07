@@ -3,11 +3,13 @@ import { useState, useEffect, useContext } from 'react';
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getDeliveryDate } from "../../utils/commUtils";
 import { CheckoutContext } from "../../context/CheckoutContext";
+import { AuthContext } from "../../context/AuthContext";
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { dispatch } = useContext(CheckoutContext);
+  const { userInfo } = useContext(AuthContext);
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({
     name: "",
@@ -33,11 +35,22 @@ function ProductDetail() {
   }, [id]);
 
   const handleBuyNow = () => {
+
     dispatch({
       type: "SET_ITEMS",
       payload: [{ product_id: Number(id), quantity}]
     });
-    navigate("/checkout");
+    
+    if(!userInfo?.token){
+      navigate("/login",{
+        state: { 
+          redirectTo: "/checkout"
+        }
+      });
+      return;
+    } else{
+      navigate("/checkout");
+    }
   }
 
   return (

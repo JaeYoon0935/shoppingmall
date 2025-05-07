@@ -11,6 +11,7 @@ import ProductEdit from '../admin/pages/product/ProductEdit';
 import ShopMain from '../shop/pages/ShopMain';
 import Category from '../shop/pages/Category';
 import ProductDetail from '../shop/pages/ProductDetail';
+import OrderComplete from '../shop/pages/OrderComplete';
 import Checkout from '../shop/pages/Checkout';
 import Layout from '../shop/layouts/Layout';
 import Login from '../auth/Login';
@@ -39,8 +40,9 @@ function Router() {
           <Route path="/" element={<Layout />} >
             <Route index element={<ShopMain />} />
             <Route path="category/:id" element={<Category />} />
-            <Route path="productDetail/:id" element={<ProductDetail />} />
+            <Route path="product-detail/:id" element={<ProductDetail />} />
             <Route path="checkout" element={<Checkout />}/>
+            <Route path="order-complete/:id" element={<OrderComplete />} />
           </Route>
 
           {/* 관리자 페이지 */}

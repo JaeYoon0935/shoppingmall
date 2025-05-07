@@ -1,6 +1,6 @@
 import api from "../../api/apiClient";
 import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getDeliveryDate } from "../../utils/commUtils";
 import { AuthContext } from "../../context/AuthContext";
 import { CheckoutContext } from "../../context/CheckoutContext";
@@ -20,6 +20,12 @@ function Checkout() {
   });
 
   useEffect(() => {
+    if (!userInfo?.token || checkoutState.items.length === 0) {
+      navigate("/");
+    }
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const resShippingInfo = await api.get(`/user?email=${email}`);
@@ -32,6 +38,7 @@ function Checkout() {
             quantity: item.quantity
           }))
         );
+
         const productResults = await Promise.all(productPromises);
         setProducts(productResults);
       } catch (error) {
@@ -53,10 +60,10 @@ function Checkout() {
   const handlePayment = async () => {
     const orderData = {
       userId: userInfo.id,
-      orderItems: products.map(p => ({
-        productId: p.id,
-        quantity: p.quantity,
-        orderPrice: p.price
+      orderItems: products.map(product => ({
+        productId: product.id,
+        quantity: product.quantity,
+        orderPrice: product.price
       })),
       totalPrice: totalPrice
     };
@@ -64,9 +71,9 @@ function Checkout() {
     try{
       if(window.confirm("주문 하시겠습니까?")){
         const response = await api.post(`/order`, orderData);
-        if(response.status == 200){
-          alert("주문이 완료되었습니다.");
-          navigate("/");      
+        if(response.status === 200){
+          const id = response.data.id;
+          navigate(`/order-complete/${id}`);      
         }else{
           alert("주문에 실패하였습니다.");  
         }
@@ -99,19 +106,23 @@ function Checkout() {
             {products.map(product => (
               <div key={product.id} className="flex gap-6 items-center mb-6">
                 <div className="flex-shrink-0 w-32 h-32">
-                  <img
-                    src={
-                      product.imagePath
-                        ? `http://localhost:8080${product.imagePath}`
-                        : "/default-image.png"
-                    }
-                    alt={product.name}
-                    className="w-full h-full object-cover border rounded"
-                  />
+                  <Link to={`/product-detail/${product.id}`}>
+                    <img
+                      src={
+                        product.imagePath
+                          ? `http://localhost:8080${product.imagePath}`
+                          : "/default-image.png"
+                      }
+                      alt={product.name}
+                      className="w-full h-full object-cover border rounded"
+                    />
+                  </Link>
                 </div>
 
                 <div className="flex flex-col justify-center flex-grow">
-                  <p className="font-medium text-lg mb-2">{product.name}</p>
+                  <Link to={`/product-detail/${product.id}`}>
+                    <p className="font-medium text-lg mb-2">{product.name}</p>
+                  </Link>
                   <p className="text-blue-600 font-bold text-lg mb-2">
                     {product.price.toLocaleString()}원
                   </p>

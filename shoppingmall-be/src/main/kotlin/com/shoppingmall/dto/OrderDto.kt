@@ -9,7 +9,7 @@ data class OrderRequestDto(
 )
 
 data class OrderResponseDto(
-    val orderId: Long,
+    val id: Long,
     val totalPrice: Int,
     val orderDate: LocalDateTime
 )

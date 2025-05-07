@@ -47,7 +47,7 @@ function Category() {
           {productList.map((product) => (
             <Link
               key={product.id}
-              to={`/productDetail/${product.id}`}
+              to={`/product-detail/${product.id}`}
               className="border rounded overflow-hidden flex justify-center items-center aspect-square"
             >
               <img

@@ -24,10 +24,11 @@ class JwtUtil {
         secretKey = Keys.hmacShaKeyFor(SECRET.toByteArray())
     }
 
-    fun generateToken(username: String, roles: List<String>): String {
+    fun generateToken(username: String, roles: List<String>, id: Long): String {
         return Jwts.builder()
             .setSubject(username)
             .claim("roles", roles)
+            .claim("id", id)
             .setIssuedAt(Date())
             .setExpiration(Date(System.currentTimeMillis() + EXPIRATION_TIME))
             .signWith(secretKey, SignatureAlgorithm.HS256) // key 객체로 서명
@@ -43,9 +44,36 @@ class JwtUtil {
             .subject
     }
 
-    fun extractRoles(token: String): List<String> {
+/*    fun extractRoles(token: String): List<String> {
         val claims = extractAllClaims(token)
         return claims["roles"] as List<String>
+    }*/
+
+    fun extractRoles(token: String): List<String> {
+        val claims = extractAllClaims(token)
+        val rawRoles = claims["roles"]
+
+        // 타입 캐스팅 안전 처리
+        return when (rawRoles) {
+            is List<*> -> rawRoles.mapNotNull { it?.toString() }
+            is String -> listOf(rawRoles)
+            null -> emptyList()
+            else -> throw IllegalArgumentException("Invalid roles format in token")
+        }
+    }
+
+    fun extractUserId(token: String): Long {
+        val claims = extractAllClaims(token)
+        val id = claims["id"]
+
+        // 타입 캐스팅 안전 처리
+        return when (id) {
+            is Int -> id.toLong()
+            is Long -> id
+            is Double -> id.toLong()
+            is String -> id.toLongOrNull() ?: throw RuntimeException("Invalid ID format")
+            else -> throw RuntimeException("Invalid or missing user ID in token")
+        }
     }
 
     fun extractAllClaims(token: String): Claims {

@@ -1,6 +1,6 @@
 import api from "../api/apiClient";
 import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext';
 
 function Login() {
@@ -10,7 +10,9 @@ function Login() {
     });
 
     const navigate = useNavigate();
+    const location = useLocation();
     const { dispatch } = useContext(AuthContext);
+    const redirectTo = location.state?.redirectTo || "/";
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -37,7 +39,7 @@ function Login() {
             const response = await api.post("/auth/login", loginData);
             if (response.status === 200) {
                 dispatch({ type:"LOGIN", payload: response.data })
-                navigate("/");
+                navigate(redirectTo);
             } else {
                 alert("로그인 실패");
             }

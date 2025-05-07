@@ -48,11 +48,12 @@ function ProductManagement() {
         <table className="min-w-full border border-gray-200">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 border w-1/5">상품코드</th>
-              <th className="px-4 py-2 border w-1/5">상품정보</th>
-              <th className="px-4 py-2 border w-1/5">분류</th>
-              <th className="px-4 py-2 border w-1/5">재고</th>
-              <th className="px-4 py-2 border w-1/5">관리</th>
+              <th className="px-4 py-2 border">상품코드</th>
+              <th className="px-4 py-2 border">상품정보</th>
+              <th className="px-4 py-2 border">상품가격</th>
+              <th className="px-4 py-2 border">분류</th>
+              <th className="px-4 py-2 border">재고</th>
+              <th className="px-4 py-2 border">관리</th>
             </tr>
           </thead>
           <tbody>
@@ -70,6 +71,7 @@ function ProductManagement() {
                       />
                     </div>
                   </td>
+                  <td className="px-4 py-2 border">{product.price.toLocaleString()}원</td>
                   <td className="px-4 py-2 border">{product.categoryName}</td>
                   <td className="px-4 py-2 border">{product.stock}</td>
                   <td className="px-4 py-2 border text-center">

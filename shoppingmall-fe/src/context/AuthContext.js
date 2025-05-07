@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("token");
       localStorage.removeItem("roles");
     }
-  }, [userInfo.name, userInfo.email, userInfo.token, userInfo.roles]);
+  }, [userInfo.id, userInfo.name, userInfo.email, userInfo.token, userInfo.roles]);
 
   // context api를 통해 하위 컴포넌트로 state와 dispatch 전달
   return (
