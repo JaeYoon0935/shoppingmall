@@ -8,6 +8,7 @@ data class SignupRequestDto(
     val name: String,
     val address: String?,
     val phone: String?,
+    val birth: String?,
     val regDts: LocalDateTime?,
     val regUser: String?,
 )

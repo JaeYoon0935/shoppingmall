@@ -34,8 +34,9 @@ class AdminUserController (
     }
 
     @PutMapping("{id}")
-    fun modUser(@RequestBody param: UserDto): ResponseEntity<UserDto>{
-        val user = userService.modUser(param)
+    fun modUser(@PathVariable id: Long,
+                     @RequestBody param: UserDto): ResponseEntity<UserDto>{
+        val user = userService.modUser(id, param)
         return ResponseEntity.ok(user)
     }
 

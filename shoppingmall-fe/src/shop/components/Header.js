@@ -48,12 +48,23 @@ function Header({ categories }) {
           {/* 로그인 / 회원가입 */}
           <div className="flex space-x-2">
             {userInfo.token ? (
+              <>
+              <div className="relative group">
+                <button className="border px-4 py-1 rounded text-center">
+                  내 정보
+                </button>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 hidden group-hover:flex flex-col bg-white border rounded shadow-md z-10 whitespace-nowrap text-center">
+                  <Link to="/profile-edit" className="px-4 py-2 hover:bg-gray-100">회원정보 수정</Link>
+                  <Link to="/orders" className="px-4 py-2 hover:bg-gray-100">주문내역 조회</Link>
+                </div>
+              </div>
               <button
                 onClick={ handelLogout }
                 className="border px-4 py-1 rounded"
                 >
                   로그아웃
               </button>
+              </>
             ) : (
               <>
               <Link to={"/login"} className="border px-4 py-1 rounded">로그인</Link>

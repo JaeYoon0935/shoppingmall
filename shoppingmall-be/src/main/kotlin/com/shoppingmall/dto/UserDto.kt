@@ -4,10 +4,11 @@ import java.time.LocalDateTime
 
 data class UserDto(
     val id: Long,
-    val name: String,
-    val address: String?,
-    val phone: String?,
     val email: String,
+    val address: String?,
+    val name: String,
+    val phone: String?,
+    val birth: String?,
     val delYn: String,
     val regDts: LocalDateTime,
     val regUser: String?,

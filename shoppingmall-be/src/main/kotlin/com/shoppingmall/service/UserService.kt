@@ -73,6 +73,7 @@ class UserService (
             name = param.name,
             address = param.address,
             phone = param.phone,
+            birth = param.birth,
             roles = mutableSetOf(defaultRole)
         )
 
@@ -94,13 +95,13 @@ class UserService (
     }
 
     @Transactional
-    fun modUser(param: UserDto): UserDto{
-        val id: Long = param.id
+    fun modUser(id: Long, param: UserDto): UserDto{
         val user = userRepository.findById(id).orElseThrow { IllegalArgumentException("사용자를 찾을 수 없습니다.") }
 
         user.name = param.name
         user.address = param.address
         user.phone = param.phone
+        user.birth = param.birth
 
         return user.toDto()
     }

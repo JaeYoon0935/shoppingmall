@@ -22,6 +22,8 @@ class User (
     var address: String? = null,
     var phone: String? = null,
 
+    var birth: String? = null,
+
     @Column(name = "del_yn", nullable = false)
     var delYn: String = "N",
 
