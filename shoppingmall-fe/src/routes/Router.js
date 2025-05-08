@@ -18,7 +18,7 @@ import Login from '../auth/Login';
 import SignUp from '../auth/SignUp';
 import { AuthProvider } from "../context/AuthContext";
 import { CheckoutProvider } from "../context/CheckoutContext";
-import Unauthorized from '../common/pages/Unathorized';
+import Unauthorized from '../common/pages/Unauthorized';
 
 function Router() {
 
