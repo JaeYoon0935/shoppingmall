@@ -48,6 +48,7 @@ function UserInfo() {
               <th className="px-4 py-2 border">이메일</th>
               <th className="px-4 py-2 border">이름</th>
               <th className="px-4 py-2 border">주소</th>
+              <th className="px-4 py-2 border">생년월일</th>
               <th className="px-4 py-2 border">전화번호</th>
               <th className="px-4 py-2 border">관리</th>
             </tr>
@@ -59,6 +60,7 @@ function UserInfo() {
                   <td className="px-4 py-2 border">{user.email}</td>
                   <td className="px-4 py-2 border">{user.name}</td>
                   <td className="px-4 py-2 border">{user.address}</td>
+                  <td className="px-4 py-2 border">{user.birth}</td>
                   <td className="px-4 py-2 border">{user.phone}</td>
                   <td className="px-4 py-2 border text-center">
                     <Link to={`/admin/user-edit/${user.id}`} className="inline-flex items-center justify-center bg-blue-500 text-white mr-2 px-4 py-2 rounded no-underline">수정</Link>

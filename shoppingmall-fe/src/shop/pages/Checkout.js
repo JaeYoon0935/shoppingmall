@@ -8,7 +8,6 @@ import { CheckoutContext } from "../../context/CheckoutContext";
 function Checkout() {
   const navigate = useNavigate();
   const { userInfo } = useContext(AuthContext);
-  const { email } = userInfo;
   const { checkoutState } = useContext(CheckoutContext);
   const items = checkoutState.items;
 
@@ -23,12 +22,12 @@ function Checkout() {
     if (!userInfo?.token || checkoutState.items.length === 0) {
       navigate("/");
     }
-  }, []);
+  }, [userInfo?.token, checkoutState.items]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resShippingInfo = await api.get(`/user?email=${email}`);
+        const resShippingInfo = await api.get(`/user/${userInfo.id}`);
         setShippingInfo(resShippingInfo.data);
 
         const productPromises = items.map(item =>
@@ -51,7 +50,7 @@ function Checkout() {
     } else {
       navigate("/");
     }
-  }, [items, userInfo]);
+  }, [items, userInfo.id]);
 
   const totalPrice = products.reduce(
     (sum, p) => sum + p.price * p.quantity, 0

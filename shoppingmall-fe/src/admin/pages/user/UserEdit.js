@@ -9,6 +9,7 @@ function UserEdit() {
     email: "",
     name: "",
     address: "",
+    birth: "",
     phone: "",
   });
   const navigate = useNavigate();
@@ -31,11 +32,12 @@ function UserEdit() {
         if(window.confirm("회원정보를 수정하시겠습니까?")){
 
           console.log("ID", id);
-          const response = await api.put(`/api/admin/user/${id}`, userData );
+          debugger;
+          const response = await api.put(`/admin/user/${id}`, userData );
 
           if (response.status === 200) {
               alert("수정 되었습니다.");
-              navigate('/user-info');
+              navigate('/admin/user-info');
           }
         }
     } catch (error) {
@@ -86,6 +88,18 @@ function UserEdit() {
                 <input
                   name="address"
                   value={userData.address}
+                  onChange={handleChange}
+                  className="border w-full px-2 py-1"
+                  required
+                />
+              </td>
+            </tr>
+            <tr className="border-b">
+              <td className="px-4 py-3 bg-gray-100">생년월일</td>
+              <td className="px-4 py-3">
+                <input
+                  name="birth"
+                  value={userData.birth}
                   onChange={handleChange}
                   className="border w-full px-2 py-1"
                   required
