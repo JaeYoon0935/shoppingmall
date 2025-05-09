@@ -1,5 +1,6 @@
 package com.shoppingmall.service
 
+import com.shoppingmall.dto.OrderDetailDto
 import com.shoppingmall.dto.OrderRequestDto
 import com.shoppingmall.dto.OrderResponseDto
 import com.shoppingmall.entity.Order
@@ -35,6 +36,13 @@ class OrderService(
         return order.toOrderResponseDto()
     }
 
+    fun getUserOrders(id: Long): List<OrderDetailDto>{
+
+       val user = userRepository.findById(id).orElseThrow { RuntimeException("사용자가 존재하지 않습니다.") }
+       val orders = orderRepository.getUserOrders(user.id)
+       return orders
+    }
+
     @Transactional
     fun handlePayment(param: OrderRequestDto): OrderResponseDto {
         val user = userRepository.findById(param.userId).orElseThrow { RuntimeException("사용자가 존재하지 않습니다.") }
@@ -47,7 +55,7 @@ class OrderService(
             }
 
             OrderItem(
-                productId = product.id,
+                product = product,
                 quantity = item.quantity,
                 orderPrice = product.price
             )
@@ -71,4 +79,5 @@ class OrderService(
         return orderRepository.save(order).toOrderResponseDto()
 
     }
+
 }

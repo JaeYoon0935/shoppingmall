@@ -1,5 +1,6 @@
 package com.shoppingmall.controller
 
+import com.shoppingmall.dto.ProductCardDto
 import com.shoppingmall.dto.ProductDto
 import com.shoppingmall.dto.ProductRequestDto
 import com.shoppingmall.service.ProductService
@@ -17,10 +18,10 @@ class AdminProductController(
 
     // 상품 전체 조회
     @GetMapping
-    fun getAllProducts(@RequestParam(defaultValue = "0") page: Int,
-                             @RequestParam(defaultValue = "10") size : Int ): ResponseEntity<Page<ProductDto>> {
+    fun getProducts(@RequestParam(defaultValue = "0") page: Int,
+                             @RequestParam(defaultValue = "10") size : Int ): ResponseEntity<Page<ProductCardDto>> {
         val pageable = PageRequest.of(page, size, Sort.by("id").ascending())
-        val products = productService.getAllProducts(pageable)
+        val products = productService.getProducts("", pageable)
         return ResponseEntity.ok(products)
     }
 

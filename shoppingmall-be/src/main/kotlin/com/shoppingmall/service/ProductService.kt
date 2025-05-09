@@ -28,8 +28,12 @@ class ProductService (
         return productRepository.findProductsByCategory(id, pageable)
     }
 
-    fun getAllProducts(pageable: Pageable): Page<ProductDto> {
-        return productRepository.findNotDeletedWithCategory(pageable).map{it.toDto()}
+    fun getProducts(query: String, pageable: Pageable): Page<ProductCardDto> {
+        return if(query.isBlank()){
+            productRepository.findNotDeletedWithCategory(pageable)
+        }else{
+            productRepository.findByQuery(query, pageable)
+        }
     }
 
     fun getProduct(id: Long): ProductDto{

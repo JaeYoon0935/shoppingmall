@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { CheckoutContext } from '../../context/CheckoutContext';
@@ -6,12 +6,14 @@ import { CheckoutContext } from '../../context/CheckoutContext';
 function Header({ categories }) {
   const { userInfo, dispatch: authDispatch } = useContext(AuthContext);
   const { dispatch: checkoutDispatch } =  useContext(CheckoutContext);
+  const isAdmin = userInfo?.roles?.includes("ROLE_ADMIN");
+  const [ keyword, setKeyword] = useState('');
 
   useEffect(() => {
     console.log(categories);
   }, [categories]);
 
-  const isAdmin = userInfo?.roles?.includes("ROLE_ADMIN");
+  
 
   const renderedCategories = isAdmin ? [...categories, { id: 999, name: '관리자 페이지', isAdminLink: true }] : [...categories];
 
@@ -21,6 +23,14 @@ function Header({ categories }) {
       checkoutDispatch({ type: "CLEAR_ITEMS"})
       alert("로그아웃 되었습니다.");
       navigate('/');
+  }
+
+  const handleSearch = () => {
+    if(keyword.trim()){
+      navigate(`/search?query=${encodeURIComponent(keyword)}`)
+    }else{
+      alert("검색어를 입력해주세요.")
+    }
   }
 
   return (
@@ -39,6 +49,11 @@ function Header({ categories }) {
               type="text"
               placeholder="통합검색"
               className="border rounded px-4 py-1 w-64"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              onKeyDown={(e) => {
+                if(e.key == 'Enter') handleSearch();
+              }}
             />
             <button className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">
               검색

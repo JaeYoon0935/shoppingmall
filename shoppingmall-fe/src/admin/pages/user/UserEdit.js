@@ -32,7 +32,6 @@ function UserEdit() {
         if(window.confirm("회원정보를 수정하시겠습니까?")){
 
           console.log("ID", id);
-          debugger;
           const response = await api.put(`/admin/user/${id}`, userData );
 
           if (response.status === 200) {

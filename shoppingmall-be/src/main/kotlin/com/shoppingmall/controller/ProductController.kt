@@ -36,10 +36,11 @@ class ProductController(
 
     // 상품 전체 조회
     @GetMapping
-    fun getAllProducts(@RequestParam(defaultValue = "0") page: Int,
-                             @RequestParam(defaultValue = "10") size : Int ): ResponseEntity<Page<ProductDto>> {
+    fun getProducts(@RequestParam(defaultValue = "0") page: Int,
+                          @RequestParam(defaultValue = "10") size : Int,
+                          @RequestParam(defaultValue = "")  query: String ): ResponseEntity<Page<ProductCardDto>> {
         val pageable = PageRequest.of(page, size, Sort.by("id").ascending())
-        val products = productService.getAllProducts(pageable)
+        val products = productService.getProducts(query, pageable)
         return ResponseEntity.ok(products)
     }
 

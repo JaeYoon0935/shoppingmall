@@ -22,8 +22,9 @@ class OrderItem(
     @JoinColumn(name="order_id")
     var order: Order? = null,
 
-    @Column(name = "product_id")
-    val productId: Long,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="product_id")
+    var product: Product? = null,
 
     val quantity: Int,
 
@@ -32,6 +33,6 @@ class OrderItem(
 
 ){
     override fun toString(): String {
-        return "OrderItem(Id:$id, productId:$productId, quantity:$quantity, orderPrice:$orderPrice)"
+        return "OrderItem(Id:$id, quantity:$quantity, orderPrice:$orderPrice)"
     }
 }

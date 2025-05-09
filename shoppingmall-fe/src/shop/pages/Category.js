@@ -48,16 +48,27 @@ function Category() {
             <Link
               key={product.id}
               to={`/product-detail/${product.id}`}
-              className="border rounded overflow-hidden flex justify-center items-center aspect-square"
+              className="border rounded overflow-hidden flex flex-col aspect-square p-2"
             >
-              <img
-                src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
-                alt={`Product ${product.id}`}
-                className="w-full h-full object-contain p-4"
-              />
+              <div className="w-full flex-1 flex justify-center items-center">
+                <img
+                  src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
+                  alt={`Product ${product.id}`}
+                  className="max-h-40 object-contain"
+                />
+              </div>
+              <div className="w-full text-left mt-2">
+                <div className="text-sm font-medium truncate">
+                  {product.name || '상품명 없음'}
+                </div>
+                <div className="text-xs text-gray-600">
+                  {product.price != null ? `${product.price.toLocaleString()}원` : '가격 미정'}
+                </div>
+              </div>
             </Link>
           ))}
         </div>
+
 
         <div className="flex justify-center items-center gap-2 mt-12 text-sm text-gray-700">
           {/* 이전 버튼 */}

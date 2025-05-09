@@ -14,6 +14,8 @@ import ProductDetail from '../shop/pages/ProductDetail';
 import OrderComplete from '../shop/pages/OrderComplete';
 import ProfileEdit from '../shop/pages/ProfileEdit';
 import Checkout from '../shop/pages/Checkout';
+import Orders from '../shop/pages/Orders';
+import SearchResult from '../shop/pages/SearchResult';
 import Layout from '../shop/layouts/Layout';
 import Login from '../auth/Login';
 import SignUp from '../auth/SignUp';
@@ -45,6 +47,8 @@ function Router() {
             <Route path="checkout" element={<Checkout />}/>
             <Route path="order-complete/:id" element={<OrderComplete />} />
             <Route path="profile-edit" element={<ProfileEdit />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="search" element={<SearchResult />} />
           </Route>
 
           {/* 관리자 페이지 */}

@@ -45,7 +45,6 @@ function Login() {
             }
         } catch (error) {
             if (error.response && error.response.data) {
-                debugger;
                 alert(error.response.data.message);
             } else {
                 alert("로그인 중 오류가 발생했습니다.");

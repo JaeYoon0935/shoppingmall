@@ -33,18 +33,28 @@ function ShopMain() {
               {productList
                 .filter(product => product.categoryId === category.id)
                 .map((product) => (
-                <Link
-                  key={product.id}
-                  to={`/product-detail/${product.id}`}
-                  className="border rounded overflow-hidden flex justify-center items-center aspect-square"
-                >
-                  <img
-                    src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
-                    alt={`Product ${product.id}`}
-                    className="w-full h-full object-contain p-4"
-                  />
-                </Link>
-              ))}
+                  <Link
+                    key={product.id}
+                    to={`/product-detail/${product.id}`}
+                    className="border rounded overflow-hidden flex flex-col aspect-square p-2"
+                  >
+                    <div className="w-full flex-1 flex justify-center items-center">
+                      <img
+                        src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
+                        alt={`Product ${product.id}`}
+                        className="max-h-40 object-contain"
+                      />
+                    </div>
+                    <div className="w-full text-left mt-2">
+                      <div className="text-sm font-medium truncate">
+                        {product.name || '상품명 없음'}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        {product.price != null ? `${product.price.toLocaleString()}원` : '가격 미정'}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
             </div>
             
             {/* 더보기 버튼 */}

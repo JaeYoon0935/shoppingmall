@@ -15,8 +15,7 @@ class ProductRepositoryImpl(
     private val queryFactory: JPAQueryFactory
 ) : ProductRepositoryCustom {
 
-    //Projections 쓰도록 바꾸기 (조회)
-    override fun findNotDeletedWithCategory(pageable: Pageable): Page<Product> {
+    override fun findNotDeletedWithCategory(pageable: Pageable): Page<ProductCardDto> {
         val product: QProduct = QProduct.product
         val category: QCategory = QCategory.category
 
@@ -27,9 +26,22 @@ class ProductRepositoryImpl(
             }
         }.toTypedArray()
 
-        val results: List<Product> = queryFactory
-            .selectFrom(product)
-            .join(product.category(), category).fetchJoin()
+        val results: List<ProductCardDto> = queryFactory
+            .select(
+                com.querydsl.core.types.Projections.constructor(
+                    ProductCardDto::class.java,
+                    product.id,
+                    product.name,
+                    product.price,
+                    product.imagePath,
+                    product.stock,
+                    product.category().name,
+                    product.delYn,
+                    product.category().id,
+                    product.regDts
+                )
+            ).from(product)
+            .join(product.category(), category)
             .where(product.delYn.eq("N"))
             .orderBy(*orders)
             .offset(pageable.offset)
@@ -57,6 +69,8 @@ class ProductRepositoryImpl(
                     product.name,
                     product.price,
                     product.imagePath,
+                    product.stock,
+                    product.category().name,
                     product.delYn,
                     product.category().id,
                     product.regDts
@@ -91,6 +105,8 @@ class ProductRepositoryImpl(
                     product.name,
                     product.price,
                     product.imagePath,
+                    product.stock,
+                    product.category().name,
                     product.delYn,
                     product.category().id,
                     product.regDts
@@ -110,6 +126,46 @@ class ProductRepositoryImpl(
             .where(product.delYn.eq("N"),
                     product.category().id.eq(id))
             .fetchOne() ?:0L
+
+        return PageImpl(results, pageable, count)
+    }
+
+    override fun findByQuery(query: String, pageable: Pageable): Page<ProductCardDto> {
+        val product = QProduct.product
+
+        val results: List<ProductCardDto> = queryFactory
+            .select(
+                com.querydsl.core.types.Projections.constructor(
+                    ProductCardDto::class.java,
+                    product.id,
+                    product.name,
+                    product.price,
+                    product.imagePath,
+                    product.stock,
+                    product.category().name,
+                    product.delYn,
+                    product.category().id,
+                    product.regDts
+                )
+            )
+            .from(product)
+            .where( product.delYn.eq("N").and(
+                product.name.containsIgnoreCase(query)
+                        .or(product.description.containsIgnoreCase(query)))
+            )
+            .orderBy(product.regDts.desc())
+            .offset(pageable.offset)
+            .limit(pageable.pageSize.toLong())
+            .fetch()
+
+        val count: Long = queryFactory
+            .select(product.count())
+            .from(product)
+            .where(product.delYn.eq("N").and(
+                product.name.containsIgnoreCase(query)
+                    .or(product.description.containsIgnoreCase(query))
+            ))
+            .fetchOne() ?: 0L
 
         return PageImpl(results, pageable, count)
     }

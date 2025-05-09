@@ -37,6 +37,8 @@ data class ProductCardDto (
     val name: String,
     val price: Int,
     val imagePath: String?,
+    val stock: Int,
+    val categoryName: String?,
     val delYn: String,
     val categoryId: Long?,
     val regDts: LocalDateTime?,

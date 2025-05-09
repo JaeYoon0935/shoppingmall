@@ -7,7 +7,6 @@ const initialState = {
 const checkoutReducer = (state, action) => {
   switch (action.type) {
     case "SET_ITEMS":
-      debugger;
       return { ...state, items: action.payload };
     case "CLEAR_ITEMS":
       return { ...state, items: [] };
