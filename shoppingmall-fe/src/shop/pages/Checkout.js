@@ -9,7 +9,7 @@ function Checkout() {
   const navigate = useNavigate();
   const { userInfo } = useContext(AuthContext);
   const { checkoutState } = useContext(CheckoutContext);
-  const items = checkoutState.items;
+  const checkoutItems = checkoutState.items;
 
   const [products, setProducts] = useState([]);
   const [shippingInfo, setShippingInfo] = useState({
@@ -30,8 +30,8 @@ function Checkout() {
         const resShippingInfo = await api.get(`/user/${userInfo.id}`);
         setShippingInfo(resShippingInfo.data);
 
-        const productPromises = items.map(item =>
-          api.get(`/products/${item.product_id}`)
+        const productPromises = checkoutItems.map(item =>
+          api.get(`/products/${item.id}`)
           .then(response => ({
             ...response.data,
             quantity: item.quantity
@@ -45,15 +45,15 @@ function Checkout() {
       }
     };
 
-    if (items.length > 0) {
+    if (checkoutItems.length > 0) {
       fetchData();
     } else {
       navigate("/");
     }
-  }, [items, userInfo.id]);
+  }, [checkoutItems, userInfo.id]);
 
   const totalPrice = products.reduce(
-    (sum, p) => sum + p.price * p.quantity, 0
+    (sum, product) => sum + product.price * product.quantity, 0
   );
 
   const handlePayment = async () => {
@@ -80,8 +80,6 @@ function Checkout() {
     } catch (error) {
         alert("주문에 실패하였습니다.");
     }
-
-    
   };
 
   return (

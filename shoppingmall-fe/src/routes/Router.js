@@ -4,7 +4,7 @@ import AdminLayout from '../admin/layouts/AdminLayout';
 import AdminHome from '../admin/pages/AdminHome';
 import UserInfo from '../admin/pages/user/UserInfo';
 import UserEdit from '../admin/pages/user/UserEdit';
-import OrderHistory from '../admin/pages/orderHistory/OrderHistory';
+import OrderManagement from '../admin/pages/order/OrderManagement';
 import ProductManagement from '../admin/pages/product/ProductManagement';
 import ProductRegistration from '../admin/pages/product/ProductRegistration';
 import ProductEdit from '../admin/pages/product/ProductEdit';
@@ -16,11 +16,13 @@ import ProfileEdit from '../shop/pages/ProfileEdit';
 import Checkout from '../shop/pages/Checkout';
 import Orders from '../shop/pages/Orders';
 import SearchResult from '../shop/pages/SearchResult';
+import Cart from '../shop/pages/Cart';
 import Layout from '../shop/layouts/Layout';
 import Login from '../auth/Login';
 import SignUp from '../auth/SignUp';
 import { AuthProvider } from "../context/AuthContext";
 import { CheckoutProvider } from "../context/CheckoutContext";
+import { CartProvider } from "../context/CartContext";
 import Unauthorized from '../common/pages/Unauthorized';
 
 function Router() {
@@ -29,42 +31,44 @@ function Router() {
 
   return (
     <AuthProvider>
-      <CheckoutProvider>
-        <Routes>
+      <CartProvider>
+        <CheckoutProvider>
+          <Routes>
+            {/* 로그인 / 회원가입 페이지 (로그인 인증 없이 접근가능) */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signUp" element={<SignUp />} />
 
-          {/* 로그인 / 회원가입 페이지 (로그인 인증 없이 접근가능) */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signUp" element={<SignUp />} />
+            {/* 권한 없음 처리 페이지 */}
+            <Route path="/unauthorized" element={<Unauthorized/>}/>
 
-          {/* 권한 없음 처리 페이지 */}
-          <Route path="/unauthorized" element={<Unauthorized/>}/>
-
-          {/* 쇼핑몰 페이지*/}
-          <Route path="/" element={<Layout />} >
-            <Route index element={<ShopMain />} />
-            <Route path="category/:id" element={<Category />} />
-            <Route path="product-detail/:id" element={<ProductDetail />} />
-            <Route path="checkout" element={<Checkout />}/>
-            <Route path="order-complete/:id" element={<OrderComplete />} />
-            <Route path="profile-edit" element={<ProfileEdit />} />
-            <Route path="orders" element={<Orders />} />
-            <Route path="search" element={<SearchResult />} />
-          </Route>
-
-          {/* 관리자 페이지 */}
-          <Route path="/admin" element={<AdminRoute />}>
-            <Route element={<AdminLayout />}>
-              <Route index element={<AdminHome />} />
-              <Route path="user-info" element={<UserInfo />} />
-              <Route path="user-edit/:id" element={<UserEdit />}/>
-              <Route path="order-history" element={<OrderHistory />} />
-              <Route path="product-management" element={<ProductManagement />} />
-              <Route path="product-registration" element={<ProductRegistration />} />
-              <Route path="product-edit/:id" element={<ProductEdit /> }/>
+            {/* 쇼핑몰 페이지*/}
+            <Route path="/" element={<Layout />} >
+              <Route index element={<ShopMain />} />
+              <Route path="category/:id" element={<Category />} />
+              <Route path="product-detail/:id" element={<ProductDetail />} />
+              <Route path="checkout" element={<Checkout />}/>
+              <Route path="order-complete/:id" element={<OrderComplete />} />
+              <Route path="profile-edit" element={<ProfileEdit />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="search" element={<SearchResult />} />
+              <Route path="cart" element={<Cart />} />
             </Route>
-          </Route>
-        </Routes>
-      </CheckoutProvider>
+
+            {/* 관리자 페이지 */}
+            <Route path="/admin" element={<AdminRoute />}>
+              <Route element={<AdminLayout />}>
+                <Route index element={<AdminHome />} />
+                <Route path="user-info" element={<UserInfo />} />
+                <Route path="user-edit/:id" element={<UserEdit />}/>
+                <Route path="order-management" element={<OrderManagement />} />
+                <Route path="product-management" element={<ProductManagement />} />
+                <Route path="product-registration" element={<ProductRegistration />} />
+                <Route path="product-edit/:id" element={<ProductEdit /> }/>
+              </Route>
+            </Route>
+          </Routes>
+        </CheckoutProvider>
+      </CartProvider>
     </AuthProvider>
   );
 }

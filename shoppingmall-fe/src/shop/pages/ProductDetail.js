@@ -4,11 +4,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getDeliveryDate } from "../../utils/commUtils";
 import { CheckoutContext } from "../../context/CheckoutContext";
 import { AuthContext } from "../../context/AuthContext";
+import { CartContext } from "../../context/CartContext";
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { dispatch } = useContext(CheckoutContext);
+  const { dispatch: cartDispatch } = useContext(CartContext);
+  const { dispatch: checkoutDispatch } = useContext(CheckoutContext);
   const { userInfo } = useContext(AuthContext);
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({
@@ -36,9 +38,9 @@ function ProductDetail() {
 
   const handleBuyNow = () => {
 
-    dispatch({
+    checkoutDispatch({
       type: "SET_ITEMS",
-      payload: [{ product_id: Number(id), quantity}]
+      payload: [{ id: Number(id), quantity}]
     });
     
     if(!userInfo?.token){
@@ -52,6 +54,28 @@ function ProductDetail() {
       navigate("/checkout");
     }
   }
+
+  const handleAddToCart = async () => {
+      const item = { id: Number(id), quantity };
+
+      // 비회원: localStorage
+      if (!userInfo.token) {
+        cartDispatch({ type: "ADD_ITEM", payload: item });
+        alert("장바구니에 추가되었습니다.");
+      } else {
+        // 로그인 사용자: DB저장
+        try {
+          await api.post('/cart', [{ productId: item.id, quantity: item.quantity }]);
+          const updated = await api.get('/cart');
+          cartDispatch({ type: "SET_CART", payload: updated.data });
+
+          alert("장바구니에 추가되었습니다.");
+        } catch (error) {
+          console.error("장바구니 서버 전송 실패:", error);
+          alert("장바구니 추가에 실패했습니다.");
+        }
+      }
+    };
 
   return (
     <div className="max-w-5xl mx-auto p-8">
@@ -114,21 +138,20 @@ function ProductDetail() {
           <div className="text-right font-semibold text-xl text-gray-800">
             총 결제금액: {(product.price * quantity).toLocaleString()}원
           </div>
-
-          {/* 구매 버튼 */}
-          <div className="flex justify-center">
+          
+          <div className="flex justify-center gap-x-4">
+            <button
+              onClick={handleAddToCart}
+              className="w-48 bg-white text-gray-800 border border-gray-300 hover:bg-gray-100 py-3 rounded text-lg"
+            >
+              장바구니
+            </button>
             <button
               onClick={handleBuyNow}
-              className="w-48 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded text-lg text-center"
+              className="w-48 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded text-lg"
             >
               구매하기
             </button>
-            {/* <Link
-              to={`/checkout/${id}?quantity=${quantity}`}
-              className="w-48 bg-gray-800 hover:bg-gray-900 text-white py-3 rounded text-lg text-center block"
-            >
-              구매하기
-            </Link> */}
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 package com.shoppingmall.dto
 
-import jakarta.transaction.Status
 import java.time.LocalDateTime
 
 data class OrderRequestDto(

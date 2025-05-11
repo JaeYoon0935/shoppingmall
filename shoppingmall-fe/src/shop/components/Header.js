@@ -2,10 +2,12 @@ import { useEffect, useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { CheckoutContext } from '../../context/CheckoutContext';
+import { CartContext } from '../../context/CartContext';
 
 function Header({ categories }) {
   const { userInfo, dispatch: authDispatch } = useContext(AuthContext);
   const { dispatch: checkoutDispatch } =  useContext(CheckoutContext);
+  const { dispatch: cartDispatch} = useContext(CartContext);
   const isAdmin = userInfo?.roles?.includes("ROLE_ADMIN");
   const [ keyword, setKeyword] = useState('');
 
@@ -21,6 +23,11 @@ function Header({ categories }) {
   const handelLogout = () => {
       authDispatch({ type: "LOGOUT"});
       checkoutDispatch({ type: "CLEAR_ITEMS"})
+      cartDispatch({ type: "CLEAR_CART" });
+  
+      localStorage.removeItem("checkoutItems");
+      localStorage.removeItem("cartItems");
+      localStorage.removeItem("cartMerged");
       alert("로그아웃 되었습니다.");
       navigate('/');
   }
@@ -64,6 +71,7 @@ function Header({ categories }) {
           <div className="flex space-x-2">
             {userInfo.token ? (
               <>
+              <Link to="/cart" className="border px-4 py-1 rounded">장바구니</Link>
               <div className="relative group">
                 <button className="border px-4 py-1 rounded text-center">
                   내 정보
@@ -82,6 +90,7 @@ function Header({ categories }) {
               </>
             ) : (
               <>
+              <Link to={"/cart"} className="border px-4 py-1 rounded">장바구니</Link>
               <Link to={"/login"} className="border px-4 py-1 rounded">로그인</Link>
               <Link to={"/signUp"} className="border px-4 py-1 rounded">회원가입</Link>  
               </>
