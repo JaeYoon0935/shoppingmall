@@ -49,7 +49,7 @@ class ProductRepositoryImpl(
             .fetch()
 
         val count: Long = queryFactory
-            .select(product.count())
+            .select(product.id.countDistinct())
             .from(product)
             .where(product.delYn.eq("N"))
             .fetchOne() ?: 0L
@@ -121,7 +121,7 @@ class ProductRepositoryImpl(
             .fetch()
 
         val count: Long = queryFactory
-            .select(product.count())
+            .select(product.id.countDistinct())
             .from(product)
             .where(product.delYn.eq("N"),
                     product.category().id.eq(id))
@@ -159,7 +159,7 @@ class ProductRepositoryImpl(
             .fetch()
 
         val count: Long = queryFactory
-            .select(product.count())
+            .select(product.id.countDistinct())
             .from(product)
             .where(product.delYn.eq("N").and(
                 product.name.containsIgnoreCase(query)

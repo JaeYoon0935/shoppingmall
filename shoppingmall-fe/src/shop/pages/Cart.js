@@ -36,6 +36,8 @@ function Cart() {
 
     if (cartItems.length > 0) {
       fetchData();
+    } else {
+      setProducts([]);
     }
   }, [cartItems]);
 
@@ -100,7 +102,7 @@ function Cart() {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">장바구니</h1>
+      <h1 className="text-2xl font-bold mt-6 mb-6">장바구니</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2 flex flex-col gap-6">
@@ -119,14 +121,20 @@ function Cart() {
             <hr className="mb-4 border-gray-300" />
             
             {/* 상품 목록 */}
-            {products.map(product => (
-              <CartItem
-                key={product.id}
-                product={product}
-                isSelected={selectedItems.includes(product.id)}
-                onToggle={toggleSelectItem}
-              />
-            ))}
+            {products.length === 0 ? (
+              <div className="text-center text-gray-500 py-10">
+                장바구니에 담긴 상품이 없습니다.
+              </div> 
+              ) : (
+                products.map(product => (
+                <CartItem
+                  key={product.id}
+                  product={product}
+                  isSelected={selectedItems.includes(product.id)}
+                  onToggle={toggleSelectItem}
+                />
+              ))
+            )}
           </div>
         </div>
 

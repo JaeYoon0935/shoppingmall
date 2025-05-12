@@ -4,11 +4,13 @@ import { useNavigate, Link } from "react-router-dom";
 import { getDeliveryDate } from "../../utils/commUtils";
 import { AuthContext } from "../../context/AuthContext";
 import { CheckoutContext } from "../../context/CheckoutContext";
+import { CartContext } from "../../context/CartContext";
 
 function Checkout() {
   const navigate = useNavigate();
   const { userInfo } = useContext(AuthContext);
-  const { checkoutState } = useContext(CheckoutContext);
+  const { checkoutState, dispatch: checkoutDispatch } = useContext(CheckoutContext);
+  const { dispatch: cartDispatch } = useContext(CartContext);
   const checkoutItems = checkoutState.items;
 
   const [products, setProducts] = useState([]);
@@ -71,6 +73,14 @@ function Checkout() {
       if(window.confirm("주문 하시겠습니까?")){
         const response = await api.post(`/order`, orderData);
         if(response.status === 200){
+
+          checkoutDispatch({ type:"CLEAR_ITEMS"}); // 결제목록 초기화
+
+          const orderedItems = orderData.orderItems.map(item => item.productId);
+          orderedItems.forEach( id => {
+            cartDispatch({type:"REMOVE_ITEM", payload: {id:id}} ) // 결제완료 된 상품 장바구니 context state 값 제거
+          })
+
           const id = response.data.id;
           navigate(`/order-complete/${id}`);      
         }else{
@@ -84,7 +94,7 @@ function Checkout() {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">주문 / 결제</h1>
+      <h1 className="text-2xl font-bold mt-6 mb-6">주문 / 결제</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* 좌측: 배송지 + 상품정보 */}
@@ -101,7 +111,7 @@ function Checkout() {
           <div className="border rounded-lg p-4">
             <h2 className="font-semibold mb-4">주문 상품</h2>
             {products.map(product => (
-              <div key={product.id} className="flex gap-6 items-center mb-6">
+              <div key={product.id} className="flex gap-6 items-center mb-6 pb-4 border-b">
                 <div className="flex-shrink-0 w-32 h-32">
                   <Link to={`/product-detail/${product.id}`}>
                     <img

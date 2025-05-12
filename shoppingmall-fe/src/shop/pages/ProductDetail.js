@@ -55,6 +55,7 @@ function ProductDetail() {
     }
   }
 
+  //장바구니 담기
   const handleAddToCart = async () => {
       const item = { id: Number(id), quantity };
 
@@ -67,7 +68,11 @@ function ProductDetail() {
         try {
           await api.post('/cart', [{ productId: item.id, quantity: item.quantity }]);
           const updated = await api.get('/cart');
-          cartDispatch({ type: "SET_CART", payload: updated.data });
+          const payload = updated.data.map(item => ({
+            id : item.productId,
+            quantity: item.quantity
+          }));
+          cartDispatch({ type: "SET_CART", payload: payload });
 
           alert("장바구니에 추가되었습니다.");
         } catch (error) {

@@ -1,7 +1,6 @@
 package com.shoppingmall.controller
 
 import com.shoppingmall.dto.CartItemDto
-import com.shoppingmall.dto.OrderResponseDto
 import com.shoppingmall.service.CartService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping

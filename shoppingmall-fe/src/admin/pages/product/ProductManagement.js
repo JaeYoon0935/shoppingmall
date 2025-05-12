@@ -48,28 +48,33 @@ function ProductManagement() {
         <table className="min-w-full border border-gray-200">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 border">상품코드</th>
-              <th className="px-4 py-2 border">상품정보</th>
-              <th className="px-4 py-2 border">상품가격</th>
-              <th className="px-4 py-2 border">분류</th>
-              <th className="px-4 py-2 border">재고</th>
-              <th className="px-4 py-2 border">관리</th>
+              <th className="w-[15%] px-4 py-2 border">상품코드</th>
+              <th className="w-[20%] px-4 py-2 border">상품정보</th>
+              <th className="w-[15%] px-4 py-2 border">상품가격</th>
+              <th className="w-[15%] px-4 py-2 border">분류</th>
+              <th className="w-[15%] px-4 py-2 border">재고</th>
+              <th className="w-[20%] px-4 py-2 border">관리</th>
             </tr>
           </thead>
           <tbody>
             {products.length > 0 ? (
               products.map((product) => (
-                <tr key={product.id}>
+                <tr className="text-center" key={product.id}>
                   <td className="px-4 py-2 border">{product.id}</td>
-                  <td className="px-4 py-2 border">
-                    <div className="flex flex-col items-center space-y-2">
-                      <span className="text-center">{product.name}</span>
+                  <td className="px-4 py-2 border text-left">
+                    <Link
+                      to={`/product-detail/${product.id}`}
+                      className="flex items-center gap-3"
+                    >
                       <img
-                        src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
+                        src={product.imagePath ? `http://localhost:8080${product.imagePath}` : "/default-image.png"}
                         alt={product.name}
-                        className="w-16 h-16 object-cover rounded"
+                        className="w-16 h-16 object-cover rounded border"
                       />
-                    </div>
+                      <span className="text-sm font-medium truncate max-w-[160px]">
+                        {product.name}
+                      </span>
+                    </Link>
                   </td>
                   <td className="px-4 py-2 border">{product.price.toLocaleString()}원</td>
                   <td className="px-4 py-2 border">{product.categoryName}</td>

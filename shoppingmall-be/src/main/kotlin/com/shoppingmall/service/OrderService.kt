@@ -6,11 +6,15 @@ import com.shoppingmall.dto.OrderResponseDto
 import com.shoppingmall.entity.Order
 import com.shoppingmall.entity.OrderItem
 import com.shoppingmall.extension.toOrderResponseDto
+import com.shoppingmall.repository.CartItemRepository
+import com.shoppingmall.repository.CartRepository
 import com.shoppingmall.repository.OrderRepository
 import com.shoppingmall.repository.ProductRepository
 import com.shoppingmall.repository.UserRepository
 import com.shoppingmall.util.JwtUtil
 import jakarta.transaction.Transactional
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.security.access.AccessDeniedException
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
@@ -20,6 +24,8 @@ class OrderService(
     private val orderRepository: OrderRepository,
     private val userRepository: UserRepository,
     private val productRepository: ProductRepository,
+    private val cartRepository: CartRepository,
+    private val cartItemRepository: CartItemRepository,
     private val jwtUtil: JwtUtil
 ) {
 
@@ -37,10 +43,9 @@ class OrderService(
     }
 
     fun getUserOrders(id: Long): List<OrderDetailDto>{
-
-       val user = userRepository.findById(id).orElseThrow { RuntimeException("사용자가 존재하지 않습니다.") }
-       val orders = orderRepository.getUserOrders(user.id)
-       return orders
+        val user = userRepository.findById(id).orElseThrow { RuntimeException("사용자가 존재하지 않습니다.") }
+        val orders = orderRepository.getUserOrders(user.id)
+        return orders
     }
 
     @Transactional
@@ -76,8 +81,21 @@ class OrderService(
         orderItems.forEach { it.order = order } //각 orderItem에 order 엔티티 연결
         order.orderItems.addAll(orderItems)
 
-        return orderRepository.save(order).toOrderResponseDto()
+        val orderResult = orderRepository.save(order)
 
+        // 주문 이후, 장바구니에 해당 상품 있으면 제거
+        val cart = cartRepository.findByUserId(user.id) ?: throw IllegalStateException("장바구니가 없습니다.")
+        val orderProductIds = orderItems.mapNotNull{ it.product?.id }
+
+        cartItemRepository.deleteByCardIdAndProductIds(cart.id, orderProductIds)
+
+        return orderResult.toOrderResponseDto()
+
+    }
+
+    fun getAllUserOrders(pageable: Pageable): Page<OrderDetailDto> {
+        val orders = orderRepository.getAllUserOrders(pageable)
+        return orders
     }
 
 }

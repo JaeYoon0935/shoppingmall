@@ -30,6 +30,7 @@ data class OrderDetailDto(
     val orderPrice: Int,
     val productId: Long,
     val productName: String,
-    val imagePath: String?
+    val imagePath: String?,
+    val email: String?
 
 )

@@ -61,7 +61,7 @@ function Orders() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold mb-6">주문 내역</h1>
+      <h1 className="text-2xl font-bold mt-6 mb-6">주문 내역</h1>
 
       {orderList.length === 0 ? (
         <p className="text-gray-500">주문 내역이 없습니다.</p>
@@ -77,7 +77,7 @@ function Orders() {
                 <thead className="bg-gray-100 text-gray-700 text-center">
                   <tr>
                     <th className="w-[20%] px-2 py-1">주문번호</th>
-                    <th className="w-[20%] px-4 py-1 text-left">상품정보</th> {/* 왼쪽 정렬 */}
+                    <th className="w-[20%] px-4 py-1">상품정보</th>
                     <th className="w-[20%] px-4 py-1">수량</th>
                     <th className="w-[20%] px-4 py-1">금액</th>
                     <th className="w-[20%] px-4 py-1">배송상태</th>

@@ -17,7 +17,7 @@ function ShopMain() {
 
   return (
     <div className="px-4 md:px-8">
-      <main className="max-w-screen-xl mx-auto space-y-10 mt-8">
+      <main className="max-w-screen-xl mx-auto space-y-6 mt-12">
         {categories.map((category, index) => (
           <div key={category.id}>
             <h2 className="text-xl font-bold">
@@ -58,7 +58,7 @@ function ShopMain() {
             </div>
             
             {/* 더보기 버튼 */}
-            <div className="mt-2 flex justify-end">
+            <div className="mt-2 mb-6 flex justify-end">
               <Link
                 to={`/category/${category.id}?index=${index}`}
                 className="px-3 py-1 text-sm text-gray-700 border border-gray-300 rounded hover:bg-gray-100 transition"

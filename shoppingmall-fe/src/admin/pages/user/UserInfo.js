@@ -45,6 +45,7 @@ function UserInfo() {
         <table className="min-w-full border border-gray-200">
           <thead className="bg-gray-100">
             <tr>
+              <th className="px-4 py-2 border">회원코드</th>
               <th className="px-4 py-2 border">이메일</th>
               <th className="px-4 py-2 border">이름</th>
               <th className="px-4 py-2 border">주소</th>
@@ -56,7 +57,8 @@ function UserInfo() {
           <tbody>
             {users.length > 0 ? (
               users.map((user) => (
-                <tr key={user.id}>
+                <tr className="text-center" key={user.id}>
+                  <td className="px-4 py-2 border">{user.id}</td>
                   <td className="px-4 py-2 border">{user.email}</td>
                   <td className="px-4 py-2 border">{user.name}</td>
                   <td className="px-4 py-2 border">{user.address}</td>

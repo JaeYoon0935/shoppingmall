@@ -100,7 +100,11 @@ export const CartProvider = ({ children }) => {
 
         // 병합 후 서버에서 최신 장바구니 다시 조회
         const updated = await api.get('/cart');
-        dispatch({ type: "SET_CART", payload: updated.data });
+        const payload = updated.data.map(item => ({
+          id : item.productId,
+          quantity: item.quantity
+        }));
+        dispatch({ type: "SET_CART", payload: payload });
 
         // 병합 완료 후 로컬 데이터 정리 및 병합 플래그 저장
         localStorage.removeItem("cartItems");
@@ -138,6 +142,13 @@ export const CartProvider = ({ children }) => {
 
     if (isLoggedIn && checkMerged) {
       fetchCart();
+    }
+  }, [userInfo.token]);
+
+  //로그아웃 혹은 토큰 만료 시 병합여부 제거
+  useEffect(() => {
+    if (!userInfo.token) {
+      localStorage.removeItem("cartMerged");
     }
   }, [userInfo.token]);
 

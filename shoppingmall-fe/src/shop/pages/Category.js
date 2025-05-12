@@ -31,7 +31,7 @@ function Category() {
 
   return (
     <div className="px-4 md:px-8">
-      <main className="max-w-screen-xl mx-auto space-y-4 mt-8 pb-10">
+      <main className="max-w-screen-xl mx-auto space-y-4 mt-12 pb-6">
         <div>
           <h2 className="text-xl font-bold">
             Category{categoryOrd}{' '}
