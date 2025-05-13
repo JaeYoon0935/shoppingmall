@@ -117,7 +117,7 @@ function Checkout() {
                     <img
                       src={
                         product.imagePath
-                          ? `http://localhost:8080${product.imagePath}`
+                          ? `${window.ENV.API_IMAGE_URL}${product.imagePath}`
                           : "/default-image.png"
                       }
                       alt={product.name}

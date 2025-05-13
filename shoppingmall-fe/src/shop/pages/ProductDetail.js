@@ -88,7 +88,7 @@ function ProductDetail() {
         {/* 왼쪽 - 이미지 */}
         <div className="w-full lg:w-[55%]">
           <img
-            src={product.imagePath ? `http://localhost:8080${product.imagePath}` : "/default-image.png"}
+            src={product.imagePath ? `${window.ENV.API_IMAGE_URL}${product.imagePath}` : "/default-image.png"}
             alt={product.name}
             className="w-full h-auto object-cover border rounded"
           />

@@ -95,7 +95,7 @@ function OrderManagement() {
                         <img
                           src={
                             item.imagePath
-                              ? `http://localhost:8080${item.imagePath}`
+                              ? `${window.ENV.API_IMAGE_URL}${item.imagePath}`
                               : "/default-image.png"
                           }
                           alt={item.productName}

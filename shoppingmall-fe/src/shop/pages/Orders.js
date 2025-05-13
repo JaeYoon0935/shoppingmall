@@ -92,7 +92,7 @@ function Orders() {
                           <div className="w-16 h-16 flex-shrink-0">
                             <Link to={`/product-detail/${item.productId}`}>
                               <img
-                                src={item.imagePath ? `http://localhost:8080${item.imagePath}` : "/default-image.png"}
+                                src={item.imagePath ? `${window.ENV.API_IMAGE_URL}${item.imagePath}` : "/default-image.png"}
                                 alt={item.productName}
                                 className="w-full h-full object-cover border rounded"
                               />

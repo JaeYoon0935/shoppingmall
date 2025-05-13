@@ -71,6 +71,15 @@ function ProductRegistration() {
     if (type === "file") {
       const file = files?.[0];
       if (file) {
+        const allowedExtensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp'];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+
+        if (!allowedExtensions.includes(fileExtension)) {
+          alert("이미지 파일만 업로드 가능합니다. (png, jpg, jpeg, gif, bmp, webp)");
+          e.target.value = ""; // 파일 초기화
+          return;
+        }
+
         setProduct(prev => ({
           ...prev,
           [name]: file,

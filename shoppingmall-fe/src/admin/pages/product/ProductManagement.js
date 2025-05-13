@@ -67,7 +67,7 @@ function ProductManagement() {
                       className="flex items-center gap-3"
                     >
                       <img
-                        src={product.imagePath ? `http://localhost:8080${product.imagePath}` : "/default-image.png"}
+                        src={product.imagePath ? `${window.ENV.API_IMAGE_URL}${product.imagePath}` : "/default-image.png"}
                         alt={product.name}
                         className="w-16 h-16 object-cover rounded border"
                       />

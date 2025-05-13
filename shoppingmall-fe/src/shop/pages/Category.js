@@ -52,7 +52,7 @@ function Category() {
             >
               <div className="w-full flex-1 flex justify-center items-center">
                 <img
-                  src={product.imagePath ? `http://localhost:8080${product.imagePath}` : '/default-image.png'}
+                  src={product.imagePath ? `${window.ENV.API_IMAGE_URL}${product.imagePath}` : '/default-image.png'}
                   alt={`Product ${product.id}`}
                   className="max-h-40 object-contain"
                 />

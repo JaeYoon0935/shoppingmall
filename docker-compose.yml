@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./shoppingmall-fe
+    container_name: shoppingmall-fe-container
+    ports:
+      - "3130:80"
+    depends_on:
+      - backend
+    networks:
+      - shoppingmall-net
+
+  backend:
+    build:
+      context: ./shoppingmall-be/
+      dockerfile: Dockerfile
+    container_name: shoppingmall-be-container
+    ports:
+      - "8280:8280"
+    depends_on:
+      - db
+    networks:
+      - shoppingmall-net
+
+  db:
+    image: mysql:8
+    container_name: shoppingmall-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: shoppingmall
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - shoppingmall-net
+
+volumes:
+  mysql-data:
+
+networks:
+  shoppingmall-net:
+    driver: bridge

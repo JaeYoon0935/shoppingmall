@@ -84,6 +84,15 @@ function ProductEdit() {
     if (type === "file") {
       const file = files?.[0];
       if (file) {
+        const allowedExtensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp'];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+
+        if (!allowedExtensions.includes(fileExtension)) {
+          alert("이미지 파일만 업로드 가능합니다. (png, jpg, jpeg, gif, bmp, webp)");
+          e.target.value = ""; // 파일 초기화
+          return;
+        }
+
         setProduct(prev => ({
           ...prev,
           [name]: file,
@@ -190,7 +199,7 @@ function ProductEdit() {
                   <div className="mb-4">
                     <div className="flex items-center space-x-2">
                       <img
-                        src={ previewImage ? previewImage : `http://localhost:8080${product.imagePath}`}
+                        src={ previewImage ? previewImage : `${(window.ENV.API_IMAGE_URL || '').replace(/\/+$/, '')}${product.imagePath}`}
                         alt={product.name}
                         className="w-16 h-16 object-cover rounded"
                       />
