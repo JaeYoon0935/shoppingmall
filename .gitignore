@@ -13,4 +13,6 @@ out/
 # VSCode
 .vscode/
 
+node_modules/
+
 shoppingmall-be/uploads/
