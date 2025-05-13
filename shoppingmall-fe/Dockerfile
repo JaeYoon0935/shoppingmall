@@ -6,6 +6,8 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+RUN chmod +x node_modules/.bin/react-scripts
 RUN npm run build
 
 # 2단계: 실행용 (Nginx)
