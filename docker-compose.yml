@@ -4,9 +4,14 @@ services:
   frontend:
     build:
       context: ./shoppingmall-fe
+      dockerfile: Dockerfile
     container_name: shoppingmall-fe-container
-    expose:
-      - "80"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/certbot/www:/var/www/certbot
+      - ./nginx/certbot/conf:/etc/letsencrypt
     depends_on:
       - backend
     networks:
@@ -14,7 +19,7 @@ services:
 
   backend:
     build:
-      context: ./shoppingmall-be/
+      context: ./shoppingmall-be
       dockerfile: Dockerfile
     container_name: shoppingmall-be-container
     ports:
@@ -34,22 +39,6 @@ services:
       - "3308:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-    networks:
-      - shoppingmall-net
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx-proxy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/certbot/www:/var/www/certbot
-      - ./nginx/certbot/conf:/etc/letsencrypt
-      - ./shoppingmall-fe/build:/usr/share/nginx/html
-    depends_on:
-      - frontend
     networks:
       - shoppingmall-net
 
