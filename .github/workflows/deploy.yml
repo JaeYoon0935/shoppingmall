@@ -2,7 +2,7 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [ main ]  # main 브랜치에 push 시 실행
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -12,14 +12,28 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v3
 
-    - name: SSH and deploy
+    - name: SSH and deploy to EC2
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
+        timeout: 600
         script: |
+          set -e
+          echo "Connected to EC2"
+
           cd /home/ubuntu/shoppingmall
-          git pull origin main
-          docker-compose pull
-          docker-compose up -d --build
+          echo "Starting git pull"
+          git pull origin main || { echo 'git pull failed'; exit 1; }
+
+          echo "Starting docker compose pull"
+          docker compose pull || { echo 'docker compose pull failed'; exit 1; }
+
+          echo "Starting docker compose build"
+          docker compose build || { echo 'docker compose build failed'; exit 1; }
+
+          echo "Starting docker compose up"
+          docker compose up -d || { echo 'docker compose up failed'; exit 1; }
+
+          echo "Deployment completed"
