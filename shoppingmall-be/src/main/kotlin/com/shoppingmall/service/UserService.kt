@@ -81,7 +81,7 @@ class UserService (
     }
 
     fun getUserList(pageable: Pageable): Page<UserDto> {
-        return userRepository.findByDelYn("N", pageable).map{it.toDto()}
+        return userRepository.findUsersByDelYnAndRoleIsUser("N", pageable).map{it.toDto()}
     }
 
     fun getUser(id: Long): UserDto{
