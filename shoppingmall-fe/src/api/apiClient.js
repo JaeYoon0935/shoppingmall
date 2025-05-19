@@ -31,7 +31,6 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       console.log('인증 실패');
       localStorage.removeItem('token');
-      //window.location.href = '/login';
     }
     return Promise.reject(error);
   }

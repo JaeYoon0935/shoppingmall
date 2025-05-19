@@ -22,7 +22,7 @@ class AdminUserController (
     @GetMapping
     fun getUserList(@RequestParam(defaultValue = "0") page: Int,
                           @RequestParam(defaultValue = "10") size: Int ): ResponseEntity<Page<UserDto>>{
-        val pageable = PageRequest.of(page, size, Sort.by("id").ascending())
+        val pageable = PageRequest.of(page, size, Sort.by("id").descending())
         val userList = userService.getUserList(pageable)
         return ResponseEntity.ok(userList)
     }

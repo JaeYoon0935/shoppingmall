@@ -6,3 +6,10 @@ docker-compose.yml
 *.log
 .env
 .vscode
+
+build
+.gradle
+.idea
+*.iml
+.DS_Store
+*.class

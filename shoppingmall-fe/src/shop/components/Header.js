@@ -47,7 +47,7 @@ function Header({ categories }) {
         <div className="flex items-center justify-between">
           {/* 로고 */}
           <h1 className="text-2xl font-bold text-gray-800">
-            <Link to="/">ShoppingMall</Link>
+            <Link to="/">LinkPlusMall</Link>
           </h1>
 
           {/* 검색창 */}

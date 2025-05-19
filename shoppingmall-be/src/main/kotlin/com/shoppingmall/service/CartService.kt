@@ -49,14 +49,11 @@ class CartService(
             if( cartItem != null) {
                 cartItem.quantity += item.quantity
             } else {
-                val product = productRepository.findById(item.productId).orElseThrow { RuntimeException("상품이 존재하지 않습니다.") }
-
                 cart.cartItems.add(
                     CartItem(cart = cart, product = product, quantity = item.quantity)
                 )
             }
         }
-        cartRepository.save(cart)
     }
 
     @Transactional

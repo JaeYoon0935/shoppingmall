@@ -85,7 +85,7 @@ function SignUp() {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
             <Link to="/" className="mb-8 text-2xl font-extrabold text-gray-800">
-                ShoppingMall
+                LinkPlusMall
             </Link>
 
             <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
