@@ -16,3 +16,5 @@ out/
 node_modules/
 
 shoppingmall-be/uploads/
+
+nginx/certbot/conf/accounts/
