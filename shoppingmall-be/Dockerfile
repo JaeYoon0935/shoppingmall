@@ -17,9 +17,6 @@ RUN chmod +x gradlew && dos2unix gradlew
 # 나머지 파일 복사
 COPY . .
 
-# 의존성 다운로드만 먼저 수행
-RUN ./gradlew dependencies --no-daemon
-
 # 빌드
 RUN ./gradlew build -x test --no-daemon
 
