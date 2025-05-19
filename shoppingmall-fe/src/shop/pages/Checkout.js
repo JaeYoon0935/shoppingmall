@@ -2,6 +2,7 @@ import api from "../../api/apiClient";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getDeliveryDate } from "../../utils/commUtils";
+import { formatPhoneNumber } from "../../utils/commUtils";
 import { AuthContext } from "../../context/AuthContext";
 import { CheckoutContext } from "../../context/CheckoutContext";
 import { CartContext } from "../../context/CartContext";
@@ -104,7 +105,7 @@ function Checkout() {
             <h2 className="font-semibold mb-2">배송지 정보</h2>
             <p className="mb-1">수령인: {shippingInfo.name}</p>
             <p className="mb-1">주소: {shippingInfo.address}</p>
-            <p className="mb-1">연락처: {shippingInfo.phone}</p>
+            <p className="mb-1">연락처: {formatPhoneNumber(shippingInfo.phone)}</p>
           </div>
 
           {/* 상품 정보 */}
@@ -117,7 +118,7 @@ function Checkout() {
                     <img
                       src={
                         product.imagePath
-                          ? `${window.ENV.API_IMAGE_URL}${product.imagePath}`
+                          ? `${(window.ENV.API_IMAGE_URL || '').replace(/\/+$/, '')}${product.imagePath}`
                           : "/default-image.png"
                       }
                       alt={product.name}

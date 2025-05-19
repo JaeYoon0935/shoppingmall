@@ -99,8 +99,11 @@ function UserEdit() {
                 <input
                   name="birth"
                   value={userData.birth}
-                  onChange={handleChange}
                   className="border w-full px-2 py-1"
+                  onChange={(e) => {
+                            const onlyNums = e.target.value.replace(/[^0-9]/g, "");
+                            handleChange(prev => ({ ...prev, birth: onlyNums }));
+                        }}
                   required
                 />
               </td>
@@ -111,8 +114,11 @@ function UserEdit() {
                 <input
                   name="phone"
                   value={userData.phone}
-                  onChange={handleChange}
                   className="border w-full px-2 py-1"
+                  onChange={(e) => {
+                            const onlyNums = e.target.value.replace(/[^0-9]/g, "");
+                            handleChange(prev => ({ ...prev, phone: onlyNums }));
+                        }}
                   required
                 />
               </td>

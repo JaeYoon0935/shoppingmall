@@ -1,6 +1,7 @@
 import api from "../../../api/apiClient";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { formatPhoneNumber } from "../../../utils/commUtils";
 
 function UserInfo() {
   const [users, setUsers] = useState([]);
@@ -63,7 +64,7 @@ function UserInfo() {
                   <td className="px-4 py-2 border">{user.name}</td>
                   <td className="px-4 py-2 border">{user.address}</td>
                   <td className="px-4 py-2 border">{user.birth}</td>
-                  <td className="px-4 py-2 border">{user.phone}</td>
+                  <td className="px-4 py-2 border">{formatPhoneNumber(user.phone)}</td>
                   <td className="px-4 py-2 border text-center">
                     <Link to={`/admin/user-edit/${user.id}`} className="inline-flex items-center justify-center bg-blue-500 text-white mr-2 px-4 py-2 rounded no-underline">수정</Link>
                     <button onClick={() => delUser(user.id)} className="inline-flex items-center justify-center bg-blue-500 text-white px-4 py-2 rounded">삭제</button>
