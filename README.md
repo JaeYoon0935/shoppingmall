@@ -1,8 +1,16 @@
 # linkplusmall
 
-이커머스 쇼핑몰 및 관리자 페이지(Back Office)를 개발한 사이드 프로젝트입니다.  
-프론트엔드와 백엔드를 분리하여 구성했으며, 백엔드는 API 서버로 동작합니다.  
-Docker 기반으로 배포 환경을 구성하였고, AWS EC2에서 서비스되고 있습니다.
+이커머스 쇼핑몰 및 관리자 페이지(Back Office)를 개발한 사이드 프로젝트입니다.
+프론트엔드와 백엔드를 분리하여 구성했으며, 백엔드는 API 서버로 동작합니다.
+Docker 기반으로 배포 환경을 구성하고, AWS EC2에 배포하였습니다.
+
+---
+
+# 개발 목적
+
+기존 실무 경험(Spring Boot, JSP, MyBatis)을 바탕으로,  
+React, Kotlin, JPA, Docker 등 추가 기술 스택을 학습하고 적용하여  
+실무에 바로 투입 가능한 풀스택 역량을 확장하는 것을 목표로 개발한 프로젝트입니다.
 
 ---
 
@@ -17,8 +25,8 @@ Docker 기반으로 배포 환경을 구성하였고, AWS EC2에서 서비스되
 - Frontend: React, Tailwind CSS
 - Backend: Kotlin, Spring Boot (Spring Data JPA, Spring Security - JWT)
 - Database: MySQL
-- Version Control: GitHub (Git CLI)
 - Deployment: Docker, AWS EC2 (Ubuntu, t3.small)
+- Version Control: GitHub (Git CLI)
 
 ---
 
@@ -34,24 +42,15 @@ Docker 기반으로 배포 환경을 구성하였고, AWS EC2에서 서비스되
 
 # 주요 기능
 
-사용자 기능 (회원/비회원)
-- 회원가입 및 로그인 (JWT 인증)
-- 상품 목록 및 상세 조회
-- 장바구니 담기 및 조회
-- 주문 및 결제
-- 주문 내역 조회
-- 비회원은 로그인 후 구매 가능
-
-관리자 기능 (Back Office)
-- 회원 정보 조회 및 수정
-- 상품 등록, 수정 및 조회
-- 주문 내역 조회
-- 반영 내역 확인
-
+- 회원가입, 로그인 및 인증 (JWT)
+- 상품 조회 및 장바구니 기능
+- 주문/결제 및 주문 내역 확인 (회원 전용)
+- 관리자 페이지를 통한 회원 및 주문 내역 관리
+- 상품 등록, 수정 및 조회 (관리자)
+  
 ---
 
 # 배포
 
 - Docker Compose로 프론트엔드, 백엔드, DB(MySQL) 분리 구성
-- AWS EC2 인스턴스(Ubuntu)에서 운영 중
-
+- AWS EC2 인스턴스(Ubuntu)에 배포
