@@ -1,22 +1,15 @@
 # linkplusmall
 
-이커머스 쇼핑몰 및 관리자 페이지(Back Office)를 개발한 사이드 프로젝트입니다.
-프론트엔드와 백엔드를 분리하여 구성했으며, 백엔드는 API 서버로 동작합니다.
-Docker 기반으로 배포 환경을 구성하고, AWS EC2에 배포하였습니다.
-
+이커머스 쇼핑몰 및 관리자 페이지(Back Office)를 개발한 사이드 프로젝트입니다.<br/>
+프론트엔드와 백엔드를 분리하여 개발하였으며, 백엔드는 API 전용 서버로 구성했습니다.<br/>
+Docker 기반으로 배포 환경을 구성하고 AWS EC2에 배포하였습니다.<br/>
+- URL: [https://linkplusmall.com](https://linkplusmall.com)
 ---
 
 # 개발 목적
 
-기존 실무 경험(Spring Boot, JSP, MyBatis)을 바탕으로,  
-React, Kotlin, JPA, Docker 등 추가 기술 스택을 학습하고 적용하여  
+기존 실무 경험(Spring Boot, JSP, MyBatis)을 바탕으로 React, Kotlin, JPA, Docker 등 추가 기술을 학습하고 적용하여,<br/>
 실무에 바로 투입 가능한 풀스택 역량을 확장하는 것을 목표로 개발한 프로젝트입니다.
-
----
-
-# 서비스 주소
-
-- URL: [https://linkplusmall.com](https://linkplusmall.com)
 
 ---
 
