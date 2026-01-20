@@ -22,10 +22,13 @@ services:
       context: ./shoppingmall-be
       dockerfile: Dockerfile
     container_name: shoppingmall-be-container
+    environment:
+      JAVA_OPTS: -Xms256m -Xmx512m
     ports:
-      - "8280:8280"
+      - "8080:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     networks:
       - shoppingmall-net
 
@@ -36,7 +39,11 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: shoppingmall
     ports:
-      - "3308:3306"
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping"]
+      interval: 5s
+      retries: 10
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
